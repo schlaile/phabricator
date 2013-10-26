@@ -2555,7 +2555,7 @@ msgstr "Autoren"
 #: applications/maniphest/query/ManiphestTaskSearchEngine.php:310
 #: applications/maniphest/controller/ManiphestTaskDetailController.php:530
 msgid "Subscribers"
-msgstr "passive Teilnehmer"
+msgstr "Mitleser"
 
 #: applications/differential/query/DifferentialRevisionSearchEngine.php:158
 #: applications/repository/PhabricatorRepositoryConfigOptions.php:10
@@ -2745,83 +2745,86 @@ msgstr "Inhalte verändert"
 
 #: applications/differential/conduit/ConduitAPI_differential_querydiffs_Method.php:10
 msgid "Query differential diffs which match certain criteria."
-msgstr ""
+msgstr "Differential Diffs nach bestimmten Kriterien durchsuchen"
 
 #: applications/differential/conduit/ConduitAPI_differential_getrawdiff_Method.php:7
 msgid "Retrieve a raw diff"
-msgstr ""
+msgstr "Einen Raw Diff ziehen"
 
 #: applications/differential/conduit/ConduitAPI_differential_getrawdiff_Method.php:22
 msgid "Diff not found."
-msgstr ""
+msgstr "Diff nicht gefunden."
 
 #: applications/differential/conduit/ConduitAPI_differential_getalldiffs_Method.php:15
 #: applications/differential/conduit/ConduitAPI_differential_getdiff_Method.php:15
 msgid "This method has been deprecated in favor of differential.querydiffs."
-msgstr ""
+msgstr "Diese Methode ist veraltet und wird ersetzt durch 'differential.querydiffs'."
 
 #: applications/differential/conduit/ConduitAPI_differential_getdiff_Method.php:20
 msgid "Load the content of a diff from Differential by revision id or diff id."
-msgstr ""
+msgstr "Ziehe den Inhalt eines Diffs aus Differential mittels Versions-ID oder Diff ID."
 
 #: applications/differential/controller/DifferentialRevisionEditController.php:122
 #: applications/maniphest/controller/ManiphestTaskDetailController.php:289
 #: applications/diffusion/controller/DiffusionCommitController.php:701
 msgid "Comments"
-msgstr ""
+msgstr "Kommentare"
 
 #: applications/differential/controller/DifferentialRevisionEditController.php:124
 msgid "Explain what's new in this diff."
-msgstr ""
+msgstr "Zeige, was neu ist in diesem Diff."
 
 #: applications/differential/controller/DifferentialRevisionEditController.php:155
 msgid "Update Differential Revision"
-msgstr ""
+msgstr "Differential Version aktualisieren"
 
 #: applications/differential/controller/DifferentialRevisionEditController.php:161
 msgid "Edit Differential Revision"
-msgstr ""
+msgstr "Differential Version ändern"
 
 #: applications/differential/controller/DifferentialRevisionEditController.php:168
 msgid "Create New Differential Revision"
-msgstr ""
+msgstr "Neue Differential Version"
 
 #: applications/differential/controller/DifferentialRevisionViewController.php:154
 msgid "No Active Reviewers"
-msgstr ""
+msgstr "Keine aktiven Reviewer"
 
 #: applications/differential/controller/DifferentialRevisionViewController.php:160
 msgid ""
 "All specified reviewers are disabled and this revision needs review. You may "
 "want to add some new reviewers."
 msgstr ""
+"Da alle angegebenen Reviewer deaktiviert sind und diese Version einen Reviewer braucht, möchtest Du möglicherweise welche hinzufügen."
 
 #: applications/differential/controller/DifferentialRevisionViewController.php:167
 msgid ""
 "This revision has no specified reviewers and needs review. You may want to "
 "add some reviewers."
 msgstr ""
+"Diese Version hat keinen Reviewer zugewiesen, benötigt aber einen. Du möchtest vermutlich welche hinzufügen."
 
 #: applications/differential/controller/DifferentialRevisionViewController.php:185
 #, php-format
 msgid ""
 "This diff is very large and affects %s files. Load each file individually."
 msgstr ""
+"Dieses Diff ist sehr groß und betrifft %s Dateien. Lade bitte jede Datei einzeln."
 
 #: applications/differential/controller/DifferentialRevisionViewController.php:195
 msgid "Show All Files Inline"
-msgstr ""
+msgstr "Alle Dateien Inline zeigen"
 
 #: applications/differential/controller/DifferentialRevisionViewController.php:486
 msgid "Edit Revision"
-msgstr ""
+msgstr "Version editieren"
 
 #: applications/differential/controller/DifferentialRevisionViewController.php:496
 #: applications/differential/controller/DifferentialSubscribeController.php:38
 #: applications/subscriptions/events/PhabricatorSubscriptionsUIEventListener.php:64
 #: applications/maniphest/controller/ManiphestTaskDetailController.php:467
 msgid "Unsubscribe"
-msgstr ""
+msgstr "Nicht mehr mitlesen"
 
 #: applications/differential/controller/DifferentialRevisionViewController.php:496
 #: applications/differential/controller/DifferentialSubscribeController.php:33
@@ -2830,39 +2833,40 @@ msgstr ""
 #: applications/subscriptions/events/PhabricatorSubscriptionsUIEventListener.php:71
 #: applications/maniphest/controller/ManiphestTaskDetailController.php:467
 msgid "Subscribe"
-msgstr ""
+msgstr "Mitleser werden"
 
 #: applications/differential/controller/DifferentialRevisionViewController.php:504
 #: applications/subscriptions/events/PhabricatorSubscriptionsUIEventListener.php:42
 #: applications/subscriptions/controller/PhabricatorSubscriptionsEditController.php:54
 #: applications/maniphest/controller/ManiphestTaskDetailController.php:462
 msgid "Automatically Subscribed"
-msgstr ""
+msgstr "Als Mitleser automatisch hinzugefügt"
 
 #: applications/differential/controller/DifferentialRevisionViewController.php:514
 #: applications/maniphest/controller/ManiphestTaskDetailController.php:496
 msgid "Edit Dependencies"
-msgstr ""
+msgstr "Abhängigkeiten ändern"
 
 #: applications/differential/controller/DifferentialRevisionViewController.php:524
 #: applications/pholio/controller/PholioMockViewController.php:189
 #: applications/diffusion/controller/DiffusionCommitController.php:946
 msgid "Edit Maniphest Tasks"
-msgstr ""
+msgstr "Maniphest Aufgaben ändern"
 
 #: applications/differential/controller/DifferentialRevisionViewController.php:534
 #: applications/diffusion/controller/DiffusionCommitController.php:955
 msgid "Download Raw Diff"
-msgstr ""
+msgstr "Raw Diff herunterladen"
 
 #: applications/differential/controller/DifferentialRevisionViewController.php:851
 msgid "Open Revisions Affecting These Files"
-msgstr ""
+msgstr "Versionen öffnen, die diese Dateien betreffen"
 
 #: applications/differential/controller/DifferentialDiffCreateController.php:23
 msgid ""
 "You can not create an empty diff. Copy/paste a diff, or upload a diff file."
 msgstr ""
+"Du kannst kein leeres Diff erzeugen. Ein Diff per Kopieren und Einfügen erzeugen oder alternativ als Datei hochladen."
 
 #: applications/differential/controller/DifferentialDiffCreateController.php:62
 #, php-format
@@ -2871,101 +2875,106 @@ msgid ""
 "just paste a diff (for example, from %s, %s or %s) into this box, or upload "
 "a diff file."
 msgstr ""
+"Die beste Art, ein Differential Diff zu erzeugen, geht mittels %s, aber Du "
+"kannst auch einfach ein Diff als Text in diese Box reinkopieren (beispielsweise, aus %s, %s oder %s) "
+"oder eine Diff-Datei hochladen"
 
 #: applications/differential/controller/DifferentialDiffCreateController.php:71
 msgid "Raw Diff"
-msgstr ""
+msgstr "Raw Diff"
 
 #: applications/differential/controller/DifferentialDiffCreateController.php:77
 msgid "Raw Diff From File"
-msgstr ""
+msgstr "Raw Diff aus Datei"
 
 #: applications/differential/controller/DifferentialDiffCreateController.php:83
 #: applications/differential/controller/DifferentialDiffCreateController.php:93
 #: applications/differential/controller/DifferentialDiffCreateController.php:106
 #: applications/differential/controller/DifferentialController.php:15
 msgid "Create Diff"
-msgstr ""
+msgstr "Neues Diff"
 
 #: applications/differential/controller/DifferentialDiffCreateController.php:86
 msgid "Create New Diff"
-msgstr ""
+msgstr "Neues Diff erzeugen"
 
 #: applications/differential/controller/DifferentialRevisionListController.php:51
 msgid "Blocking Others"
-msgstr ""
+msgstr "Andere Versionen blockieren"
 
 #: applications/differential/controller/DifferentialRevisionListController.php:53
 msgid "No revisions are blocked on your action."
-msgstr ""
+msgstr "Durch Deine Aktion werden keine Versionen blockiert."
 
 #: applications/differential/controller/DifferentialRevisionListController.php:60
 msgid "Action Required"
-msgstr ""
+msgstr "Eingriff notwendig"
 
 #: applications/differential/controller/DifferentialRevisionListController.php:62
 msgid "No revisions require your action."
-msgstr ""
+msgstr "Keine Versionen benötigen Deinen Eingriff"
 
 #: applications/differential/controller/DifferentialRevisionListController.php:69
 msgid "Waiting on Others"
-msgstr ""
+msgstr "Warte auf andere Benutzer"
 
 #: applications/differential/controller/DifferentialRevisionListController.php:71
 msgid "You have no revisions waiting on others."
-msgstr ""
+msgstr "Du hast keine Versionen, die auf andere Benutzer warten."
 
 #: applications/differential/controller/DifferentialCommentSaveController.php:61
 msgid "Action Has No Effect"
-msgstr ""
+msgstr "Handlung hat keine Wirkung."
 
 #: applications/differential/controller/DifferentialCommentSaveController.php:66
 #: applications/transactions/response/PhabricatorApplicationTransactionNoEffectResponse.php:40
 msgid "Post as Comment"
-msgstr ""
+msgstr "Als Kommentar posten"
 
 #: applications/differential/controller/DifferentialCommentSaveController.php:69
 msgid "Do you want to post your feedback anyway, as a normal comment?"
-msgstr ""
+msgstr "Möchtest Du Dein Feedback abschicken - als normalen Kommentar?"
 
 #: applications/differential/controller/DifferentialSubscribeController.php:34
 msgid "Subscribe to Revision"
-msgstr ""
+msgstr "Bei dieser Version mitlesen"
 
 #: applications/differential/controller/DifferentialSubscribeController.php:35
 msgid "Really subscribe to this revision?"
-msgstr ""
+msgstr "Möchtest Du wirklich ein Mitleser bei dieser Version werden?"
 
 #: applications/differential/controller/DifferentialSubscribeController.php:39
 msgid "Unsubscribe from Revision"
-msgstr ""
+msgstr "Mitleserschaft bei dieser Version kündigen"
 
 #: applications/differential/controller/DifferentialSubscribeController.php:40
 msgid ""
 "Really unsubscribe from this revision? Herald will not resubscribe you to a "
 "revision you unsubscribe from."
 msgstr ""
+"Wirklich nicht mehr bei dieser Version mitlesen? Herald wird Dich nicht mehr "
+"als Mitleser eintragen, wenn Du Dich von der Version getrennt hast."
 
 #: applications/differential/controller/DifferentialChangesetViewController.php:280
 msgid "Changeset View"
-msgstr ""
+msgstr "Changeset Ansicht"
 
 #: applications/differential/controller/DifferentialDiffViewController.php:28
 #, php-format
 msgid "This diff belongs to revision %s."
-msgstr ""
+msgstr "Dieses Diff gehört zu Version %s."
 
 #: applications/differential/controller/DifferentialDiffViewController.php:38
 msgid "Create New Revision"
-msgstr ""
+msgstr "Neue Version"
 
 #: applications/differential/controller/DifferentialDiffViewController.php:41
 msgid "Create a new Revision..."
-msgstr ""
+msgstr "Neue Version erzeugen..."
 
 #: applications/differential/controller/DifferentialDiffViewController.php:53
 msgid "Update Existing Revision"
-msgstr ""
+msgstr "Bestehende Version ändern"
 
 #: applications/differential/controller/DifferentialDiffViewController.php:77
 msgid ""
