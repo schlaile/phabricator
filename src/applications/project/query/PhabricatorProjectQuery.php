@@ -7,6 +7,7 @@ final class PhabricatorProjectQuery
   private $phids;
   private $memberPHIDs;
   private $slugs;
+  private $names;
 
   private $status       = 'status-any';
   const STATUS_ANY      = 'status-any';
@@ -40,6 +41,11 @@ final class PhabricatorProjectQuery
 
   public function withPhrictionSlugs(array $slugs) {
     $this->slugs = $slugs;
+    return $this;
+  }
+
+  public function withNames(array $names) {
+    $this->names = $names;
     return $this;
   }
 
@@ -224,6 +230,13 @@ final class PhabricatorProjectQuery
         $this->slugs);
     }
 
+    if ($this->names) {
+      $where[] = qsprintf(
+        $conn_r,
+        'name IN (%Ls)',
+        $this->names);
+    }
+
     $where[] = $this->buildPagingClause($conn_r);
 
     return $this->formatWhereClause($where);
@@ -258,6 +271,11 @@ final class PhabricatorProjectQuery
     }
 
     return implode(' ', $joins);
+  }
+
+
+  public function getQueryApplicationClass() {
+    return 'PhabricatorApplicationProject';
   }
 
 }
