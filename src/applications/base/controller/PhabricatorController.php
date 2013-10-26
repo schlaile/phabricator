@@ -61,7 +61,8 @@ abstract class PhabricatorController extends AphrontController {
       $translation = newv($translation, array());
       PhutilTranslator::getInstance()
         ->setLanguage($translation->getLanguage())
-        ->addTranslations($translation->getTranslations());
+        ->addTranslations($translation->getTranslations())
+        ->setCustomTranslator($translation->getTranslator());
     }
 
     $preferences = $user->loadPreferences();

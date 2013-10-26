@@ -200,7 +200,9 @@ abstract class DifferentialMail extends PhabricatorMail {
         'translation.provider');
       $translator = id(new PhutilTranslator())
         ->setLanguage($translation->getLanguage())
-        ->addTranslations($translation->getTranslations());
+        ->addTranslations($translation->getTranslations())
+        ->setCustomTranslator($translation->getTranslator());
+
     }
 
     try {
@@ -209,7 +211,8 @@ abstract class DifferentialMail extends PhabricatorMail {
           $translation = newv($mail->getTranslation($objects), array());
           $translator = id(new PhutilTranslator())
             ->setLanguage($translation->getLanguage())
-            ->addTranslations($translation->getTranslations());
+            ->addTranslations($translation->getTranslations())
+            ->setCustomTranslator($translation->getTranslator());
           PhutilTranslator::setInstance($translator);
         }
 
