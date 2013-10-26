@@ -326,7 +326,7 @@ msgstr "Editierbar von"
 #: view/form/control/AphrontFormPolicyControl.php:26
 #: applications/phame/controller/blog/PhameBlogViewController.php:128
 msgid "Joinable By"
-msgstr "Kann mitgelesen werden von"
+msgstr "Teilnehmer dürfen sein"
 
 #: view/form/control/AphrontFormPolicyControl.php:29
 #: applications/policy/query/PhabricatorPolicyQuery.php:168
