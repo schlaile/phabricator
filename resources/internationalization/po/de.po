@@ -702,7 +702,7 @@ msgstr "Möp Möp"
 
 #: infrastructure/daemon/bot/handler/PhabricatorBotObjectNameHandler.php:71
 msgid "T1000: A mimetic poly-alloy assassin controlled by Skynet"
-msgstr ""  
+msgstr "T1000: ein formangepasster Killer aus Polymetalllegierung gesteuert von Skynet (Hasta La Vista Baby)"  
 
 #: infrastructure/customfield/field/PhabricatorCustomField.php:885
 #, php-format
@@ -2272,12 +2272,12 @@ msgstr "â² zeige 20 Zeilen"
 
 #: applications/differential/render/DifferentialChangesetTwoUpRenderer.php:112
 #, php-format
-msgid "Zeige alle %d Zeilen"
-msgstr ""
+msgid "Show All %d Lines"
+msgstr "Zeige alle %d Zeilen"
 
 #: applications/differential/render/DifferentialChangesetTwoUpRenderer.php:132
-msgid "Zeige die letzten 20 Zeilen"
-msgstr ""
+msgid "Show Last 20 Lines"
+msgstr "Zeige die letzten 20 Zeilen"
 
 msgid "â¼ Show 20 Lines"
 msgstr "â¼ Zeige 20 Zeilen"
@@ -2981,10 +2981,12 @@ msgid ""
 "Review the diff for correctness. When you are satisfied, either **create a "
 "new revision** or **update an existing revision**."
 msgstr ""
+"Das Diff in Bezug auf Korrektheit gegenlesen. Wenn Du glücklich bist, entweder **"
+"eine neue Version erzeugen** oder **eine bestehende Version ändern**."
 
 #: applications/differential/controller/DifferentialDiffViewController.php:81
 msgid "Attach To"
-msgstr ""
+msgstr "Anhängen"
 
 #: applications/differential/controller/DifferentialDiffViewController.php:85
 #: applications/phame/controller/blog/PhameBlogLiveController.php:47
@@ -2992,64 +2994,64 @@ msgstr ""
 #: applications/auth/controller/PhabricatorAuthLoginController.php:46
 #: applications/auth/controller/config/PhabricatorAuthNewController.php:82
 msgid "Continue"
-msgstr ""
+msgstr "Fortsetzen"
 
 #: applications/differential/controller/DifferentialDiffViewController.php:118
 msgid "Properties"
-msgstr ""
+msgstr "Eigenschaften"
 
 #: applications/differential/controller/DifferentialDiffViewController.php:144
 #: applications/differential/controller/DifferentialDiffViewController.php:150
 #, php-format
 msgid "Diff %d"
-msgstr ""
+msgstr "Diff %d"
 
 #: applications/differential/controller/DifferentialDiffViewController.php:162
 msgid "Diff View"
-msgstr ""
+msgstr "Diff Ansehen"
 
 #: applications/differential/mail/DifferentialReplyHandler.php:49
 msgid "Reply to comment"
-msgstr ""
+msgstr "Auf Kommentar antworten"
 
 #: applications/differential/mail/DifferentialNewDiffMail.php:8
 #: applications/releeph/field/specification/ReleephDiffSizeFieldSpecification.php:57
 #: applications/releeph/field/specification/ReleephDiffSizeFieldSpecification.php:77
 #, php-format
 msgid "%d line(s)"
-msgstr ""
+msgstr "%d zeile(n)"
 
 #: applications/differential/application/PhabricatorApplicationDifferential.php:10
 msgid "Review Code"
-msgstr ""
+msgstr "Code gegenlesen"
 
 #: applications/differential/application/PhabricatorApplicationDifferential.php:101
 #, php-format
 msgid "%d Review(s) Blocking Others"
-msgstr ""
+msgstr "%d Review(s), die andere blockieren"
 
 #: applications/differential/application/PhabricatorApplicationDifferential.php:108
 #, php-format
 msgid "%d Review(s) Need Attention"
-msgstr ""
+msgstr "%d Review(s) benötigen Eingriff"
 
 #: applications/differential/application/PhabricatorApplicationDifferential.php:115
 #, php-format
 msgid "%d Review(s) Waiting on Others"
-msgstr ""
+msgstr "%d Review(s) warten auf andere"
 
 #: applications/differential/application/PhabricatorApplicationDifferential.php:125
 msgid "Default view policy for newly created revisions."
-msgstr ""
+msgstr "Vorgabe Policy für die Sichtung von neu erzeugten Versionen."
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:7
 #: applications/settings/panel/PhabricatorSettingsPanelEmailPreferences.php:203
 msgid "Differential"
-msgstr ""
+msgstr "Differential"
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:11
 msgid "Configure Differential code review."
-msgstr ""
+msgstr "Differential Code Reviewer konfigurieren."
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:21
 msgid "Custom revision detail renderer."
@@ -3060,22 +3062,24 @@ msgid ""
 "List of file regexps where whitespace is meaningful and should not use "
 "'ignore-all' by default"
 msgstr ""
+"Liste aller Datei-Regexe, in denen Leerzeichen sinnhaft sind und die nicht "
+"'ignore-all' standardmäßig verwenden"
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:38
 msgid "Field selector class"
-msgstr ""
+msgstr "Feldselektorklasse"
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:42
 msgid "Show \"Host\" Fields"
-msgstr ""
+msgstr "Host-Felder anzeigen"
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:43
 msgid "Hide \"Host\" Fields"
-msgstr ""
+msgstr "Host-Felder verstecken"
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:45
 msgid "Show or hide the \"Host\" and \"Path\" fields."
-msgstr ""
+msgstr "Host und Path-Felder zeigen oder verstecken."
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:48
 msgid ""
@@ -3086,18 +3090,26 @@ msgid ""
 "environment with shared development machines. You can set this option to "
 "true to enable these fields."
 msgstr ""
+"Differential kann die Host und Path-Felder von Versionen mit Informationen "
+"über die Maschine und das Arbeitsverzeichnis anzeigen, von denen die Änderung "
+"ausging. Diese Felder sind standardmäßig deaktiviert, weil sie in seltenen "
+"Fällen sicherheitsrelevante Informationen enthalten. Sie können jedoch "
+"nützlich sein, wenn Du in einer Umgebung mit Rechnern arbeitest, die von "
+"mehreren Leuten genutzt werden. Durch Setzen der Option auf 'true', werden "
+"die Felder aktiviert."
+
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:58
 msgid "Show \"Test Plan\" Field"
-msgstr ""
+msgstr "Das \"Test Plan\" Feld zeigen"
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:59
 msgid "Hide \"Test Plan\" Field"
-msgstr ""
+msgstr "Das \"Test Plan\" Feld verstecken"
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:61
 msgid "Show or hide the \"Test Plan\" field."
-msgstr ""
+msgstr "Die Sichtbarkeit des \"Test Plan\"-Feldes ändern."
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:64
 msgid ""
@@ -3107,18 +3119,24 @@ msgid ""
 "this field, you can disable it here. You can also make it optional (instead "
 "of required) by setting {{differential.require-test-plan-field}}."
 msgstr ""
+"Differential hat standardmäßig ein Pflichtfeld namens \"Test Plan\", das "
+"Autoren mit der Beschreibung ausfüllen müssen, wie sie die Korrektheit ihrer "
+"Änderungen überprüft haben, wenn sie ihren Code zum Review einreichen. "
+"Wenn Du das Feld lieber nicht benutzen möchtest, kannst Du es hier deaktivieren."
+" Du kannst es auch zum freiwilligen Feld machen (anstelle eines Pflichtfeldes), "
+"in dem Du die Option {{differential.require-test-plan-field}} entsprechend setzt."
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:73
 msgid "Require 'Test Plan' field"
-msgstr ""
+msgstr "'Test Plan'-Feld zur Pflicht machen."
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:74
 msgid "Make 'Test Plan' field optional"
-msgstr ""
+msgstr "Das 'Test Plan' Feld optional machen."
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:76
 msgid "Require \"Test Plan\" field?"
-msgstr ""
+msgstr "Das \"Test Plan\"-Feld zum Pflichtfeld machen?"
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:79
 msgid ""
@@ -3126,18 +3144,21 @@ msgid ""
 "optional by setting this to false. You can also completely remove it above, "
 "if you prefer."
 msgstr ""
+"Differential hat standardmäßig ein Pflichtfeld namens 'Test Plan'. Du kannst es "
+"optional machen, in dem Du diesen Wert auf 'false' setzt. Du kannst es auch "
+"oben komplett entfernen, wenn Dir das besser gefällt."
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:85
 msgid "Enable Email \"!accept\" Action"
-msgstr ""
+msgstr "Die Email \"!accept\" Methode aktivieren"
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:86
 msgid "Disable Email \"!accept\" Action"
-msgstr ""
+msgstr "Die Email \"!accept\" Methode deaktivieren"
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:88
 msgid "Enable or disable \"!accept\" action via email."
-msgstr ""
+msgstr "\"!accept\" Methode per Email an- oder abschalten."
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:91
 msgid ""
@@ -3148,18 +3169,26 @@ msgid ""
 "kind of sketchy and implies the revision may not actually be receiving "
 "thorough review. You can enable \"!accept\" by setting this option to true."
 msgstr ""
+"Wenn eingehende Emails aktiviert sind, können Benutzer Versionen mittels "
+"\"!actions\" in Emailantworten manipulieren (z.B., \"!resign\" oder \"!rethink\"). "
+"Aber: standardmäßig dürfen Benutzer Versionen nicht per E-mail \"!accept\" "
+"gerade so durchwinken. Email Authentisierung kann auf ein sehr niedriges "
+"Sicherheitsniveau konfiguriert werden und Email \"!accept\" sind irgendwie "
+"etwas dürftig und implizieren, daß die Version möglicherweise nicht wirklich "
+"gegengelesen wurde. Du kannst \"!accept\" Emails aktivieren, in dem Du diese "
+"Option auf 'true' setzt."
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:102
 msgid "Allow guests to view revisions"
-msgstr ""
+msgstr "Gastbenutzern erlauben, Reviews anzuschauen"
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:103
 msgid "Require authentication to view revisions"
-msgstr ""
+msgstr "Reviews nur nach Authentisierung sichtbar machen"
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:105
 msgid "Anonymous access to Differential revisions."
-msgstr ""
+msgstr "Gastzugriff auf Differential Versionen zulassen."
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:108
 msgid ""
@@ -3167,28 +3196,35 @@ msgid ""
 "revisions. Anonymous users will have read-only access and won't be able to "
 "interact with the revisions."
 msgstr ""
+"Wenn Du diesen Wert auf 'true' setzt, müssen Benutzer nicht angemeldet sein, um "
+"Differential Versionen anschauen zu dürfen. Nicht angemeldete bzw. Gastbenutzer "
+"haben jedoch nur lesenden Zugriff und dürfen keinerlei Änderungen an der Version "
+"vornehmen."
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:112
 msgid "File regexps to treat as automatically generated."
-msgstr ""
+msgstr "Datei Regexe, die als automatisch generiert zu behandeln sind."
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:115
 msgid ""
 "List of file regexps that should be treated as if they are generated by an "
 "automatic process, and thus get hidden by default in differential."
 msgstr ""
+"Liste von Datei Regexen, die so behandelt werden sollen, als wären Sie "
+"automatisch generiert worden. Sie werden daher standardmäßig in Differential " 
+"nicht angezeigt."
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:122
 msgid "Allow self-accept"
-msgstr ""
+msgstr "Versionen selbst freischalten"
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:123
 msgid "Disallow self-accept"
-msgstr ""
+msgstr "Selbstfreischalten von Versionen verbieten"
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:125
 msgid "Allows users to accept their own revisions."
-msgstr ""
+msgstr "Den Benutzern erlauben, ihre eigenen Versionen freizuschalten"
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:128
 msgid ""
@@ -3197,18 +3233,23 @@ msgid ""
 "it proves useful if you are working alone on a project and want to make use "
 "of all of differential's features."
 msgstr ""
+"Wenn Du diesen Wert auf 'true' setzt, können Benutzer ihre eigenen Versionen "
+"freischalten. Diese Funktion ist standardmäßig abgeschaltet, weil es vermutlich "
+"nicht wirklich das ist, was Du willst. Es kann sich jedoch als nützlich erweisen, wenn Du "
+"alleine an einem Projekt arbeitest und alle Funktionen von Differential "
+"nutzen möchtest."
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:136
 msgid "Allow any user"
-msgstr ""
+msgstr "Alle Benutzer erlauben"
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:137
 msgid "Restrict to submitter"
-msgstr ""
+msgstr "Auf Submitter beschränken"
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:139
 msgid "Allows any user to close accepted revisions."
-msgstr ""
+msgstr "Erlaube allen Benutzern akzeptierte Versionen zu schließen."
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:142
 msgid ""
