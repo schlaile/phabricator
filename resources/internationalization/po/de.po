@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-10-26 13:48+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2013-10-26 23:55+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -3245,7 +3245,7 @@ msgstr "Alle Benutzer erlauben"
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:137
 msgid "Restrict to submitter"
-msgstr "Auf Submitter beschränken"
+msgstr "Auf Einreicher beschränken"
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:139
 msgid "Allows any user to close accepted revisions."
@@ -3259,18 +3259,24 @@ msgid ""
 "committer can benefit from turning this option to true. If false, only the "
 "submitter can close a revision."
 msgstr ""
+"Wenn Du diesen Wert auf 'true' setzt, kann jeder Benutzer eine Version\n"
+"abschließen, vorausgesetzt diese wurde akzeptiert. Das kann je nach\n"
+"Entwicklungsmodell durchaus nützlich sein. Z.B., pull requests im Stile\n"
+"von github, bei denen der Reviewer identisch mit der Person ist, die den\n"
+"Commit absetzt, werden durch diese Option erleichtert. Wenn die Option auf\n"
+"'false' gesetzt ist, kann nur der Submitter eine Version abschließen."
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:151
 msgid "Enable reopen"
-msgstr ""
+msgstr "Erneutes Öffnen aktivieren"
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:152
 msgid "Disable reopen"
-msgstr ""
+msgstr "Erneutes Öffnen deaktivieren"
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:154
 msgid "Allows any user to reopen a closed revision."
-msgstr ""
+msgstr "Jedem Benutzer erlauben, eine abgeschlossen Version wieder zu öffnen."
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:156
 msgid ""
@@ -3279,10 +3285,15 @@ msgid ""
 "a developer changes his or her mind after closing a revision.  If it is "
 "false, reopening is not allowed."
 msgstr ""
+"Wenn Du diese Option auf 'true' setzt, kann jeder Benutzer eine Version\n"
+"wieder öffnen, vorausgesetzt sie wurde abgeschlossen. Das kann sinnvoll sein,\n"
+"wenn eine Version versehentlich abgeschlossen wurde oder wenn ein Entwickler\n"
+"sich im Nachhinein noch einmal umentscheidet. Wenn die Option auf 'false'\n"
+"gesetzt ist, ist die Wiedereröffnung unmöglich."
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:164
 msgid "For how many business days should a revision be considered 'fresh'?"
-msgstr ""
+msgstr "Für wieviele Werktage sollte eine Version noch als 'frisch' angesehen werden?"
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:168
 msgid ""
@@ -3290,42 +3301,47 @@ msgid ""
 "Required and Revisions Waiting on You views. Only work days (not weekends "
 "and holidays) are included. Set to 0 to disable this feature."
 msgstr ""
+"Versionen neuer als die angebene Zahl von Werktagen sind in den Ansichten\n"
+"'Eingreifen erforderlich' und 'Versionen warten auf Dich' als 'frisch' markiert.\n"
+"Der Wert 0 deaktiviert diese Funktion."
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:174
 msgid "After this many days, a revision will be considered 'stale'."
-msgstr ""
+msgstr "Nach der angegebenen Anzahl Tagen, wird die Version als 'eingeschlafen' angesehen."
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:177
 msgid ""
 "Similar to `differential.days-fresh` but marks stale revisions. If the "
 "revision is even older than it is when marked as 'old'."
 msgstr ""
+"Ähnlich wie die Option 'differential.days-fresh', aber markiert eingeschlafene\n"
+"Versionen. Wenn eine Version noch älter ist, dann wird sie als 'alt' markiert."
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:184
 msgid "Inbound email domain for Differential replies."
-msgstr ""
+msgstr "Email Domain für eingehende Emails für Differential Antworten."
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:190
 msgid "Alternate reply handler class."
-msgstr ""
+msgstr "Alternative Email-Handler-Klasse."
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:195
 msgid "Subject prefix for Differential mail."
-msgstr ""
+msgstr "Prefix für den Betreff von Differntial Emails."
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:202
 #: applications/diffusion/config/PhabricatorDiffusionConfigOptions.php:41
 msgid "Attach Patches"
-msgstr ""
+msgstr "Patches anhängen"
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:203
 #: applications/diffusion/config/PhabricatorDiffusionConfigOptions.php:42
 msgid "Do Not Attach Patches"
-msgstr ""
+msgstr "Keine Patches anhängen."
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:205
 msgid "Attach patches to email, as text attachments."
-msgstr ""
+msgstr "Patch Email-Anhänge als Textanhänge codieren."
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:208
 msgid ""
@@ -3333,10 +3349,14 @@ msgid ""
 "mail (as text attachments). This will not work if you are using SendGrid as "
 "your mail adapter."
 msgstr ""
+"Wenn Du diesen Wert auf 'true' setzt, wird Phabricator an die Differential\n"
+"Emails die betreffenden Patches als Datei Anhängen (genau genommen als\n"
+"Text-Anhänge). Das wird allerdings nicht funktionieren, wenn Du SendGrid\n"
+"als Mail Adapter verwendest."
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:215
 msgid "Inline patches in email, as body text."
-msgstr ""
+msgstr "Patches an die Emails anfügen, allerdings direkt in die Email nicht als Anhang."
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:218
 msgid ""
@@ -3345,301 +3365,309 @@ msgid ""
 "value of 100 means 'inline patches if they are no longer than 100 lines'. By "
 "default, patches are not inlined."
 msgstr ""
+"Um Patches direkt in die Emails einzufügen, diesen Parameter auf eine positive\n"
+"ganze Zahl setzen. Patches werden direkt eingefügt, wenn sie maximal diese\n"
+"Anzahl Zeilen besitzen. Z.B. sagt ein Wert von 100 an: 'Patches bitte\n"
+"einfügen, so lange sie nicht mehr als 100 Zeilen haben'. Standardmäßig werden\n"
+"Patches nicht eingefügt."
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:229
 msgid "Format for inlined or attached patches: 'git' or 'unified'."
-msgstr ""
+msgstr "Das Format, in dem eingefügte oder angehängte Patches aufbereitet werden: 'git' oder 'unified'."
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:236
 msgid "Show context"
-msgstr ""
+msgstr "Umgebende Zeilen berücksichtigen"
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:237
 msgid "Do not show context"
-msgstr ""
+msgstr "Umgebende Zeilen nicht berücksichtigen"
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:239
 msgid "Show diff context around inline comments in email."
-msgstr ""
+msgstr "Umgebende Zeilen um eingefügte Kommentare in Emails berücksichtigen."
 
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:242
 msgid ""
 "Normally, inline comments in emails are shown with a file and line but "
 "without any diff context. Enabling this option adds diff context."
 msgstr ""
+"Im Normalfall werden eingefügte Kommentare in Emails nur mit der Datei und\n"
+"der betreffenden Zeile markiert, aber ohne den umgebenden Zeilen. Mittels\n"
+"dieser Option werden die umgebenden Zeilen ebenfalls ausgegeben."
 
 #: applications/releeph/field/specification/ReleephDiffChurnFieldSpecification.php:55
 #, php-format
 msgid "%d rejection(s)"
-msgstr ""
+msgstr "%d Ablehnung(en)"
 
 #: applications/releeph/field/specification/ReleephDiffChurnFieldSpecification.php:58
 #, php-format
 msgid "%d comment(s)"
-msgstr ""
+msgstr "%d Kommentar(e)"
 
 #: applications/releeph/field/specification/ReleephDiffChurnFieldSpecification.php:61
 #, php-format
 msgid "%d update(s)"
-msgstr ""
+msgstr "%d Änderung(en)"
 
 #: applications/releeph/field/specification/ReleephDiffSizeFieldSpecification.php:58
 #: applications/releeph/field/specification/ReleephDiffSizeFieldSpecification.php:78
 #, php-format
 msgid "%d path(s)"
-msgstr ""
+msgstr "%d Pfad(e)"
 
 #: applications/releeph/field/specification/ReleephDiffSizeFieldSpecification.php:61
 #, php-format
 msgid "%s\n"
-msgstr ""
+msgstr "%s\n"
 
 #: applications/releeph/field/specification/ReleephDiffSizeFieldSpecification.php:79
 #, php-format
 msgid "%d diff(s)"
-msgstr ""
+msgstr "%d Diff(s)"
 
 #: applications/releeph/editor/ReleephRequestTransactionalEditor.php:251
 msgid "PICK FAILURE INSTRUCTIONS"
-msgstr ""
+msgstr "PICK FEHLER ANWEISUNGEN"
 
 #: applications/releeph/editor/ReleephRequestTransactionalEditor.php:258
 msgid "RELEEPH REQUEST"
-msgstr ""
+msgstr "RELEEPH ANFRAGE"
 
 #: applications/releeph/editor/ReleephRequestTransactionalEditor.php:268
 msgid "RELEEPH BRANCH"
-msgstr ""
+msgstr "RELEEPH BRANCH"
 
 #: applications/releeph/query/ReleephBranchSearchEngine.php:46
 msgid "Show Branches"
-msgstr ""
+msgstr "Branches anzeigen"
 
 #: applications/releeph/query/ReleephBranchSearchEngine.php:82
 msgid "Open Branches"
-msgstr ""
+msgstr "Branch eröffnen"
 
 #: applications/releeph/query/ReleephBranchSearchEngine.php:83
 msgid "Open and Closed Branches"
-msgstr ""
+msgstr "Branches öffnen und schließen"
 
 #: applications/releeph/query/ReleephProjectSearchEngine.php:34
 msgid "Show Projects"
-msgstr ""
+msgstr "Projekte zeigen"
 
 #: applications/releeph/query/ReleephProjectSearchEngine.php:71
 msgid "Active and Inactive Projects"
-msgstr ""
+msgstr "Aktive und inaktive Projekte"
 
 #: applications/releeph/query/ReleephProjectSearchEngine.php:72
 msgid "Active Projects"
-msgstr ""
+msgstr "Aktive Projekte"
 
 #: applications/releeph/query/ReleephProjectSearchEngine.php:73
 msgid "Inactive Projects"
-msgstr ""
+msgstr "Inaktive Projekte"
 
 #: applications/releeph/query/ReleephRequestSearchEngine.php:78
 #: applications/diffusion/controller/DiffusionLintController.php:103
 #: applications/diffusion/controller/DiffusionLintDetailsController.php:56
 msgid "Severity"
-msgstr ""
+msgstr "Dringlichkeit"
 
 #: applications/releeph/query/ReleephRequestSearchEngine.php:85
 msgid "Requestors"
-msgstr ""
+msgstr "Auftraggeber"
 
 #: applications/releeph/query/ReleephRequestSearchEngine.php:95
 #: applications/releeph/query/ReleephRequestSearchEngine.php:128
 msgid "Open Requests"
-msgstr ""
+msgstr "Neue Anfrage"
 
 #: applications/releeph/query/ReleephRequestSearchEngine.php:96
 msgid "All Requests"
-msgstr ""
+msgstr "Alle Anfragen"
 
 #: applications/releeph/query/ReleephRequestSearchEngine.php:100
 #: applications/releeph/storage/ReleephRequestTransaction.php:156
 #: applications/releeph/constants/ReleephRequestStatus.php:15
 msgid "Requested"
-msgstr ""
+msgstr "Laufende Anfragen"
 
 #: applications/releeph/query/ReleephRequestSearchEngine.php:127
 msgid "(All Requests)"
-msgstr ""
+msgstr "(Alle Anfragen)"
 
 #: applications/releeph/query/ReleephRequestSearchEngine.php:129
 msgid "Pull Requested"
-msgstr ""
+msgstr "Pull Anfragen"
 
 #: applications/releeph/query/ReleephRequestSearchEngine.php:130
 msgid "Needs Pull"
-msgstr ""
+msgstr "Benötigt einen Pull"
 
 #: applications/releeph/query/ReleephRequestSearchEngine.php:131
 #: applications/releeph/constants/ReleephRequestStatus.php:16
 msgid "Rejected"
-msgstr ""
+msgstr "Abgelehnt"
 
 #: applications/releeph/query/ReleephRequestSearchEngine.php:133
 msgid "Pulled"
-msgstr ""
+msgstr "Pull ausgeführt"
 
 #: applications/releeph/query/ReleephRequestSearchEngine.php:134
 #: applications/releeph/constants/ReleephRequestStatus.php:21
 msgid "Needs Revert"
-msgstr ""
+msgstr "Muß zurückgerollt werden"
 
 #: applications/releeph/query/ReleephRequestSearchEngine.php:135
 #: applications/releeph/storage/ReleephRequestTransaction.php:165
 #: applications/releeph/constants/ReleephRequestStatus.php:19
 msgid "Reverted"
-msgstr ""
+msgstr "Zurückgerollt"
 
 #: applications/releeph/query/ReleephRequestSearchEngine.php:155
 #: applications/releeph/query/ReleephRequestSearchEngine.php:164
 msgid "(All Severities)"
-msgstr ""
+msgstr "(Alle Dringlichkeiten)"
 
 #: applications/releeph/query/ReleephRequestSearchEngine.php:165
 msgid "Hotfix"
-msgstr ""
+msgstr "Hotfix"
 
 #: applications/releeph/query/ReleephRequestSearchEngine.php:166
 #: applications/meta/controller/PhabricatorApplicationDetailViewController.php:72
 msgid "Release"
-msgstr ""
+msgstr "Release"
 
 #: applications/releeph/storage/ReleephRequestTransaction.php:65
 #, php-format
 msgid "%s requested %s"
-msgstr ""
+msgstr "%s hat %s angefordert"
 
 #: applications/releeph/storage/ReleephRequestTransaction.php:86
 #, php-format
 msgid "%s changed the %s to \"%s\""
-msgstr ""
+msgstr "%s hat %s in \"%s\" geändert"
 
 #: applications/releeph/storage/ReleephRequestTransaction.php:95
 #, php-format
 msgid "%s found this request picks without error"
-msgstr ""
+msgstr "%s konnte sich diese Pull Anfrage mittels 'pick' ohne Fehler ziehen"
 
 #: applications/releeph/storage/ReleephRequestTransaction.php:99
 #, php-format
 msgid "%s found this request reverts without error"
-msgstr ""
+msgstr "%s konnte diese Pull Anfrage ohne Fehler zurückrollen"
 
 #: applications/releeph/storage/ReleephRequestTransaction.php:103
 #, php-format
 msgid "%s couldn't pick this request"
-msgstr ""
+msgstr "%s konnte sich diese Pull Anfrage nicht mittels 'pick' ziehen"
 
 #: applications/releeph/storage/ReleephRequestTransaction.php:107
 #, php-format
 msgid "%s couldn't revert this request"
-msgstr ""
+msgstr "%s konnte diese Pull Anfrage nicht zurückrollen"
 
 #: applications/releeph/storage/ReleephRequestTransaction.php:117
 #, php-format
 msgid "%s picked this request and committed the result upstream"
-msgstr ""
+msgstr "%s konnte diese Pull Anfrage mittels 'pick' ziehen und hat sie erfolgreich nach oben durchgereicht"
 
 #: applications/releeph/storage/ReleephRequestTransaction.php:123
 #, php-format
 msgid "%s reverted this request and committed the result upstream"
-msgstr ""
+msgstr "%s hat diese Pull Anfrage zurückgerollt und das Ergebnis nach oben durchgereicht"
 
 #: applications/releeph/storage/ReleephRequestTransaction.php:130
 msgid "picked"
-msgstr ""
+msgstr "ge'pick't"
 
 #: applications/releeph/storage/ReleephRequestTransaction.php:130
 msgid "reverted"
-msgstr ""
+msgstr "zurückgerollt"
 
 #: applications/releeph/storage/ReleephRequestTransaction.php:132
 #, php-format
 msgid "%s marked this request as manually %s"
-msgstr ""
+msgstr "%s hat diese Pull Anfrage manuell als %s markiert"
 
 #: applications/releeph/storage/ReleephRequestTransaction.php:138
 #, php-format
 msgid "%s discovered this commit as %s"
-msgstr ""
+msgstr "%s fand diesen Commit als %s vor"
 
 #: applications/releeph/storage/ReleephRequestTransaction.php:162
 #: applications/releeph/constants/ReleephRequestStatus.php:18
 msgid "Picked"
-msgstr ""
+msgstr "ge'pick't"
 
 #: applications/releeph/storage/ReleephRequestTransaction.php:222
 #, php-format
 msgid "%s approved this request"
-msgstr ""
+msgstr "%s hat diese Pull Anfrage für gut befunden"
 
 #: applications/releeph/storage/ReleephRequestTransaction.php:226
 #, php-format
 msgid "%s wanted this request"
-msgstr ""
+msgstr "%s konnte diesen Pull Request brauchen"
 
 #: applications/releeph/storage/ReleephRequestTransaction.php:233
 #, php-format
 msgid "%s rejected this request"
-msgstr ""
+msgstr "%s hat diese Pull Anfrage abgelehnt"
 
 #: applications/releeph/storage/ReleephRequestTransaction.php:237
 #, php-format
 msgid "%s passed on this request"
-msgstr ""
+msgstr "%s hat diese Pull Anfrage weitergereicht"
 
 #: applications/releeph/phid/ReleephPHIDTypeBranch.php:12
 msgid "Releeph Branch"
-msgstr ""
+msgstr "Releeph Branch"
 
 #: applications/releeph/phid/ReleephPHIDTypeRequest.php:12
 msgid "Releeph Request"
-msgstr ""
+msgstr "Releeph Anfrage"
 
 #: applications/releeph/phid/ReleephPHIDTypeProject.php:12
 msgid "Releeph Project"
-msgstr ""
+msgstr "Releeph Projekt"
 
 #: applications/releeph/constants/ReleephRequestStatus.php:20
 msgid "Needs Pick"
-msgstr ""
+msgstr "Benötigt einen 'Pick'"
 
 #: applications/releeph/controller/project/ReleephProjectHistoryController.php:45
 msgid "Project History"
-msgstr ""
+msgstr "Projekthistorie"
 
 #: applications/releeph/controller/project/ReleephProjectListController.php:44
 #: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:44
 #: applications/diffusion/controller/DiffusionRepositoryListController.php:78
 msgid "Inactive"
-msgstr ""
+msgstr "Inaktiv"
 
 #: applications/releeph/controller/project/ReleephProjectViewController.php:109
 #, php-format
 msgid "%d Open Pull Request(s)"
-msgstr ""
+msgstr "%d offene Pull Anfrage(n)"
 
 #: applications/releeph/controller/project/ReleephProjectViewController.php:146
 msgid "Cut New Branch"
-msgstr ""
+msgstr "Neuer Branch"
 
 #: applications/releeph/controller/project/ReleephProjectViewController.php:166
 msgid "Deactivated"
-msgstr ""
+msgstr "Deaktiviert"
 
 #: applications/releeph/controller/project/ReleephProjectViewController.php:200
 #: applications/releeph/controller/project/ReleephProjectActionController.php:49
 msgid "Deactivate Project"
-msgstr ""
+msgstr "Projekt deaktivieren"
 
 #: applications/releeph/controller/project/ReleephProjectViewController.php:208
 msgid "Reactivate Project"
-msgstr ""
+msgstr "Projekt reaktivieren"
 
 #: applications/releeph/controller/project/ReleephProjectViewController.php:228
 #: applications/releeph/controller/project/ReleephProjectEditController.php:151
@@ -3649,101 +3677,105 @@ msgstr ""
 #: applications/owners/controller/PhabricatorOwnersListController.php:188
 #: applications/diffusion/controller/DiffusionLintController.php:102
 msgid "Repository"
-msgstr ""
+msgstr "Repository"
 
 #: applications/releeph/controller/project/ReleephProjectViewController.php:237
 #: applications/releeph/controller/project/ReleephProjectEditController.php:199
 #: applications/releeph/controller/project/ReleephProjectEditController.php:206
 msgid "Pushers"
-msgstr ""
+msgstr "User mit Push-Rechten"
 
 #: applications/releeph/controller/project/ReleephProjectActionController.php:43
 msgid "Really deactivate Releeph Project?"
-msgstr ""
+msgstr "Wirklich dieses Releeph Projekt deaktivieren"
 
 #: applications/releeph/controller/project/ReleephProjectActionController.php:47
 #, php-format
 msgid "Really deactivate the Releeph project: %s?"
-msgstr ""
+msgstr "Wirklich das Releeph Projekt %s deaktivieren?"
 
 #: applications/releeph/controller/project/ReleephProjectEditController.php:46
 msgid "Your releeph project should have a simple descriptive name"
-msgstr ""
+msgstr "Dein Releeph Projekt sollte einen einfachen ausdrucksstarken Namen haben."
 
 #: applications/releeph/controller/project/ReleephProjectEditController.php:52
 #: applications/releeph/controller/project/ReleephProjectCreateController.php:27
 msgid "You must specify which branch you will be picking from."
-msgstr ""
+msgstr "Du mußt angeben, von welchem Branch Du gerne 'pick'en möchtest."
 
 #: applications/releeph/controller/project/ReleephProjectEditController.php:56
 msgid "Release counter must be a positive integer!"
-msgstr ""
+msgstr "Der Release-Zähler sollte eine positive ganze Zahl sein."
 
 #: applications/releeph/controller/project/ReleephProjectEditController.php:65
 #, php-format
 msgid "Releeph project name %s is already taken"
-msgstr ""
+msgstr "Der Releeph Projekt Name %s ist bereits vergeben"
 
 #: applications/releeph/controller/project/ReleephProjectEditController.php:73
 #, php-format
 msgid "Please provide a valid regular expression: %s is not valid"
-msgstr ""
+msgstr "Bitte einen gültigen regulären Ausdruck angeben: %s ist nicht gültig"
 
 #: applications/releeph/controller/project/ReleephProjectEditController.php:100
 msgid "Whoopsies!"
-msgstr ""
+msgstr "Ooooops!"
 
 #: applications/releeph/controller/project/ReleephProjectEditController.php:141
 msgid "Basics"
-msgstr ""
+msgstr "Grundeinstellungen"
 
 #: applications/releeph/controller/project/ReleephProjectEditController.php:148
 #: applications/releeph/controller/project/ReleephProjectCreateController.php:69
 msgid "A name like \"Thrift\" but not \"Thrift releases\"."
-msgstr ""
+msgstr "Ein Name wie \"Schlank\" aber nicht \"Schlanke Releases\"."
 
 #: applications/releeph/controller/project/ReleephProjectEditController.php:159
 #: applications/releeph/controller/project/ReleephProjectCreateController.php:72
 msgid "Arc Project"
-msgstr ""
+msgstr "Arc Projekt"
 
 #: applications/releeph/controller/project/ReleephProjectEditController.php:164
 msgid "Releeph Project PHID"
-msgstr ""
+msgstr "Releeph Projekt PHID"
 
 #: applications/releeph/controller/project/ReleephProjectEditController.php:169
 #: applications/releeph/controller/project/ReleephProjectCreateController.php:99
 msgid "Trunk"
-msgstr ""
+msgstr "Trunk"
 
 #: applications/releeph/controller/project/ReleephProjectEditController.php:175
 msgid "Release counter"
-msgstr ""
+msgstr "Release-Zähler"
 
 #: applications/releeph/controller/project/ReleephProjectEditController.php:179
 #, php-format
 msgid "Used by the command line branch cutter's %%N field"
-msgstr ""
+msgstr "Wird von dem Kommandozeilen 'branch cutter' %%N-Feld genutzt."
 
 #: applications/releeph/controller/project/ReleephProjectEditController.php:182
 msgid "Pick Instructions"
-msgstr ""
+msgstr "Pick Anweisungen"
 
 #: applications/releeph/controller/project/ReleephProjectEditController.php:186
 msgid ""
 "Instructions for pick failures, which will be used in emails generated by "
 "failed picks"
 msgstr ""
+"Anweisungen für fehlgeschlagene 'pick's. Diese werden für die Emails benötigt,\n"
+"die durch \"failed picks\" erzeugt werden."
 
 #: applications/releeph/controller/project/ReleephProjectEditController.php:190
 msgid "Tests paths"
-msgstr ""
+msgstr "Testpfade"
 
 #: applications/releeph/controller/project/ReleephProjectEditController.php:194
 msgid ""
 "List of strings that all test files contain in their path in this project. "
 "One string per line. Examples: '__tests__', '/javatests/'..."
 msgstr ""
+"Eine Liste von Strings, die alle automatischen Tests in ihrem\n"
+"Pfad innerhalb des Projektes enthalten. Z.B.: '__tests__', '/javatests/'..."
 
 #: applications/releeph/controller/project/ReleephProjectEditController.php:201
 msgid ""
