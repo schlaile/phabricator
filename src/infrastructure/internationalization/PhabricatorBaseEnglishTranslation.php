@@ -3,7 +3,7 @@
 abstract class PhabricatorBaseEnglishTranslation
   extends PhabricatorTranslation {
 
-  final public function getLanguage() {
+  public function getLanguage() {
     return 'en';
   }
 

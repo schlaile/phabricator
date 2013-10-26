@@ -1,7 +1,11 @@
 <?php
 
 final class PhabricatorGermanTranslation
-  extends PhabricatorBaseGermanTranslation {
+  extends PhabricatorBaseEnglishTranslation {
+
+  final public function getLanguage() {
+    return 'de';
+  }
 
   public function getName() {
     return 'Deutsch';
@@ -11,6 +15,10 @@ final class PhabricatorGermanTranslation
     return
       PhabricatorEnv::getEnvConfig('translation.override') +
       parent::getTranslations();
+  }
+
+  final public function getTranslator() {
+    return new PhabricatorGettextTranslator("de_DE");
   }
 
 }
