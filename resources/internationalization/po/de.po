@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-10-26 13:48+0200\n"
-"PO-Revision-Date: 2013-10-26 23:55+0200\n"
+"PO-Revision-Date: 2013-10-27 09:19+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -3774,7 +3774,7 @@ msgid ""
 "List of strings that all test files contain in their path in this project. "
 "One string per line. Examples: '__tests__', '/javatests/'..."
 msgstr ""
-"Eine Liste von Strings, die alle automatischen Tests in ihrem\n"
+"Eine Liste von Strings, die alle Unit-Tests in ihrem\n"
 "Pfad innerhalb des Projektes enthalten. Z.B.: '__tests__', '/javatests/'..."
 
 #: applications/releeph/controller/project/ReleephProjectEditController.php:201
@@ -3783,181 +3783,184 @@ msgid ""
 "project's branches.  If you leave this blank then anyone is allowed to "
 "approve requests."
 msgstr ""
+"Nur git push-Benutzer dürfen Releeph Anfragen für einen Commit in den \n"
+"Projekt-Branch freigeben. Wenn das Feld leer bleibt, darf jeder diese\n"
+"Anfragen freigeben."
 
 #: applications/releeph/controller/project/ReleephProjectEditController.php:225
 msgid "Leave this blank to use your installation's default."
-msgstr ""
+msgstr "Dieses Feld leer lassen, um die Vorgabewerte der Installation zu benutzen."
 
 #: applications/releeph/controller/project/ReleephProjectEditController.php:228
 #: applications/transactions/view/PhabricatorApplicationTransactionCommentView.php:182
 #: applications/phame/controller/post/PhamePostPublishController.php:56
 #: applications/files/controller/PhabricatorFileComposeController.php:222
 msgid "Preview"
-msgstr ""
+msgstr "Vorschau"
 
 #: applications/releeph/controller/project/ReleephProjectEditController.php:235
 msgid "Branch Cutting"
-msgstr ""
+msgstr "Branch Zerschneiden"
 
 #: applications/releeph/controller/project/ReleephProjectEditController.php:237
 msgid "Provide a pattern for creating new branches."
-msgstr ""
+msgstr "Pattern für das Erzeugen neuer Branches."
 
 #: applications/releeph/controller/project/ReleephProjectEditController.php:257
 #: applications/releeph/controller/project/ReleephProjectEditController.php:263
 msgid "Edit Releeph Project"
-msgstr ""
+msgstr "Releeph Projekt ändern"
 
 #: applications/releeph/controller/project/ReleephProjectEditController.php:303
 msgid "Original Author"
-msgstr ""
+msgstr "Ursprünglicher Autor"
 
 #: applications/releeph/controller/project/ReleephProjectEditController.php:305
 #, php-format
 msgid "The author of the original commit in: %s."
-msgstr ""
+msgstr "Der Autor des ursprünglichen Commits: %s."
 
 #: applications/releeph/controller/project/ReleephProjectEditController.php:309
 msgid "Requestor"
-msgstr ""
+msgstr "Auftraggeber"
 
 #: applications/releeph/controller/project/ReleephProjectEditController.php:311
 msgid "The person who requested that this code go into the release."
-msgstr ""
+msgstr "Die Person, die wollte, daß dieser Code ins Release übernommen wird."
 
 #: applications/releeph/controller/project/ReleephProjectEditController.php:317
 msgid "Only record the default committer information."
-msgstr ""
+msgstr "Nur die Vorgabe Commiter-Information vermerken."
 
 #: applications/releeph/controller/project/ReleephProjectCreateController.php:21
 msgid "Your Releeph project should have a simple descriptive name."
-msgstr ""
+msgstr "Dein Releeph Projekt sollte einen einfachen, ausdrucksstarken Namen haben."
 
 #: applications/releeph/controller/project/ReleephProjectCreateController.php:50
 msgid "Another project already uses this name."
-msgstr ""
+msgstr "Ein anderes Projekt hat bereits diesen Namen."
 
 #: applications/releeph/controller/project/ReleephProjectCreateController.php:76
 #, php-format
 msgid "If your Arc project isn't listed, associate it with a repository %s"
-msgstr ""
+msgstr "Wenn Dein Arc-Projekt nicht aufgeführt ist, verbinde es mit einem Repository %s"
 
 #: applications/releeph/controller/project/ReleephProjectCreateController.php:87
 msgid "Example Branch"
-msgstr ""
+msgstr "Beispiel-Branch"
 
 #: applications/releeph/controller/project/ReleephProjectCreateController.php:103
 msgid "The development branch, from which requests will be picked."
-msgstr ""
+msgstr "Entwickler-Branch, aus dem Anfragen 'gepickt' werden."
 
 #: applications/releeph/controller/project/ReleephProjectCreateController.php:119
 msgid "New Project"
-msgstr ""
+msgstr "Neues Projekt"
 
 #: applications/releeph/controller/ReleephController.php:8
 #: applications/releeph/application/PhabricatorApplicationReleeph.php:6
 #: applications/releeph/config/PhabricatorApplicationReleephConfigOptions.php:7
 msgid "Releeph"
-msgstr ""
+msgstr "Releeph"
 
 #: applications/releeph/controller/branch/ReleephBranchAccessController.php:21
 #: applications/releeph/controller/branch/ReleephBranchAccessController.php:25
 #: applications/releeph/controller/branch/ReleephBranchViewController.php:140
 msgid "Close Branch"
-msgstr ""
+msgstr "Branch schließen"
 
 #: applications/releeph/controller/branch/ReleephBranchAccessController.php:23
 #, php-format
 msgid "Really close the branch \"%s\"?"
-msgstr ""
+msgstr "Den Branch \"%s\" wirklich schließen?"
 
 #: applications/releeph/controller/branch/ReleephBranchAccessController.php:29
 #: applications/releeph/controller/branch/ReleephBranchAccessController.php:33
 #: applications/releeph/controller/branch/ReleephBranchViewController.php:148
 msgid "Reopen Branch"
-msgstr ""
+msgstr "Branch wieder öffnen"
 
 #: applications/releeph/controller/branch/ReleephBranchAccessController.php:31
 #, php-format
 msgid "Really reopen the branch \"%s\"?"
-msgstr ""
+msgstr "Den Branch \"%s\" wirklich wieder öffnen?"
 
 #: applications/releeph/controller/branch/ReleephBranchHistoryController.php:45
 msgid "Branch History"
-msgstr ""
+msgstr "Branch-Historie"
 
 #: applications/releeph/controller/branch/ReleephBranchViewController.php:88
 msgid "Request Pick"
-msgstr ""
+msgstr "Einen Pick anfordern"
 
 #: applications/releeph/controller/branch/ReleephBranchViewController.php:131
 msgid "Edit Branch"
-msgstr ""
+msgstr "Branch ändern"
 
 #: applications/releeph/controller/branch/ReleephBranchViewController.php:169
 #: applications/diffusion/view/DiffusionBranchTableView.php:77
 msgid "Branch"
-msgstr ""
+msgstr "Branch"
 
 #: applications/releeph/controller/branch/ReleephBranchEditController.php:54
 msgid "Branch Name"
-msgstr ""
+msgstr "Branch-Name"
 
 #: applications/releeph/controller/branch/ReleephBranchEditController.php:58
 msgid "Cut Point"
-msgstr ""
+msgstr "Schnittpunkt"
 
 #: applications/releeph/controller/branch/ReleephBranchEditController.php:62
 msgid "Created By"
-msgstr ""
+msgstr "Erstellt von"
 
 #: applications/releeph/controller/branch/ReleephBranchEditController.php:66
 #: applications/releeph/controller/branch/ReleephBranchCreateController.php:81
 msgid "Symbolic Name"
-msgstr ""
+msgstr "Symbol"
 
 #: applications/releeph/controller/branch/ReleephBranchEditController.php:69
 #: applications/releeph/controller/branch/ReleephBranchCreateController.php:84
 msgid "Mutable alternate name, for easy reference, (e.g. \"LATEST\")"
-msgstr ""
+msgstr "Alternativer Name zur leichteren Auffindbarkeit (z.B. \"LATEST\")"
 
 #: applications/releeph/controller/branch/ReleephBranchEditController.php:81
 msgid "Errors"
-msgstr ""
+msgstr "Fehler"
 
 #: applications/releeph/controller/branch/ReleephBranchEditController.php:85
 #, php-format
 msgid "Edit Branch %s"
-msgstr ""
+msgstr "Branch %s ändern"
 
 #: applications/releeph/controller/branch/ReleephBranchCreateController.php:32
 msgid "The date used for filling out the branch template."
-msgstr ""
+msgstr "Das Datum, daß in das Branch-Template eingetragen werden soll."
 
 #: applications/releeph/controller/branch/ReleephBranchCreateController.php:40
 msgid "You must give a branch cut point"
-msgstr ""
+msgstr "Du mußt einen Schnittpunkt für den Branch angeben."
 
 #: applications/releeph/controller/branch/ReleephBranchCreateController.php:88
 msgid "Cut point"
-msgstr ""
+msgstr "Schnittpunkt"
 
 #: applications/releeph/controller/branch/ReleephBranchCreateController.php:93
 msgid "A commit ID for your repo type, or a Diffusion ID like \"rE123\""
-msgstr ""
+msgstr "Eine Commit-ID für Deinen Repository-Typ oder eine Diffusion ID wie \"rE123\""
 
 #: applications/releeph/controller/branch/ReleephBranchCreateController.php:98
 msgid "Cut Branch"
-msgstr ""
+msgstr "Branch schneiden"
 
 #: applications/releeph/controller/branch/ReleephBranchCreateController.php:104
 #: applications/releeph/controller/branch/ReleephBranchCreateController.php:113
 msgid "New Branch"
-msgstr ""
+msgstr "Neuer Branch"
 
 #: applications/releeph/controller/request/ReleephRequestDifferentialCreateController.php:65
 msgid "Choose Releeph Branch"
-msgstr ""
+msgstr "Releeph Branch wählen"
 
 #: applications/releeph/controller/request/ReleephRequestDifferentialCreateController.php:70
 msgid ""
@@ -3965,34 +3968,37 @@ msgid ""
 "Releeph branches.  Please select the branch where you would like this code "
 "to be picked."
 msgstr ""
+"Diese Differential-Version verändert Code, der mit mehreren Releeph-Branches\n"
+"verbunden ist. Bitte den Branch auswählen, aus dem der Code nun tatsächlich\n"
+"entnommen werden soll."
 
 #: applications/releeph/controller/request/ReleephRequestEditController.php:272
 msgid "Edit Releeph Request"
-msgstr ""
+msgstr "Releeph-Anfrage ändern"
 
 #: applications/releeph/controller/request/ReleephRequestEditController.php:284
 msgid "Create Releeph Request"
-msgstr ""
+msgstr "Neue Releeph-Anfrage"
 
 #: applications/releeph/controller/request/ReleephRequestEditController.php:288
 msgid "New Request"
-msgstr ""
+msgstr "Neue Anfrage"
 
 #: applications/releeph/mail/ReleephRequestReplyHandler.php:22
 msgid "Reply to comment."
-msgstr ""
+msgstr "Auf Kommentar antworten"
 
 #: applications/releeph/application/PhabricatorApplicationReleeph.php:10
 msgid "Release Branches"
-msgstr ""
+msgstr "Release Branches"
 
 #: applications/releeph/config/PhabricatorApplicationReleephConfigOptions.php:11
 msgid "Options for configuring Releeph, the release branch tool."
-msgstr ""
+msgstr "Konfigurationsoptionen für Releeph, das Release-Branch Werkzeug."
 
 #: applications/releeph/config/PhabricatorApplicationReleephConfigOptions.php:48
 msgid "Enable the Releeph application."
-msgstr ""
+msgstr "Die Releeph Applikation aktivieren."
 
 #: applications/releeph/config/PhabricatorApplicationReleephConfigOptions.php:51
 msgid ""
@@ -4004,10 +4010,18 @@ msgid ""
 "of alpha testers at Facebook.  For the time being you are strongly "
 "discouraged from relying on Releeph being at all stable."
 msgstr ""
+"Releeph, ein Werkzeug um Release Branches zu verwalten, wird irgendwann in\n"
+"die Phrabricator-Suite vollwertig übernommen. Releeph ist aktuell\n"
+"in mehrerer Hinsicht instabil, was insbesondere Probleme bei Updates erzeugen\n"
+"kann: der Code ist immer noch im ALPHA-Zustand, das Storage-Format\n"
+"kann sich über Nacht ändern und der Workflow ist sehr stark an der Arbeitsweise\n"
+"an einem konkreten kleinen Team von ALPHA-Tester in Facebook orientiert.\n"
+"Aktuell wird daher stark davon abgeraten, Releeph für irgendetwas ernsthaftes\n"
+"zu verwenden."
 
 #: applications/releeph/config/PhabricatorApplicationReleephConfigOptions.php:67
 msgid "Extra markup when rendering usernames"
-msgstr ""
+msgstr "Zusätzliches Markup zur Darstellung von Benutzernamen."
 
 #: applications/releeph/config/PhabricatorApplicationReleephConfigOptions.php:70
 msgid ""
@@ -4015,16 +4029,20 @@ msgid ""
 "example, Facebook extends this to render additional information about "
 "requestors, to each Releeph project's pushers."
 msgstr ""
+"Ein Wrapper, um Phabricator-Benutzer mit benutzerdefiniertem Markup in Releeph anzuzeigen. Z.B., Facebook nutzt das, um zusätzliche Informationen über\n"
+"die Anfragesteller hinter den Releeph-Projekt Push-Benutzern anzuzeigen."
 
 #: applications/releeph/config/PhabricatorApplicationReleephConfigOptions.php:80
 msgid ""
 "The default branch template for new branches in unconfigured Releeph "
 "projects.  This is also configurable on a per-project basis."
 msgstr ""
+"Das Vorgabe Branch-Template für neue Branches in einem unkonfigurierten\n"
+"Releeph Projekt. Dies kann auch auf Projekt-Ebene nochmals angepasst werden."
 
 #: applications/uiexample/application/PhabricatorApplicationUIExamples.php:22
 msgid "A gallery of modern art."
-msgstr ""
+msgstr "Eine Gallerie der modernen Kunst."
 
 #: applications/uiexample/examples/PHUIWorkboardExample.php:23
 #: applications/uiexample/examples/PHUIWorkboardExample.php:51
@@ -4033,7 +4051,7 @@ msgstr ""
 #: applications/uiexample/examples/PHUIWorkboardExample.php:95
 #: applications/uiexample/examples/PHUIObjectItemListExample.php:120
 msgid "Business Card"
-msgstr ""
+msgstr "Visitenkarte"
 
 #: applications/uiexample/examples/PHUIWorkboardExample.php:27
 #: applications/uiexample/examples/PHUIWorkboardExample.php:55
@@ -4042,62 +4060,62 @@ msgstr ""
 #: applications/uiexample/examples/PHUIWorkboardExample.php:99
 #: applications/uiexample/examples/PHUIObjectItemListExample.php:124
 msgid "Playing Card"
-msgstr ""
+msgstr "Spielkarte"
 
 #: applications/uiexample/examples/PHUIWorkboardExample.php:31
 #: applications/uiexample/examples/PHUIWorkboardExample.php:74
 #: applications/uiexample/examples/PHUIObjectItemListExample.php:131
 msgid "House of Cards"
-msgstr ""
+msgstr "Ein Kartenhaus"
 
 #: applications/uiexample/examples/PHUIWorkboardExample.php:35
 #: applications/uiexample/examples/PHUIWorkboardExample.php:78
 #: applications/uiexample/examples/PHUIObjectItemListExample.php:138
 msgid "Cardigan"
-msgstr ""
+msgstr "Cardigan"
 
 #: applications/uiexample/examples/PHUIWorkboardExample.php:39
 #: applications/uiexample/examples/PHUIWorkboardExample.php:82
 #: applications/uiexample/examples/PHUIObjectItemListExample.php:144
 msgid "Cardamom"
-msgstr ""
+msgstr "Kardamom"
 
 #: applications/uiexample/examples/PHUIWorkboardExample.php:107
 #: applications/maniphest/event/ManiphestActionMenuEventListener.php:64
 msgid "Add Task"
-msgstr ""
+msgstr "Neue Aufgabe"
 
 #: applications/uiexample/examples/PHUIWorkboardExample.php:165
 msgid "Fixed Panel"
-msgstr ""
+msgstr "Statisches Panel"
 
 #: applications/uiexample/examples/PHUIWorkboardExample.php:168
 msgid "Fluid Panel"
-msgstr ""
+msgstr "Bewegliches Panel"
 
 #: applications/uiexample/examples/PHUIWorkboardExample.php:171
 msgid "Action Panel"
-msgstr ""
+msgstr "Aktions-Panel"
 
 #: applications/uiexample/examples/PHUIListExample.php:245
 msgid "Unstyled"
-msgstr ""
+msgstr "Ohne Style"
 
 #: applications/uiexample/examples/PHUIListExample.php:248
 msgid "Side Navigation"
-msgstr ""
+msgstr "Side Navigation"
 
 #: applications/uiexample/examples/PHUIListExample.php:251
 msgid "Top Navigation"
-msgstr ""
+msgstr "Top Navigation"
 
 #: applications/uiexample/examples/PHUIListExample.php:254
 msgid "Action Menu"
-msgstr ""
+msgstr "Aktionsmenü"
 
 #: applications/uiexample/examples/PHUIListExample.php:257
 msgid "Status Tabs"
-msgstr ""
+msgstr "Status-Tabs"
 
 #: applications/uiexample/examples/PHUIFeedStoryExample.php:136
 msgid "Basic Story"
@@ -4135,12 +4153,12 @@ msgstr ""
 #: applications/conpherence/controller/ConpherenceListController.php:54
 #: applications/conpherence/config/ConpherenceConfigOptions.php:7
 msgid "Conpherence"
-msgstr ""
+msgstr "Conpherence"
 
 #: applications/uiexample/examples/PHUIInfoPanelExample.php:19
 #: applications/diffusion/config/PhabricatorDiffusionConfigOptions.php:7
 msgid "Diffusion"
-msgstr ""
+msgstr "Diffusion"
 
 #: applications/uiexample/examples/PHUIInfoPanelExample.php:22
 msgid "Backend Ops Projects"
@@ -4173,7 +4191,7 @@ msgstr ""
 #: applications/uiexample/examples/PHUIInfoPanelExample.php:114
 #: applications/flag/query/PhabricatorFlagSearchEngine.php:68
 msgid "Flagged"
-msgstr ""
+msgstr "Markiert"
 
 #: applications/uiexample/examples/PHUIInfoPanelExample.php:117
 msgid "Sprints"
@@ -4261,22 +4279,22 @@ msgstr ""
 #: applications/uiexample/examples/PHUIPropertyListExample.php:39
 #: applications/flag/query/PhabricatorFlagSearchEngine.php:90
 msgid "Color"
-msgstr ""
+msgstr "Farbe"
 
 #: applications/uiexample/examples/PHUIPropertyListExample.php:40
 #: applications/uiexample/examples/PHUIObjectItemListExample.php:315
 #: applications/flag/constants/PhabricatorFlagColor.php:18
 msgid "Yellow"
-msgstr ""
+msgstr "Gelb"
 
 #: applications/uiexample/examples/PHUIPropertyListExample.php:43
 #: applications/files/controller/PhabricatorFileInfoController.php:191
 msgid "Size"
-msgstr ""
+msgstr "Größe"
 
 #: applications/uiexample/examples/PHUIPropertyListExample.php:44
 msgid "Mouse"
-msgstr ""
+msgstr "Maus"
 
 #: applications/uiexample/examples/PHUIPropertyListExample.php:47
 msgid "Element"
@@ -4344,7 +4362,7 @@ msgstr ""
 #: applications/tokens/controller/PhabricatorTokenController.php:10
 #: applications/tokens/application/PhabricatorApplicationTokens.php:6
 msgid "Tokens"
-msgstr ""
+msgstr "Token"
 
 #: applications/uiexample/examples/PHUIIconExample.php:175
 msgid "Payments"
@@ -4358,42 +4376,42 @@ msgstr ""
 #: applications/settings/panel/PhabricatorSettingsPanelPassword.php:15
 #: applications/settings/panel/PhabricatorSettingsPanelConduit.php:15
 msgid "Authentication"
-msgstr ""
+msgstr "Authentisierung"
 
 #: applications/uiexample/examples/PhabricatorSetupIssueExample.php:18
 msgid "Short Name"
-msgstr ""
+msgstr "Kurzname"
 
 #: applications/uiexample/examples/PhabricatorSetupIssueExample.php:21
 #: applications/conpherence/controller/ConpherenceNewController.php:95
 msgid "Message"
-msgstr ""
+msgstr "Nachricht"
 
 #: applications/uiexample/examples/PhabricatorHovercardExample.php:46
 #: applications/maniphest/event/ManiphestHovercardEventListener.php:60
 msgid "Assigned to"
-msgstr ""
+msgstr "Zugewiesen an"
 
 #: applications/uiexample/examples/PhabricatorHovercardExample.php:47
 #: applications/maniphest/event/ManiphestHovercardEventListener.php:69
 #: applications/maniphest/controller/ManiphestTaskDetailController.php:560
 msgid "Dependent Tasks"
-msgstr ""
+msgstr "Davon abhängige Aufgaben"
 
 #: applications/uiexample/examples/PhabricatorHovercardExample.php:49
 #: applications/maniphest/controller/ManiphestTaskDetailController.php:490
 msgid "Create Subtask"
-msgstr ""
+msgstr "Neue Unteraufgabe"
 
 #: applications/uiexample/examples/PhabricatorHovercardExample.php:63
 msgid "Member since"
-msgstr ""
+msgstr "Mitglied seit"
 
 #: applications/uiexample/examples/PhabricatorHovercardExample.php:64
 #: applications/conpherence/view/ConpherenceLayoutView.php:178
 #: applications/conpherence/events/ConpherenceHovercardEventListener.php:35
 msgid "Send a Message"
-msgstr ""
+msgstr "Eine Nachricht senden"
 
 #: applications/uiexample/examples/PHUIColorPalletteExample.php:114
 msgid "Greys"
@@ -4407,7 +4425,7 @@ msgstr ""
 #: applications/uiexample/examples/PHUIObjectItemListExample.php:307
 #: applications/flag/query/PhabricatorFlagSearchEngine.php:46
 msgid "Colors"
-msgstr ""
+msgstr "Farben"
 
 #: applications/uiexample/examples/PhabricatorTimelineExample.php:118
 #, php-format
@@ -4712,30 +4730,30 @@ msgstr ""
 #: applications/maniphest/config/PhabricatorManiphestConfigOptions.php:33
 #: applications/maniphest/config/PhabricatorManiphestConfigOptions.php:34
 msgid "Normal"
-msgstr ""
+msgstr "Normal"
 
 #: applications/uiexample/examples/PHUIObjectItemListExample.php:285
 msgid "Highlighted"
-msgstr ""
+msgstr "Hervorgehoben"
 
 #: applications/uiexample/examples/PHUIObjectItemListExample.php:292
 msgid "Selected"
-msgstr ""
+msgstr "Ausgewählt"
 
 #: applications/uiexample/examples/PHUIObjectItemListExample.php:313
 #: applications/flag/constants/PhabricatorFlagColor.php:16
 msgid "Red"
-msgstr ""
+msgstr "Rot"
 
 #: applications/uiexample/examples/PHUIObjectItemListExample.php:314
 #: applications/flag/constants/PhabricatorFlagColor.php:17
 msgid "Orange"
-msgstr ""
+msgstr "Orange"
 
 #: applications/uiexample/examples/PHUIObjectItemListExample.php:316
 #: applications/flag/constants/PhabricatorFlagColor.php:19
 msgid "Green"
-msgstr ""
+msgstr "Grün"
 
 #: applications/uiexample/examples/PHUIObjectItemListExample.php:317
 msgid "Sky"
@@ -4744,23 +4762,23 @@ msgstr ""
 #: applications/uiexample/examples/PHUIObjectItemListExample.php:318
 #: applications/flag/constants/PhabricatorFlagColor.php:20
 msgid "Blue"
-msgstr ""
+msgstr "Blau"
 
 #: applications/uiexample/examples/PHUIObjectItemListExample.php:319
 msgid "Indigo"
-msgstr ""
+msgstr "Indigo"
 
 #: applications/uiexample/examples/PHUIObjectItemListExample.php:320
 msgid "Violet"
-msgstr ""
+msgstr "Violett"
 
 #: applications/uiexample/examples/PHUIObjectItemListExample.php:321
 msgid "Grey"
-msgstr ""
+msgstr "Grau"
 
 #: applications/uiexample/examples/PHUIObjectItemListExample.php:322
 msgid "Black"
-msgstr ""
+msgstr "Schwarz"
 
 #: applications/uiexample/examples/PHUIDocumentExample.php:6
 msgid "Document View"
@@ -4809,115 +4827,117 @@ msgstr ""
 #: applications/calendar/controller/PhabricatorCalendarViewStatusController.php:77
 #, php-format
 msgid "From %s to %s"
-msgstr ""
+msgstr "Von %s bis %s"
 
 #: applications/calendar/controller/PhabricatorCalendarViewStatusController.php:90
 msgid "You do not have any upcoming status events."
-msgstr ""
+msgstr "Du hast aktuell keine zeitnahen Termine."
 
 #: applications/calendar/controller/PhabricatorCalendarViewStatusController.php:93
 #, php-format
 msgid "%s does not have any upcoming status events."
-msgstr ""
+msgstr "%s hat aktuell keine zeitnahen Termine."
 
 #: applications/calendar/controller/PhabricatorCalendarViewStatusController.php:111
 #: applications/calendar/controller/PhabricatorCalendarController.php:17
 msgid "Upcoming Statuses"
-msgstr ""
+msgstr "Zeitnahe Termine"
 
 #: applications/calendar/controller/PhabricatorCalendarViewStatusController.php:114
 #, php-format
 msgid "Upcoming Statuses for %s"
-msgstr ""
+msgstr "Zeitnahe Termine für %s"
 
 #: applications/calendar/controller/PhabricatorCalendarDeleteStatusController.php:38
 msgid "Really delete status?"
-msgstr ""
+msgstr "Termin wirklich löschen?"
 
 #: applications/calendar/controller/PhabricatorCalendarDeleteStatusController.php:42
 msgid "Permanently delete this status? This action can not be undone."
-msgstr ""
+msgstr "Diesen Termin endgültig löschen? Man kann dies nicht rückgängig machen."
 
 #: applications/calendar/controller/PhabricatorCalendarEditStatusController.php:23
 msgid "Start"
-msgstr ""
+msgstr "Anfang"
 
 #: applications/calendar/controller/PhabricatorCalendarEditStatusController.php:29
 msgid "End"
-msgstr ""
+msgstr "Ende"
 
 #: applications/calendar/controller/PhabricatorCalendarEditStatusController.php:38
 msgid "Create Status"
-msgstr ""
+msgstr "Neuer Termin"
 
 #: applications/calendar/controller/PhabricatorCalendarEditStatusController.php:45
 #: applications/legalpad/controller/LegalpadDocumentEditController.php:164
 msgid "Update"
-msgstr ""
+msgstr "Editieren"
 
 #: applications/calendar/controller/PhabricatorCalendarEditStatusController.php:47
 msgid "Update Status"
-msgstr ""
+msgstr "Termin ändern"
 
 #: applications/calendar/controller/PhabricatorCalendarEditStatusController.php:71
 msgid "Start must be before end."
-msgstr ""
+msgstr "Anfang muß vor dem Ende liegen."
 
 #: applications/calendar/controller/PhabricatorCalendarEditStatusController.php:73
 msgid ""
 "There is already a status within the specified timeframe. Edit or delete "
 "this existing status."
 msgstr ""
+"Im angegebenen Zeitraum liegt bereits ein Termin. Bitte den bestehenden\n"
+"Termin erstmal ändern."
 
 #: applications/calendar/controller/PhabricatorCalendarEditStatusController.php:103
 msgid "Status can not be set!"
-msgstr ""
+msgstr "Termin kann nicht gesetzt werden!"
 
 #: applications/calendar/controller/PhabricatorCalendarEditStatusController.php:156
 msgid "Delete Status"
-msgstr ""
+msgstr "Termin löschen"
 
 #: applications/calendar/controller/PhabricatorCalendarBrowseController.php:70
 #: applications/calendar/controller/PhabricatorCalendarController.php:10
 #: applications/conpherence/view/ConpherenceLayoutView.php:103
 msgid "Calendar"
-msgstr ""
+msgstr "Kalender"
 
 #: applications/calendar/controller/PhabricatorCalendarBrowseController.php:82
 msgid "Successfully created your status."
-msgstr ""
+msgstr "Termin erfolgreich eingetragen."
 
 #: applications/calendar/controller/PhabricatorCalendarBrowseController.php:86
 msgid "Successfully updated your status."
-msgstr ""
+msgstr "Termin erfolgreich geändert."
 
 #: applications/calendar/controller/PhabricatorCalendarBrowseController.php:90
 msgid "Successfully deleted your status."
-msgstr ""
+msgstr "Termin erfolgreich gelöscht."
 
 #: applications/calendar/controller/PhabricatorCalendarController.php:11
 msgid "View All"
-msgstr ""
+msgstr "Alles zeigen"
 
 #: applications/calendar/controller/PhabricatorCalendarController.php:12
 msgid "New Status"
-msgstr ""
+msgstr "Neuer Termin"
 
 #: applications/calendar/controller/PhabricatorCalendarController.php:15
 msgid "Edit Status"
-msgstr ""
+msgstr "Termin ändern"
 
 #: applications/calendar/application/PhabricatorApplicationCalendar.php:6
 msgid "Dates and Stuff"
-msgstr ""
+msgstr "Termine und so was"
 
 #: applications/calendar/application/PhabricatorApplicationCalendar.php:10
 msgid "Never miss an episode ever again."
-msgstr ""
+msgstr "Verpasse keine aktuelle Folge mehr..."
 
 #: applications/subscriptions/controller/PhabricatorSubscriptionsEditController.php:47
 msgid "Bad Object"
-msgstr ""
+msgstr "Kaputtes Objekt"
 
 #: applications/subscriptions/controller/PhabricatorSubscriptionsEditController.php:48
 msgid "This object is not subscribable."
