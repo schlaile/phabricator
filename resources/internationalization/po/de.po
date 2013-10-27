@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-10-26 13:48+0200\n"
-"PO-Revision-Date: 2013-10-27 09:19+0100\n"
+"PO-Revision-Date: 2013-10-27 11:31+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -1443,7 +1443,7 @@ msgstr "Neues Projekt erstellen"
 #: applications/auth/controller/config/PhabricatorAuthProviderConfigController.php:15
 #: applications/slowvote/controller/PhabricatorSlowvoteEditController.php:206
 msgid "Create"
-msgstr "Neu"
+msgstr "Mach einfach"
 
 #: applications/project/controller/PhabricatorProjectCreateController.php:121
 #: applications/project/controller/PhabricatorProjectCreateController.php:131
@@ -3710,7 +3710,7 @@ msgstr "Der Release-Zähler sollte eine positive ganze Zahl sein."
 #: applications/releeph/controller/project/ReleephProjectEditController.php:65
 #, php-format
 msgid "Releeph project name %s is already taken"
-msgstr "Der Releeph Projekt Name %s ist bereits vergeben"
+msgstr "Der Releeph Projektname %s ist bereits vergeben"
 
 #: applications/releeph/controller/project/ReleephProjectEditController.php:73
 #, php-format
@@ -4362,7 +4362,7 @@ msgstr ""
 #: applications/tokens/controller/PhabricatorTokenController.php:10
 #: applications/tokens/application/PhabricatorApplicationTokens.php:6
 msgid "Tokens"
-msgstr "Token"
+msgstr "Trophäen"
 
 #: applications/uiexample/examples/PHUIIconExample.php:175
 msgid "Payments"
@@ -4941,292 +4941,292 @@ msgstr "Kaputtes Objekt"
 
 #: applications/subscriptions/controller/PhabricatorSubscriptionsEditController.php:48
 msgid "This object is not subscribable."
-msgstr ""
+msgstr "An diesem Objekt kann niemand teilnehmen."
 
 #: applications/subscriptions/controller/PhabricatorSubscriptionsEditController.php:55
 msgid "You are automatically subscribed to this object."
-msgstr ""
+msgstr "Du erfährst automatisch Neuigkeiten zu diesem Objekt."
 
 #: applications/tokens/event/PhabricatorTokenUIEventListener.php:50
 msgid "Award Token"
-msgstr ""
+msgstr "Preistrophäe"
 
 #: applications/tokens/event/PhabricatorTokenUIEventListener.php:56
 #: applications/tokens/controller/PhabricatorTokenGiveController.php:31
 #: applications/tokens/controller/PhabricatorTokenGiveController.php:109
 #: applications/tokens/controller/PhabricatorTokenGiveController.php:114
 msgid "Rescind Token"
-msgstr ""
+msgstr "Rücktrittstrophäe"
 
 #: applications/tokens/query/PhabricatorTokenQuery.php:30
 msgid "Like"
-msgstr ""
+msgstr "Mögen"
 
 #: applications/tokens/query/PhabricatorTokenQuery.php:31
 msgid "Dislike"
-msgstr ""
+msgstr "Nicht mögen"
 
 #: applications/tokens/query/PhabricatorTokenQuery.php:32
 msgid "Love"
-msgstr ""
+msgstr "Lieben"
 
 #: applications/tokens/query/PhabricatorTokenQuery.php:33
 msgid "Heartbreak"
-msgstr ""
+msgstr "Das Herz brechen"
 
 #: applications/tokens/query/PhabricatorTokenQuery.php:34
 msgid "Orange Medal"
-msgstr ""
+msgstr "Orangene Medaille"
 
 #: applications/tokens/query/PhabricatorTokenQuery.php:35
 msgid "Grey Medal"
-msgstr ""
+msgstr "Graue Medaille"
 
 #: applications/tokens/query/PhabricatorTokenQuery.php:36
 msgid "Yellow Medal"
-msgstr ""
+msgstr "Gelbe Medaille"
 
 #: applications/tokens/query/PhabricatorTokenQuery.php:37
 msgid "Manufacturing Defect?"
-msgstr ""
+msgstr "Fehler ab Werk?"
 
 #: applications/tokens/query/PhabricatorTokenQuery.php:38
 msgid "Haypence"
-msgstr ""
+msgstr "Pfennig"
 
 #: applications/tokens/query/PhabricatorTokenQuery.php:39
 msgid "Piece of Eight"
-msgstr ""
+msgstr "Spanischer Dollar"
 
 #: applications/tokens/query/PhabricatorTokenQuery.php:40
 msgid "Doubloon"
-msgstr ""
+msgstr "Dublone"
 
 #: applications/tokens/query/PhabricatorTokenQuery.php:41
 msgid "Mountain of Wealth"
-msgstr ""
+msgstr "Hügel voller Reichtümer"
 
 #: applications/tokens/query/PhabricatorTokenQuery.php:42
 msgid "Pterodactyl"
-msgstr ""
+msgstr "Pterodactylus"
 
 #: applications/tokens/query/PhabricatorTokenQuery.php:43
 msgid "Evil Spooky Haunted Tree"
-msgstr ""
+msgstr "Böser unheimlicher verwunschener Baum"
 
 #: applications/tokens/query/PhabricatorTokenQuery.php:44
 msgid "Baby Tequila"
-msgstr ""
+msgstr "Mini-Tequila"
 
 #: applications/tokens/query/PhabricatorTokenQuery.php:45
 msgid "The World Burns"
-msgstr ""
+msgstr "Brennende Welten"
 
 #: applications/tokens/storage/PhabricatorTokenGiven.php:55
 msgid "A token inherits the policies of the object it is awarded to."
-msgstr ""
+msgstr "Eine Trophäe erbt die Policies des Objektes, für das sie verliehen wird."
 
 #: applications/tokens/storage/PhabricatorTokenGiven.php:58
 msgid "The user who gave a token can always edit it."
-msgstr ""
+msgstr "Der Benutzer, der eine Trophäe verliehen hat, darf sie auch ändern."
 
 #: applications/tokens/phid/PhabricatorTokenPHIDTypeToken.php:12
 #: applications/conduit/controller/PhabricatorConduitTokenController.php:46
 msgid "Token"
-msgstr ""
+msgstr "Trophäe"
 
 #: applications/tokens/conduit/ConduitAPI_token_give_Method.php:6
 msgid "Give or change a token."
-msgstr ""
+msgstr "Eine Trophäe verleihen oder ändern."
 
 #: applications/tokens/conduit/ConduitAPI_token_given_Method.php:6
 msgid "Query tokens given to objects."
-msgstr ""
+msgstr "An Objekte vergebene Trophäen abfragen."
 
 #: applications/tokens/conduit/ConduitAPI_token_query_Method.php:6
 msgid "Query tokens."
-msgstr ""
+msgstr "Trophäen abfragen."
 
 #: applications/tokens/controller/PhabricatorTokenController.php:11
 #: applications/tokens/controller/PhabricatorTokenGivenController.php:58
 msgid "Tokens Given"
-msgstr ""
+msgstr "Vergebene Trophäen"
 
 #: applications/tokens/controller/PhabricatorTokenController.php:12
 msgid "Leader Board"
-msgstr ""
+msgstr "Rangliste"
 
 #: applications/tokens/controller/PhabricatorTokenGiveController.php:34
 #: applications/tokens/controller/PhabricatorTokenGiveController.php:101
 msgid "Give Token"
-msgstr ""
+msgstr "Trophäe vergeben"
 
 #: applications/tokens/controller/PhabricatorTokenGiveController.php:112
 msgid "Really rescind this lovely token?"
-msgstr ""
+msgstr "Diese wunderschöne Trophäe wirklich zurücknehmen?"
 
 #: applications/tokens/controller/PhabricatorTokenGivenController.php:50
 #, php-format
 msgid "Given by %s on %s"
-msgstr ""
+msgstr "Von %s verliehen für %s"
 
 #: applications/tokens/controller/PhabricatorTokenLeaderController.php:36
 #, php-format
 msgid "Tokens: %s"
-msgstr ""
+msgstr "Trophäen: %s"
 
 #: applications/tokens/controller/PhabricatorTokenLeaderController.php:40
 msgid "Token Leader Board"
-msgstr ""
+msgstr "Trophäen Rangliste"
 
 #: applications/tokens/application/PhabricatorApplicationTokens.php:22
 msgid "Acquire Trinkets"
-msgstr ""
+msgstr "Berlocken gewinnen"
 
 #: applications/tokens/feed/PhabricatorTokenGivenFeedStory.php:34
 #, php-format
 msgid "%s awarded %s a %s token."
-msgstr ""
+msgstr "%s verlieh %s eine %s Trophäe."
 
 #: applications/repository/worker/PhabricatorRepositoryCommitHeraldWorker.php:133
 msgid "DETAILS"
-msgstr ""
+msgstr "DETAILS"
 
 #: applications/repository/worker/PhabricatorRepositoryCommitHeraldWorker.php:134
 msgid "DIFFERENTIAL REVISION"
-msgstr ""
+msgstr "DIFFERENTIAL VERSION"
 
 #: applications/repository/worker/PhabricatorRepositoryCommitHeraldWorker.php:135
 msgid "AFFECTED FILES"
-msgstr ""
+msgstr "BETROFFENE DATEIEN"
 
 #: applications/repository/worker/PhabricatorRepositoryCommitHeraldWorker.php:211
 #, php-format
 msgid "Herald Rule #%d \"%s\" Triggered Audit"
-msgstr ""
+msgstr "Herald Regel #%d \"%s\" hat eine Überprüfung ausgelöst"
 
 #: applications/repository/worker/PhabricatorRepositoryCommitHeraldWorker.php:216
 #, php-format
 msgid "Herald Rule #%d \"%s\" Triggered CC"
-msgstr ""
+msgstr "Herald Regel #%d \"%s\" hat eine Emailkopie ausgelöst"
 
 #: applications/repository/editor/PhabricatorRepositoryEditor.php:172
 #, php-format
 msgid "Error setting repository encoding '%s': %s'"
-msgstr ""
+msgstr "Fehler beim Setzen der Repository Zeichencodierung '%s': %s'"
 
 #: applications/repository/query/PhabricatorRepositorySearchEngine.php:61
 msgid "Callsigns"
-msgstr ""
+msgstr "Rufzeichen"
 
 #: applications/repository/query/PhabricatorRepositorySearchEngine.php:71
 msgid "Types"
-msgstr ""
+msgstr "Typen"
 
 #: applications/repository/query/PhabricatorRepositorySearchEngine.php:98
 #: applications/repository/query/PhabricatorRepositorySearchEngine.php:123
 msgid "Active Repositories"
-msgstr ""
+msgstr "Aktive Repositories"
 
 #: applications/repository/query/PhabricatorRepositorySearchEngine.php:99
 msgid "All Repositories"
-msgstr ""
+msgstr "Alle Repositories"
 
 #: applications/repository/query/PhabricatorRepositorySearchEngine.php:122
 msgid "Active and Inactive Repositories"
-msgstr ""
+msgstr "Aktive und inaktive Repositories"
 
 #: applications/repository/query/PhabricatorRepositorySearchEngine.php:124
 msgid "Inactive Repositories"
-msgstr ""
+msgstr "Inaktive Repositories"
 
 #: applications/repository/query/PhabricatorRepositorySearchEngine.php:138
 msgid "Most Recent Commit"
-msgstr ""
+msgstr "Neueste Commits"
 
 #: applications/repository/query/PhabricatorRepositorySearchEngine.php:140
 #: applications/diffusion/controller/DiffusionRepositoryCreateController.php:252
 #: applications/diffusion/controller/DiffusionRepositoryController.php:152
 #: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:184
 msgid "Callsign"
-msgstr ""
+msgstr "Rufzeichen"
 
 #: applications/repository/query/PhabricatorRepositorySearchEngine.php:141
 #: applications/maniphest/query/ManiphestTaskSearchEngine.php:404
 #: applications/maniphest/export/ManiphestExcelDefaultFormat.php:61
 #: applications/phriction/query/PhrictionSearchEngine.php:100
 msgid "Date Created"
-msgstr ""
+msgstr "Erstellungsdatum"
 
 #: applications/repository/storage/PhabricatorRepositoryTransaction.php:46
 #, php-format
 msgid "%s activated this repository."
-msgstr ""
+msgstr "%s hat dieses Repository aktiviert."
 
 #: applications/repository/storage/PhabricatorRepositoryTransaction.php:50
 #, php-format
 msgid "%s deactivated this repository."
-msgstr ""
+msgstr "%s hat dieses Repository deaktiviert."
 
 #: applications/repository/storage/PhabricatorRepositoryTransaction.php:55
 #, php-format
 msgid "%s renamed this repository from \"%s\" to \"%s\"."
-msgstr ""
+msgstr "%s hat dieses Repository von \"%s\" nach \"%s\" umbenannt."
 
 #: applications/repository/storage/PhabricatorRepositoryTransaction.php:61
 #, php-format
 msgid "%s updated the description of this repository."
-msgstr ""
+msgstr "%s hat die Beschreibung für dieses Repository aktualisiert."
 
 #: applications/repository/storage/PhabricatorRepositoryTransaction.php:66
 #, php-format
 msgid "%s removed the \"%s\" encoding configured for this repository."
-msgstr ""
+msgstr "%s hat die \"%s\" Zeichencodierung vom Repository entfernt."
 
 #: applications/repository/storage/PhabricatorRepositoryTransaction.php:71
 #, php-format
 msgid "%s set the encoding for this repository to \"%s\"."
-msgstr ""
+msgstr "%s hat die Zeichencodierung für das Repository auf \"%s\" gesetzt."
 
 #: applications/repository/storage/PhabricatorRepositoryTransaction.php:76
 #, php-format
 msgid "%s changed the repository encoding from \"%s\" to \"%s\"."
-msgstr ""
+msgstr "%s hat die Repository Zeichencodierung von \"%s\" nach \"%s\" geändert."
 
 #: applications/repository/storage/PhabricatorRepositoryTransaction.php:84
 #, php-format
 msgid "%s removed \"%s\" as the default branch."
-msgstr ""
+msgstr "%s hat \"%s\" als Vorgabe-Branch entfernt."
 
 #: applications/repository/storage/PhabricatorRepositoryTransaction.php:89
 #, php-format
 msgid "%s set the default branch to \"%s\"."
-msgstr ""
+msgstr "%s hat den Vorgabe-Branch auf \"%s\" gesetzt."
 
 #: applications/repository/storage/PhabricatorRepositoryTransaction.php:94
 #, php-format
 msgid "%s changed the default branch from \"%s\" to \"%s\"."
-msgstr ""
+msgstr "%s hat den Vorgabe-Branch von \"%s\" nach \"%s\" geändert."
 
 #: applications/repository/storage/PhabricatorRepositoryTransaction.php:103
 #, php-format
 msgid "%s set this repository to track all branches."
-msgstr ""
+msgstr "%s läßt das Repository alle Branches verfolgen."
 
 #: applications/repository/storage/PhabricatorRepositoryTransaction.php:107
 #, php-format
 msgid "%s set this repository to track branches: %s."
-msgstr ""
+msgstr "%s läßt das Repository die folgenden Branches verfolgen: %s."
 
 #: applications/repository/storage/PhabricatorRepositoryTransaction.php:112
 #, php-format
 msgid "%s changed track branches from \"%s\" to \"%s\"."
-msgstr ""
+msgstr "%s hat die Verfolgung von Branches von \"%s\" nach \"%s\" geändert."
 
 #: applications/repository/storage/PhabricatorRepositoryTransaction.php:121
 #, php-format
 msgid "%s set this repository to autoclose on all branches."
-msgstr ""
+msgstr "%s hat das Repository für alle Branches auf 'autoclose' konfiguriert."
 
 #: applications/repository/storage/PhabricatorRepositoryTransaction.php:125
 #, php-format
@@ -6132,6 +6132,8 @@ msgstr ""
 msgid ""
 "It's not The Final Countdown (du nu nuuu nun) until you fix these problem"
 msgstr ""
+"Es ist nicht der finale Countdown (The Final Countdown, da na naa na), bis\n"
+"Du nicht alle Probleme beseitigt hast"
 
 #: applications/countdown/controller/PhabricatorCountdownEditController.php:100
 #: applications/phame/controller/blog/PhameBlogEditController.php:32
@@ -6140,7 +6142,7 @@ msgstr ""
 #: applications/settings/panel/PhabricatorSettingsPanelSSHKeys.php:132
 #: applications/slowvote/controller/PhabricatorSlowvoteEditController.php:210
 msgid "Save Changes"
-msgstr ""
+msgstr "Änderungen speichern"
 
 #: applications/countdown/controller/PhabricatorCountdownEditController.php:118
 #: applications/phame/controller/post/PhamePostEditController.php:111
@@ -6156,11 +6158,11 @@ msgstr ""
 #: applications/pholio/view/PholioUploadedImageView.php:35
 #: applications/conpherence/controller/ConpherenceUpdateController.php:239
 msgid "Title"
-msgstr ""
+msgstr "Titel"
 
 #: applications/countdown/controller/PhabricatorCountdownEditController.php:124
 msgid "End Date"
-msgstr ""
+msgstr "Enddatum"
 
 #: applications/countdown/controller/PhabricatorCountdownEditController.php:128
 msgid "Examples: 2011-12-25 or 3 hours or June 8 2011, 5 PM."
@@ -6170,21 +6172,21 @@ msgstr ""
 #: applications/macro/controller/PhabricatorMacroListController.php:69
 #, php-format
 msgid "Created by %s"
-msgstr ""
+msgstr "Erstellt von %s"
 
 #: applications/countdown/controller/PhabricatorCountdownListController.php:55
 #, php-format
 msgid "Ends %s"
-msgstr ""
+msgstr "Beended %s"
 
 #: applications/countdown/controller/PhabricatorCountdownListController.php:59
 #, php-format
 msgid "Ended %s"
-msgstr ""
+msgstr "Ended %s"
 
 #: applications/countdown/application/PhabricatorApplicationCountdown.php:14
 msgid "Countdown Timers"
-msgstr ""
+msgstr "Countdown Zähler"
 
 #: applications/countdown/application/PhabricatorApplicationCountdown.php:22
 msgid "Utilize the full capabilities of your ALU."
@@ -6196,31 +6198,31 @@ msgstr ""
 
 #: applications/phrequent/event/PhrequentUIEventListener.php:45
 msgid "Start Tracking Time"
-msgstr ""
+msgstr "Zeiterfassung starten"
 
 #: applications/phrequent/event/PhrequentUIEventListener.php:52
 msgid "Stop Tracking Time"
-msgstr ""
+msgstr "Zeiterfassung beenden"
 
 #: applications/phrequent/event/PhrequentUIEventListener.php:120
 msgid "Working Now"
-msgstr ""
+msgstr "Arbeitete gerade daran"
 
 #: applications/phrequent/event/PhrequentUIEventListener.php:123
 msgid "Interrupted"
-msgstr ""
+msgstr "Unterbrochen"
 
 #: applications/phrequent/event/PhrequentUIEventListener.php:126
 msgid "Not Working Now"
-msgstr ""
+msgstr "Arbeite gerade nicht"
 
 #: applications/phrequent/event/PhrequentUIEventListener.php:141
 msgid "Time Spent"
-msgstr ""
+msgstr "Verbrauchte Zeit"
 
 #: applications/phrequent/query/PhrequentSearchEngine.php:66
 msgid "Users"
-msgstr ""
+msgstr "Benutzer"
 
 #: applications/phrequent/query/PhrequentSearchEngine.php:70
 msgid "Ended"
