@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-10-26 13:48+0200\n"
-"PO-Revision-Date: 2013-10-27 11:51+0100\n"
+"PO-Revision-Date: 2013-10-27 12:08+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: Deutsch <peter@schlaile.de>\n"
 "Language: \n"
@@ -7779,20 +7779,20 @@ msgstr ""
 #: applications/maniphest/event/ManiphestHovercardEventListener.php:71
 #: applications/maniphest/controller/ManiphestTaskDetailController.php:562
 msgid "Depends On"
-msgstr ""
+msgstr "Hängt ab von"
 
 #: applications/maniphest/event/ManiphestActionMenuEventListener.php:42
 #: applications/maniphest/event/ManiphestActionMenuEventListener.php:61
 msgid "View Tasks"
-msgstr ""
+msgstr "Aufgaben anzeigen"
 
 #: applications/maniphest/editor/ManiphestTransactionEditor.php:187
 msgid "TASK DESCRIPTION"
-msgstr ""
+msgstr "AUFGABEN-BESCHREIBUNG"
 
 #: applications/maniphest/editor/ManiphestTransactionEditor.php:192
 msgid "TASK DETAIL"
-msgstr ""
+msgstr "AUFGABEN-DETAILS"
 
 #: applications/maniphest/capability/ManiphestCapabilityEditPolicies.php:13
 msgid "Can Edit Task Policies"
@@ -7804,11 +7804,11 @@ msgstr ""
 
 #: applications/maniphest/capability/ManiphestCapabilityEditPriority.php:13
 msgid "Can Prioritize Tasks"
-msgstr ""
+msgstr "Darf Aufgaben eine Priorität zuweisen"
 
 #: applications/maniphest/capability/ManiphestCapabilityEditPriority.php:17
 msgid "You do not have permission to prioritize tasks."
-msgstr ""
+msgstr "Du hast nicht die nötigen Rechte, um Aufgaben Prioritäten zuzuweisen."
 
 #: applications/maniphest/capability/ManiphestCapabilityEditStatus.php:13
 msgid "Can Edit Task Status"
@@ -7824,15 +7824,15 @@ msgstr ""
 
 #: applications/maniphest/capability/ManiphestCapabilityEditAssign.php:13
 msgid "Can Assign Tasks"
-msgstr ""
+msgstr "Darf Aufgaben zuweisen"
 
 #: applications/maniphest/capability/ManiphestCapabilityEditAssign.php:17
 msgid "You do not have permission to assign tasks."
-msgstr ""
+msgstr "Du hast nicht die nötigen Rechte, um Aufgaben zuzuweisen."
 
 #: applications/maniphest/capability/ManiphestCapabilityBulkEdit.php:13
 msgid "Can Bulk Edit Tasks"
-msgstr ""
+msgstr "Darf einen Stapel von Aufgaben auf einmal verändern."
 
 #: applications/maniphest/capability/ManiphestCapabilityBulkEdit.php:17
 msgid "You do not have permission to bulk edit tasks."
@@ -7854,29 +7854,29 @@ msgstr ""
 #: applications/maniphest/controller/ManiphestTaskEditController.php:535
 #: applications/maniphest/export/ManiphestExcelDefaultFormat.php:60
 msgid "Priority"
-msgstr ""
+msgstr "Priorität"
 
 #: applications/maniphest/query/ManiphestTaskSearchEngine.php:260
 #: applications/maniphest/controller/ManiphestTaskDetailController.php:520
 #: applications/maniphest/controller/ManiphestTaskEditController.php:514
 msgid "Assigned To"
-msgstr ""
+msgstr "Zugewiesen an"
 
 #: applications/maniphest/query/ManiphestTaskSearchEngine.php:267
 msgid "Show only unassigned tasks."
-msgstr ""
+msgstr "Nur nicht zugewiesene Aufgaben zeigen."
 
 #: applications/maniphest/query/ManiphestTaskSearchEngine.php:273
 msgid "In All Projects"
-msgstr ""
+msgstr "In allen Projekten"
 
 #: applications/maniphest/query/ManiphestTaskSearchEngine.php:280
 msgid "Show only tasks with no projects."
-msgstr ""
+msgstr "Nur Aufgaben zeigen, die keinem Projekt zugeordnet sind."
 
 #: applications/maniphest/query/ManiphestTaskSearchEngine.php:286
 msgid "In Any Project"
-msgstr ""
+msgstr "In irgendeinem Projekt"
 
 #: applications/maniphest/query/ManiphestTaskSearchEngine.php:292
 msgid "Not In Projects"
@@ -7888,7 +7888,7 @@ msgstr ""
 
 #: applications/maniphest/query/ManiphestTaskSearchEngine.php:323
 msgid "Order By"
-msgstr ""
+msgstr "Sortierung"
 
 #: applications/maniphest/query/ManiphestTaskSearchEngine.php:329
 msgid "Contains Text"
@@ -7896,7 +7896,7 @@ msgstr ""
 
 #: applications/maniphest/query/ManiphestTaskSearchEngine.php:334
 msgid "Task IDs"
-msgstr ""
+msgstr "Aufgaben IDs"
 
 #: applications/maniphest/query/ManiphestTaskSearchEngine.php:343
 #: applications/legalpad/query/LegalpadDocumentSearchEngine.php:75
@@ -7904,7 +7904,7 @@ msgstr ""
 #: applications/paste/query/PhabricatorPasteSearchEngine.php:90
 #: applications/files/query/PhabricatorFileSearchEngine.php:75
 msgid "Created After"
-msgstr ""
+msgstr "Erzeugt nach"
 
 #: applications/maniphest/query/ManiphestTaskSearchEngine.php:345
 #: applications/legalpad/query/LegalpadDocumentSearchEngine.php:77
@@ -7912,7 +7912,7 @@ msgstr ""
 #: applications/paste/query/PhabricatorPasteSearchEngine.php:92
 #: applications/files/query/PhabricatorFileSearchEngine.php:77
 msgid "Created Before"
-msgstr ""
+msgstr "Erzeugt vor"
 
 #: applications/maniphest/query/ManiphestTaskSearchEngine.php:351
 msgid "Page Size"
@@ -7926,7 +7926,7 @@ msgstr ""
 
 #: applications/maniphest/query/ManiphestTaskSearchEngine.php:368
 msgid "All Tasks"
-msgstr ""
+msgstr "Alle Aufgaben"
 
 #: applications/maniphest/query/ManiphestTaskSearchEngine.php:403
 #: applications/maniphest/export/ManiphestExcelDefaultFormat.php:62
@@ -7973,15 +7973,15 @@ msgstr ""
 #: applications/maniphest/storage/ManiphestTransaction.php:190
 #: applications/maniphest/storage/ManiphestTransaction.php:240
 msgid "Triaged"
-msgstr ""
+msgstr "Priorisiert"
 
 #: applications/maniphest/storage/ManiphestTransaction.php:192
 msgid "Lowered Priority"
-msgstr ""
+msgstr "Priorität verringert"
 
 #: applications/maniphest/storage/ManiphestTransaction.php:194
 msgid "Raised Priority"
-msgstr ""
+msgstr "Priorität erhöht"
 
 #: applications/maniphest/storage/ManiphestTransaction.php:199
 #: applications/files/controller/PhabricatorFileInfoController.php:232
@@ -7991,42 +7991,42 @@ msgstr ""
 #: applications/maniphest/storage/ManiphestTransaction.php:267
 #, php-format
 msgid "%s changed the title from \"%s\" to \"%s\"."
-msgstr ""
+msgstr "%s hat den Titel von \"%s\" nach \"%s\" geändert."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:274
 #, php-format
 msgid "%s edited the task description."
-msgstr ""
+msgstr "%s hat die Aufgabenbeschreibung geändert."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:282
 #, php-format
 msgid "%s created this task."
-msgstr ""
+msgstr "%s hat diese Aufgabe erzeugt."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:286
 #, php-format
 msgid "%s reopened this task."
-msgstr ""
+msgstr "%s hat diese Aufgabe wieder eröffnet."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:292
 #, php-format
 msgid "%s closed this task out of spite."
-msgstr ""
+msgstr "%s hat diese Aufgabe aus Trotz geschlossen."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:296
 #, php-format
 msgid "%s closed this task as a duplicate."
-msgstr ""
+msgstr "%s hat diese Aufgabe geschlossen (war ein Duplikat)."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:304
 #, php-format
 msgid "%s closed this task as \"%s\"."
-msgstr ""
+msgstr "%s hat diese Aufgabe wegen \"%s\" geschlossen."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:312
 #, php-format
 msgid "%s claimed this task."
-msgstr ""
+msgstr "%s hat diese Aufgabe an sich gerissen."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:316
 #, php-format
@@ -8204,15 +8204,15 @@ msgstr ""
 
 #: applications/maniphest/phid/ManiphestPHIDTypeTask.php:12
 msgid "Task"
-msgstr ""
+msgstr "Aufgabe"
 
 #: applications/maniphest/constants/ManiphestTaskStatus.php:20
 msgid "Resolved"
-msgstr ""
+msgstr "Gelöst"
 
 #: applications/maniphest/constants/ManiphestTaskStatus.php:21
 msgid "Wontfix"
-msgstr ""
+msgstr "Wird nicht korrigiert"
 
 #: applications/maniphest/constants/ManiphestTaskStatus.php:23
 #: applications/mailinglists/controller/PhabricatorMailingListsEditController.php:71
@@ -8225,31 +8225,31 @@ msgstr ""
 #: applications/settings/panel/PhabricatorSettingsPanelEmailAddresses.php:202
 #: applications/settings/panel/PhabricatorSettingsPanelSSHKeys.php:111
 msgid "Duplicate"
-msgstr ""
+msgstr "Duplikat"
 
 #: applications/maniphest/constants/ManiphestTaskStatus.php:24
 msgid "Spite"
-msgstr ""
+msgstr "Kein Bock"
 
 #: applications/maniphest/constants/ManiphestTaskStatus.php:38
 msgid "Closed, Resolved"
-msgstr ""
+msgstr "Abgeschlossen, Gelöst"
 
 #: applications/maniphest/constants/ManiphestTaskStatus.php:39
 msgid "Closed, Wontfix"
-msgstr ""
+msgstr "Abgeschlossen, wird nicht gelöst"
 
 #: applications/maniphest/constants/ManiphestTaskStatus.php:40
 msgid "Closed, Invalid"
-msgstr ""
+msgstr "Abgeschlossen, da falsch bzw. ungültig"
 
 #: applications/maniphest/constants/ManiphestTaskStatus.php:41
 msgid "Closed, Duplicate"
-msgstr ""
+msgstr "Abgeschlossen, Duplikat"
 
 #: applications/maniphest/constants/ManiphestTaskStatus.php:42
 msgid "Closed, Spite"
-msgstr ""
+msgstr "Abgeschlossen, kein Bock"
 
 #: applications/maniphest/controller/ManiphestBatchEditController.php:119
 msgid "These tasks will be edited:"
@@ -8385,26 +8385,26 @@ msgstr ""
 
 #: applications/maniphest/controller/ManiphestReportController.php:605
 msgid "Recently Closed"
-msgstr ""
+msgstr "Vor kurzem abgeschlossen"
 
 #: applications/maniphest/controller/ManiphestController.php:16
 #: applications/maniphest/controller/ManiphestController.php:39
 #: applications/maniphest/controller/ManiphestTaskEditController.php:455
 #: applications/maniphest/controller/ManiphestTaskEditController.php:458
 msgid "Create Task"
-msgstr ""
+msgstr "Neue Aufgabe"
 
 #: applications/maniphest/controller/ManiphestTaskListController.php:85
 #, php-format
 msgid "%s (%s)"
-msgstr ""
+msgstr "%s (%s)"
 
 #: applications/maniphest/controller/ManiphestTaskListController.php:170
 #: applications/maniphest/controller/ManiphestTaskListController.php:193
 #: applications/maniphest/export/ManiphestExcelDefaultFormat.php:29
 #: applications/diviner/controller/DivinerAtomController.php:152
 msgid "Tasks"
-msgstr ""
+msgstr "Aufgaben"
 
 #: applications/maniphest/controller/ManiphestTaskListController.php:184
 msgid "(Not Assigned)"
