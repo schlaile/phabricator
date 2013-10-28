@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-10-27 15:43+0100\n"
-"PO-Revision-Date: 2013-10-27 15:54+0100\n"
+"PO-Revision-Date: 2013-10-28 18:39+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: Deutsch <peter@schlaile.de>\n"
 "Language: \n"
@@ -19989,7 +19989,7 @@ msgstr ""
 
 #: applications/directory/controller/PhabricatorDirectoryMainController.php:127
 msgid "No \"Unbreak Now!\" Tasks"
-msgstr ""
+msgstr "Keine \"akute Notfall\" Aufgaben"
 
 #: applications/directory/controller/PhabricatorDirectoryMainController.php:128
 msgid "Nothing appears to be critically broken right now."
@@ -20001,19 +20001,19 @@ msgstr "Offene Aufgaben mit Priorität: \"Akuter Notfall!\"."
 
 #: applications/directory/controller/PhabricatorDirectoryMainController.php:141
 msgid "View All Unbreak Now »"
-msgstr ""
+msgstr "Alle akuten Notfälle zeigen »"
 
 #: applications/directory/controller/PhabricatorDirectoryMainController.php:177
 msgid "No \"Needs Triage\" Tasks"
-msgstr ""
+msgstr "Keine \"zu sortierenden\" Aufgaben"
 
 #: applications/directory/controller/PhabricatorDirectoryMainController.php:178
 msgid "No tasks in <a href=\"/project/\">projects you are a member of</a> need triage."
-msgstr ""
+msgstr "Keine Aufgaben <a href=\"/project/\">in Projekten, an denen Du teilnimmst</a> müssen sortiert werden."
 
 #: applications/directory/controller/PhabricatorDirectoryMainController.php:185
 msgid "Open tasks with \"Needs Triage\" priority in <a href=\"/project/\">projects you are a member of</a>."
-msgstr ""
+msgstr "Offene Aufgaben mit \"zu Sortieren\" Priorität in <a href=\"/project/\">Projekten, an denen ich teilnehme</a>."
 
 #: applications/directory/controller/PhabricatorDirectoryMainController.php:196
 msgid "View All Triage »"
@@ -20062,7 +20062,7 @@ msgstr ""
 #: applications/directory/controller/PhabricatorDirectoryMainController.php:361
 #, php-format
 msgid "Enter the name of an object like <tt>D123</tt> to quickly jump to it. See %s or type <tt>help</tt>."
-msgstr ""
+msgstr "Bitte den Namen eines Objektes wie <tt>D123</tt> eingeben, um es direkt auszuwählen. Siehe auch %s oder <tt>help</tt> eintippen."
 
 #: applications/directory/controller/PhabricatorDirectoryMainController.php:423
 msgid "No Audits"
