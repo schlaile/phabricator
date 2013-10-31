@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-10-27 15:43+0100\n"
-"PO-Revision-Date: 2013-10-28 18:54+0100\n"
+"PO-Revision-Date: 2013-10-31 18:38+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: Deutsch <peter@schlaile.de>\n"
 "Language: \n"
@@ -5044,7 +5044,7 @@ msgstr "%s hat das Repository für alle Branches auf 'autoclose' konfiguriert."
 #: applications/repository/storage/PhabricatorRepositoryTransaction.php:125
 #, php-format
 msgid "%s set this repository to autoclose on branches: %s."
-msgstr ""
+msgstr "%s hat dieses Repository auf 'autoclose' für die folgenden Branches gesetzt: %s"
 
 #: applications/repository/storage/PhabricatorRepositoryTransaction.php:130
 #, php-format
@@ -5059,7 +5059,7 @@ msgstr ""
 #: applications/repository/storage/PhabricatorRepositoryTransaction.php:144
 #, php-format
 msgid "%s set the repository UUID to \"%s\"."
-msgstr ""
+msgstr "%s hat die Repository-UUID auf \"%s\" gesetzt."
 
 #: applications/repository/storage/PhabricatorRepositoryTransaction.php:149
 #, php-format
@@ -5147,44 +5147,44 @@ msgstr ""
 
 #: applications/repository/phid/PhabricatorRepositoryPHIDTypeArcanistProject.php:16
 msgid "Arcanist Project"
-msgstr ""
+msgstr "Arcanist Projekt"
 
 #: applications/repository/controller/PhabricatorRepositoryDeleteController.php:30
 msgid "If you really want to delete the repository, you must run:"
-msgstr ""
+msgstr "Wenn Du das Repository wirklich löschen möchtest, mußt Du folgendes ausführen:"
 
 #: applications/repository/controller/PhabricatorRepositoryDeleteController.php:32
 msgid "Repositories touch many objects and as such deletes are prohibitively expensive to run from the web UI."
-msgstr ""
+msgstr "Repositories sind mit vielen Objekten verknüpft und daher sind Löschoperationen beliebig aufwändig, wenn man sie aus dem web UI startet."
 
 #: applications/repository/controller/PhabricatorRepositoryDeleteController.php:48
 msgid "Really want to delete the repository?"
-msgstr ""
+msgstr "Das Repository wirklich löschen?"
 
 #: applications/repository/controller/PhabricatorRepositoryCreateController.php:105
 #: applications/repository/controller/PhabricatorRepositoryCreateController.php:114
 msgid "Create Repository"
-msgstr ""
+msgstr "Neues Repository"
 
 #: applications/repository/controller/PhabricatorRepositoryEditController.php:163
 #: applications/repository/controller/PhabricatorRepositoryEditController.php:172
 #: applications/diffusion/controller/DiffusionRepositoryController.php:327
 msgid "Edit Repository"
-msgstr ""
+msgstr "Repository ändern"
 
 #: applications/repository/controller/PhabricatorRepositoryEditController.php:450
 msgid "Permit users to view the username of this connection."
-msgstr ""
+msgstr "Anderen Benutzern erlauben, den Benutzernamen dieser Verbindung anzuzeigen."
 
 #: applications/repository/controller/PhabricatorRepositoryEditController.php:682
 #: applications/repository/controller/PhabricatorRepositoryEditController.php:692
 msgid "Edit Repository Tracking"
-msgstr ""
+msgstr "Repository-Verfolgung ändern"
 
 #: applications/repository/engine/__tests__/PhabricatorWorkingCopyTestCase.php:50
 #, php-format
 msgid "Test Repo \"%s\""
-msgstr ""
+msgstr "Repository \"%s\" testen"
 
 #: applications/repository/PhabricatorRepositoryConfigOptions.php:14
 msgid "Configure repositories."
@@ -5311,15 +5311,15 @@ msgstr ""
 
 #: applications/phortune/option/PhabricatorPhortuneConfigOptions.php:31
 msgid "Enable Test Provider"
-msgstr ""
+msgstr "Test-Zahlungsdienstleister aktivieren"
 
 #: applications/phortune/option/PhabricatorPhortuneConfigOptions.php:32
 msgid "Disable Test Provider"
-msgstr ""
+msgstr "Test-Zahlungsdienstleister deaktivieren"
 
 #: applications/phortune/option/PhabricatorPhortuneConfigOptions.php:34
 msgid "Enable test payment provider."
-msgstr ""
+msgstr "Test-Zahlungsdienstleister aktivieren."
 
 #: applications/phortune/option/PhabricatorPhortuneConfigOptions.php:37
 msgid ""
@@ -5327,6 +5327,9 @@ msgid ""
 "\n"
 "NOTE: Enabling this provider gives all users infinite free money! You should enable it **ONLY** for testing and development."
 msgstr ""
+"Test-Zahlungsdienstleister aktivieren.\n"
+"\n"
+"Hinweis: das Aktivieren dieses Zahlungsdienstleisters "
 
 #: applications/phortune/option/PhabricatorPhortuneConfigOptions.php:45
 msgid "PayPal API username."
@@ -5360,48 +5363,48 @@ msgstr ""
 #: applications/phortune/controller/PhortunePaymentMethodListController.php:9
 #: applications/phortune/controller/PhortuneAccountViewController.php:87
 msgid "Payment Methods"
-msgstr ""
+msgstr "Zahlungsmethoden"
 
 #: applications/phortune/controller/PhortuneAccountBuyController.php:70
 #: applications/phortune/controller/PhortuneAccountBuyController.php:83
 msgid "Total"
-msgstr ""
+msgstr "Summe"
 
 #: applications/phortune/controller/PhortuneAccountBuyController.php:80
 msgid "Item"
-msgstr ""
+msgstr "Artikel"
 
 #: applications/phortune/controller/PhortuneProductViewController.php:67
 #: applications/phortune/controller/PhortuneProductEditController.php:124
 #: applications/phortune/controller/PhortuneAccountBuyController.php:81
 msgid "Price"
-msgstr ""
+msgstr "Preis"
 
 #: applications/phortune/controller/PhortuneAccountBuyController.php:82
 msgid "Qty."
-msgstr ""
+msgstr "Menge"
 
 #: applications/phortune/controller/PhortuneAccountBuyController.php:91
 msgid "Buy Stuff"
-msgstr ""
+msgstr "Dinge Kaufen"
 
 #: applications/phortune/controller/PhortuneAccountBuyController.php:101
 #: applications/phortune/controller/PhortuneAccountBuyController.php:105
 #: applications/phortune/controller/PhortuneAccountBuyController.php:110
 msgid "Payment Method"
-msgstr ""
+msgstr "Zahlungsmethode"
 
 #: applications/phortune/controller/PhortuneAccountBuyController.php:107
 msgid "No payment methods configured."
-msgstr ""
+msgstr "Keine Zahlungsmethoden konfiguriert"
 
 #: applications/phortune/controller/PhortuneAccountBuyController.php:137
 msgid "Add New Payment Method"
-msgstr ""
+msgstr "Neue Zahlungsmethode hinzufügen"
 
 #: applications/phortune/controller/PhortuneAccountBuyController.php:147
 msgid "Submit Payment"
-msgstr ""
+msgstr "Zahlung abschicken"
 
 #: applications/phortune/controller/PhortunePaymentMethodEditController.php:67
 #: applications/phortune/controller/PhortunePaymentMethodEditController.php:194
@@ -5420,20 +5423,20 @@ msgstr ""
 
 #: applications/phortune/controller/PhortunePaymentMethodEditController.php:93
 msgid "Error Adding Payment Method"
-msgstr ""
+msgstr "Es gab einen Fehler beim Anlegen der Zahlungsmethode"
 
 #: applications/phortune/controller/PhortunePaymentMethodEditController.php:111
 #: applications/phortune/controller/PhortunePaymentMethodEditController.php:157
 #: applications/phortune/controller/PhortuneAccountViewController.php:97
 msgid "Add Payment Method"
-msgstr ""
+msgstr "Neue Zahlungsmethode"
 
 #: applications/settings/panel/PhabricatorSettingsPanelAccount.php:11
 #: applications/phortune/controller/PhortunePaymentMethodEditController.php:164
 #: applications/phortune/controller/PhortuneAccountViewController.php:29
 #: applications/people/event/PhabricatorPeopleHovercardEventListener.php:37
 msgid "Account"
-msgstr ""
+msgstr "Konto"
 
 #: applications/phortune/controller/PhortunePaymentMethodEditController.php:192
 #, php-format
@@ -20099,3 +20102,4 @@ msgstr "Problematische Commits zeigen »"
 #: applications/maniphest/application/PhabricatorApplicationManiphest.php:6
 msgid "Tasks and Bugs"
 msgstr "Aufgaben und Probleme"
+
