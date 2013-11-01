@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-01 10:00+0100\n"
-"PO-Revision-Date: 2013-11-01 11:28+0100\n"
+"POT-Creation-Date: 2013-11-01 14:07+0100\n"
+"PO-Revision-Date: 2013-11-01 14:14+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: Deutsch <peter@schlaile.de>\n"
 "Language: \n"
@@ -16,8 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: German\n"
-"X-Poedit-Country: GERMANY\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Country: Germany\n"
 
 #: applications/diffusion/controller/DiffusionRepositoryEditDeleteController.php:52
 #: view/AphrontDialogView.php:55
@@ -6699,7 +6698,7 @@ msgstr ""
 msgid "Need Attention"
 msgstr ""
 
-#: applications/directory/controller/PhabricatorDirectoryMainController.php:437
+#: applications/directory/controller/PhabricatorDirectoryMainController.php:439
 #: applications/audit/controller/PhabricatorAuditListController.php:79
 #: applications/audit/controller/PhabricatorAuditListController.php:358
 #: applications/audit/controller/PhabricatorAuditController.php:14
@@ -6831,7 +6830,7 @@ msgstr ""
 msgid "No matching audits in repository %s."
 msgstr ""
 
-#: applications/directory/controller/PhabricatorDirectoryMainController.php:482
+#: applications/directory/controller/PhabricatorDirectoryMainController.php:484
 #: applications/audit/controller/PhabricatorAuditListController.php:456
 msgid "Problem Commits"
 msgstr ""
@@ -8628,7 +8627,7 @@ msgstr "Akuter Notfall!!"
 msgid "Unbreak!"
 msgstr "Notfall!"
 
-#: applications/directory/controller/PhabricatorDirectoryMainController.php:183
+#: applications/directory/controller/PhabricatorDirectoryMainController.php:184
 #: applications/maniphest/config/PhabricatorManiphestConfigOptions.php:23
 msgid "Needs Triage"
 msgstr "Muß noch sortiert werden"
@@ -14266,7 +14265,7 @@ msgstr ""
 
 #: applications/auth/application/PhabricatorApplicationAuth.php:38
 msgid "Log Out"
-msgstr ""
+msgstr "Abmelden"
 
 #: applications/auth/provider/PhabricatorAuthProviderOAuthGitHub.php:7
 msgid "GitHub"
@@ -16945,7 +16944,7 @@ msgstr ""
 msgid "Your configuration fails to specify a server timezone. You can either set the PHP configuration value 'date.timezone' or the Phabricator configuration value 'phabricator.timezone' to specify one."
 msgstr ""
 
-#: applications/settings/panel/PhabricatorSettingsPanelAccount.php:100
+#: applications/settings/panel/PhabricatorSettingsPanelAccount.php:99
 #: applications/config/check/PhabricatorSetupCheckTimezone.php:44
 msgid "Timezone"
 msgstr ""
@@ -18633,20 +18632,20 @@ msgstr "Männlich"
 msgid "Female"
 msgstr "Weiblich"
 
-#: applications/settings/panel/PhabricatorSettingsPanelAccount.php:92
+#: applications/settings/panel/PhabricatorSettingsPanelAccount.php:91
 #, php-format
 msgid "Server Default (%s)"
 msgstr ""
 
-#: applications/settings/panel/PhabricatorSettingsPanelAccount.php:107
+#: applications/settings/panel/PhabricatorSettingsPanelAccount.php:106
 msgid "Sex"
 msgstr "Geschlecht"
 
-#: applications/settings/panel/PhabricatorSettingsPanelAccount.php:113
+#: applications/settings/panel/PhabricatorSettingsPanelAccount.php:112
 msgid "Translation"
 msgstr "Sprache"
 
-#: applications/settings/panel/PhabricatorSettingsPanelAccount.php:118
+#: applications/settings/panel/PhabricatorSettingsPanelAccount.php:117
 #, php-format
 msgid ""
 "**Custom Date and Time Formats**\n"
@@ -18663,19 +18662,19 @@ msgid ""
 "You can find a [[%s | full reference in the PHP manual]]."
 msgstr ""
 
-#: applications/settings/panel/PhabricatorSettingsPanelAccount.php:132
+#: applications/settings/panel/PhabricatorSettingsPanelAccount.php:131
 msgid "Time-of-Day Format"
 msgstr ""
 
-#: applications/settings/panel/PhabricatorSettingsPanelAccount.php:135
+#: applications/settings/panel/PhabricatorSettingsPanelAccount.php:134
 msgid "Format used when rendering a time of day."
 msgstr ""
 
-#: applications/settings/panel/PhabricatorSettingsPanelAccount.php:139
+#: applications/settings/panel/PhabricatorSettingsPanelAccount.php:138
 msgid "Save Account Settings"
 msgstr ""
 
-#: applications/settings/panel/PhabricatorSettingsPanelAccount.php:142
+#: applications/settings/panel/PhabricatorSettingsPanelAccount.php:141
 msgid "Account Settings"
 msgstr ""
 
@@ -20005,94 +20004,92 @@ msgstr "Alle akuten Notfälle zeigen »"
 
 #: applications/directory/controller/PhabricatorDirectoryMainController.php:177
 msgid "No \"Needs Triage\" Tasks"
-msgstr "Keine \"zu sortierenden\" Aufgaben"
+msgstr "Keine \"zu priorisierenden\" Aufgaben"
 
-#: applications/directory/controller/PhabricatorDirectoryMainController.php:178
 msgid "No tasks in <a href=\"/project/\">projects you are a member of</a> need triage."
 msgstr "Keine Aufgaben <a href=\"/project/\">in Projekten, an denen Du teilnimmst</a> müssen sortiert werden."
 
-#: applications/directory/controller/PhabricatorDirectoryMainController.php:185
 msgid "Open tasks with \"Needs Triage\" priority in <a href=\"/project/\">projects you are a member of</a>."
 msgstr "Offene Aufgaben mit \"zu Sortieren\" Priorität in <a href=\"/project/\">Projekten, an denen ich teilnehme</a>."
 
-#: applications/directory/controller/PhabricatorDirectoryMainController.php:196
+#: applications/directory/controller/PhabricatorDirectoryMainController.php:198
 msgid "View All Triage »"
 msgstr ""
 
-#: applications/directory/controller/PhabricatorDirectoryMainController.php:221
+#: applications/directory/controller/PhabricatorDirectoryMainController.php:223
 msgid "No Waiting Revisions"
 msgstr "Keine Version wartet auf Freigabe"
 
-#: applications/directory/controller/PhabricatorDirectoryMainController.php:222
+#: applications/directory/controller/PhabricatorDirectoryMainController.php:224
 msgid "No revisions are waiting on you."
 msgstr "Keine Version hängt von Deiner Freigabe ab."
 
-#: applications/directory/controller/PhabricatorDirectoryMainController.php:226
+#: applications/directory/controller/PhabricatorDirectoryMainController.php:228
 msgid "Revisions Waiting on You"
 msgstr "Versionen, die von Deiner Freigabe abhängen"
 
-#: applications/directory/controller/PhabricatorDirectoryMainController.php:227
+#: applications/directory/controller/PhabricatorDirectoryMainController.php:229
 msgid "Revisions waiting for you for review or commit."
 msgstr "Versionen, die auf Deinen Review oder Commit warten."
 
-#: applications/directory/controller/PhabricatorDirectoryMainController.php:236
+#: applications/directory/controller/PhabricatorDirectoryMainController.php:238
 msgid "View Active Revisions »"
 msgstr "Zeige aktive Versionen »"
 
-#: applications/directory/controller/PhabricatorDirectoryMainController.php:286
+#: applications/directory/controller/PhabricatorDirectoryMainController.php:288
 msgid "No Assigned Tasks"
 msgstr "Keine zugewiesenen Aufgaben"
 
-#: applications/directory/controller/PhabricatorDirectoryMainController.php:287
+#: applications/directory/controller/PhabricatorDirectoryMainController.php:289
 msgid "You have no assigned tasks."
 msgstr "Du hast keine zugewiesenen Aufgaben."
 
-#: applications/directory/controller/PhabricatorDirectoryMainController.php:291
+#: applications/directory/controller/PhabricatorDirectoryMainController.php:293
 msgid "Assigned Tasks"
 msgstr "Zugewiesene Aufgaben"
 
-#: applications/directory/controller/PhabricatorDirectoryMainController.php:300
+#: applications/directory/controller/PhabricatorDirectoryMainController.php:302
 msgid "View Active Tasks »"
 msgstr "Zeige Aktive Aufgaben »"
 
-#: applications/directory/controller/PhabricatorDirectoryMainController.php:345
+#: applications/directory/controller/PhabricatorDirectoryMainController.php:347
 msgid "Jump Nav User Guide"
 msgstr "Jump-Nav Anleitung"
 
-#: applications/directory/controller/PhabricatorDirectoryMainController.php:361
+#: applications/directory/controller/PhabricatorDirectoryMainController.php:363
 #, php-format
 msgid "Enter the name of an object like <tt>D123</tt> to quickly jump to it. See %s or type <tt>help</tt>."
 msgstr "Bitte den Namen eines Objektes wie <tt>D123</tt> eingeben, um es direkt auszuwählen. Siehe auch %s oder <tt>help</tt> eintippen."
 
-#: applications/directory/controller/PhabricatorDirectoryMainController.php:423
+#: applications/directory/controller/PhabricatorDirectoryMainController.php:425
 msgid "No Audits"
 msgstr "Keine Überprüfungen"
 
-#: applications/directory/controller/PhabricatorDirectoryMainController.php:424
+#: applications/directory/controller/PhabricatorDirectoryMainController.php:426
 msgid "No commits are waiting for you to audit them."
 msgstr "Kein Commit wartet auf Deine Überprüfung."
 
-#: applications/directory/controller/PhabricatorDirectoryMainController.php:438
+#: applications/directory/controller/PhabricatorDirectoryMainController.php:440
 msgid "Commits awaiting your audit."
 msgstr "Commits, die auf Deine Überprüfung warten."
 
-#: applications/directory/controller/PhabricatorDirectoryMainController.php:447
+#: applications/directory/controller/PhabricatorDirectoryMainController.php:449
 msgid "View Active Audits »"
 msgstr "Zeige laufende Überprüfungen"
 
-#: applications/directory/controller/PhabricatorDirectoryMainController.php:469
+#: applications/directory/controller/PhabricatorDirectoryMainController.php:471
 msgid "No Problem Commits"
 msgstr "Keine mangelhaften Commits"
 
-#: applications/directory/controller/PhabricatorDirectoryMainController.php:470
+#: applications/directory/controller/PhabricatorDirectoryMainController.php:472
 msgid "No one has raised concerns with your commits."
 msgstr "Keiner hat Bedenken wegen Deiner Commits geäußert."
 
-#: applications/directory/controller/PhabricatorDirectoryMainController.php:483
+#: applications/directory/controller/PhabricatorDirectoryMainController.php:485
 msgid "Commits which auditors have raised concerns about."
 msgstr "Commits, bei denen das Überprüfungsteam Bedenken angemeldet hat."
 
-#: applications/directory/controller/PhabricatorDirectoryMainController.php:492
+#: applications/directory/controller/PhabricatorDirectoryMainController.php:494
 msgid "View Problem Commits »"
 msgstr "Problematische Commits zeigen »"
 
@@ -20630,23 +20627,38 @@ msgstr ""
 
 #: applications/legalpad/controller/LegalpadDocumentViewController.php:115
 msgid "Document"
-msgstr ""
+msgstr "Dokument"
 
 #: applications/legalpad/controller/LegalpadDocumentSignController.php:50
 msgid "Already Signed"
-msgstr ""
+msgstr "Schon unterschrieben"
 
 #: applications/legalpad/controller/LegalpadDocumentSignController.php:51
 #: applications/legalpad/controller/LegalpadDocumentSignController.php:106
 msgid "Thank you for signing and agreeing"
-msgstr ""
+msgstr "Danke, dass Du einverstanden bist und unterschrieben hast"
 
 #: applications/legalpad/controller/LegalpadDocumentSignController.php:105
 msgid "Signature successful"
-msgstr ""
+msgstr "Erfolgreich unterschrieben"
 
 #: view/form/control/AphrontFormPolicyControl.php:36
 #, php-format
 msgid "Capability \"%s\""
 msgstr ""
+
+#: applications/directory/controller/PhabricatorDirectoryMainController.php:180
+#: applications/directory/controller/PhabricatorDirectoryMainController.php:188
+msgid "projects you are a member of"
+msgstr "Projekten, an denen Du teilnimmst"
+
+#: applications/directory/controller/PhabricatorDirectoryMainController.php:178
+#, php-format
+msgid "No tasks in %s need triage."
+msgstr "Keine Aufgaben in %s müssen priorisiert werden."
+
+#: applications/directory/controller/PhabricatorDirectoryMainController.php:186
+#, php-format
+msgid "Open tasks with \"Needs Triage\" priority in %s."
+msgstr "Offene Aufgaben, die priorisiert werden müssen in %s."
 
