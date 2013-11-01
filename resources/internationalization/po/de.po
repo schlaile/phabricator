@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-01 10:00+0100\n"
-"PO-Revision-Date: 2013-11-01 10:06+0100\n"
+"PO-Revision-Date: 2013-11-01 11:20+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: Deutsch <peter@schlaile.de>\n"
 "Language: \n"
@@ -13458,29 +13458,29 @@ msgstr ""
 
 #: applications/conpherence/controller/ConpherenceUpdateController.php:224
 msgid "Remove Participants"
-msgstr ""
+msgstr "Teilnehmer entfernen"
 
 #: applications/conpherence/controller/ConpherenceUpdateController.php:245
 msgid "Update Conpherence"
-msgstr ""
+msgstr "Conpherence aktualisieren"
 
 #: applications/conpherence/controller/ConpherenceNotificationPanelController.php:77
 msgid "You have no messages."
-msgstr ""
+msgstr "Du hast keine Nachrichten."
 
 #: applications/conpherence/controller/ConpherenceNotificationPanelController.php:84
 msgid "Messages"
-msgstr ""
+msgstr "Nachrichten"
 
 #: applications/conpherence/controller/ConpherenceNewController.php:12
 #: applications/conpherence/controller/ConpherenceController.php:13
 #: applications/conpherence/controller/ConpherenceController.php:41
 msgid "New Message"
-msgstr ""
+msgstr "Neue Nachricht"
 
 #: applications/conpherence/controller/ConpherenceController.php:26
 msgid "New Calendar Item"
-msgstr ""
+msgstr "Neuer Kalendereintrag"
 
 #: applications/conpherence/controller/ConpherenceWidgetController.php:323
 msgid "No Events Scheduled."
@@ -13488,23 +13488,23 @@ msgstr ""
 
 #: applications/conpherence/controller/ConpherenceViewController.php:123
 msgid "Show Older Messages"
-msgstr ""
+msgstr "Ältere Nachrichten anzeigen"
 
 #: applications/conpherence/controller/ConpherenceViewController.php:153
 msgid "Send"
-msgstr ""
+msgstr "Senden"
 
 #: applications/conpherence/controller/ConpherenceViewController.php:154
 msgid "Pontificate"
-msgstr ""
+msgstr "Verkünden"
 
 #: applications/conpherence/controller/ConpherenceNewController.php:89
 msgid "To"
-msgstr ""
+msgstr "An"
 
 #: applications/conpherence/mail/ConpherenceReplyHandler.php:35
 msgid "Reply to comment and attach files."
-msgstr ""
+msgstr "Auf Kommentar antworten und Dateien anhängen."
 
 #: applications/conpherence/application/PhabricatorApplicationConpherence.php:17
 msgid "Messaging"
@@ -13512,83 +13512,83 @@ msgstr ""
 
 #: applications/conpherence/config/ConpherenceConfigOptions.php:11
 msgid "Configure Conpherence messaging."
-msgstr ""
+msgstr "Conpherence Emails konfigurieren"
 
 #: applications/conpherence/config/ConpherenceConfigOptions.php:20
 msgid "Subject prefix for Conpherence mail."
-msgstr ""
+msgstr "Kürzel vor dem Betreff der Conpherence Emails."
 
 #: applications/chatlog/applications/PhabricatorApplicationChatLog.php:10
 #: applications/chatlog/controller/PhabricatorChatLogController.php:8
 msgid "Chat Log"
-msgstr ""
+msgstr "Chat-Protokoll"
 
 #: applications/chatlog/controller/PhabricatorChatLogChannelListController.php:28
 #: applications/chatlog/controller/PhabricatorChatLogChannelListController.php:37
 msgid "Channel List"
-msgstr ""
+msgstr "Kanalliste"
 
 #: applications/chatlog/controller/PhabricatorChatLogChannelLogController.php:151
 msgid "Newest"
-msgstr ""
+msgstr "Neuester"
 
 #: applications/chatlog/controller/PhabricatorChatLogChannelLogController.php:161
 msgid "Newer"
-msgstr ""
+msgstr "Neuer"
 
 #: applications/chatlog/controller/PhabricatorChatLogChannelLogController.php:171
 msgid "Older"
-msgstr ""
+msgstr "Älter"
 
 #: applications/chatlog/controller/PhabricatorChatLogChannelLogController.php:202
 msgid "Jump"
-msgstr ""
+msgstr "Direkt anspringen"
 
 #: applications/chatlog/controller/PhabricatorChatLogChannelLogController.php:226
 msgid "Jump to Bottom"
-msgstr ""
+msgstr "Letzter Eintrag"
 
 #: applications/chatlog/controller/PhabricatorChatLogChannelLogController.php:261
 msgid "Channel Log"
-msgstr ""
+msgstr "Kanal-Protokoll"
 
 #: applications/auth/view/PhabricatorAuthAccountView.php:52
 #, php-format
 msgid "%s Account"
-msgstr ""
+msgstr "%s Konto"
 
 #: applications/auth/view/PhabricatorAuthAccountView.php:54
 #, php-format
 msgid "\"%s\" Account"
-msgstr ""
+msgstr "\"%s\" Konto"
 
 #: applications/auth/query/PhabricatorAuthProviderConfigQuery.php:37
 msgid "All Providers"
-msgstr ""
+msgstr "Alle Anbieter"
 
 #: applications/auth/query/PhabricatorAuthProviderConfigQuery.php:38
 msgid "Enabled Providers"
-msgstr ""
+msgstr "Aktivierte Zugangsdienstleister"
 
 #: applications/auth/storage/PhabricatorAuthProviderConfigTransaction.php:79
 #, php-format
 msgid "%s created this provider."
-msgstr ""
+msgstr "%s hat diesen Dienstleister erstellt."
 
 #: applications/auth/storage/PhabricatorAuthProviderConfigTransaction.php:83
 #, php-format
 msgid "%s enabled this provider."
-msgstr ""
+msgstr "%s hat diesen Dienstleister aktiviert."
 
 #: applications/auth/storage/PhabricatorAuthProviderConfigTransaction.php:87
 #, php-format
 msgid "%s disabled this provider."
-msgstr ""
+msgstr "%s hat diesen Dienstleister deaktiviert."
 
 #: applications/auth/storage/PhabricatorAuthProviderConfigTransaction.php:94
 #, php-format
 msgid "%s enabled registration."
-msgstr ""
+msgstr "%s hat die Registrierung aktiviert."
 
 #: applications/auth/storage/PhabricatorAuthProviderConfigTransaction.php:98
 #, php-format
@@ -13622,7 +13622,7 @@ msgstr ""
 
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:20
 msgid "You are already logged in."
-msgstr ""
+msgstr "Du bist bereits angemeldet"
 
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:49
 #, php-format
@@ -13632,91 +13632,91 @@ msgstr ""
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:135
 #: applications/auth/controller/PhabricatorEmailLoginController.php:25
 msgid "Again"
-msgstr ""
+msgstr "Nochmal"
 
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:139
 #: applications/auth/controller/PhabricatorEmailLoginController.php:29
 msgid "Captcha response is incorrect, try again."
-msgstr ""
+msgstr "Die Captcha-Antwort ist falsch, bitte erneut versuchen."
 
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:162
 msgid "You must choose a password."
-msgstr ""
+msgstr "Du mußt ein Passwort wählen"
 
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:164
 msgid "No Match"
-msgstr ""
+msgstr "Keine Übereinstimmung"
 
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:165
 msgid "Password and confirmation must match."
-msgstr ""
+msgstr "Passwort und Bestätigungsfeld müssen übereinstimmen"
 
 #: applications/settings/panel/PhabricatorSettingsPanelPassword.php:77
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:167
 msgid "Too Short"
-msgstr ""
+msgstr "Zu kurz"
 
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:169
 #, php-format
 msgid "Password is too short (must be at least %d characters long)."
-msgstr ""
+msgstr "Das Passwort ist zu kurz (es muß mindestens %d Zeichen lang sein)."
 
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:264
 msgid "Another user already has that email."
-msgstr ""
+msgstr "Diese Emailadresse ist bereits vergeben."
 
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:279
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:491
 msgid "Registration Failed"
-msgstr ""
+msgstr "Registrierung fehlgeschlagen"
 
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:301
 msgid "Phabricator Username"
-msgstr ""
+msgstr "Phabricator Benutzername"
 
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:314
 #, php-format
 msgid "Minimum length of %d characters."
-msgstr ""
+msgstr "Sollte mindestens %d Zeichen lang sein."
 
 #: applications/settings/panel/PhabricatorSettingsPanelPassword.php:153
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:318
 msgid "Confirm Password"
-msgstr ""
+msgstr "Passwort bestätigen"
 
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:345
 #: applications/auth/controller/PhabricatorEmailLoginController.php:132
 msgid "Captcha"
-msgstr ""
+msgstr "Captcha"
 
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:353
 msgid "Create Admin Account"
-msgstr ""
+msgstr "Neues Administratorkonto"
 
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:357
 msgid "Register Phabricator Account"
-msgstr ""
+msgstr "Phabricator-Konto registrieren"
 
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:368
 msgid "Setup Admin Account"
-msgstr ""
+msgstr "Administrator-Konto anlegen"
 
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:369
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:384
 msgid "Welcome to Phabricator"
-msgstr ""
+msgstr "Willkommen bei Phabricator"
 
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:373
 msgid "Register"
-msgstr ""
+msgstr "Registrierung"
 
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:377
 msgid "Phabricator Registration"
-msgstr ""
+msgstr "Phabricator Registrierung"
 
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:387
 msgid "Installation is complete. Register your administrator account below to log in. You will be able to configure options and add other authentication mechanisms (like LDAP or OAuth) later on."
-msgstr ""
+msgstr "Die Installation ist abgeschlossen. Registriere unten ein Administrator-Konto, um Dich anzumelden. Danach gibt es die Möglichkeit, weitere Einstellungen vorzunehmen und zusätzliche Authentisierungsmechanismen zu aktivieren (so wie LDAP oder OAuth)."
 
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:428
 msgid "There are no configured default registration providers."
@@ -13728,7 +13728,7 @@ msgstr ""
 
 #: applications/auth/controller/PhabricatorAuthLinkController.php:28
 msgid "Account Not Linkable"
-msgstr ""
+msgstr "Konto nicht verknüpfbar"
 
 #: applications/auth/controller/PhabricatorAuthLinkController.php:30
 msgid "This provider is not configured to allow linking."
@@ -13744,15 +13744,15 @@ msgstr ""
 
 #: applications/auth/controller/PhabricatorAuthLinkController.php:57
 msgid "Account Already Linked"
-msgstr ""
+msgstr "Konto bereits verknüpft"
 
 #: applications/auth/controller/PhabricatorAuthLinkController.php:60
 msgid "Your Phabricator account is already linked to an external account for this provider."
-msgstr ""
+msgstr "Dein Phabricator-Konto ist bereits mit einem externen Konto bei diesem Dienstleister verknüpft."
 
 #: applications/auth/controller/PhabricatorAuthLinkController.php:68
 msgid "No Account Linked"
-msgstr ""
+msgstr "Es ist kein Konto verknüpft"
 
 #: applications/auth/controller/PhabricatorAuthLinkController.php:71
 msgid "You do not have a linked account on this provider, and thus can not refresh it."
@@ -13762,17 +13762,17 @@ msgstr ""
 #: applications/auth/controller/PhabricatorAuthLinkController.php:120
 #: applications/auth/controller/PhabricatorAuthLoginController.php:207
 msgid "Link Account"
-msgstr ""
+msgstr "Konto verknüpfen"
 
 #: applications/auth/controller/PhabricatorAuthLinkController.php:107
 #, php-format
 msgid "Link %s Account"
-msgstr ""
+msgstr "%s Konto verknüpfen"
 
 #: applications/auth/controller/PhabricatorAuthLinkController.php:110
 #: applications/auth/provider/PhabricatorAuthProviderLDAP.php:78
 msgid "Refresh Account"
-msgstr ""
+msgstr "Konto aktualisieren"
 
 #: applications/auth/controller/PhabricatorAuthLinkController.php:111
 #, php-format
@@ -13781,7 +13781,7 @@ msgstr ""
 
 #: applications/auth/controller/PhabricatorAuthStartController.php:34
 msgid "Your login session is invalid. Try reloading the page and logging in again. If that does not work, clear your browser cookies."
-msgstr ""
+msgstr "Deine Sitzung ist ungültig geworden. Probiere, die Seite im Browser neu zu laden und Dich nochmal anzumelden. Wenn das immer noch nicht weiterhilft, bitte die Browser-Cookies löschen."
 
 #: applications/auth/controller/PhabricatorAuthStartController.php:56
 msgid "This Phabricator install is not configured with any enabled authentication providers which can be used to log in. If you have accidentally locked yourself out by disabling all providers, you can use `phabricator/bin/auth recover <username>` to recover access to an administrative account."
@@ -13796,20 +13796,20 @@ msgstr ""
 #: applications/auth/provider/PhabricatorAuthProviderLDAP.php:86
 #: applications/auth/provider/PhabricatorAuthProvider.php:400
 msgid "Login"
-msgstr ""
+msgstr "Anmeldung"
 
 #: applications/auth/controller/PhabricatorAuthStartController.php:140
 #: applications/auth/provider/PhabricatorAuthProviderPassword.php:71
 msgid "Login to Phabricator"
-msgstr ""
+msgstr "Phabricator-Anmeldung"
 
 #: applications/auth/controller/PhabricatorAuthStartController.php:160
 msgid "Login Required"
-msgstr ""
+msgstr "Anmeldung erforderlich"
 
 #: applications/auth/controller/PhabricatorAuthStartController.php:161
 msgid "You must login to continue."
-msgstr ""
+msgstr "Um weiterzumachen, muß Du angemeldet sein."
 
 #: applications/auth/controller/PhabricatorAuthStartController.php:182
 #, php-format
@@ -13818,12 +13818,12 @@ msgstr ""
 
 #: applications/auth/controller/PhabricatorAuthStartController.php:194
 msgid "Authentication Failure"
-msgstr ""
+msgstr "Anmeldefehler"
 
 #: applications/auth/controller/PhabricatorMustVerifyEmailController.php:33
 #: applications/auth/controller/PhabricatorEmailLoginController.php:106
 msgid "Email Sent"
-msgstr ""
+msgstr "Email verschickt"
 
 #: applications/auth/controller/PhabricatorMustVerifyEmailController.php:38
 #, php-format
@@ -13833,29 +13833,29 @@ msgstr ""
 #: applications/auth/controller/PhabricatorMustVerifyEmailController.php:43
 #: applications/auth/controller/PhabricatorEmailLoginController.php:100
 msgid "Check Your Email"
-msgstr ""
+msgstr "Bitte in Dein Emailpostfach schauen"
 
 #: applications/auth/controller/PhabricatorMustVerifyEmailController.php:45
 #, php-format
 msgid "You must verify your email address to login. You should have a new email message from Phabricator with verification instructions in your inbox (%s)."
-msgstr ""
+msgstr "Du mußt Deine Emailadressen bestätigen, um Dich anmelden zu können. Es sollte sich eine neue Email von Phabricator in Deinem Postfach befinden, die die nötigen Intruktionen enthält (%s)."
 
 #: applications/auth/controller/PhabricatorMustVerifyEmailController.php:49
 msgid "If you did not receive an email, you can click the button below to try sending another one."
-msgstr ""
+msgstr "Wenn Du keine Email erhalten hast, kannst Du mit dem Button unten eine weitere auslösen."
 
 #: applications/auth/controller/PhabricatorMustVerifyEmailController.php:63
 #: applications/auth/controller/PhabricatorEmailTokenController.php:58
 msgid "Send Another Email"
-msgstr ""
+msgstr "Nochmals eine Überprüfungs-Email senden."
 
 #: applications/auth/controller/PhabricatorMustVerifyEmailController.php:72
 msgid "Must Verify Email"
-msgstr ""
+msgstr "Die Email-Adresse muß verifiziert werden"
 
 #: applications/auth/controller/PhabricatorAuthConfirmLinkController.php:24
 msgid "This account is not linkable."
-msgstr ""
+msgstr "Das Konto kann nicht verknüpft werden."
 
 #: applications/auth/controller/PhabricatorAuthConfirmLinkController.php:48
 #, php-format
@@ -13922,7 +13922,7 @@ msgstr ""
 
 #: applications/auth/controller/PhabricatorAuthLoginController.php:45
 msgid "You canceled authentication."
-msgstr ""
+msgstr "Du hast die Anmeldung abgebrochen."
 
 #: applications/auth/controller/PhabricatorAuthLoginController.php:68
 #, php-format
@@ -13955,37 +13955,37 @@ msgstr ""
 
 #: applications/auth/controller/PhabricatorAuthLoginController.php:194
 msgid "Login Failed"
-msgstr ""
+msgstr "Anmeldung fehlgeschlagen"
 
 #: applications/auth/controller/PhabricatorAuthLoginController.php:236
 #, php-format
 msgid "Authentication provider (\"%s\") encountered an error during login. %s"
-msgstr ""
+msgstr "Der Zugangsdienstleister (\"%s\") ist beim Anmelden auf einen Fehler gelaufen. %s"
 
 #: applications/auth/controller/PhabricatorDisabledUserController.php:18
 #: applications/auth/controller/PhabricatorDisabledUserController.php:25
 msgid "Account Disabled"
-msgstr ""
+msgstr "Konto gesperrt"
 
 #: applications/auth/controller/PhabricatorDisabledUserController.php:20
 msgid "Your account has been disabled."
-msgstr ""
+msgstr "Dein Konto wurde gesperrt"
 
 #: applications/auth/controller/PhabricatorLogoutController.php:48
 msgid "Log out of Phabricator?"
-msgstr ""
+msgstr "Aus Phabricator abmelden?"
 
 #: applications/auth/controller/PhabricatorLogoutController.php:50
 msgid "Are you sure you want to log out?"
-msgstr ""
+msgstr "Bist Du sicher, daß Du dich abmelden möchtest?"
 
 #: applications/auth/controller/PhabricatorLogoutController.php:51
 msgid "Logout"
-msgstr ""
+msgstr "Abmelden"
 
 #: applications/auth/controller/PhabricatorAuthUnlinkController.php:73
 msgid "No Such Account"
-msgstr ""
+msgstr "Konto existiert nicht"
 
 #: applications/auth/controller/PhabricatorAuthUnlinkController.php:76
 msgid "You can not unlink this account because it is not linked."
@@ -14040,24 +14040,24 @@ msgstr ""
 
 #: applications/auth/controller/PhabricatorEmailVerificationController.php:34
 msgid "Rats!"
-msgstr ""
+msgstr "Ihr Ratten!"
 
 #: applications/auth/controller/PhabricatorEmailVerificationController.php:36
 msgid "Address Already Verified"
-msgstr ""
+msgstr "Email-Adresse bereits bestätigt"
 
 #: applications/auth/controller/PhabricatorEmailVerificationController.php:38
 msgid "This email address has already been verified."
-msgstr ""
+msgstr "Diese Email-Adresse wurde bereits bestätigt."
 
 #: applications/auth/controller/PhabricatorEmailVerificationController.php:39
 #: applications/auth/controller/PhabricatorEmailVerificationController.php:50
 msgid "Continue to Phabricator"
-msgstr ""
+msgstr "Phabricator benutzen"
 
 #: applications/auth/controller/PhabricatorEmailVerificationController.php:46
 msgid "Address Verified"
-msgstr ""
+msgstr "Emailadresse wurde verifiziert"
 
 #: applications/auth/controller/PhabricatorEmailVerificationController.php:48
 #, php-format
@@ -14067,7 +14067,7 @@ msgstr ""
 #: applications/auth/controller/PhabricatorEmailVerificationController.php:63
 #: applications/auth/controller/PhabricatorEmailVerificationController.php:71
 msgid "Verify Email"
-msgstr ""
+msgstr "Emailadresse verifizieren"
 
 #: applications/auth/controller/PhabricatorAuthValidateController.php:20
 #, php-format
@@ -14091,40 +14091,40 @@ msgstr ""
 #: applications/auth/controller/PhabricatorAuthValidateController.php:69
 #: applications/auth/controller/PhabricatorEmailTokenController.php:63
 msgid "Login Failure"
-msgstr ""
+msgstr "Anmeldung fehlgeschlagen"
 
 #: applications/auth/controller/PhabricatorEmailLoginController.php:35
 msgid "You must provide an email address."
-msgstr ""
+msgstr "Du mußt eine Email-Adresse angeben."
 
 #: applications/auth/controller/PhabricatorEmailLoginController.php:57
 msgid "There is no account associated with that email address."
-msgstr ""
+msgstr "Es gibt kein Konto, daß mit dieser Email-Adresse verbunden wäre."
 
 #: applications/auth/controller/PhabricatorEmailLoginController.php:102
 msgid "An email has been sent with a link you can use to login."
-msgstr ""
+msgstr "Du hast eine Email mit einem Link bekommen, mittels dem Du Dich jetzt anmelden kannst."
 
 #: applications/auth/controller/PhabricatorEmailLoginController.php:138
 msgid "Reset Password"
-msgstr ""
+msgstr "Passwort zurücksetzen"
 
 #: applications/auth/controller/PhabricatorEmailLoginController.php:143
 msgid "Forgot Password / Email Login"
-msgstr ""
+msgstr "Passwort vergessen / mittels Email anmelden"
 
 #: applications/settings/panel/PhabricatorSettingsPanelEmailAddresses.php:307
 #: applications/auth/controller/PhabricatorEmailLoginController.php:145
 msgid "Send Email"
-msgstr ""
+msgstr "Email senden"
 
 #: applications/auth/controller/PhabricatorEmailLoginController.php:154
 msgid "Forgot Password"
-msgstr ""
+msgstr "Passwort vergessen?"
 
 #: applications/auth/controller/PhabricatorEmailTokenController.php:48
 msgid "Unable to Login"
-msgstr ""
+msgstr "Anmeldung fehlgeschlagen"
 
 #: applications/auth/controller/PhabricatorEmailTokenController.php:50
 msgid "The authentication information in the link you clicked is invalid or out of date. Make sure you are copy-and-pasting the entire link into your browser. You can try again, or request a new email."
