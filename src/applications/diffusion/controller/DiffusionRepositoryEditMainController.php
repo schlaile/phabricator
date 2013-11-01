@@ -30,19 +30,18 @@ final class DiffusionRepositoryEditMainController
     }
 
     $has_branches = ($is_git || $is_hg);
+    $has_local = $repository->usesLocalWorkingCopy();
 
-    $crumbs = $this->buildApplicationCrumbs();
+    $crumbs = $this->buildApplicationCrumbs($is_main = true);
 
     $title = pht('Edit %s', $repository->getName());
 
     $header = id(new PHUIHeaderView())
       ->setHeader($title);
-    if (!$repository->isTracked()) {
-      $header->addTag(
-        id(new PhabricatorTagView())
-          ->setType(PhabricatorTagView::TYPE_STATE)
-          ->setName(pht('Inactive'))
-          ->setBackgroundColor(PhabricatorTagView::COLOR_BLACK));
+    if ($repository->isTracked()) {
+      $header->setStatus('oh-ok', '', pht('Active'));
+    } else {
+      $header->setStatus('policy-noone', '', pht('Inactive'));
     }
 
     $basic_actions = $this->buildBasicActions($repository);
@@ -61,6 +60,10 @@ final class DiffusionRepositoryEditMainController
     $encoding_properties =
       $this->buildEncodingProperties($repository, $encoding_actions);
 
+    $hosting_properties = $this->buildHostingProperties(
+      $repository,
+      $this->buildHostingActions($repository));
+
     $branches_properties = null;
     if ($has_branches) {
       $branches_properties = $this->buildBranchesProperties(
@@ -73,6 +76,13 @@ final class DiffusionRepositoryEditMainController
       $subversion_properties = $this->buildSubversionProperties(
         $repository,
         $this->buildSubversionActions($repository));
+    }
+
+    $local_properties = null;
+    if ($has_local) {
+      $local_properties = $this->buildLocalProperties(
+        $repository,
+        $this->buildLocalActions($repository));
     }
 
     $actions_properties = $this->buildActionsProperties(
@@ -105,8 +115,14 @@ final class DiffusionRepositoryEditMainController
       ->setHeader($header)
       ->addPropertyList($basic_properties)
       ->addPropertyList($policy_properties)
-      ->addPropertyList($remote_properties)
-      ->addPropertyList($encoding_properties);
+      ->addPropertyList($hosting_properties)
+      ->addPropertyList($remote_properties);
+
+    if ($local_properties) {
+      $obj_box->addPropertyList($local_properties);
+    }
+
+    $obj_box->addPropertyList($encoding_properties);
 
     if ($branches_properties) {
       $obj_box->addPropertyList($branches_properties);
@@ -160,6 +176,14 @@ final class DiffusionRepositoryEditMainController
 
     $view->addAction($activate);
 
+    $view->addAction(
+      id(new PhabricatorActionView())
+        ->setName(pht('Delete Repository'))
+        ->setIcon('delete')
+        ->setHref(
+          $this->getRepositoryControllerURI($repository, 'edit/delete/'))
+        ->setWorkflow(true));
+
     return $view;
   }
 
@@ -173,15 +197,15 @@ final class DiffusionRepositoryEditMainController
       ->setUser($viewer)
       ->setActionList($actions);
 
-    $view->addProperty(pht('Name'), $repository->getName());
-    $view->addProperty(pht('ID'), $repository->getID());
-    $view->addProperty(pht('PHID'), $repository->getPHID());
-
     $type = PhabricatorRepositoryType::getNameForRepositoryType(
       $repository->getVersionControlSystem());
 
     $view->addProperty(pht('Type'), $type);
     $view->addProperty(pht('Callsign'), $repository->getCallsign());
+
+    $view->addProperty(
+      pht('Status'),
+      $this->buildRepositoryStatus($repository));
 
     $description = $repository->getDetail('description');
     $view->addSectionHeader(pht('Description'));
@@ -276,6 +300,10 @@ final class DiffusionRepositoryEditMainController
       pht('Editable By'),
       $descriptions[PhabricatorPolicyCapability::CAN_EDIT]);
 
+    $pushable = $repository->isHosted()
+      ? $descriptions[DiffusionCapabilityPush::CAPABILITY]
+      : phutil_tag('em', array(), pht('Not a Hosted Repository'));
+    $view->addProperty(pht('Pushable By'), $pushable);
 
     return $view;
   }
@@ -314,12 +342,12 @@ final class DiffusionRepositoryEditMainController
     $view->addProperty(pht('Default Branch'), $default_branch);
 
     $track_only = nonempty(
-      $repository->getHumanReadableDetail('branch-filter'),
+      $repository->getHumanReadableDetail('branch-filter', array()),
       phutil_tag('em', array(), pht('Track All Branches')));
     $view->addProperty(pht('Track Only'), $track_only);
 
     $autoclose_only = nonempty(
-      $repository->getHumanReadableDetail('close-commits-filter'),
+      $repository->getHumanReadableDetail('close-commits-filter', array()),
       phutil_tag('em', array(), pht('Autoclose On All Branches')));
     $view->addProperty(pht('Autoclose Only'), $autoclose_only);
 
@@ -440,7 +468,342 @@ final class DiffusionRepositoryEditMainController
 
     $view->addProperty(
       pht('Remote URI'),
-      $repository->getDetail('remote-uri'));
+      $repository->getHumanReadableDetail('remote-uri'));
+
+    return $view;
+  }
+
+  private function buildLocalActions(PhabricatorRepository $repository) {
+    $viewer = $this->getRequest()->getUser();
+
+    $view = id(new PhabricatorActionListView())
+      ->setObjectURI($this->getRequest()->getRequestURI())
+      ->setUser($viewer);
+
+    $edit = id(new PhabricatorActionView())
+      ->setIcon('edit')
+      ->setName(pht('Edit Local'))
+      ->setHref(
+        $this->getRepositoryControllerURI($repository, 'edit/local/'));
+    $view->addAction($edit);
+
+    return $view;
+  }
+
+  private function buildLocalProperties(
+    PhabricatorRepository $repository,
+    PhabricatorActionListView $actions) {
+
+    $viewer = $this->getRequest()->getUser();
+
+    $view = id(new PHUIPropertyListView())
+      ->setUser($viewer)
+      ->setActionList($actions)
+      ->addSectionHeader(pht('Local'));
+
+    $view->addProperty(
+      pht('Local Path'),
+      $repository->getHumanReadableDetail('local-path'));
+
+    return $view;
+  }
+
+  private function buildHostingActions(PhabricatorRepository $repository) {
+    $user = $this->getRequest()->getUser();
+
+    $view = id(new PhabricatorActionListView())
+      ->setObjectURI($this->getRequest()->getRequestURI())
+      ->setUser($user);
+
+    $edit = id(new PhabricatorActionView())
+      ->setIcon('edit')
+      ->setName(pht('Edit Hosting'))
+      ->setHref(
+        $this->getRepositoryControllerURI($repository, 'edit/hosting/'));
+    $view->addAction($edit);
+
+    return $view;
+  }
+
+  private function buildHostingProperties(
+    PhabricatorRepository $repository,
+    PhabricatorActionListView $actions) {
+
+    $user = $this->getRequest()->getUser();
+
+    $view = id(new PHUIPropertyListView())
+      ->setUser($user)
+      ->setActionList($actions)
+      ->addSectionHeader(pht('Hosting'));
+
+    $hosting = $repository->isHosted()
+      ? pht('Hosted on Phabricator')
+      : pht('Hosted Elsewhere');
+    $view->addProperty(pht('Hosting'), phutil_tag('em', array(), $hosting));
+
+    $view->addProperty(
+      pht('Serve over HTTP'),
+      phutil_tag(
+        'em',
+        array(),
+        PhabricatorRepository::getProtocolAvailabilityName(
+          $repository->getServeOverHTTP())));
+
+    $view->addProperty(
+      pht('Serve over SSH'),
+      phutil_tag(
+        'em',
+        array(),
+        PhabricatorRepository::getProtocolAvailabilityName(
+          $repository->getServeOverSSH())));
+
+    return $view;
+  }
+
+  private function buildRepositoryStatus(
+    PhabricatorRepository $repository) {
+
+    $viewer = $this->getRequest()->getUser();
+
+    $view = new PHUIStatusListView();
+
+    $messages = id(new PhabricatorRepositoryStatusMessage())
+      ->loadAllWhere('repositoryID = %d', $repository->getID());
+    $messages = mpull($messages, null, 'getStatusType');
+
+    if ($repository->isTracked()) {
+      $view->addItem(
+        id(new PHUIStatusItemView())
+          ->setIcon('accept-green')
+          ->setTarget(pht('Repository Active')));
+    } else {
+      $view->addItem(
+        id(new PHUIStatusItemView())
+          ->setIcon('warning')
+          ->setTarget(pht('Repository Inactive'))
+          ->setNote(
+            pht('Activate this repository to begin or resume import.')));
+      return $view;
+    }
+
+    $doc_href = PhabricatorEnv::getDocLink(
+      'article/Managing_Daemons_with_phd.html');
+    $daemon_instructions = pht(
+      'Use %s to start daemons. See %s.',
+      phutil_tag('tt', array(), 'bin/phd start'),
+      phutil_tag(
+        'a',
+        array(
+          'href' => $doc_href,
+        ),
+        pht('Managing Daemons with phd')));
+
+
+    $pull_daemon = id(new PhabricatorDaemonLogQuery())
+      ->setViewer(PhabricatorUser::getOmnipotentUser())
+      ->withStatus(PhabricatorDaemonLogQuery::STATUS_ALIVE)
+      ->withDaemonClasses(array('PhabricatorRepositoryPullLocalDaemon'))
+      ->setLimit(1)
+      ->execute();
+
+    if ($pull_daemon) {
+      $view->addItem(
+        id(new PHUIStatusItemView())
+          ->setIcon('accept-green')
+          ->setTarget(pht('Pull Daemon Running')));
+    } else {
+      $view->addItem(
+        id(new PHUIStatusItemView())
+          ->setIcon('warning-red')
+          ->setTarget(pht('Pull Daemon Not Running'))
+          ->setNote($daemon_instructions));
+    }
+
+
+    $task_daemon = id(new PhabricatorDaemonLogQuery())
+      ->setViewer(PhabricatorUser::getOmnipotentUser())
+      ->withStatus(PhabricatorDaemonLogQuery::STATUS_ALIVE)
+      ->withDaemonClasses(array('PhabricatorTaskmasterDaemon'))
+      ->setLimit(1)
+      ->execute();
+    if ($task_daemon) {
+      $view->addItem(
+        id(new PHUIStatusItemView())
+          ->setIcon('accept-green')
+          ->setTarget(pht('Task Daemon Running')));
+    } else {
+      $view->addItem(
+        id(new PHUIStatusItemView())
+          ->setIcon('warning-red')
+          ->setTarget(pht('Task Daemon Not Running'))
+          ->setNote($daemon_instructions));
+    }
+
+    $local_parent = dirname($repository->getLocalPath());
+    if (Filesystem::pathExists($local_parent)) {
+      $view->addItem(
+        id(new PHUIStatusItemView())
+          ->setIcon('accept-green')
+          ->setTarget(pht('Storage Directory OK'))
+          ->setNote(phutil_tag('tt', array(), $local_parent)));
+    } else {
+      $view->addItem(
+        id(new PHUIStatusItemView())
+          ->setIcon('warning-red')
+          ->setTarget(pht('No Storage Directory'))
+          ->setNote(
+            pht(
+              'Storage directory %s does not exist, or is not readable by '.
+              'the webserver. Create this directory or make it readable.',
+              phutil_tag('tt', array(), $local_parent))));
+      return $view;
+    }
+
+    if ($repository->usesLocalWorkingCopy()) {
+      $local_path = $repository->getLocalPath();
+      $message = idx($messages, PhabricatorRepositoryStatusMessage::TYPE_INIT);
+      if ($message) {
+        switch ($message->getStatusCode()) {
+          case PhabricatorRepositoryStatusMessage::CODE_ERROR:
+            $view->addItem(
+              id(new PHUIStatusItemView())
+                ->setIcon('warning-red')
+                ->setTarget(pht('Initialization Error'))
+                ->setNote($message->getParameter('message')));
+            return $view;
+          case PhabricatorRepositoryStatusMessage::CODE_OKAY:
+              if (Filesystem::pathExists($local_path)) {
+                $view->addItem(
+                  id(new PHUIStatusItemView())
+                    ->setIcon('accept-green')
+                    ->setTarget(pht('Working Copy OK'))
+                    ->setNote(phutil_tag('tt', array(), $local_path)));
+              } else {
+                $view->addItem(
+                  id(new PHUIStatusItemView())
+                    ->setIcon('warning-red')
+                    ->setTarget(pht('Working Copy Error'))
+                    ->setNote(
+                      pht(
+                        'Working copy %s has been deleted, or is not '.
+                        'readable by the webserver. Make this directory '.
+                        'readable. If it has been deleted, the daemons should '.
+                        'restore it automatically.',
+                        phutil_tag('tt', array(), $local_path))));
+                return $view;
+              }
+            break;
+          case PhabricatorRepositoryStatusMessage::CODE_WORKING:
+            $view->addItem(
+              id(new PHUIStatusItemView())
+                ->setIcon('time-green')
+                ->setTarget(pht('Initializing Working Copy'))
+                ->setNote(pht('Daemons are initializing the working copy.')));
+            return $view;
+          default:
+            $view->addItem(
+              id(new PHUIStatusItemView())
+                ->setIcon('warning-red')
+                ->setTarget(pht('Unknown Init Status'))
+                ->setNote($message->getStatusCode()));
+            return $view;
+        }
+      } else {
+        $view->addItem(
+          id(new PHUIStatusItemView())
+            ->setIcon('time-orange')
+            ->setTarget(pht('No Working Copy Yet'))
+            ->setNote(
+              pht('Waiting for daemons to build a working copy.')));
+        return $view;
+      }
+    }
+
+    $message = idx($messages, PhabricatorRepositoryStatusMessage::TYPE_FETCH);
+    if ($message) {
+      switch ($message->getStatusCode()) {
+        case PhabricatorRepositoryStatusMessage::CODE_ERROR:
+          $view->addItem(
+            id(new PHUIStatusItemView())
+              ->setIcon('warning-red')
+              ->setTarget(pht('Update Error'))
+              ->setNote($message->getParameter('message')));
+          return $view;
+        case PhabricatorRepositoryStatusMessage::CODE_OKAY:
+          $view->addItem(
+            id(new PHUIStatusItemView())
+              ->setIcon('accept-green')
+              ->setTarget(pht('Updates OK'))
+              ->setNote(
+                pht(
+                  'Last updated %s.',
+                  phabricator_datetime($message->getEpoch(), $viewer))));
+          break;
+      }
+    } else {
+      $view->addItem(
+        id(new PHUIStatusItemView())
+          ->setIcon('time-orange')
+          ->setTarget(pht('Waiting For Update'))
+          ->setNote(
+            pht('Waiting for daemons to read updates.')));
+    }
+
+    if ($repository->isImporting()) {
+      $progress = queryfx_all(
+        $repository->establishConnection('r'),
+        'SELECT importStatus, count(*) N FROM %T WHERE repositoryID = %d
+          GROUP BY importStatus',
+        id(new PhabricatorRepositoryCommit())->getTableName(),
+        $repository->getID());
+
+      $done = 0;
+      $total = 0;
+      foreach ($progress as $row) {
+        $total += $row['N'] * 4;
+        $status = $row['importStatus'];
+        if ($status & PhabricatorRepositoryCommit::IMPORTED_MESSAGE) {
+          $done += $row['N'];
+        }
+        if ($status & PhabricatorRepositoryCommit::IMPORTED_CHANGE) {
+          $done += $row['N'];
+        }
+        if ($status & PhabricatorRepositoryCommit::IMPORTED_OWNERS) {
+          $done += $row['N'];
+        }
+        if ($status & PhabricatorRepositoryCommit::IMPORTED_HERALD) {
+          $done += $row['N'];
+        }
+      }
+
+      if ($total) {
+        $percentage = 100 * ($done / $total);
+      } else {
+        $percentage = 0;
+      }
+
+      $percentage = sprintf('%.1f%%', $percentage);
+
+      $view->addItem(
+        id(new PHUIStatusItemView())
+          ->setIcon('time-green')
+          ->setTarget(pht('Importing'))
+          ->setNote(
+            pht('%s Complete', $percentage)));
+    } else {
+      $view->addItem(
+        id(new PHUIStatusItemView())
+          ->setIcon('accept-green')
+          ->setTarget(pht('Fully Imported')));
+    }
+
+    if (idx($messages, PhabricatorRepositoryStatusMessage::TYPE_NEEDS_UPDATE)) {
+      $view->addItem(
+        id(new PHUIStatusItemView())
+          ->setIcon('up')
+          ->setTarget(pht('Prioritized'))
+          ->setNote(pht('This repository will be updated soon.')));
+    }
 
     return $view;
   }
