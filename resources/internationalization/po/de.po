@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-27 15:43+0100\n"
-"PO-Revision-Date: 2013-10-31 18:38+0100\n"
+"POT-Creation-Date: 2013-11-01 10:00+0100\n"
+"PO-Revision-Date: 2013-11-01 10:06+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: Deutsch <peter@schlaile.de>\n"
 "Language: \n"
@@ -19,7 +19,7 @@ msgstr ""
 "X-Poedit-Country: GERMANY\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: applications/repository/controller/PhabricatorRepositoryDeleteController.php:51
+#: applications/diffusion/controller/DiffusionRepositoryEditDeleteController.php:52
 #: view/AphrontDialogView.php:55
 msgid "Okay"
 msgstr "Okay"
@@ -83,7 +83,7 @@ msgstr "Vorwärts"
 msgid "Last"
 msgstr "Ende"
 
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:396
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:424
 #: view/page/menu/PhabricatorMainMenuView.php:171
 #: view/layout/PhabricatorCrumbsView.php:95
 msgid "Actions"
@@ -213,13 +213,14 @@ msgstr ""
 #: applications/harbormaster/editor/HarbormasterBuildPlanEditor.php:77
 #: applications/harbormaster/controller/HarbormasterBuildableEditController.php:56
 #: applications/harbormaster/controller/HarbormasterPlanExecuteController.php:47
+#: applications/diffusion/controller/DiffusionRepositoryEditLocalController.php:36
 #: applications/diffusion/controller/DiffusionRepositoryEditBasicController.php:38
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:208
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:260
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:268
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:394
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:561
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:631
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:257
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:309
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:317
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:443
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:625
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:695
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:147
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:161
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:179
@@ -244,9 +245,9 @@ msgstr ""
 #: applications/people/controller/PhabricatorPeopleProfilePictureController.php:58
 #: applications/legalpad/controller/LegalpadDocumentEditController.php:65
 #: applications/legalpad/controller/LegalpadDocumentEditController.php:75
-#: applications/legalpad/controller/LegalpadDocumentSignController.php:67
-#: applications/legalpad/controller/LegalpadDocumentSignController.php:73
-#: applications/legalpad/controller/LegalpadDocumentSignController.php:86
+#: applications/legalpad/controller/LegalpadDocumentSignController.php:68
+#: applications/legalpad/controller/LegalpadDocumentSignController.php:74
+#: applications/legalpad/controller/LegalpadDocumentSignController.php:87
 #: applications/owners/controller/PhabricatorOwnersEditController.php:68
 #: applications/owners/controller/PhabricatorOwnersEditController.php:75
 #: applications/herald/controller/HeraldRuleController.php:225
@@ -264,7 +265,7 @@ msgstr ""
 msgid "Required"
 msgstr "Pflichtfeld"
 
-#: applications/diffusion/controller/DiffusionCommitController.php:725
+#: applications/diffusion/controller/DiffusionCommitController.php:719
 #: applications/maniphest/controller/ManiphestBatchEditController.php:82
 #: applications/maniphest/controller/ManiphestBatchEditController.php:87
 #: applications/maniphest/controller/ManiphestTaskDetailController.php:320
@@ -283,7 +284,7 @@ msgid "Type a user or project name..."
 msgstr "Benutzer oder Projektname eintippen..."
 
 #: applications/differential/view/DifferentialAddCommentView.php:134
-#: applications/diffusion/controller/DiffusionCommitController.php:732
+#: applications/diffusion/controller/DiffusionCommitController.php:726
 #: applications/maniphest/controller/ManiphestTaskDetailController.php:326
 #: view/form/control/AphrontFormTokenizerControl.php:92
 #: view/form/control/AphrontFormTokenizerControl.php:93
@@ -315,12 +316,12 @@ msgid "Use Default Image instead"
 msgstr "Vorgabebild verwenden"
 
 #: applications/differential/field/specification/DifferentialDiffViewPolicyFieldSpecification.php:11
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:272
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:296
 #: view/form/control/AphrontFormPolicyControl.php:24
 msgid "Visible To"
 msgstr "Sichtbar für"
 
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:276
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:300
 #: applications/phame/controller/blog/PhameBlogViewController.php:124
 #: view/form/control/AphrontFormPolicyControl.php:25
 msgid "Editable By"
@@ -332,19 +333,18 @@ msgid "Joinable By"
 msgstr "Teilnehmer dürfen sein"
 
 #: applications/policy/query/PhabricatorPolicyQuery.php:168
-#: view/form/control/AphrontFormPolicyControl.php:29
 msgid "Unknown Policy"
 msgstr "Unbekannte Policy"
 
-#: view/form/control/AphrontFormPolicyControl.php:83
+#: view/form/control/AphrontFormPolicyControl.php:94
 msgid "Custom Policy..."
 msgstr "Benutzerdefinierte Policy..."
 
-#: view/form/control/AphrontFormPolicyControl.php:104
+#: view/form/control/AphrontFormPolicyControl.php:115
 msgid "Call setPolicyObject() before rendering!"
 msgstr ""
 
-#: view/form/control/AphrontFormPolicyControl.php:107
+#: view/form/control/AphrontFormPolicyControl.php:118
 msgid "Call setCapability() before rendering!"
 msgstr ""
 
@@ -549,7 +549,7 @@ msgstr "Editiert"
 #: applications/harbormaster/controller/HarbormasterPlanEditController.php:107
 #: applications/diffusion/view/DiffusionBrowseTableView.php:203
 #: applications/diffusion/view/DiffusionBrowseTableView.php:232
-#: applications/diffusion/controller/DiffusionRepositoryEditController.php:21
+#: applications/diffusion/controller/DiffusionRepositoryEditController.php:26
 #: applications/config/controller/PhabricatorConfigEditController.php:194
 #: applications/owners/controller/PhabricatorOwnersEditController.php:273
 #: applications/project/controller/PhabricatorProjectBoardController.php:145
@@ -810,11 +810,12 @@ msgstr "%s hat %s deaktiviert."
 #: applications/phortune/controller/PhortuneProductEditController.php:71
 #: applications/harbormaster/controller/HarbormasterBuildableEditController.php:52
 #: applications/harbormaster/controller/HarbormasterPlanExecuteController.php:44
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:212
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:272
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:402
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:421
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:581
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:261
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:321
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:451
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:465
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:485
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:645
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:140
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:150
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:182
@@ -840,7 +841,7 @@ msgstr "%s hat %s deaktiviert."
 #: applications/people/controller/PhabricatorPeopleEditController.php:521
 #: applications/people/controller/PhabricatorPeopleEditController.php:524
 #: applications/people/controller/PhabricatorPeopleEditController.php:630
-#: applications/legalpad/controller/LegalpadDocumentSignController.php:79
+#: applications/legalpad/controller/LegalpadDocumentSignController.php:80
 #: applications/herald/controller/HeraldTestConsoleController.php:29
 #: applications/mailinglists/controller/PhabricatorMailingListsEditController.php:54
 #: applications/mailinglists/controller/PhabricatorMailingListsEditController.php:60
@@ -1114,7 +1115,7 @@ msgstr "Hostname für Elastic Search"
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:118
 #: applications/conduit/config/PhabricatorConduitConfigOptions.php:27
 #: applications/maniphest/config/PhabricatorManiphestConfigOptions.php:73
-#: applications/config/option/PhabricatorAuthenticationConfigOptions.php:75
+#: applications/config/option/PhabricatorAuthenticationConfigOptions.php:60
 #: applications/config/option/PhabricatorTranslationsConfigOptions.php:26
 #: applications/config/option/PhabricatorTranslationsConfigOptions.php:39
 #: applications/config/option/PhabricatorSecurityConfigOptions.php:38
@@ -1158,6 +1159,7 @@ msgstr "Mitglieder"
 #: applications/phriction/query/PhrictionSearchEngine.php:41
 #: applications/calendar/controller/PhabricatorCalendarEditStatusController.php:108
 #: applications/repository/query/PhabricatorRepositorySearchEngine.php:66
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:207
 #: applications/auth/controller/config/PhabricatorAuthEditController.php:222
 #: applications/audit/controller/PhabricatorAuditListController.php:158
 #: applications/maniphest/query/ManiphestTaskSearchEngine.php:232
@@ -1182,6 +1184,8 @@ msgstr "Meine"
 #: applications/releeph/query/ReleephProjectSearchEngine.php:46
 #: applications/phriction/query/PhrictionSearchEngine.php:59
 #: applications/phortune/controller/PhortuneAccountViewController.php:122
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:42
+#: applications/diffusion/controller/DiffusionRepositoryController.php:158
 #: applications/audit/controller/PhabricatorAuditController.php:11
 #: applications/herald/query/HeraldRuleSearchEngine.php:106
 #: applications/herald/controller/HeraldRuleViewController.php:38
@@ -1301,8 +1305,9 @@ msgstr "Archiviert"
 #: applications/conduit/controller/PhabricatorConduitLogController.php:95
 #: applications/daemon/view/PhabricatorDaemonLogListView.php:65
 #: applications/daemon/controller/PhabricatorDaemonLogViewController.php:43
+#: applications/repository/storage/PhabricatorRepository.php:764
+#: applications/diffusion/controller/DiffusionCommitController.php:538
 #: applications/diffusion/controller/DiffusionCommitController.php:544
-#: applications/diffusion/controller/DiffusionCommitController.php:550
 #: applications/audit/constants/PhabricatorAuditStatusConstants.php:32
 #: applications/config/controller/PhabricatorConfigAllController.php:132
 #: applications/herald/controller/HeraldTranscriptController.php:319
@@ -1347,6 +1352,7 @@ msgstr "Projekt verlassen"
 #: applications/phriction/controller/PhrictionEditController.php:153
 #: applications/phriction/controller/PhrictionMoveController.php:114
 #: applications/files/controller/PhabricatorFileUploadController.php:72
+#: applications/diffusion/controller/DiffusionRepositoryEditLocalController.php:74
 #: applications/diffusion/controller/DiffusionRepositoryEditBasicController.php:79
 #: applications/diffusion/controller/DiffusionRepositoryEditEncodingController.php:69
 #: applications/maniphest/controller/ManiphestTaskEditController.php:420
@@ -1377,10 +1383,9 @@ msgstr "Formularfehler"
 #: applications/diffusion/controller/DiffusionLintDetailsController.php:57
 #: applications/diffusion/controller/DiffusionRepositoryEditBasicController.php:88
 #: applications/diffusion/controller/DiffusionSymbolController.php:124
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:176
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:237
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:286
 #: applications/diffusion/controller/DiffusionLintController.php:105
-#: applications/legalpad/controller/LegalpadDocumentSignController.php:187
+#: applications/legalpad/controller/LegalpadDocumentSignController.php:177
 #: applications/owners/controller/PhabricatorOwnersListController.php:176
 #: applications/owners/controller/PhabricatorOwnersListController.php:321
 #: applications/owners/controller/PhabricatorOwnersEditController.php:185
@@ -1510,7 +1515,7 @@ msgid "Leave Project..."
 msgstr "Projekt verlassen..."
 
 #: applications/ponder/controller/PonderQuestionViewController.php:125
-#: applications/ponder/controller/PonderQuestionViewController.php:336
+#: applications/ponder/controller/PonderQuestionViewController.php:337
 #: applications/releeph/controller/branch/ReleephBranchViewController.php:159
 #: applications/releeph/controller/project/ReleephProjectViewController.php:219
 #: applications/phriction/controller/PhrictionDocumentController.php:306
@@ -1524,7 +1529,7 @@ msgstr "Historie ansehen"
 #: applications/macro/storage/PhabricatorMacroTransaction.php:214
 #: applications/macro/storage/PhabricatorMacroTransaction.php:226
 #: applications/ponder/controller/PonderQuestionViewController.php:152
-#: applications/ponder/controller/PonderQuestionViewController.php:353
+#: applications/ponder/controller/PonderQuestionViewController.php:354
 #: applications/differential/view/DifferentialRevisionUpdateHistoryView.php:198
 #: applications/differential/query/DifferentialRevisionSearchEngine.php:239
 #: applications/pholio/controller/PholioMockViewController.php:214
@@ -1545,11 +1550,12 @@ msgstr "Erzeugt"
 #: applications/meta/controller/PhabricatorApplicationDetailViewController.php:67
 #: applications/calendar/controller/PhabricatorCalendarEditStatusController.php:114
 #: applications/diffusion/view/DiffusionTagListView.php:97
-#: applications/diffusion/controller/DiffusionCommitController.php:135
+#: applications/diffusion/controller/DiffusionCommitController.php:134
 #: applications/diffusion/controller/DiffusionLintDetailsController.php:58
 #: applications/diffusion/controller/DiffusionRepositoryEditBasicController.php:94
 #: applications/diffusion/controller/DiffusionExternalController.php:120
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:187
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:211
+#: applications/diffusion/controller/DiffusionRepositoryController.php:188
 #: applications/maniphest/controller/ManiphestTaskDetailController.php:651
 #: applications/maniphest/controller/ManiphestTaskEditController.php:618
 #: applications/maniphest/export/ManiphestExcelDefaultFormat.php:66
@@ -1572,20 +1578,20 @@ msgstr "Beschreibung"
 #: applications/releeph/controller/project/ReleephProjectHistoryController.php:37
 #: applications/phriction/controller/PhrictionHistoryController.php:143
 #: applications/phriction/controller/PhrictionDiffController.php:112
-#: applications/diffusion/view/DiffusionBranchTableView.php:48
-#: applications/diffusion/view/DiffusionBranchTableView.php:76
+#: applications/diffusion/view/DiffusionBranchTableView.php:45
+#: applications/diffusion/view/DiffusionBranchTableView.php:72
 #: applications/diffusion/view/DiffusionBrowseTableView.php:231
 #: applications/diffusion/view/DiffusionCommitChangeTableView.php:85
 #: applications/diffusion/view/DiffusionView.php:55
 #: applications/diffusion/controller/DiffusionHistoryController.php:95
-#: applications/diffusion/controller/DiffusionController.php:125
+#: applications/diffusion/controller/DiffusionController.php:322
 #: applications/project/controller/PhabricatorProjectHistoryController.php:47
 msgid "History"
 msgstr "Historie"
 
 #: applications/releeph/controller/project/ReleephProjectCreateController.php:48
 #: applications/phlux/controller/PhluxEditController.php:96
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:287
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:336
 #: applications/people/controller/PhabricatorPeopleEditController.php:538
 #: applications/herald/controller/HeraldRuleController.php:305
 #: applications/phame/controller/post/PhamePostEditController.php:90
@@ -1771,9 +1777,9 @@ msgstr "JIRA Tickets"
 
 #: applications/differential/field/specification/DifferentialJIRAIssuesFieldSpecification.php:39
 #: applications/conduit/query/PhabricatorConduitSearchEngine.php:65
-#: applications/diffusion/controller/DiffusionRepositoryEditBranchesController.php:111
-#: applications/diffusion/controller/DiffusionRepositoryEditBranchesController.php:118
-#: applications/diffusion/controller/DiffusionRepositoryEditBranchesController.php:125
+#: applications/diffusion/controller/DiffusionRepositoryEditBranchesController.php:115
+#: applications/diffusion/controller/DiffusionRepositoryEditBranchesController.php:122
+#: applications/diffusion/controller/DiffusionRepositoryEditBranchesController.php:129
 #: applications/auth/provider/PhabricatorAuthProviderLDAP.php:256
 #: applications/auth/provider/PhabricatorAuthProviderLDAP.php:259
 #: applications/auth/provider/PhabricatorAuthProviderLDAP.php:262
@@ -1858,7 +1864,6 @@ msgstr "Diff"
 
 #: applications/differential/view/DifferentialRevisionUpdateHistoryView.php:195
 #: applications/daemon/controller/PhabricatorDaemonConsoleController.php:110
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:177
 #: applications/maniphest/export/ManiphestExcelDefaultFormat.php:57
 msgid "ID"
 msgstr "ID"
@@ -1870,7 +1875,7 @@ msgstr "Basis"
 #: applications/differential/view/DifferentialRevisionUpdateHistoryView.php:199
 #: applications/diffusion/view/DiffusionBrowseTableView.php:234
 #: applications/diffusion/controller/DiffusionLintDetailsController.php:92
-#: applications/diffusion/controller/DiffusionController.php:131
+#: applications/diffusion/controller/DiffusionController.php:328
 msgid "Lint"
 msgstr "Lint"
 
@@ -1896,7 +1901,7 @@ msgid "Review Requested"
 msgstr "Review angefordert"
 
 #: applications/differential/view/DifferentialReviewersView.php:53
-#: applications/diffusion/controller/DiffusionCommitController.php:1023
+#: applications/diffusion/controller/DiffusionCommitController.php:1017
 #: applications/audit/constants/PhabricatorAuditStatusConstants.php:21
 msgid "Accepted"
 msgstr "Akzeptiert"
@@ -1914,7 +1919,7 @@ msgid "Requested Changes to Prior Diff"
 msgstr "Änderungen zu vorangegangenem Diff angefordert"
 
 #: applications/differential/view/DifferentialReviewersView.php:77
-#: applications/diffusion/controller/DiffusionCommitController.php:1014
+#: applications/diffusion/controller/DiffusionCommitController.php:1008
 msgid "Commented"
 msgstr "Kommentiert"
 
@@ -1927,7 +1932,7 @@ msgid "Blocking Review"
 msgstr "Review geblockt"
 
 #: applications/differential/view/DifferentialReviewersView.php:90
-#: applications/diffusion/controller/DiffusionCommitController.php:1040
+#: applications/diffusion/controller/DiffusionCommitController.php:1034
 #, php-format
 msgid "%s?"
 msgstr "%s?"
@@ -1935,7 +1940,7 @@ msgstr "%s?"
 #: applications/differential/view/DifferentialLocalCommitsView.php:117
 #: applications/repository/phid/PhabricatorRepositoryPHIDTypeCommit.php:12
 #: applications/diffusion/view/DiffusionTagListView.php:96
-#: applications/diffusion/view/DiffusionHistoryTableView.php:151
+#: applications/diffusion/view/DiffusionHistoryTableView.php:157
 #: applications/diffusion/controller/DiffusionHistoryController.php:159
 #: applications/diffusion/controller/DiffusionBrowseController.php:137
 #: applications/diffusion/controller/DiffusionChangeController.php:146
@@ -1948,6 +1953,7 @@ msgid "Tree"
 msgstr "Baum"
 
 #: applications/differential/view/DifferentialLocalCommitsView.php:122
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:502
 msgid "Local"
 msgstr "Lokal"
 
@@ -1977,7 +1983,7 @@ msgstr "Autor"
 #: applications/differential/view/DifferentialLocalCommitsView.php:127
 #: applications/releeph/controller/branch/ReleephBranchCreateController.php:31
 #: applications/diffusion/view/DiffusionBrowseTableView.php:236
-#: applications/diffusion/view/DiffusionHistoryTableView.php:154
+#: applications/diffusion/view/DiffusionHistoryTableView.php:160
 #: applications/diffusion/events/DiffusionHovercardEventListener.php:56
 #: applications/chatlog/controller/PhabricatorChatLogChannelLogController.php:197
 #: applications/people/controller/PhabricatorPeopleLogsController.php:178
@@ -2009,7 +2015,7 @@ msgstr "Aktive Tage"
 msgid "Next Step"
 msgstr "Nächster Schritt"
 
-#: applications/differential/view/DifferentialRevisionDetailView.php:128
+#: applications/differential/view/DifferentialRevisionDetailView.php:129
 msgid "Test Plan"
 msgstr "Testplan"
 
@@ -2125,7 +2131,7 @@ msgid "Suggest Reviewers"
 msgstr "Reviewer vorschlagen"
 
 #: applications/differential/view/DifferentialAddCommentView.php:78
-#: applications/diffusion/controller/DiffusionCommitController.php:679
+#: applications/diffusion/controller/DiffusionCommitController.php:673
 #: applications/maniphest/controller/ManiphestTaskDetailController.php:238
 #: applications/people/controller/PhabricatorPeopleLogsController.php:180
 #: applications/herald/controller/HeraldRuleController.php:159
@@ -2135,14 +2141,14 @@ msgstr "Aktion"
 
 #: applications/differential/view/DifferentialAddCommentView.php:94
 #: applications/differential/constants/DifferentialAction.php:62
-#: applications/diffusion/controller/DiffusionCommitController.php:693
+#: applications/diffusion/controller/DiffusionCommitController.php:687
 #: applications/audit/constants/PhabricatorAuditActionConstants.php:20
 #: applications/maniphest/controller/ManiphestTaskDetailController.php:162
 msgid "Add CCs"
 msgstr "Neue CCs"
 
-#: applications/ponder/controller/PonderQuestionViewController.php:213
-#: applications/ponder/controller/PonderQuestionViewController.php:289
+#: applications/ponder/controller/PonderQuestionViewController.php:214
+#: applications/ponder/controller/PonderQuestionViewController.php:290
 #: applications/differential/view/DifferentialAddCommentView.php:104
 #: applications/differential/constants/DifferentialAction.php:53
 #: applications/transactions/view/PhabricatorApplicationTransactionCommentView.php:161
@@ -2153,7 +2159,7 @@ msgid "Comment"
 msgstr "Kommentar"
 
 #: applications/differential/view/DifferentialAddCommentView.php:109
-#: applications/diffusion/controller/DiffusionCommitController.php:708
+#: applications/diffusion/controller/DiffusionCommitController.php:702
 #: applications/maniphest/controller/ManiphestTaskDetailController.php:296
 msgid "Submit"
 msgstr "Abschicken"
@@ -2174,8 +2180,8 @@ msgstr "Sich zum Clown machen"
 #: applications/maniphest/controller/ManiphestTaskDetailController.php:349
 #: applications/slowvote/controller/PhabricatorSlowvotePollController.php:168
 #: applications/slowvote/controller/PhabricatorSlowvotePollController.php:172
-#: applications/legalpad/controller/LegalpadDocumentViewController.php:198
-#: applications/legalpad/controller/LegalpadDocumentViewController.php:205
+#: applications/legalpad/controller/LegalpadDocumentViewController.php:196
+#: applications/legalpad/controller/LegalpadDocumentViewController.php:203
 msgid "Add Comment"
 msgstr "Neuer Kommentar"
 
@@ -2494,6 +2500,7 @@ msgstr "Dateiinhalt zeigen"
 #: applications/countdown/capability/PhabricatorCountdownCapabilityDefaultView.php:13
 #: applications/differential/capability/DifferentialCapabilityDefaultView.php:13
 #: applications/paste/capability/PasteCapabilityDefaultView.php:13
+#: applications/diffusion/capability/DiffusionCapabilityDefaultView.php:13
 #: applications/maniphest/capability/ManiphestCapabilityDefaultView.php:13
 #: applications/slowvote/capability/PhabricatorSlowvoteCapabilityDefaultView.php:13
 msgid "Default View Policy"
@@ -2574,7 +2581,7 @@ msgstr "Offen"
 #: applications/ponder/constants/PonderQuestionStatus.php:14
 #: applications/differential/query/DifferentialRevisionSearchEngine.php:232
 #: applications/releeph/controller/branch/ReleephBranchViewController.php:109
-#: applications/diffusion/controller/DiffusionCommitController.php:1032
+#: applications/diffusion/controller/DiffusionCommitController.php:1026
 #: applications/audit/constants/PhabricatorAuditStatusConstants.php:24
 #: applications/maniphest/storage/ManiphestTransaction.php:165
 #: applications/maniphest/controller/ManiphestReportController.php:235
@@ -2667,7 +2674,7 @@ msgid "Added"
 msgstr "Hinzugefügt"
 
 #: applications/differential/constants/DifferentialChangeType.php:98
-#: applications/diffusion/view/DiffusionBranchTableView.php:79
+#: applications/diffusion/view/DiffusionBranchTableView.php:75
 #: applications/diffusion/view/DiffusionBrowseTableView.php:235
 msgid "Modified"
 msgstr "Verändert"
@@ -2728,7 +2735,7 @@ msgid "Load the content of a diff from Differential by revision id or diff id."
 msgstr "Ziehe den Inhalt eines Diffs aus Differential mittels Versions-ID oder Diff ID."
 
 #: applications/differential/controller/DifferentialRevisionEditController.php:122
-#: applications/diffusion/controller/DiffusionCommitController.php:701
+#: applications/diffusion/controller/DiffusionCommitController.php:695
 #: applications/maniphest/controller/ManiphestTaskDetailController.php:289
 msgid "Comments"
 msgstr "Kommentare"
@@ -2804,12 +2811,12 @@ msgstr "Abhängigkeiten ändern"
 
 #: applications/differential/controller/DifferentialRevisionViewController.php:524
 #: applications/pholio/controller/PholioMockViewController.php:189
-#: applications/diffusion/controller/DiffusionCommitController.php:946
+#: applications/diffusion/controller/DiffusionCommitController.php:940
 msgid "Edit Maniphest Tasks"
 msgstr "Maniphest Aufgaben ändern"
 
 #: applications/differential/controller/DifferentialRevisionViewController.php:534
-#: applications/diffusion/controller/DiffusionCommitController.php:955
+#: applications/diffusion/controller/DiffusionCommitController.php:949
 msgid "Download Raw Diff"
 msgstr "Raw Diff herunterladen"
 
@@ -3490,6 +3497,7 @@ msgstr "Projekthistorie"
 #: applications/releeph/controller/project/ReleephProjectListController.php:44
 #: applications/diffusion/controller/DiffusionRepositoryListController.php:78
 #: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:44
+#: applications/diffusion/controller/DiffusionRepositoryController.php:154
 msgid "Inactive"
 msgstr "Inaktiv"
 
@@ -3737,7 +3745,7 @@ msgid "Edit Branch"
 msgstr "Branch ändern"
 
 #: applications/releeph/controller/branch/ReleephBranchViewController.php:169
-#: applications/diffusion/view/DiffusionBranchTableView.php:77
+#: applications/diffusion/view/DiffusionBranchTableView.php:73
 msgid "Branch"
 msgstr "Branch"
 
@@ -4191,7 +4199,7 @@ msgstr ""
 #: applications/settings/panel/PhabricatorSettingsPanelSSHKeys.php:15
 #: applications/settings/panel/PhabricatorSettingsPanelPassword.php:15
 #: applications/settings/panel/PhabricatorSettingsPanelExternalAccounts.php:15
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:441
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:505
 #: applications/config/option/PhabricatorAuthenticationConfigOptions.php:7
 #: applications/uiexample/examples/PHUIIconExample.php:178
 msgid "Authentication"
@@ -4901,29 +4909,29 @@ msgstr "Berlocken gewinnen"
 msgid "%s awarded %s a %s token."
 msgstr "%s verlieh %s eine %s Trophäe."
 
-#: applications/repository/worker/PhabricatorRepositoryCommitHeraldWorker.php:133
+#: applications/repository/worker/PhabricatorRepositoryCommitHeraldWorker.php:152
 msgid "DETAILS"
 msgstr "DETAILS"
 
-#: applications/repository/worker/PhabricatorRepositoryCommitHeraldWorker.php:134
+#: applications/repository/worker/PhabricatorRepositoryCommitHeraldWorker.php:153
 msgid "DIFFERENTIAL REVISION"
 msgstr "DIFFERENTIAL VERSION"
 
-#: applications/repository/worker/PhabricatorRepositoryCommitHeraldWorker.php:135
+#: applications/repository/worker/PhabricatorRepositoryCommitHeraldWorker.php:154
 msgid "AFFECTED FILES"
 msgstr "BETROFFENE DATEIEN"
 
-#: applications/repository/worker/PhabricatorRepositoryCommitHeraldWorker.php:211
+#: applications/repository/worker/PhabricatorRepositoryCommitHeraldWorker.php:230
 #, php-format
 msgid "Herald Rule #%d \"%s\" Triggered Audit"
 msgstr "Herald Regel #%d \"%s\" hat eine Überprüfung ausgelöst"
 
-#: applications/repository/worker/PhabricatorRepositoryCommitHeraldWorker.php:216
+#: applications/repository/worker/PhabricatorRepositoryCommitHeraldWorker.php:235
 #, php-format
 msgid "Herald Rule #%d \"%s\" Triggered CC"
 msgstr "Herald Regel #%d \"%s\" hat eine Emailkopie ausgelöst"
 
-#: applications/repository/editor/PhabricatorRepositoryEditor.php:172
+#: applications/repository/editor/PhabricatorRepositoryEditor.php:210
 #, php-format
 msgid "Error setting repository encoding '%s': %s'"
 msgstr "Fehler beim Setzen der Repository Zeichencodierung '%s': %s'"
@@ -4958,9 +4966,9 @@ msgid "Most Recent Commit"
 msgstr "Neueste Commits"
 
 #: applications/repository/query/PhabricatorRepositorySearchEngine.php:140
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:184
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:252
-#: applications/diffusion/controller/DiffusionRepositoryController.php:152
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:204
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:301
+#: applications/diffusion/controller/DiffusionRepositoryController.php:166
 msgid "Callsign"
 msgstr "Rufzeichen"
 
@@ -4971,177 +4979,177 @@ msgstr "Rufzeichen"
 msgid "Date Created"
 msgstr "Erstellungsdatum"
 
-#: applications/repository/storage/PhabricatorRepositoryTransaction.php:46
+#: applications/repository/storage/PhabricatorRepositoryTransaction.php:114
 #, php-format
 msgid "%s activated this repository."
 msgstr "%s hat dieses Repository aktiviert."
 
-#: applications/repository/storage/PhabricatorRepositoryTransaction.php:50
+#: applications/repository/storage/PhabricatorRepositoryTransaction.php:118
 #, php-format
 msgid "%s deactivated this repository."
 msgstr "%s hat dieses Repository deaktiviert."
 
-#: applications/repository/storage/PhabricatorRepositoryTransaction.php:55
+#: applications/repository/storage/PhabricatorRepositoryTransaction.php:123
 #, php-format
 msgid "%s renamed this repository from \"%s\" to \"%s\"."
 msgstr "%s hat dieses Repository von \"%s\" nach \"%s\" umbenannt."
 
-#: applications/repository/storage/PhabricatorRepositoryTransaction.php:61
+#: applications/repository/storage/PhabricatorRepositoryTransaction.php:129
 #, php-format
 msgid "%s updated the description of this repository."
 msgstr "%s hat die Beschreibung für dieses Repository aktualisiert."
 
-#: applications/repository/storage/PhabricatorRepositoryTransaction.php:66
+#: applications/repository/storage/PhabricatorRepositoryTransaction.php:134
 #, php-format
 msgid "%s removed the \"%s\" encoding configured for this repository."
 msgstr "%s hat die \"%s\" Zeichencodierung vom Repository entfernt."
 
-#: applications/repository/storage/PhabricatorRepositoryTransaction.php:71
+#: applications/repository/storage/PhabricatorRepositoryTransaction.php:139
 #, php-format
 msgid "%s set the encoding for this repository to \"%s\"."
 msgstr "%s hat die Zeichencodierung für das Repository auf \"%s\" gesetzt."
 
-#: applications/repository/storage/PhabricatorRepositoryTransaction.php:76
+#: applications/repository/storage/PhabricatorRepositoryTransaction.php:144
 #, php-format
 msgid "%s changed the repository encoding from \"%s\" to \"%s\"."
 msgstr "%s hat die Repository Zeichencodierung von \"%s\" nach \"%s\" geändert."
 
-#: applications/repository/storage/PhabricatorRepositoryTransaction.php:84
+#: applications/repository/storage/PhabricatorRepositoryTransaction.php:152
 #, php-format
 msgid "%s removed \"%s\" as the default branch."
 msgstr "%s hat \"%s\" als Vorgabe-Branch entfernt."
 
-#: applications/repository/storage/PhabricatorRepositoryTransaction.php:89
+#: applications/repository/storage/PhabricatorRepositoryTransaction.php:157
 #, php-format
 msgid "%s set the default branch to \"%s\"."
 msgstr "%s hat den Vorgabe-Branch auf \"%s\" gesetzt."
 
-#: applications/repository/storage/PhabricatorRepositoryTransaction.php:94
+#: applications/repository/storage/PhabricatorRepositoryTransaction.php:162
 #, php-format
 msgid "%s changed the default branch from \"%s\" to \"%s\"."
 msgstr "%s hat den Vorgabe-Branch von \"%s\" nach \"%s\" geändert."
 
-#: applications/repository/storage/PhabricatorRepositoryTransaction.php:103
+#: applications/repository/storage/PhabricatorRepositoryTransaction.php:171
 #, php-format
 msgid "%s set this repository to track all branches."
 msgstr "%s läßt das Repository alle Branches verfolgen."
 
-#: applications/repository/storage/PhabricatorRepositoryTransaction.php:107
+#: applications/repository/storage/PhabricatorRepositoryTransaction.php:175
 #, php-format
 msgid "%s set this repository to track branches: %s."
 msgstr "%s läßt das Repository die folgenden Branches verfolgen: %s."
 
-#: applications/repository/storage/PhabricatorRepositoryTransaction.php:112
+#: applications/repository/storage/PhabricatorRepositoryTransaction.php:180
 #, php-format
 msgid "%s changed track branches from \"%s\" to \"%s\"."
 msgstr "%s hat die Verfolgung von Branches von \"%s\" nach \"%s\" geändert."
 
-#: applications/repository/storage/PhabricatorRepositoryTransaction.php:121
+#: applications/repository/storage/PhabricatorRepositoryTransaction.php:189
 #, php-format
 msgid "%s set this repository to autoclose on all branches."
 msgstr "%s hat das Repository für alle Branches auf 'autoclose' konfiguriert."
 
-#: applications/repository/storage/PhabricatorRepositoryTransaction.php:125
+#: applications/repository/storage/PhabricatorRepositoryTransaction.php:193
 #, php-format
 msgid "%s set this repository to autoclose on branches: %s."
 msgstr "%s hat dieses Repository auf 'autoclose' für die folgenden Branches gesetzt: %s"
 
-#: applications/repository/storage/PhabricatorRepositoryTransaction.php:130
+#: applications/repository/storage/PhabricatorRepositoryTransaction.php:198
 #, php-format
 msgid "%s changed autoclose branches from \"%s\" to \"%s\"."
 msgstr ""
 
-#: applications/repository/storage/PhabricatorRepositoryTransaction.php:139
+#: applications/repository/storage/PhabricatorRepositoryTransaction.php:207
 #, php-format
 msgid "%s removed \"%s\" as the repository UUID."
 msgstr ""
 
-#: applications/repository/storage/PhabricatorRepositoryTransaction.php:144
+#: applications/repository/storage/PhabricatorRepositoryTransaction.php:212
 #, php-format
 msgid "%s set the repository UUID to \"%s\"."
 msgstr "%s hat die Repository-UUID auf \"%s\" gesetzt."
 
-#: applications/repository/storage/PhabricatorRepositoryTransaction.php:149
+#: applications/repository/storage/PhabricatorRepositoryTransaction.php:217
 #, php-format
 msgid "%s changed the repository UUID from \"%s\" to \"%s\"."
 msgstr ""
 
-#: applications/repository/storage/PhabricatorRepositoryTransaction.php:158
+#: applications/repository/storage/PhabricatorRepositoryTransaction.php:226
 #, php-format
 msgid "%s removed \"%s\" as the Import Only path."
 msgstr ""
 
-#: applications/repository/storage/PhabricatorRepositoryTransaction.php:163
+#: applications/repository/storage/PhabricatorRepositoryTransaction.php:231
 #, php-format
 msgid "%s set the repository to import only \"%s\"."
 msgstr ""
 
-#: applications/repository/storage/PhabricatorRepositoryTransaction.php:168
+#: applications/repository/storage/PhabricatorRepositoryTransaction.php:236
 #, php-format
 msgid "%s changed the import path from \"%s\" to \"%s\"."
 msgstr ""
 
-#: applications/repository/storage/PhabricatorRepositoryTransaction.php:177
+#: applications/repository/storage/PhabricatorRepositoryTransaction.php:245
 #, php-format
 msgid "%s enabled notifications and publishing for this repository."
 msgstr ""
 
-#: applications/repository/storage/PhabricatorRepositoryTransaction.php:181
+#: applications/repository/storage/PhabricatorRepositoryTransaction.php:249
 #, php-format
 msgid "%s disabled notifications and publishing for this repository."
 msgstr ""
 
-#: applications/repository/storage/PhabricatorRepositoryTransaction.php:188
+#: applications/repository/storage/PhabricatorRepositoryTransaction.php:256
 #, php-format
 msgid "%s enabled autoclose for this repository."
 msgstr ""
 
-#: applications/repository/storage/PhabricatorRepositoryTransaction.php:192
+#: applications/repository/storage/PhabricatorRepositoryTransaction.php:260
 #, php-format
 msgid "%s disabled autoclose for this repository."
 msgstr ""
 
-#: applications/repository/storage/PhabricatorRepositoryTransaction.php:199
+#: applications/repository/storage/PhabricatorRepositoryTransaction.php:267
 #, php-format
 msgid "%s set the remote URI for this repository to \"%s\"."
 msgstr ""
 
-#: applications/repository/storage/PhabricatorRepositoryTransaction.php:204
+#: applications/repository/storage/PhabricatorRepositoryTransaction.php:272
 #, php-format
 msgid "%s removed the remote URI for this repository."
 msgstr ""
 
-#: applications/repository/storage/PhabricatorRepositoryTransaction.php:208
+#: applications/repository/storage/PhabricatorRepositoryTransaction.php:276
 #, php-format
 msgid "%s changed the remote URI for this repository from \"%s\" to \"%s\"."
 msgstr ""
 
-#: applications/repository/storage/PhabricatorRepositoryTransaction.php:216
+#: applications/repository/storage/PhabricatorRepositoryTransaction.php:284
 #, php-format
 msgid "%s updated the SSH login for this repository."
 msgstr ""
 
-#: applications/repository/storage/PhabricatorRepositoryTransaction.php:220
+#: applications/repository/storage/PhabricatorRepositoryTransaction.php:288
 #, php-format
 msgid "%s updated the SSH key for this repository."
 msgstr ""
 
-#: applications/repository/storage/PhabricatorRepositoryTransaction.php:224
+#: applications/repository/storage/PhabricatorRepositoryTransaction.php:292
 #, php-format
 msgid "%s updated the SSH keyfile for this repository."
 msgstr ""
 
-#: applications/repository/storage/PhabricatorRepositoryTransaction.php:228
+#: applications/repository/storage/PhabricatorRepositoryTransaction.php:296
 #, php-format
 msgid "%s updated the HTTP login for this repository."
 msgstr ""
 
-#: applications/repository/storage/PhabricatorRepositoryTransaction.php:232
+#: applications/repository/storage/PhabricatorRepositoryTransaction.php:300
 #, php-format
 msgid "%s updated the HTTP password for this repository."
 msgstr ""
 
-#: applications/repository/storage/PhabricatorRepositoryCommit.php:181
+#: applications/repository/storage/PhabricatorRepositoryCommit.php:197
 msgid "Commits inherit the policies of the repository they belong to."
 msgstr ""
 
@@ -5149,39 +5157,32 @@ msgstr ""
 msgid "Arcanist Project"
 msgstr "Arcanist Projekt"
 
-#: applications/repository/controller/PhabricatorRepositoryDeleteController.php:30
 msgid "If you really want to delete the repository, you must run:"
 msgstr "Wenn Du das Repository wirklich löschen möchtest, mußt Du folgendes ausführen:"
 
-#: applications/repository/controller/PhabricatorRepositoryDeleteController.php:32
+#: applications/diffusion/controller/DiffusionRepositoryEditDeleteController.php:34
 msgid "Repositories touch many objects and as such deletes are prohibitively expensive to run from the web UI."
 msgstr "Repositories sind mit vielen Objekten verknüpft und daher sind Löschoperationen beliebig aufwändig, wenn man sie aus dem web UI startet."
 
-#: applications/repository/controller/PhabricatorRepositoryDeleteController.php:48
+#: applications/diffusion/controller/DiffusionRepositoryEditDeleteController.php:50
 msgid "Really want to delete the repository?"
 msgstr "Das Repository wirklich löschen?"
 
-#: applications/repository/controller/PhabricatorRepositoryCreateController.php:105
-#: applications/repository/controller/PhabricatorRepositoryCreateController.php:114
 msgid "Create Repository"
 msgstr "Neues Repository"
 
-#: applications/repository/controller/PhabricatorRepositoryEditController.php:163
-#: applications/repository/controller/PhabricatorRepositoryEditController.php:172
-#: applications/diffusion/controller/DiffusionRepositoryController.php:327
+#: applications/diffusion/controller/DiffusionRepositoryController.php:345
+#: applications/diffusion/controller/DiffusionRepositoryEditController.php:22
 msgid "Edit Repository"
 msgstr "Repository ändern"
 
-#: applications/repository/controller/PhabricatorRepositoryEditController.php:450
 msgid "Permit users to view the username of this connection."
 msgstr "Anderen Benutzern erlauben, den Benutzernamen dieser Verbindung anzuzeigen."
 
-#: applications/repository/controller/PhabricatorRepositoryEditController.php:682
-#: applications/repository/controller/PhabricatorRepositoryEditController.php:692
 msgid "Edit Repository Tracking"
 msgstr "Repository-Verfolgung ändern"
 
-#: applications/repository/engine/__tests__/PhabricatorWorkingCopyTestCase.php:50
+#: applications/repository/engine/__tests__/PhabricatorWorkingCopyTestCase.php:51
 #, php-format
 msgid "Test Repo \"%s\""
 msgstr "Repository \"%s\" testen"
@@ -5194,7 +5195,6 @@ msgstr ""
 msgid "Default location to store local copies of repositories."
 msgstr ""
 
-#: applications/repository/PhabricatorRepositoryConfigOptions.php:24
 msgid ""
 "The default location in which to store local copies of repositories. Anything stored in this directory will be assumed to be under the control of phabricator, which means that Phabricator will try to do some maintenance on working copies if there are problems (such as a change to the remote origin url). This maintenance may include completely removing (and recloning) anything in this directory.\n"
 "\n"
@@ -5494,8 +5494,8 @@ msgstr ""
 #: applications/phortune/controller/PhortuneProductViewController.php:65
 #: applications/phortune/controller/PhortuneProductEditController.php:116
 #: applications/diffusion/controller/DiffusionSymbolController.php:122
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:183
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:163
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:203
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:212
 #: applications/herald/controller/HeraldNewController.php:55
 msgid "Type"
 msgstr ""
@@ -5925,6 +5925,7 @@ msgstr ""
 #: applications/countdown/controller/PhabricatorCountdownEditController.php:100
 #: applications/settings/panel/PhabricatorSettingsPanelSSHKeys.php:132
 #: applications/phriction/controller/PhrictionEditController.php:159
+#: applications/diffusion/controller/DiffusionRepositoryEditHostingController.php:235
 #: applications/slowvote/controller/PhabricatorSlowvoteEditController.php:210
 #: applications/phame/controller/post/PhamePostEditController.php:33
 #: applications/phame/controller/blog/PhameBlogEditController.php:32
@@ -6300,6 +6301,7 @@ msgstr ""
 
 #: applications/ponder/view/PonderAddAnswerView.php:36
 #: applications/ponder/phid/PonderPHIDTypeAnswer.php:12
+#: applications/ponder/controller/PonderQuestionViewController.php:365
 #: applications/ponder/controller/PonderAnswerEditController.php:78
 msgid "Answer"
 msgstr ""
@@ -6412,6 +6414,7 @@ msgid "The user who asks a question can always view the answers."
 msgstr ""
 
 #: applications/ponder/phid/PonderPHIDTypeQuestion.php:12
+#: applications/ponder/controller/PonderQuestionViewController.php:163
 #: applications/ponder/controller/PonderAnswerEditController.php:74
 #: applications/ponder/controller/PonderQuestionEditController.php:90
 #: applications/slowvote/controller/PhabricatorSlowvoteEditController.php:148
@@ -6446,26 +6449,26 @@ msgstr ""
 msgid "Reopen Question"
 msgstr ""
 
-#: applications/ponder/controller/PonderQuestionViewController.php:217
+#: applications/ponder/controller/PonderQuestionViewController.php:218
 msgid "Question Comment"
 msgstr ""
 
-#: applications/ponder/controller/PonderQuestionViewController.php:293
+#: applications/ponder/controller/PonderQuestionViewController.php:294
 msgid "Answer Comment"
 msgstr ""
 
-#: applications/ponder/controller/PonderQuestionViewController.php:328
+#: applications/ponder/controller/PonderQuestionViewController.php:329
 #: applications/ponder/controller/PonderAnswerEditController.php:95
 #: applications/ponder/controller/PonderAnswerEditController.php:98
 #: applications/ponder/controller/PonderAnswerEditController.php:114
 msgid "Edit Answer"
 msgstr ""
 
-#: applications/ponder/controller/PonderQuestionViewController.php:383
+#: applications/ponder/controller/PonderQuestionViewController.php:385
 msgid "Add a Comment"
 msgstr ""
 
-#: applications/ponder/controller/PonderQuestionViewController.php:385
+#: applications/ponder/controller/PonderQuestionViewController.php:387
 #, php-format
 msgid "Show %s Comments"
 msgstr ""
@@ -6644,7 +6647,7 @@ msgstr ""
 msgid "Close Audit"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionCommitController.php:685
+#: applications/diffusion/controller/DiffusionCommitController.php:679
 #: applications/audit/constants/PhabricatorAuditActionConstants.php:21
 msgid "Add Auditors"
 msgstr ""
@@ -6657,25 +6660,25 @@ msgstr ""
 msgid "Audit Not Required"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionCommitController.php:1017
+#: applications/diffusion/controller/DiffusionCommitController.php:1011
 #: applications/audit/constants/PhabricatorAuditStatusConstants.php:19
 #: applications/audit/constants/PhabricatorAuditCommitStatusConstants.php:14
 msgid "Audit Required"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionCommitController.php:1020
+#: applications/diffusion/controller/DiffusionCommitController.php:1014
 #: applications/audit/controller/PhabricatorAuditListController.php:165
 #: applications/audit/constants/PhabricatorAuditStatusConstants.php:20
 #: applications/audit/constants/PhabricatorAuditCommitStatusConstants.php:15
 msgid "Concern Raised"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionCommitController.php:1026
+#: applications/diffusion/controller/DiffusionCommitController.php:1020
 #: applications/audit/constants/PhabricatorAuditStatusConstants.php:22
 msgid "Audit Requested"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionCommitController.php:1029
+#: applications/diffusion/controller/DiffusionCommitController.php:1023
 #: applications/audit/constants/PhabricatorAuditStatusConstants.php:23
 msgid "Resigned"
 msgstr ""
@@ -6998,7 +7001,7 @@ msgstr ""
 #: applications/people/controller/PhabricatorPeopleEditController.php:262
 #: applications/people/controller/PhabricatorPeopleEditController.php:279
 #: applications/people/controller/PhabricatorPeopleLdapController.php:176
-#: applications/legalpad/controller/LegalpadDocumentSignController.php:194
+#: applications/legalpad/controller/LegalpadDocumentSignController.php:184
 #: applications/mailinglists/controller/PhabricatorMailingListsEditController.php:95
 msgid "Email"
 msgstr ""
@@ -7385,14 +7388,14 @@ msgid "Uninstalled"
 msgstr ""
 
 #: applications/meta/controller/PhabricatorApplicationDetailViewController.php:80
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:265
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:289
 msgid "Policies"
 msgstr ""
 
 #: applications/meta/controller/PhabricatorApplicationDetailViewController.php:108
 #: applications/meta/controller/PhabricatorApplicationEditController.php:155
-#: applications/diffusion/controller/DiffusionRepositoryEditPolicyController.php:63
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:248
+#: applications/diffusion/controller/DiffusionRepositoryEditPolicyController.php:72
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:272
 msgid "Edit Policies"
 msgstr ""
 
@@ -7406,7 +7409,7 @@ msgid "Install"
 msgstr ""
 
 #: applications/meta/controller/PhabricatorApplicationEditController.php:145
-#: applications/diffusion/controller/DiffusionRepositoryEditPolicyController.php:90
+#: applications/diffusion/controller/DiffusionRepositoryEditPolicyController.php:117
 msgid "Save Policies"
 msgstr ""
 
@@ -7824,6 +7827,7 @@ msgstr "Darf Aufgabenstatus verändern"
 msgid "You do not have permission to edit task status."
 msgstr ""
 
+#: applications/diffusion/capability/DiffusionCapabilityDefaultEdit.php:13
 #: applications/maniphest/capability/ManiphestCapabilityDefaultEdit.php:13
 msgid "Default Edit Policy"
 msgstr ""
@@ -8316,8 +8320,8 @@ msgid "Opened"
 msgstr ""
 
 #: applications/diffusion/view/DiffusionCommitChangeTableView.php:87
-#: applications/diffusion/view/DiffusionHistoryTableView.php:153
-#: applications/diffusion/controller/DiffusionController.php:134
+#: applications/diffusion/view/DiffusionHistoryTableView.php:159
+#: applications/diffusion/controller/DiffusionController.php:331
 #: applications/diffusion/controller/DiffusionChangeController.php:40
 #: applications/diffusion/controller/DiffusionChangeController.php:97
 #: applications/maniphest/controller/ManiphestReportController.php:236
@@ -9112,9 +9116,9 @@ msgid "Target"
 msgstr ""
 
 #: applications/files/controller/PhabricatorFileInfoController.php:174
-#: applications/diffusion/view/DiffusionBranchTableView.php:80
+#: applications/diffusion/view/DiffusionBranchTableView.php:76
 #: applications/diffusion/view/DiffusionBrowseTableView.php:239
-#: applications/diffusion/view/DiffusionHistoryTableView.php:157
+#: applications/diffusion/view/DiffusionHistoryTableView.php:163
 #: applications/owners/controller/PhabricatorOwnersDetailController.php:234
 #: applications/herald/controller/HeraldTranscriptController.php:336
 msgid "Details"
@@ -9189,7 +9193,7 @@ msgstr ""
 
 #: applications/settings/panel/PhabricatorSettingsPanelSSHKeys.php:207
 #: applications/diffusion/view/DiffusionBrowseTableView.php:237
-#: applications/diffusion/view/DiffusionHistoryTableView.php:155
+#: applications/diffusion/view/DiffusionHistoryTableView.php:161
 #: applications/people/controller/PhabricatorPeopleLogsController.php:179
 #: applications/herald/controller/HeraldTranscriptListController.php:47
 msgid "Time"
@@ -9265,8 +9269,9 @@ msgstr ""
 msgid "Reviewer"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionController.php:99
-#: applications/diffusion/controller/DiffusionRepositoryController.php:286
+#: applications/diffusion/controller/DiffusionController.php:296
+#: applications/diffusion/controller/DiffusionTagListController.php:89
+#: applications/diffusion/controller/DiffusionRepositoryController.php:304
 #: applications/herald/adapter/HeraldAdapter.php:142
 msgid "Tags"
 msgstr ""
@@ -9682,7 +9687,7 @@ msgstr ""
 msgid "Install Certificate"
 msgstr ""
 
-#: applications/conduit/controller/PhabricatorConduitTokenController.php:62
+#: applications/conduit/controller/PhabricatorConduitTokenController.php:66
 msgid "Certificate Install Token"
 msgstr ""
 
@@ -9724,7 +9729,7 @@ msgid "Creators"
 msgstr ""
 
 #: applications/legalpad/query/LegalpadDocumentSearchEngine.php:68
-#: applications/legalpad/controller/LegalpadDocumentViewController.php:180
+#: applications/legalpad/controller/LegalpadDocumentViewController.php:178
 msgid "Contributors"
 msgstr ""
 
@@ -9762,89 +9767,87 @@ msgstr ""
 #: applications/phriction/controller/PhrictionEditController.php:230
 #: applications/phriction/controller/PhrictionEditController.php:263
 #: applications/phriction/controller/PhrictionNewController.php:33
-#: applications/legalpad/controller/LegalpadDocumentViewController.php:141
+#: applications/legalpad/controller/LegalpadDocumentViewController.php:139
 msgid "Edit Document"
 msgstr ""
 
 #: applications/phriction/controller/PhrictionDocumentController.php:253
-#: applications/legalpad/controller/LegalpadDocumentViewController.php:162
+#: applications/legalpad/controller/LegalpadDocumentViewController.php:160
 msgid "Last Updated"
 msgstr ""
 
-#: applications/legalpad/controller/LegalpadDocumentViewController.php:166
+#: applications/legalpad/controller/LegalpadDocumentViewController.php:164
 msgid "Updated By"
 msgstr ""
 
-#: applications/legalpad/controller/LegalpadDocumentViewController.php:171
+#: applications/legalpad/controller/LegalpadDocumentViewController.php:169
 msgid "Versions"
 msgstr ""
 
-#: applications/legalpad/controller/LegalpadDocumentViewController.php:199
+#: applications/legalpad/controller/LegalpadDocumentViewController.php:197
 msgid "Debate Legislation"
 msgstr ""
 
-#: applications/legalpad/controller/LegalpadDocumentViewController.php:206
+#: applications/legalpad/controller/LegalpadDocumentViewController.php:204
 msgid "Commence Filibuster"
 msgstr ""
 
-#: applications/legalpad/controller/LegalpadDocumentSignController.php:50
 msgid "You have already agreed to these terms."
 msgstr ""
 
-#: applications/legalpad/controller/LegalpadDocumentSignController.php:68
+#: applications/legalpad/controller/LegalpadDocumentSignController.php:69
 msgid "Name field is required."
 msgstr ""
 
-#: applications/legalpad/controller/LegalpadDocumentSignController.php:74
+#: applications/legalpad/controller/LegalpadDocumentSignController.php:75
 msgid "Email field is required."
 msgstr ""
 
-#: applications/legalpad/controller/LegalpadDocumentSignController.php:80
+#: applications/legalpad/controller/LegalpadDocumentSignController.php:81
 msgid "A valid email is required."
 msgstr ""
 
-#: applications/legalpad/controller/LegalpadDocumentSignController.php:87
+#: applications/legalpad/controller/LegalpadDocumentSignController.php:88
 msgid "Address line 1 field is required."
 msgstr ""
 
-#: applications/legalpad/controller/LegalpadDocumentSignController.php:96
+#: applications/legalpad/controller/LegalpadDocumentSignController.php:97
 msgid "You must check \"I agree to the terms laid forth above.\""
 msgstr ""
 
-#: applications/legalpad/controller/LegalpadDocumentSignController.php:104
 msgid "Signature successful. Thank you."
 msgstr ""
 
-#: applications/legalpad/controller/LegalpadDocumentSignController.php:107
+#: applications/legalpad/controller/LegalpadDocumentSignController.php:109
 msgid "Error in submission."
 msgstr ""
 
-#: applications/legalpad/controller/LegalpadDocumentSignController.php:172
+#: applications/legalpad/controller/LegalpadDocumentSignController.php:167
 msgid "Thank you for signing and agreeing."
 msgstr ""
 
-#: applications/legalpad/controller/LegalpadDocumentSignController.php:174
+#: applications/legalpad/controller/LegalpadDocumentSignController.php:169
 msgid "Please enter the following information."
 msgstr ""
 
-#: applications/legalpad/controller/LegalpadDocumentSignController.php:182
-#: applications/legalpad/controller/LegalpadDocumentSignController.php:228
+#: applications/legalpad/controller/LegalpadDocumentSignController.php:218
+#: applications/legalpad/controller/LegalpadDocumentSignController.php:222
 msgid "Sign and Agree"
 msgstr ""
 
-#: applications/legalpad/controller/LegalpadDocumentSignController.php:201
+#: applications/legalpad/controller/LegalpadDocumentSignController.php:191
 msgid "Address line 1"
 msgstr ""
 
-#: applications/legalpad/controller/LegalpadDocumentSignController.php:208
+#: applications/legalpad/controller/LegalpadDocumentSignController.php:198
 msgid "Address line 2"
 msgstr ""
 
-#: applications/legalpad/controller/LegalpadDocumentSignController.php:214
+#: applications/legalpad/controller/LegalpadDocumentSignController.php:204
 msgid "Phone"
 msgstr ""
 
-#: applications/legalpad/controller/LegalpadDocumentSignController.php:223
+#: applications/legalpad/controller/LegalpadDocumentSignController.php:213
 msgid "I agree to the terms laid forth above."
 msgstr ""
 
@@ -10059,7 +10062,7 @@ msgid "You do not have the required capability (\"%s\") to do whatever you are t
 msgstr ""
 
 #: applications/phriction/controller/PhrictionHistoryController.php:101
-#: applications/phriction/controller/PhrictionDiffController.php:259
+#: applications/phriction/controller/PhrictionDiffController.php:277
 #: applications/policy/controller/PhabricatorPolicyExplainController.php:78
 #: applications/policy/filter/PhabricatorPolicyFilter.php:295
 #, php-format
@@ -10371,7 +10374,7 @@ msgid "%s by %s"
 msgstr ""
 
 #: applications/phriction/controller/PhrictionHistoryController.php:100
-#: applications/phriction/controller/PhrictionDiffController.php:258
+#: applications/phriction/controller/PhrictionDiffController.php:276
 #, php-format
 msgid "Version %s"
 msgstr ""
@@ -10398,7 +10401,7 @@ msgid "Document History for %s"
 msgstr ""
 
 #: applications/phriction/controller/PhrictionHistoryController.php:162
-#: applications/phriction/controller/PhrictionDiffController.php:197
+#: applications/phriction/controller/PhrictionDiffController.php:214
 msgid "Document History"
 msgstr ""
 
@@ -10416,27 +10419,27 @@ msgstr ""
 msgid "Â« Previous Change"
 msgstr ""
 
-#: applications/phriction/controller/PhrictionDiffController.php:148
+#: applications/phriction/controller/PhrictionDiffController.php:155
 msgid "Original Change"
 msgstr ""
 
 msgid "Next Change Â»"
 msgstr ""
 
-#: applications/phriction/controller/PhrictionDiffController.php:160
+#: applications/phriction/controller/PhrictionDiffController.php:174
 msgid "Most Recent Change"
 msgstr ""
 
-#: applications/phriction/controller/PhrictionDiffController.php:228
+#: applications/phriction/controller/PhrictionDiffController.php:245
 msgid "Edit Current Version"
 msgstr ""
 
-#: applications/phriction/controller/PhrictionDiffController.php:238
+#: applications/phriction/controller/PhrictionDiffController.php:255
 #, php-format
 msgid "Revert to Version %s..."
 msgstr ""
 
-#: applications/phriction/controller/PhrictionDiffController.php:255
+#: applications/phriction/controller/PhrictionDiffController.php:273
 #, php-format
 msgid "%s by %s, %s"
 msgstr ""
@@ -12281,9 +12284,9 @@ msgstr ""
 
 #: applications/paste/controller/PhabricatorPasteEditController.php:198
 #: applications/phlux/controller/PhluxEditController.php:172
-#: applications/diffusion/controller/DiffusionRepositoryEditPolicyController.php:65
+#: applications/diffusion/controller/DiffusionRepositoryEditLocalController.php:69
 #: applications/diffusion/controller/DiffusionRepositoryEditBasicController.php:74
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:36
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:37
 #: applications/diffusion/controller/DiffusionRepositoryEditEncodingController.php:64
 #: applications/config/view/PhabricatorSetupIssueView.php:205
 #: applications/config/controller/PhabricatorConfigEditController.php:193
@@ -13146,7 +13149,7 @@ msgid "Mock"
 msgstr ""
 
 #: applications/pholio/phid/PholioPHIDTypeImage.php:12
-#: applications/diffusion/controller/DiffusionBrowseFileController.php:838
+#: applications/diffusion/controller/DiffusionBrowseFileController.php:837
 msgid "Image"
 msgstr ""
 
@@ -14962,19 +14965,19 @@ msgid "Refreshed token, new token expires in %s seconds."
 msgstr ""
 
 #: applications/diffusion/view/DiffusionCommitChangeTableView.php:86
-#: applications/diffusion/view/DiffusionHistoryTableView.php:149
+#: applications/diffusion/view/DiffusionHistoryTableView.php:155
 #: applications/diffusion/view/DiffusionView.php:69
-#: applications/diffusion/controller/DiffusionController.php:128
+#: applications/diffusion/controller/DiffusionController.php:325
 msgid "Browse"
 msgstr ""
 
-#: applications/diffusion/view/DiffusionHistoryTableView.php:152
+#: applications/diffusion/view/DiffusionHistoryTableView.php:158
 #: applications/diffusion/events/DiffusionHovercardEventListener.php:69
 msgid "Revision"
 msgstr ""
 
 #: applications/diffusion/view/DiffusionBrowseTableView.php:238
-#: applications/diffusion/view/DiffusionHistoryTableView.php:156
+#: applications/diffusion/view/DiffusionHistoryTableView.php:162
 msgid "Author/Committer"
 msgstr ""
 
@@ -15028,7 +15031,7 @@ msgstr ""
 msgid "Tag"
 msgstr ""
 
-#: applications/diffusion/view/DiffusionBranchTableView.php:78
+#: applications/diffusion/view/DiffusionBranchTableView.php:74
 msgid "Head"
 msgstr ""
 
@@ -15092,7 +15095,7 @@ msgstr ""
 msgid "Edit Encoding"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:227
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:251
 #: applications/diffusion/controller/DiffusionRepositoryEditEncodingController.php:79
 msgid "Text Encoding"
 msgstr ""
@@ -15149,7 +15152,7 @@ msgstr ""
 msgid "This commit has no tags."
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionTagListController.php:50
+#: applications/diffusion/controller/DiffusionTagListController.php:49
 msgid "This repository has no tags."
 msgstr ""
 
@@ -15212,15 +15215,14 @@ msgstr ""
 msgid "Download Raw File"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionBrowseFileController.php:664
 msgid "(Invalid revision)"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionBrowseFileController.php:692
+#: applications/diffusion/controller/DiffusionBrowseFileController.php:701
 msgid "Skip Past This Commit"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionBrowseFileController.php:848
+#: applications/diffusion/controller/DiffusionBrowseFileController.php:847
 #, php-format
 msgid "This is a binary file. It is %s byte(s) in length."
 msgstr ""
@@ -15233,14 +15235,15 @@ msgstr ""
 msgid "Edit Basics"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionController.php:92
+#: applications/diffusion/controller/DiffusionController.php:289
 #, php-format
 msgid "Tags for %s"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionController.php:107
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:309
-#: applications/diffusion/controller/DiffusionRepositoryController.php:216
+#: applications/diffusion/controller/DiffusionController.php:304
+#: applications/diffusion/controller/DiffusionBranchTableController.php:68
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:337
+#: applications/diffusion/controller/DiffusionRepositoryController.php:235
 msgid "Branches"
 msgstr ""
 
@@ -15273,17 +15276,17 @@ msgstr ""
 msgid "Repository has unknown version control system!"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:292
-#: applications/diffusion/controller/DiffusionRepositoryEditBranchesController.php:81
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:320
+#: applications/diffusion/controller/DiffusionRepositoryEditBranchesController.php:85
 msgid "Edit Branches"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryEditBranchesController.php:83
+#: applications/diffusion/controller/DiffusionRepositoryEditBranchesController.php:87
 #, php-format
 msgid "Edit Branches (%s)"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryEditBranchesController.php:94
+#: applications/diffusion/controller/DiffusionRepositoryEditBranchesController.php:98
 msgid ""
 "You can choose a **Default Branch** for viewing this repository.\n"
 "\n"
@@ -15292,134 +15295,135 @@ msgid ""
 "If you have **Autoclose** enabled, Phabricator can close tasks and revisions when corresponding commits are pushed to the repository. If you want to autoclose objects only when commits appear on specific branches, you can list those branches in **Autoclose Only**. By default, all branches autoclose objects."
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:314
-#: applications/diffusion/controller/DiffusionRepositoryEditBranchesController.php:108
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:342
+#: applications/diffusion/controller/DiffusionRepositoryEditBranchesController.php:112
 msgid "Default Branch"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:319
-#: applications/diffusion/controller/DiffusionRepositoryEditBranchesController.php:115
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:347
+#: applications/diffusion/controller/DiffusionRepositoryEditBranchesController.php:119
 msgid "Track Only"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:324
-#: applications/diffusion/controller/DiffusionRepositoryEditBranchesController.php:122
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:352
+#: applications/diffusion/controller/DiffusionRepositoryEditBranchesController.php:126
 msgid "Autoclose Only"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryEditBranchesController.php:128
+#: applications/diffusion/controller/DiffusionRepositoryEditBranchesController.php:132
 msgid "Save Branches"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:422
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:44
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:450
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:47
 msgid "Edit Remote"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:50
+#: applications/diffusion/controller/DiffusionRepositoryListController.php:110
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:53
 msgid "Import Repository"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:157
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:206
 msgid "Repository Type"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:166
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:215
 msgid "Git"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:168
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:217
 msgid "Import a Git repository (for example, a repository hosted on GitHub)."
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:172
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:221
 msgid "Mercurial"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:174
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:223
 msgid "Import a Mercurial repository (for example, a repository hosted on Bitbucket)."
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:355
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:178
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:383
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:227
 msgid "Subversion"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:179
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:228
 msgid "Import a Subversion repository."
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:182
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:231
 msgid "Perforce"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:193
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:242
 msgid "Perforce Git Fusion"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:184
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:233
 #, php-format
 msgid "Perforce is not directly supported, but you can import a Perforce repository as a Git repository using %s."
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:210
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:259
 msgid "You must select a version control system."
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:214
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:263
 msgid "You must select a valid version control system."
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:227
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:276
 msgid "Repository Name and Location"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:231
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:280
 msgid "**Choose a human-readable name for this repository**, like \"CompanyName Mobile App\" or \"CompanyName Backend Server\". You can change this later."
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:238
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:287
 msgid "Human-readable repository name."
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:241
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:290
 msgid ""
 "**Choose a \"Callsign\" for the repository.** This is a short, unique string which identifies commits elsewhere in Phabricator. For example, you might use `M` for your mobile app repository and `B` for your backend repository.\n"
 "\n"
 "**Callsigns must be UPPERCASE**, and can not be edited after the repository is created. Generally, you should choose short callsigns."
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:253
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:302
 msgid "Short UPPERCASE identifier."
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:262
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:311
 msgid "You must choose a name for this repository."
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:270
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:319
 msgid "You must choose a callsign for this repository."
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:274
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:323
 msgid "The callsign must contain only UPPERCASE letters."
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:290
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:339
 msgid "Another repository already uses that callsign. You must choose a unique callsign."
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:306
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:355
 msgid "Repository Remote URI"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:442
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:343
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:355
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:470
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:392
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:404
 msgid "Remote URI"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:345
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:394
 msgid ""
 "Enter the URI to clone this Git repository from. It should usually look like one of these examples:\n"
 "\n"
@@ -15431,7 +15435,7 @@ msgid ""
 "| `https://example.com/repository.git` |\n"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:357
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:406
 msgid ""
 "Enter the URI to clone this Mercurial repository from. It should usually look like one of these examples:\n"
 "\n"
@@ -15441,12 +15445,12 @@ msgid ""
 "| `file:///local/path/to/repo` |\n"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:365
-#: applications/diffusion/controller/DiffusionRepositoryController.php:163
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:414
+#: applications/diffusion/controller/DiffusionRepositoryController.php:177
 msgid "Repository Root"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:367
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:416
 msgid ""
 "Enter the **Repository Root** for this Subversion repository. You can figure this out by running `svn info` in a working copy and looking at the value in the `Repository Root` field. It should be a URI and will usually look like these:\n"
 "\n"
@@ -15461,19 +15465,19 @@ msgid ""
 "Make sure you specify the root of the repository, not a subdirectory."
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:396
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:445
 msgid "You must specify a URI."
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:405
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:454
 msgid "URIs using the 'file://' protocol should have three slashes (e.g., 'file:///absolute/path/to/file'). You only have two. Add another one."
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:424
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:488
 msgid "The URI protocol is unrecognized. It should begin 'ssh://', 'http://', 'https://', 'file://', 'git://', 'svn://', 'svn+ssh://', or be in the form 'git@domain.com:path'."
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:507
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:571
 #, php-format
 msgid ""
 "Enter the username and private key to use to connect to the the repository hosted at:\n"
@@ -15484,7 +15488,7 @@ msgid ""
 "You can either copy/paste the entire private key, or put it somewhere on disk and provide the path to it."
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:524
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:588
 #, php-format
 msgid ""
 "Enter the a username and pasword used to connect to the repository hosted at:\n"
@@ -15495,61 +15499,60 @@ msgid ""
 "If this repository does not require a username or password, you can leave these fields blank."
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:537
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:601
 msgid "You do not need to configure any authentication options for repositories accessed over the `file://` protocol. Continue to the next step."
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:563
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:627
 msgid "You must provide an SSH login username to connect over SSH."
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:567
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:568
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:631
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:632
 msgid "No Key"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:571
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:635
 msgid "You must provide either a private key or the path to a private key to connect over SSH."
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:574
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:575
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:638
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:639
 msgid "Ambiguous"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:578
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:642
 msgid "Provide either a private key or the path to a private key, not both."
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:584
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:648
 msgid "The private key you provided is missing the PRIVATE KEY header. You should include the header and footer. (Did you provide a public key by mistake?)"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:604
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:668
 msgid "Repository Ready!"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:610
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:674
 msgid "Start Now"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:613
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:677
 msgid "Start Import Now"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:615
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:679
 msgid "Start importing the repository right away. This will import the entire repository using default settings."
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:619
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:683
 msgid "Configure More Options First"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:621
 msgid "Configure more options before beginning the repository import. This will let you fine-tune settings.. You can start the import whenever you are ready."
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:633
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:697
 msgid "Make a choice about repository activation."
 msgstr ""
 
@@ -15571,7 +15574,7 @@ msgid "Git and Mercurial do not support editing SVN properties!"
 msgstr ""
 
 #: applications/diffusion/controller/DiffusionRepositoryEditSubversionController.php:75
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:338
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:366
 msgid "Edit Subversion Info"
 msgstr ""
 
@@ -15592,7 +15595,7 @@ msgid "Repository UUID"
 msgstr ""
 
 #: applications/diffusion/controller/DiffusionRepositoryEditSubversionController.php:103
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:365
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:393
 msgid "Import Only"
 msgstr ""
 
@@ -15600,29 +15603,29 @@ msgstr ""
 msgid "Save Subversion Info"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryController.php:89
+#: applications/diffusion/controller/DiffusionRepositoryController.php:403
 msgid "View Full Commit History"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryController.php:92
+#: applications/diffusion/controller/DiffusionRepositoryController.php:406
 #, php-format
 msgid "Recent Commits &middot; %s"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryController.php:109
+#: applications/diffusion/controller/DiffusionRepositoryController.php:452
 msgid "Browse Repository"
 msgstr ""
 
 #: applications/diffusion/controller/DiffusionBrowseDirectoryController.php:80
-#: applications/diffusion/controller/DiffusionRepositoryController.php:126
+#: applications/diffusion/controller/DiffusionRepositoryController.php:131
 msgid "README"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryController.php:158
+#: applications/diffusion/controller/DiffusionRepositoryController.php:172
 msgid "Clone URI"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryController.php:220
+#: applications/diffusion/controller/DiffusionRepositoryController.php:239
 #, php-format
 msgid "Showing %d branches."
 msgstr ""
@@ -15630,7 +15633,7 @@ msgstr ""
 msgid "Show All Branches Â»"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryController.php:290
+#: applications/diffusion/controller/DiffusionRepositoryController.php:308
 #, php-format
 msgid "Showing the %d most recent tags."
 msgstr ""
@@ -15687,85 +15690,85 @@ msgstr ""
 msgid "Pending Differential Revisions"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:142
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:158
 msgid "Edit Basic Information"
 msgstr ""
 
 #: applications/diffusion/controller/DiffusionRepositoryEditActivateController.php:50
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:154
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:170
 msgid "Deactivate Repository"
 msgstr ""
 
 #: applications/diffusion/controller/DiffusionRepositoryEditActivateController.php:57
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:158
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:174
 msgid "Activate Repository"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:178
 msgid "PHID"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:189
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:213
 msgid "No description provided."
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:210
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:234
 msgid "Edit Text Encoding"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:231
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:255
 msgid "Use Default (UTF-8)"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:234
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:258
 msgid "Encoding"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:318
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:346
 msgid "Track All Branches"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:323
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:351
 msgid "Autoclose On All Branches"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:359
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:387
 msgid "Not Configured"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:360
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:388
 msgid "Subversion UUID"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:364
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:392
 msgid "Import Entire Repository"
 msgstr ""
 
 #: applications/diffusion/controller/DiffusionRepositoryEditActionsController.php:64
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:379
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:407
 msgid "Edit Actions"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:399
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:405
+#: applications/repository/storage/PhabricatorRepository.php:758
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:427
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:433
 msgid "Off"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:400
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:406
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:428
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:434
 msgid "On"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:402
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:430
 msgid "Publish/Notify"
 msgstr ""
 
 #: applications/diffusion/controller/DiffusionRepositoryEditActionsController.php:99
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:408
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:436
 msgid "Autoclose"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:439
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:467
 msgid "Remote"
 msgstr ""
 
@@ -15855,7 +15858,7 @@ msgstr ""
 msgid "No Commits"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryListController.php:122
+#: applications/diffusion/controller/DiffusionRepositoryListController.php:137
 msgid "No Description"
 msgstr ""
 
@@ -15889,69 +15892,67 @@ msgstr ""
 msgid "Failed to load the commit because the commit has not been parsed yet."
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionCommitController.php:86
+#: applications/diffusion/controller/DiffusionCommitController.php:85
 msgid "Commit Not Tracked"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionCommitController.php:89
+#: applications/diffusion/controller/DiffusionCommitController.php:88
 #, php-format
 msgid "This Diffusion repository is configured to track only one subdirectory of the entire Subversion repository, and this commit didn't affect the tracked subdirectory ('%s'), so no information is available."
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionCommitController.php:107
+#: applications/diffusion/controller/DiffusionCommitController.php:106
 msgid "Commit Detail"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionCommitController.php:210
+#: applications/diffusion/controller/DiffusionCommitController.php:213
 msgid "Bad Commit"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionCommitController.php:219
 msgid "Not Yet Parsed"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionCommitController.php:227
 msgid "This commit hasn't been fully parsed yet (or doesn't affect any paths)."
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionCommitController.php:233
+#: applications/diffusion/controller/DiffusionCommitController.php:230
 msgid "Enormous Commit"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionCommitController.php:236
+#: applications/diffusion/controller/DiffusionCommitController.php:232
 #, php-format
 msgid "This commit is enormous, and affects more than %d files. Changes are not shown."
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionCommitController.php:255
+#: applications/diffusion/controller/DiffusionCommitController.php:250
 msgid "Show All Changes"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionCommitController.php:262
+#: applications/diffusion/controller/DiffusionCommitController.php:256
 msgid "This commit is very large. Load each file individually."
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionCommitController.php:708
+#: applications/diffusion/controller/DiffusionCommitController.php:702
 msgid "Cook the Books"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionCommitController.php:712
+#: applications/diffusion/controller/DiffusionCommitController.php:706
 msgid "Audit Commit"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionCommitController.php:712
+#: applications/diffusion/controller/DiffusionCommitController.php:706
 msgid "Creative Accounting"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionCommitController.php:904
+#: applications/diffusion/controller/DiffusionCommitController.php:898
 msgid "Merged Changes"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionCommitController.php:933
+#: applications/diffusion/controller/DiffusionCommitController.php:927
 msgid "Edit Commit"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionCommitController.php:1035
+#: applications/diffusion/controller/DiffusionCommitController.php:1029
 msgid "Subscribed"
 msgstr ""
 
@@ -17201,78 +17202,74 @@ msgstr ""
 msgid "Maximum number of simultaneous Conduit sessions each user is permitted to have."
 msgstr ""
 
-#: applications/config/option/PhabricatorAuthenticationConfigOptions.php:35
 msgid "Enable SSH key storage"
 msgstr ""
 
-#: applications/config/option/PhabricatorAuthenticationConfigOptions.php:36
 msgid "Disable SSH key storage"
 msgstr ""
 
-#: applications/config/option/PhabricatorAuthenticationConfigOptions.php:38
 msgid "Allow users to associate SSH keys with their accounts."
 msgstr ""
 
-#: applications/config/option/PhabricatorAuthenticationConfigOptions.php:41
 msgid "Set this true to enable the Settings -> SSH Public Keys panel, which will allow users to associated SSH public keys with their accounts. This is only really useful if you're setting up services over SSH and want to use Phabricator for authentication; in most situations you can leave this disabled."
 msgstr ""
 
-#: applications/config/option/PhabricatorAuthenticationConfigOptions.php:50
+#: applications/config/option/PhabricatorAuthenticationConfigOptions.php:35
 msgid "Require email verification"
 msgstr ""
 
-#: applications/config/option/PhabricatorAuthenticationConfigOptions.php:51
+#: applications/config/option/PhabricatorAuthenticationConfigOptions.php:36
 msgid "Don't require email verification"
 msgstr ""
 
-#: applications/config/option/PhabricatorAuthenticationConfigOptions.php:54
+#: applications/config/option/PhabricatorAuthenticationConfigOptions.php:39
 msgid "Require email verification before a user can log in."
 msgstr ""
 
-#: applications/config/option/PhabricatorAuthenticationConfigOptions.php:57
+#: applications/config/option/PhabricatorAuthenticationConfigOptions.php:42
 msgid "If true, email addresses must be verified (by clicking a link in an email) before a user can login. By default, verification is optional unless 'auth.email-domains' is nonempty."
 msgstr ""
 
-#: applications/config/option/PhabricatorAuthenticationConfigOptions.php:61
+#: applications/config/option/PhabricatorAuthenticationConfigOptions.php:46
 msgid "Only allow registration from particular domains."
 msgstr ""
 
-#: applications/config/option/PhabricatorAuthenticationConfigOptions.php:64
+#: applications/config/option/PhabricatorAuthenticationConfigOptions.php:49
 msgid ""
 "You can restrict allowed email addresses to certain domains (like 'yourcompany.com') by setting a list of allowed domains here. Users will only be allowed to register using email addresses at one of the domains, and will only be able to add new email addresses for these domains. If you configure this, it implies 'auth.require-email-verification'.\n"
 "\n"
 "You should omit the '@' from domains. Note that the domain must match exactly. If you allow 'yourcompany.com', that permits 'joe@yourcompany.com' but rejects 'joe@mail.yourcompany.com'."
 msgstr ""
 
-#: applications/config/option/PhabricatorAuthenticationConfigOptions.php:78
+#: applications/config/option/PhabricatorAuthenticationConfigOptions.php:63
 msgid "A block of HTML displayed on the login screen."
 msgstr ""
 
-#: applications/config/option/PhabricatorAuthenticationConfigOptions.php:81
+#: applications/config/option/PhabricatorAuthenticationConfigOptions.php:66
 msgid "You can provide an arbitrary block of HTML here, which will appear on the login screen. Normally, you'd use this to provide login or registration instructions to users."
 msgstr ""
 
-#: applications/config/option/PhabricatorAuthenticationConfigOptions.php:87
+#: applications/config/option/PhabricatorAuthenticationConfigOptions.php:72
 msgid "Allow editing"
 msgstr ""
 
-#: applications/config/option/PhabricatorAuthenticationConfigOptions.php:88
+#: applications/config/option/PhabricatorAuthenticationConfigOptions.php:73
 msgid "Prevent editing"
 msgstr ""
 
-#: applications/config/option/PhabricatorAuthenticationConfigOptions.php:92
+#: applications/config/option/PhabricatorAuthenticationConfigOptions.php:77
 msgid "Determines whether or not basic account information is editable."
 msgstr ""
 
-#: applications/config/option/PhabricatorAuthenticationConfigOptions.php:96
+#: applications/config/option/PhabricatorAuthenticationConfigOptions.php:81
 msgid "Is basic account information (email, real name, profile picture) editable? If you set up Phabricator to automatically synchronize account information from some other authoritative system, you can disable this to ensure information remains consistent across both systems."
 msgstr ""
 
-#: applications/config/option/PhabricatorAuthenticationConfigOptions.php:102
+#: applications/config/option/PhabricatorAuthenticationConfigOptions.php:87
 msgid "Minimum password length."
 msgstr ""
 
-#: applications/config/option/PhabricatorAuthenticationConfigOptions.php:105
+#: applications/config/option/PhabricatorAuthenticationConfigOptions.php:90
 msgid "When users set or reset a password, it must have at least this many characters."
 msgstr ""
 
@@ -19958,11 +19955,11 @@ msgstr "Neuere ›"
 msgid "Batch Edit Selected »"
 msgstr ""
 
-#: applications/phriction/controller/PhrictionDiffController.php:146
+#: applications/phriction/controller/PhrictionDiffController.php:147
 msgid "« Previous Change"
 msgstr ""
 
-#: applications/phriction/controller/PhrictionDiffController.php:158
+#: applications/phriction/controller/PhrictionDiffController.php:166
 msgid "Next Change »"
 msgstr ""
 
@@ -19970,11 +19967,11 @@ msgstr ""
 msgid "More Tags…"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryController.php:233
+#: applications/diffusion/controller/DiffusionRepositoryController.php:252
 msgid "Show All Branches »"
 msgstr ""
 
-#: applications/diffusion/controller/DiffusionRepositoryController.php:303
+#: applications/diffusion/controller/DiffusionRepositoryController.php:321
 msgid "Show All Tags »"
 msgstr ""
 
@@ -20102,4 +20099,554 @@ msgstr "Problematische Commits zeigen »"
 #: applications/maniphest/application/PhabricatorApplicationManiphest.php:6
 msgid "Tasks and Bugs"
 msgstr "Aufgaben und Probleme"
+
+#: applications/conduit/controller/PhabricatorConduitTokenController.php:57
+msgid "Certificate Token"
+msgstr ""
+
+#: applications/phriction/controller/PhrictionDiffController.php:116
+#, php-format
+msgid "Version %s vs %s"
+msgstr ""
+
+#: applications/repository/storage/PhabricatorRepositoryTransaction.php:109
+#, php-format
+msgid "%s created this repository."
+msgstr ""
+
+#: applications/repository/storage/PhabricatorRepositoryTransaction.php:304
+#, php-format
+msgid "%s changed the local path from \"%s\" to \"%s\"."
+msgstr ""
+
+#: applications/repository/storage/PhabricatorRepositoryTransaction.php:311
+#, php-format
+msgid "%s changed this repository to be hosted on Phabricator."
+msgstr ""
+
+#: applications/repository/storage/PhabricatorRepositoryTransaction.php:315
+#, php-format
+msgid "%s changed this repository to track a remote elsewhere."
+msgstr ""
+
+#: applications/repository/storage/PhabricatorRepositoryTransaction.php:320
+#, php-format
+msgid "%s changed the availability of this repository over HTTP from \"%s\" to \"%s\"."
+msgstr ""
+
+#: applications/repository/storage/PhabricatorRepositoryTransaction.php:327
+#, php-format
+msgid "%s changed the availability of this repository over SSH from \"%s\" to \"%s\"."
+msgstr ""
+
+#: applications/repository/storage/PhabricatorRepositoryTransaction.php:334
+#, php-format
+msgid "%s changed the push policy of this repository from \"%s\" to \"%s\"."
+msgstr ""
+
+#: applications/repository/storage/PhabricatorRepository.php:760
+msgid "Read Only"
+msgstr ""
+
+#: applications/repository/storage/PhabricatorRepository.php:762
+msgid "Read/Write"
+msgstr ""
+
+#: applications/repository/engine/PhabricatorRepositoryPullEngine.php:32
+#, php-format
+msgid "Repository \"%s\" is hosted, so Phabricator does not pull updates for it."
+msgstr ""
+
+#: applications/repository/engine/PhabricatorRepositoryPullEngine.php:43
+#, php-format
+msgid "Repository '%s' is a Subversion repository, which does not require a local working copy to be pulled."
+msgstr ""
+
+#: applications/repository/engine/PhabricatorRepositoryPullEngine.php:54
+#, php-format
+msgid "Unknown VCS \"%s\"!"
+msgstr ""
+
+#: applications/repository/engine/PhabricatorRepositoryPullEngine.php:62
+#, php-format
+msgid "No local path is configured for repository '%s'."
+msgstr ""
+
+#: applications/repository/engine/PhabricatorRepositoryPullEngine.php:75
+#, php-format
+msgid "Creating a new working copy for repository '%s'."
+msgstr ""
+
+#: applications/repository/engine/PhabricatorRepositoryPullEngine.php:85
+#, php-format
+msgid "Updating the working copy for repository '%s'."
+msgstr ""
+
+#: applications/repository/engine/PhabricatorRepositoryPullEngine.php:95
+#, php-format
+msgid "Pull of \"%s\" failed: %s"
+msgstr ""
+
+#: applications/repository/PhabricatorRepositoryConfigOptions.php:24
+msgid "The default location in which to store working copies and other data about repositories. Phabricator will control and manage data here, so you should **not** choose an existing directory full of data you care about."
+msgstr ""
+
+#: applications/repository/daemon/PhabricatorRepositoryPullLocalDaemon.php:162
+#, php-format
+msgid "Error updating working copy: %s"
+msgstr ""
+
+#: applications/diffusion/capability/DiffusionCapabilityPush.php:13
+#: applications/diffusion/controller/DiffusionRepositoryEditPolicyController.php:109
+msgid "Can Push"
+msgstr ""
+
+#: applications/diffusion/capability/DiffusionCapabilityPush.php:17
+#: applications/diffusion/controller/DiffusionController.php:125
+#: applications/diffusion/ssh/DiffusionSSHWorkflow.php:76
+msgid "You do not have permission to push to this repository."
+msgstr ""
+
+#: applications/diffusion/capability/DiffusionCapabilityDefaultPush.php:13
+msgid "Default Push Policy"
+msgstr ""
+
+#: applications/diffusion/capability/DiffusionCapabilityCreateRepositories.php:13
+msgid "Can Create Repositories"
+msgstr ""
+
+#: applications/diffusion/capability/DiffusionCapabilityCreateRepositories.php:17
+msgid "You do not have permission to create new repositories."
+msgstr ""
+
+#: applications/diffusion/conduit/ConduitAPI_diffusion_looksoon_Method.php:12
+msgid "Advises Phabricator to look for new commits in a repository as soon as possible. This advice is most useful if you have just pushed new commits to that repository."
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditPolicyController.php:74
+#, php-format
+msgid "Edit Policies (%s)"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditPolicyController.php:111
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:305
+msgid "Not a Hosted Repository"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionCommitController.php:219
+#: applications/diffusion/controller/DiffusionRepositoryController.php:368
+msgid "Still Importing..."
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionCommitController.php:221
+msgid "This commit is still importing. Changes will be visible once the import finishes."
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionCommitController.php:225
+msgid "Empty Commit"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionCommitController.php:227
+msgid "This commit is empty and does not affect any paths."
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditHostingController.php:72
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:520
+msgid "Edit Hosting"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditHostingController.php:74
+#, php-format
+msgid "Edit Hosting (%s)"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditHostingController.php:78
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:537
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:542
+msgid "Hosting"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditHostingController.php:81
+msgid "Host Repository on Phabricator"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditHostingController.php:83
+msgid "Phabricator will host this repository. Users will be able to push commits to Phabricator. Phabricator will not pull changes from elsewhere."
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditHostingController.php:88
+msgid "Host Repository Elsewhere"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditHostingController.php:90
+msgid "Phabricator will pull updates to this repository from a master repository elsewhere (for example, on GitHub or Bitbucket). Users will not be able to push commits to this repository."
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditHostingController.php:99
+msgid ""
+"NOTE: Hosting is extremely new and barely works! Use it at your own risk.\n"
+"\n"
+"Phabricator can host repositories, or it can track repositories hosted elsewhere (like on GitHub or Bitbucket)."
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditHostingController.php:107
+msgid "Save and Continue"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditHostingController.php:165
+msgid "Edit Protocols"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditHostingController.php:167
+#, php-format
+msgid "Edit Protocols (%s)"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditHostingController.php:172
+msgid "Phabricator will serve a read-write copy of this repository"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditHostingController.php:175
+msgid "This repository is hosted elsewhere, so Phabricator can not perform writes."
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditHostingController.php:182
+msgid "SSH"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditHostingController.php:188
+#: applications/diffusion/controller/DiffusionRepositoryEditHostingController.php:211
+msgid "Phabricator will not serve this repository."
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditHostingController.php:193
+#: applications/diffusion/controller/DiffusionRepositoryEditHostingController.php:216
+msgid "Phabricator will serve a read-only copy of this repository."
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditHostingController.php:205
+msgid "HTTP"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditHostingController.php:229
+msgid "Phabricator can serve repositories over various protocols. You can configure server protocols here."
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditHostingController.php:236
+msgid "Back"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditDeleteController.php:29
+msgid "If you really want to delete the repository, run this command from the command line:"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditLocalController.php:37
+msgid "You must specify a local path."
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditLocalController.php:67
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:485
+msgid "Edit Local"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditLocalController.php:82
+msgid "You can adjust the local path for this repository here. This is an advanced setting and you usually should not change it."
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditLocalController.php:87
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:505
+msgid "Local Path"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditLocalController.php:92
+msgid "Save Local"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionController.php:73
+msgid "You must log in to access repositories."
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionController.php:85
+msgid "No such repository exists."
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionController.php:91
+msgid "You do not have permission to access this repository."
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionController.php:95
+msgid "You must log in to access this repository."
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionController.php:102
+msgid "This repository is inactive."
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionController.php:112
+msgid "This repository is read-only over HTTP."
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionController.php:129
+msgid "You must log in to push to this repository."
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionController.php:138
+msgid "This repository is not available over HTTP."
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionController.php:147
+msgid "TODO: Implement meaningful responses."
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:181
+msgid "Delete Repository"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:306
+msgid "Pushable By"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:540
+msgid "Hosted on Phabricator"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:541
+msgid "Hosted Elsewhere"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:545
+msgid "Serve over HTTP"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:553
+msgid "Serve over SSH"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:578
+msgid "Repository Active"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:583
+msgid "Repository Inactive"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:585
+msgid "Activate this repository to begin or resume import."
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:599
+msgid "Managing Daemons with phd"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:592
+#, php-format
+msgid "Use %s to start daemons. See %s."
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:613
+msgid "Pull Daemon Running"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:618
+msgid "Pull Daemon Not Running"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:633
+msgid "Task Daemon Running"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:638
+msgid "Task Daemon Not Running"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:647
+msgid "Storage Directory OK"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:653
+msgid "No Storage Directory"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:656
+#, php-format
+msgid "Storage directory %s does not exist, or is not readable by the webserver. Create this directory or make it readable."
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:671
+msgid "Initialization Error"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:679
+msgid "Working Copy OK"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:685
+msgid "Working Copy Error"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:688
+#, php-format
+msgid "Working copy %s has been deleted, or is not readable by the webserver. Make this directory readable. If it has been deleted, the daemons should restore it automatically."
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:700
+msgid "Initializing Working Copy"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:701
+msgid "Daemons are initializing the working copy."
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:707
+msgid "Unknown Init Status"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:715
+msgid "No Working Copy Yet"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:717
+msgid "Waiting for daemons to build a working copy."
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:729
+msgid "Update Error"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:736
+msgid "Updates OK"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:739
+#, php-format
+msgid "Last updated %s."
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:747
+msgid "Waiting For Update"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:749
+msgid "Waiting for daemons to read updates."
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:790
+msgid "Importing"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:792
+#, php-format
+msgid "%s Complete"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:797
+msgid "Fully Imported"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:804
+msgid "Prioritized"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:805
+msgid "This repository will be updated soon."
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:468
+msgid "The Remote URI is not formatted correctly. Remote URIs with an explicit protocol should be in the form 'proto://domain/path', not 'proto://domain:/path'. The ':/path' syntax is only valid in SCP-style URIs."
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryCreateController.php:685
+msgid "Configure more options before beginning the repository import. This will let you fine-tune settings. You can start the import whenever you are ready."
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryController.php:109
+msgid "Unable to Load Tags"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryController.php:119
+msgid "Unable to Load Branches"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryController.php:156
+msgid "Importing..."
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryController.php:370
+msgid "This repository is still importing. History is not yet available."
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryController.php:374
+msgid "Unable to Retrieve History"
+msgstr ""
+
+#: applications/diffusion/controller/DiffusionRepositoryController.php:430
+msgid "Unable to Retrieve Paths"
+msgstr ""
+
+#: applications/diffusion/ssh/DiffusionSSHWorkflow.php:42
+#, php-format
+msgid "Unrecognized repository path \"%s\". Expected a path like \"%s\"."
+msgstr ""
+
+#: applications/diffusion/ssh/DiffusionSSHWorkflow.php:56
+#, php-format
+msgid "No repository \"%s\" exists!"
+msgstr ""
+
+#: applications/diffusion/ssh/DiffusionSSHWorkflow.php:65
+msgid "This repository is read-only over SSH."
+msgstr ""
+
+#: applications/diffusion/ssh/DiffusionSSHWorkflow.php:83
+msgid "This repository is not available over SSH."
+msgstr ""
+
+#: applications/config/check/PhabricatorSetupCheckRepositories.php:10
+#, php-format
+msgid "The configuration option '%s' is not set."
+msgstr ""
+
+#: applications/config/check/PhabricatorSetupCheckRepositories.php:13
+#: applications/config/check/PhabricatorSetupCheckRepositories.php:35
+msgid "Missing Repository Local Path"
+msgstr ""
+
+#: applications/config/check/PhabricatorSetupCheckRepositories.php:21
+msgid "The path for local repositories does not exist, or is not readable by the webserver."
+msgstr ""
+
+#: applications/config/check/PhabricatorSetupCheckRepositories.php:24
+#, php-format
+msgid ""
+"The directory for local repositories (%s) does not exist, or is not readable by the webserver. Phabricator uses this directory to store information about repositories. If this directory does not exist, create it:\n"
+"\n"
+"%s\n"
+"If this directory exists, make it readable to the webserver. You can also edit the configuration below to use some other directory."
+msgstr ""
+
+#: applications/config/check/PhabricatorSetupCheckExtraConfig.php:166
+msgid "SSH keys are now actually useful, so they are always enabled."
+msgstr ""
+
+#: applications/legalpad/controller/LegalpadDocumentViewController.php:115
+msgid "Document"
+msgstr ""
+
+#: applications/legalpad/controller/LegalpadDocumentSignController.php:50
+msgid "Already Signed"
+msgstr ""
+
+#: applications/legalpad/controller/LegalpadDocumentSignController.php:51
+#: applications/legalpad/controller/LegalpadDocumentSignController.php:106
+msgid "Thank you for signing and agreeing"
+msgstr ""
+
+#: applications/legalpad/controller/LegalpadDocumentSignController.php:105
+msgid "Signature successful"
+msgstr ""
+
+#: view/form/control/AphrontFormPolicyControl.php:36
+#, php-format
+msgid "Capability \"%s\""
+msgstr ""
 
