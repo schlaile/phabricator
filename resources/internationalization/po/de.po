@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-01 10:00+0100\n"
-"PO-Revision-Date: 2013-11-01 11:20+0100\n"
+"PO-Revision-Date: 2013-11-01 11:28+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: Deutsch <peter@schlaile.de>\n"
 "Language: \n"
@@ -13260,50 +13260,50 @@ msgstr ""
 
 #: applications/conpherence/view/ConpherenceThreadListView.php:161
 msgid "No conpherences."
-msgstr ""
+msgstr "Keine Conpherenzen."
 
 #: applications/conpherence/view/ConpherenceFileWidgetView.php:35
 #, php-format
 msgid "By %s "
-msgstr ""
+msgstr "Von %s"
 
 #: applications/conpherence/view/ConpherenceFileWidgetView.php:47
 #, php-format
 msgid "%s%s."
-msgstr ""
+msgstr "%s%s."
 
 #: applications/conpherence/view/ConpherenceFileWidgetView.php:67
 msgid "No files."
-msgstr ""
+msgstr "Keine Dateien."
 
 #: applications/conpherence/view/ConpherenceLayoutView.php:83
 #: applications/conpherence/controller/ConpherenceController.php:47
 msgid "Thread"
-msgstr ""
+msgstr "Thread"
 
 #: applications/conpherence/view/ConpherenceLayoutView.php:88
 #: applications/conpherence/controller/ConpherenceWidgetController.php:81
 msgid "Participants"
-msgstr ""
+msgstr "Teilnehmer"
 
 #: applications/settings/application/PhabricatorApplicationSettings.php:43
 #: applications/conpherence/view/ConpherenceLayoutView.php:113
 msgid "Settings"
-msgstr ""
+msgstr "Einstellungen"
 
 #: applications/conpherence/view/ConpherenceLayoutView.php:170
 msgid "You do not have any messages yet."
-msgstr ""
+msgstr "Keine Nachrichten für Dich bis jetzt."
 
 #: applications/conpherence/controller/ConpherenceNewController.php:78
 #: applications/conpherence/events/ConpherenceActionMenuEventListener.php:39
 msgid "Send Message"
-msgstr ""
+msgstr "Nachricht senden"
 
 #: applications/conpherence/editor/ConpherenceEditor.php:342
 #, php-format
 msgid "%s sent you a message."
-msgstr ""
+msgstr "%s hat Dir eine Nachricht geschickt"
 
 #: applications/conpherence/editor/ConpherenceEditor.php:391
 msgid "CONPHERENCE DETAIL"
@@ -13314,30 +13314,30 @@ msgstr ""
 #: applications/conpherence/controller/ConpherenceController.php:61
 #: applications/conpherence/controller/ConpherenceViewController.php:96
 msgid "[No Title]"
-msgstr ""
+msgstr "[Kein Titel]"
 
 #: applications/conpherence/storage/ConpherenceThread.php:191
 msgid "Participants in a thread can always view and edit it."
-msgstr ""
+msgstr "Teilnehmer eines Threads können ihn immer anzeigen und verändern."
 
 #: applications/conpherence/storage/ConpherenceTransaction.php:24
 msgid "You can not add a participant who has already been added."
-msgstr ""
+msgstr "Du kannst keinen Teilnehmer hinzufügen, der bereits dabei ist."
 
 #: applications/conpherence/storage/ConpherenceTransaction.php:61
 #, php-format
 msgid "%s renamed this conpherence from \"%s\" to \"%s\"."
-msgstr ""
+msgstr "%s hat die Conpherence von \"%s\" nach \"%s\" umbenannt."
 
 #: applications/conpherence/storage/ConpherenceTransaction.php:67
 #, php-format
 msgid "%s deleted the conpherence name \"%s\"."
-msgstr ""
+msgstr "%s hat den Conpherence-Namen \"%s\" gelöscht."
 
 #: applications/conpherence/storage/ConpherenceTransaction.php:72
 #, php-format
 msgid "%s named this conpherence \"%s\"."
-msgstr ""
+msgstr "%s hat diese Conpherence \"%s\" genannt."
 
 #: applications/conpherence/storage/ConpherenceTransaction.php:83
 #, php-format
@@ -18519,7 +18519,7 @@ msgstr ""
 
 #: applications/config/controller/PhabricatorConfigIgnoreController.php:31
 msgid "Unignore this setup issue?"
-msgstr ""
+msgstr "Dieses Installationproblem nicht mehr ignorieren?"
 
 #: applications/config/controller/PhabricatorConfigIgnoreController.php:34
 msgid "This issue will no longer be suppressed, and will return to its rightful place as a global setup warning."
@@ -18541,11 +18541,11 @@ msgstr ""
 
 #: applications/directory/controller/PhabricatorDirectoryController.php:88
 msgid "Show More Applications"
-msgstr ""
+msgstr "Mehr Anwendungen anzeigen"
 
 #: applications/directory/controller/PhabricatorDirectoryController.php:94
 msgid "Show Fewer Applications"
-msgstr ""
+msgstr "Weniger Anwendungen anzeigen"
 
 #: applications/directory/controller/PhabricatorDirectoryController.php:171
 msgid "Customize Applications..."

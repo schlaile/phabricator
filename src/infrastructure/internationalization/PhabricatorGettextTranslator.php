@@ -11,9 +11,7 @@ extends PhutilCustomTranslator {
   }
 
   final public function translate($text) {
-    $rv = dgettext("phabricator", $text);
-    error_log($rv);
-    return $rv;
+    return dgettext("phabricator", $text);
   }
   
   final public function plural_translate($text, $variant) {

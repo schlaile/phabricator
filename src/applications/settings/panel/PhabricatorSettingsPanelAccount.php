@@ -83,7 +83,6 @@ final class PhabricatorSettingsPanelAccount
       ->selectAndLoadSymbols();
     foreach ($symbols as $symbol) {
       $class = $symbol['name'];
-      error_log($class);
       $translations[$class] = newv($class, array())->getName();
     }
     asort($translations);

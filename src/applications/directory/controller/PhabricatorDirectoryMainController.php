@@ -175,15 +175,17 @@ final class PhabricatorDirectoryMainController
     if (!$tasks) {
       return $this->renderMiniPanel(
 	      pht('No "Needs Triage" Tasks'),
-	      pht('No tasks in <a href="/project/">projects you are a member of</a> '.
-		  'need triage.'));
+	      pht('No tasks in %s need triage.',
+		  new PhutilSafeHTML('<a href="/project/">' .
+				     pht("projects you are a member of") . '</a>')));
     }
 
     $panel = new AphrontPanelView();
     $panel->setHeader(pht('Needs Triage'));
     $panel->setCaption(
-	    pht('Open tasks with "Needs Triage" priority in '.
-		'<a href="/project/">projects you are a member of</a>.'));
+	    pht('Open tasks with "Needs Triage" priority in %s.',
+		new PhutilSafeHTML('<a href="/project/">' .
+				   pht("projects you are a member of") . '</a>')));
 
     $panel->addButton(
       phutil_tag(
