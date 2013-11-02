@@ -52,9 +52,12 @@ final class DiffusionRepositoryEditMainController
     $policy_properties =
       $this->buildPolicyProperties($repository, $policy_actions);
 
-    $remote_properties = $this->buildRemoteProperties(
-      $repository,
-      $this->buildRemoteActions($repository));
+    $remote_properties = null;
+    if (!$repository->isHosted()) {
+      $remote_properties = $this->buildRemoteProperties(
+        $repository,
+        $this->buildRemoteActions($repository));
+    }
 
     $encoding_actions = $this->buildEncodingActions($repository);
     $encoding_properties =
@@ -115,8 +118,11 @@ final class DiffusionRepositoryEditMainController
       ->setHeader($header)
       ->addPropertyList($basic_properties)
       ->addPropertyList($policy_properties)
-      ->addPropertyList($hosting_properties)
-      ->addPropertyList($remote_properties);
+      ->addPropertyList($hosting_properties);
+
+    if ($remote_properties) {
+      $obj_box->addPropertyList($remote_properties);
+    }
 
     if ($local_properties) {
       $obj_box->addPropertyList($local_properties);
@@ -349,6 +355,11 @@ final class DiffusionRepositoryEditMainController
     $autoclose_only = nonempty(
       $repository->getHumanReadableDetail('close-commits-filter', array()),
       phutil_tag('em', array(), pht('Autoclose On All Branches')));
+
+    if ($repository->getDetail('disable-autoclose')) {
+      $autoclose_only = phutil_tag('em', array(), pht('Disabled'));
+    }
+
     $view->addProperty(pht('Autoclose Only'), $autoclose_only);
 
     return $view;
