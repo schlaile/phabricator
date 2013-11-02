@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-01 14:07+0100\n"
-"PO-Revision-Date: 2013-11-01 14:14+0100\n"
+"PO-Revision-Date: 2013-11-02 09:46+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: Deutsch <peter@schlaile.de>\n"
 "Language: \n"
@@ -12987,106 +12987,106 @@ msgstr ""
 #: applications/daemon/management/PhabricatorDaemonManagementWorkflow.php:277
 #, php-format
 msgid "PID '%s' is not a valid PID."
-msgstr ""
+msgstr "PID '%s' ist keine gültige PID."
 
 #: applications/daemon/management/PhabricatorDaemonManagementWorkflow.php:282
 #, php-format
 msgid "PID '%s' is not a Phabricator daemon PID. It will not be killed."
-msgstr ""
+msgstr "PID '%s' ist kein Phabricator Daemon. Er wird nicht beendet."
 
 #: applications/daemon/management/PhabricatorDaemonManagementWorkflow.php:293
 msgid "No daemons to kill."
-msgstr ""
+msgstr "Kein Daemon mehr am Laufen."
 
 #: applications/daemon/management/PhabricatorDaemonManagementWorkflow.php:302
 #, php-format
 msgid "Stopping daemon '%s' (%s)..."
-msgstr ""
+msgstr "Beende Daemon '%s' (%s)..."
 
 #: applications/daemon/management/PhabricatorDaemonManagementWorkflow.php:304
 msgid "Daemon is not running."
-msgstr ""
+msgstr "Daemon läuft nicht."
 
 #: applications/daemon/management/PhabricatorDaemonManagementWorkflow.php:317
 #, php-format
 msgid "Daemon %s exited normally."
-msgstr ""
+msgstr "Daemon %s normal beendert."
 
 #: applications/daemon/management/PhabricatorDaemonManagementWorkflow.php:329
 #, php-format
 msgid "Sending daemon %s a SIGKILL."
-msgstr ""
+msgstr "Sende Daemon %s ein KILL-Signal."
 
 #: applications/pholio/view/PholioInlineCommentEditView.php:84
 msgid "Ready"
-msgstr ""
+msgstr "Bereit"
 
 #: applications/pholio/view/PholioTransactionView.php:72
 #: applications/feed/story/PhabricatorFeedStoryDifferential.php:129
 msgid "Inline Comments"
-msgstr ""
+msgstr "Inline Kommentare"
 
 #: applications/pholio/event/PholioActionMenuEventListener.php:43
 msgid "Edit Pholio Mocks"
-msgstr ""
+msgstr "Pholio-Entwürfe ändern"
 
 #: applications/pholio/editor/PholioMockEditor.php:382
 #, php-format
 msgid "Image %d: %s"
-msgstr ""
+msgstr "Bild %d: %s"
 
 #: applications/pholio/editor/PholioMockEditor.php:390
 msgid "MOCK DETAIL"
-msgstr ""
+msgstr "ENTWURF DETAIL"
 
 #: applications/pholio/query/PholioMockSearchEngine.php:50
 msgid "All Mocks"
-msgstr ""
+msgstr "Alle Entwürfe"
 
 #: applications/pholio/storage/PholioTransaction.php:100
 #, php-format
 msgid "%s renamed this mock from \"%s\" to \"%s\"."
-msgstr ""
+msgstr "%s hat den Entwurf von \"%s\" zu \"%s\" umbenannt."
 
 #: applications/pholio/storage/PholioTransaction.php:108
 #, php-format
 msgid "%s updated the mock's description."
-msgstr ""
+msgstr "%s hat die Entwurfsbeschreibung geändert."
 
 #: applications/pholio/storage/PholioTransaction.php:120
 #, php-format
 msgid "%s added %d inline comment(s)."
-msgstr ""
+msgstr "%s hat %d Inline-Kommentare hinzugefügt."
 
 #: applications/pholio/storage/PholioTransaction.php:126
 #, php-format
 msgid "%s replaced %s with %s."
-msgstr ""
+msgstr "%s hat %s mit %s ersetzt."
 
 #: applications/pholio/storage/PholioTransaction.php:137
 #, php-format
 msgid "%s edited image(s), added %d: %s; removed %d: %s."
-msgstr ""
+msgstr "%s hat Bilder geändert, %d hinzugefügt: %s; %d entfernt: %s."
 
 #: applications/pholio/storage/PholioTransaction.php:145
 #, php-format
 msgid "%s added %d image(s): %s."
-msgstr ""
+msgstr "%s hat %d Bild(er) hinzugefügt: %s."
 
 #: applications/pholio/storage/PholioTransaction.php:151
 #, php-format
 msgid "%s removed %d image(s): %s."
-msgstr ""
+msgstr "%s hat %d Bild(er) entfernt: %s."
 
 #: applications/pholio/storage/PholioTransaction.php:160
 #, php-format
 msgid "%s renamed an image (%s) from \"%s\" to \"%s\"."
-msgstr ""
+msgstr "%s hat ein Bild (%s) von \"%s\" zu \"%s\" umbenannt."
 
 #: applications/pholio/storage/PholioTransaction.php:168
 #, php-format
 msgid "%s updated an image's (%s) description."
-msgstr ""
+msgstr "%s hat die Bildbeschreibung (%s) geändert."
 
 #: applications/pholio/storage/PholioTransaction.php:174
 #, php-format
@@ -13125,11 +13125,11 @@ msgstr ""
 
 #: applications/pholio/storage/PholioTransaction.php:331
 msgid "The image title was not updated."
-msgstr ""
+msgstr "Die Bildüberschrift wurde nicht geändert."
 
 #: applications/pholio/storage/PholioTransaction.php:333
 msgid "The image description was not updated."
-msgstr ""
+msgstr "Die Bildbeschreibung wurde nicht geändert."
 
 #: applications/pholio/storage/PholioTransaction.php:335
 msgid "The image sequence was not updated."
@@ -13137,85 +13137,85 @@ msgstr ""
 
 #: applications/pholio/storage/PholioMock.php:154
 msgid "A mock's owner can always view and edit it."
-msgstr ""
+msgstr "Der Besitzer eines Enwurf kann ihn immer anschauen und ändern."
 
 #: applications/pholio/storage/PholioMock.php:174
 msgid "No Description Given"
-msgstr ""
+msgstr "Keine Beschreibung angegeben"
 
 #: applications/pholio/phid/PholioPHIDTypeMock.php:12
 msgid "Mock"
-msgstr ""
+msgstr "Entwürfe"
 
 #: applications/pholio/phid/PholioPHIDTypeImage.php:12
 #: applications/diffusion/controller/DiffusionBrowseFileController.php:837
 msgid "Image"
-msgstr ""
+msgstr "Bild"
 
 #: applications/pholio/controller/PholioMockViewController.php:181
 #: applications/pholio/controller/PholioMockEditController.php:34
 msgid "Edit Mock"
-msgstr ""
+msgstr "Entwurf ändern"
 
 #: applications/pholio/controller/PholioController.php:19
 #: applications/pholio/controller/PholioController.php:32
 #: applications/pholio/controller/PholioMockEditController.php:46
 msgid "Create Mock"
-msgstr ""
+msgstr "Neuer Entwurf"
 
 #: applications/pholio/controller/PholioMockEditController.php:84
 msgid "You must give the mock a name."
-msgstr ""
+msgstr "Du mußt dem Entwurf einen Namen geben."
 
 #: applications/pholio/controller/PholioMockEditController.php:101
 msgid "You must add at least one image to the mock."
-msgstr ""
+msgstr "Du mußt mindestens ein Bild zum Entwurf hinzufügen."
 
 #: applications/pholio/controller/PholioMockEditController.php:277
 msgid "Uploading Image..."
-msgstr ""
+msgstr "Bild wird hochgeladen..."
 
 #: applications/pholio/controller/PholioMockEditController.php:278
 msgid "Upload Complete..."
-msgstr ""
+msgstr "Hochladen abgeschlossen..."
 
 #: applications/pholio/controller/PholioMockEditController.php:280
 msgid "This image will be removed from the mock."
-msgstr ""
+msgstr "Dieses Bild wird vom Entwurf entfernt."
 
 #: applications/pholio/controller/PholioInlineSaveController.php:73
 msgid "Add Inline Comment"
-msgstr ""
+msgstr "Inline-Kommentar hinzufügen"
 
 #: applications/pholio/controller/PholioMockListController.php:54
 #, php-format
 msgid "By %s on %s"
-msgstr ""
+msgstr "Von %s über %s"
 
 #: applications/pholio/controller/PholioInlineEditController.php:41
 msgid "Empty comment"
-msgstr ""
+msgstr "Leerer Kommentar"
 
 #: applications/pholio/controller/PholioInlineEditController.php:57
 msgid "Edit inline comment"
-msgstr ""
+msgstr "Inline-Kommentar ändern"
 
 #: applications/pholio/controller/PholioImageHistoryController.php:51
 #, php-format
 msgid "Image history for \"%s\" from the mock \"%s.\""
-msgstr ""
+msgstr "Bild-Historie von \"%s\" für den Entwurf \"%s.\""
 
 #: applications/pholio/controller/PholioMockViewController.php:148
 msgid "The requested image is obsolete."
-msgstr ""
+msgstr "Das angeforderte Bild ist nicht mehr aktuell."
 
 #: applications/pholio/controller/PholioMockViewController.php:153
 msgid "You are viewing this mock with the latest image set."
-msgstr ""
+msgstr "Du schaust Dir den Entwurf mit dem aktuellsten Bildersatz an."
 
 #: applications/pholio/controller/PholioMockViewController.php:159
 msgid "Click here to see the history of the now obsolete image."
-msgstr ""
+msgstr "Hier klicken, um sich die Historie des nun nicht mehr aktuellen Bildes anzusehen."
 
 #: applications/pholio/controller/PholioMockViewController.php:240
 msgid "History Beckons"
@@ -13223,23 +13223,23 @@ msgstr ""
 
 #: applications/pholio/controller/PholioMockViewController.php:247
 msgid "Answer The Call"
-msgstr ""
+msgstr "Anfrage beantworten"
 
 #: applications/pholio/application/PhabricatorApplicationPholio.php:13
 msgid "Design Review"
-msgstr ""
+msgstr "Design überprüfen"
 
 #: applications/pholio/application/PhabricatorApplicationPholio.php:25
 msgid "Things before they were cool."
-msgstr ""
+msgstr "Dinge im Entwurfsstadium (bevor sie richtig kewl waren)"
 
 #: applications/pholio/config/PhabricatorPholioConfigOptions.php:10
 msgid "Pholio"
-msgstr ""
+msgstr "Pholio"
 
 #: applications/pholio/config/PhabricatorPholioConfigOptions.php:14
 msgid "Configure Pholio."
-msgstr ""
+msgstr "Pholio konfigurieren"
 
 #: applications/pholio/config/PhabricatorPholioConfigOptions.php:22
 msgid "Like {{metamta.maniphest.reply-handler-domain}}, but affects Pholio."
@@ -13247,15 +13247,15 @@ msgstr ""
 
 #: applications/pholio/config/PhabricatorPholioConfigOptions.php:25
 msgid "Subject prefix for Pholio email."
-msgstr ""
+msgstr "Kürzel für den Betreff von Pholio Emails"
 
 #: applications/conpherence/view/ConpherenceThreadListView.php:138
 msgid "Load Newer Threads"
-msgstr ""
+msgstr "Neuere Threads zeigen"
 
 #: applications/conpherence/view/ConpherenceThreadListView.php:140
 msgid "Load Older Threads"
-msgstr ""
+msgstr "Ältere Threads zeigen"
 
 #: applications/conpherence/view/ConpherenceThreadListView.php:161
 msgid "No conpherences."
@@ -13306,7 +13306,7 @@ msgstr "%s hat Dir eine Nachricht geschickt"
 
 #: applications/conpherence/editor/ConpherenceEditor.php:391
 msgid "CONPHERENCE DETAIL"
-msgstr ""
+msgstr "CONPHERENCE DETAILS"
 
 #: applications/conpherence/storage/ConpherenceThread.php:129
 #: applications/conpherence/phid/PhabricatorConpherencePHIDTypeThread.php:39
@@ -13370,15 +13370,15 @@ msgstr ""
 
 #: applications/conpherence/phid/PhabricatorConpherencePHIDTypeThread.php:15
 msgid "Conpherence Thread"
-msgstr ""
+msgstr "Conpherence Thread"
 
 #: applications/conpherence/constants/ConpherenceSettings.php:9
 msgid "Unknown setting."
-msgstr ""
+msgstr "Unbekannte Einstellung."
 
 #: applications/conpherence/constants/ConpherenceSettings.php:13
 msgid "Email me every update."
-msgstr ""
+msgstr "Mir jede Aktualisierung per Email schicken."
 
 #: applications/conpherence/constants/ConpherenceSettings.php:16
 msgid "Notifications only."
@@ -13390,7 +13390,7 @@ msgstr ""
 
 #: applications/conpherence/conduit/ConduitAPI_conpherence_createthread_Method.php:10
 msgid "Create a new conpherence thread."
-msgstr ""
+msgstr "Neuer Conpherence Thread"
 
 #: applications/conpherence/conduit/ConduitAPI_conpherence_createthread_Method.php:28
 msgid "You must specify participant phids."
@@ -13398,11 +13398,11 @@ msgstr ""
 
 #: applications/conpherence/conduit/ConduitAPI_conpherence_createthread_Method.php:30
 msgid "You must specify a message."
-msgstr ""
+msgstr "Du mußt eine Nachricht angeben."
 
 #: applications/conpherence/conduit/ConduitAPI_conpherence_updatethread_Method.php:10
 msgid "Update an existing conpherence thread."
-msgstr ""
+msgstr "Einen bestehenden Conpherence-Thread ändern."
 
 #: applications/conpherence/conduit/ConduitAPI_conpherence_querytransaction_Method.php:34
 #: applications/conpherence/conduit/ConduitAPI_conpherence_updatethread_Method.php:31
@@ -13441,19 +13441,19 @@ msgstr ""
 #: applications/conpherence/controller/ConpherenceController.php:18
 #: applications/conpherence/controller/ConpherenceUpdateController.php:195
 msgid "Add Participants"
-msgstr ""
+msgstr "Teilnehmer hinzufügen"
 
 #: applications/conpherence/controller/ConpherenceUpdateController.php:208
 msgid "Are you sure you want to remove yourself from this conpherence? "
-msgstr ""
+msgstr "Bist Du sicher, daß Du die Konferenz verlassen möchtest?"
 
 #: applications/conpherence/controller/ConpherenceUpdateController.php:211
 msgid "The conpherence will be inaccessible forever and ever."
-msgstr ""
+msgstr "Die Conpherence ist dann für ewig und immer unzugänglich."
 
 #: applications/conpherence/controller/ConpherenceUpdateController.php:214
 msgid "Someone else in the conpherence can add you back later."
-msgstr ""
+msgstr "Ein anderer Benutzer kann Dich später zur Conpherence wieder hinzufügen."
 
 #: applications/conpherence/controller/ConpherenceUpdateController.php:224
 msgid "Remove Participants"
