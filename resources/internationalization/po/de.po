@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-01 14:07+0100\n"
-"PO-Revision-Date: 2013-11-03 16:23+0100\n"
+"PO-Revision-Date: 2013-11-04 00:41+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: Deutsch <peter@schlaile.de>\n"
 "Language: \n"
@@ -5847,23 +5847,23 @@ msgstr ""
 
 #: applications/countdown/view/PhabricatorCountdownView.php:61
 msgid "Days"
-msgstr ""
+msgstr "Tage"
 
 #: applications/countdown/view/PhabricatorCountdownView.php:62
 msgid "Hours"
-msgstr ""
+msgstr "Stunden"
 
 #: applications/countdown/view/PhabricatorCountdownView.php:63
 msgid "Minutes"
-msgstr ""
+msgstr "Minuten"
 
 #: applications/countdown/view/PhabricatorCountdownView.php:64
 msgid "Seconds"
-msgstr ""
+msgstr "Sekunden"
 
 #: applications/countdown/query/PhabricatorCountdownSearchEngine.php:55
 msgid "Show only countdowns that are still counting down."
-msgstr ""
+msgstr "Nur Countdowns anzeigen, die noch am Laufen sind."
 
 #: applications/countdown/query/PhabricatorCountdownSearchEngine.php:66
 msgid "Upcoming"
@@ -13341,17 +13341,17 @@ msgstr "%s hat diese Conpherence \"%s\" genannt."
 #: applications/conpherence/storage/ConpherenceTransaction.php:83
 #, php-format
 msgid "%s edited files(s), added %d and removed %d."
-msgstr ""
+msgstr "Dateien wurden von %s verändert: %d hinzugefügt und %d entfernt."
 
 #: applications/conpherence/storage/ConpherenceTransaction.php:89
 #, php-format
 msgid "%s added %d files(s)."
-msgstr ""
+msgstr "%s hat %d Dateien hinzugefügt."
 
 #: applications/conpherence/storage/ConpherenceTransaction.php:94
 #, php-format
 msgid "%s removed %d file(s)."
-msgstr ""
+msgstr "%s hat %d Dateien entfernt."
 
 #: applications/conpherence/storage/ConpherenceTransaction.php:106
 #, php-format
@@ -13382,7 +13382,7 @@ msgstr "Mir jede Aktualisierung per Email schicken."
 
 #: applications/conpherence/constants/ConpherenceSettings.php:16
 msgid "Notifications only."
-msgstr ""
+msgstr "Nur Meldungen."
 
 #: applications/conpherence/conduit/ConduitAPI_conpherence_querythread_Method.php:12
 msgid "Query for conpherence threads for the logged in user. You can query by ids or phids for specific conpherence threads. Otherwise, specify limit and offset to query the most recently updated conpherences for the logged in user."
@@ -14973,33 +14973,33 @@ msgstr ""
 #: applications/diffusion/view/DiffusionHistoryTableView.php:158
 #: applications/diffusion/events/DiffusionHovercardEventListener.php:69
 msgid "Revision"
-msgstr ""
+msgstr "Version"
 
 #: applications/diffusion/view/DiffusionBrowseTableView.php:238
 #: applications/diffusion/view/DiffusionHistoryTableView.php:162
 msgid "Author/Committer"
-msgstr ""
+msgstr "Autor/Committer"
 
 #: applications/diffusion/view/DiffusionEmptyResultView.php:32
 msgid "Path Does Not Exist"
-msgstr ""
+msgstr "Pfad existiert nicht"
 
 #: applications/diffusion/view/DiffusionEmptyResultView.php:35
 msgid "This path does not exist anywhere."
-msgstr ""
+msgstr "Dieser Pfad existiert an keiner Stelle."
 
 #: applications/diffusion/view/DiffusionEmptyResultView.php:39
 msgid "Empty Directory"
-msgstr ""
+msgstr "Leeres Verzeichnis"
 
 #: applications/diffusion/view/DiffusionEmptyResultView.php:40
 #, php-format
 msgid "This path was an empty directory at %s.\n"
-msgstr ""
+msgstr "Dieser Pfad war ein leeres Verzeichnis: %s.\n"
 
 #: applications/diffusion/view/DiffusionEmptyResultView.php:55
 msgid "Path Was Deleted"
-msgstr ""
+msgstr "Pfad wurde gelöscht"
 
 #: applications/diffusion/view/DiffusionEmptyResultView.php:57
 #, php-format
@@ -15008,7 +15008,7 @@ msgstr ""
 
 #: applications/diffusion/view/DiffusionEmptyResultView.php:67
 msgid "Directory Not Tracked"
-msgstr ""
+msgstr "Verzeichnis nicht in der Verfolgung"
 
 #: applications/diffusion/view/DiffusionEmptyResultView.php:69
 #, php-format
@@ -15061,7 +15061,7 @@ msgstr ""
 
 #: applications/diffusion/conduit/ConduitAPI_diffusion_searchquery_Method.php:71
 msgid "Binary file"
-msgstr ""
+msgstr "Binärdatei"
 
 #: applications/diffusion/conduit/ConduitAPI_diffusion_abstractquery_Method.php:19
 msgid "See T2784 - migrating diffusion working copy calls to conduit methods. Until that task is completed (and possibly after) these methods are unstable."
@@ -15088,33 +15088,33 @@ msgstr ""
 
 #: applications/diffusion/controller/DiffusionBranchTableController.php:34
 msgid "This repository has no branches."
-msgstr ""
+msgstr "Dieses Repository hat keine Branches."
 
 #: applications/diffusion/controller/DiffusionRepositoryEditEncodingController.php:62
 msgid "Edit Encoding"
-msgstr ""
+msgstr "Zeichenkodierung ändern"
 
 #: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:251
 #: applications/diffusion/controller/DiffusionRepositoryEditEncodingController.php:79
 msgid "Text Encoding"
-msgstr ""
+msgstr "Zeichenkodierung"
 
 #: applications/diffusion/controller/DiffusionRepositoryEditEncodingController.php:84
 msgid "Save Encoding"
-msgstr ""
+msgstr "Zeichenkodierung speichern"
 
 #: applications/diffusion/controller/DiffusionLintController.php:100
 msgid "Problems"
-msgstr ""
+msgstr "Probleme"
 
 #: applications/diffusion/controller/DiffusionLintController.php:104
 msgid "Code"
-msgstr ""
+msgstr "Code"
 
 #: applications/diffusion/controller/DiffusionLintController.php:106
 #: applications/config/controller/PhabricatorConfigEditController.php:478
 msgid "Example"
-msgstr ""
+msgstr "Beispiel"
 
 #: applications/diffusion/controller/DiffusionLintController.php:149
 msgid "All Lint"
