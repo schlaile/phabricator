@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-01 14:07+0100\n"
-"PO-Revision-Date: 2013-11-02 09:46+0100\n"
+"PO-Revision-Date: 2013-11-03 16:23+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: Deutsch <peter@schlaile.de>\n"
 "Language: \n"
@@ -1768,7 +1768,7 @@ msgstr "Schuld an diesem Release:"
 #: applications/maniphest/controller/ManiphestTaskDetailController.php:556
 #: applications/uiexample/examples/PHUIObjectItemListExample.php:312
 msgid "None"
-msgstr "Nichts"
+msgstr "Keine"
 
 #: applications/differential/field/specification/DifferentialJIRAIssuesFieldSpecification.php:37
 msgid "JIRA Issues"
@@ -2165,7 +2165,7 @@ msgstr "Abschicken"
 
 #: applications/differential/view/DifferentialAddCommentView.php:109
 msgid "Clowncopterize"
-msgstr "Sich zum Clown machen"
+msgstr "Zum Clown machen"
 
 #: applications/macro/controller/PhabricatorMacroViewController.php:90
 #: applications/macro/controller/PhabricatorMacroViewController.php:94
@@ -5462,32 +5462,32 @@ msgstr ""
 #: applications/phortune/controller/PhortuneController.php:26
 #, php-format
 msgid "Account (%s)"
-msgstr ""
+msgstr "Konto (%s)"
 
 #: applications/phortune/controller/PhortuneProductViewController.php:24
 #, php-format
 msgid "Product: %s"
-msgstr ""
+msgstr "Produkt: %s"
 
 #: applications/phortune/controller/PhortuneProductViewController.php:40
 #: applications/phortune/controller/PhortuneProductEditController.php:136
 #: applications/phortune/controller/PhortuneProductEditController.php:148
 msgid "Edit Product"
-msgstr ""
+msgstr "Produkt ändern"
 
 #: applications/phortune/controller/PhortuneProductViewController.php:46
 msgid "Purchase"
-msgstr ""
+msgstr "Kaufen"
 
 #: applications/phortune/controller/PhortuneProductViewController.php:55
 #: applications/phortune/controller/PhortuneProductEditController.php:140
 msgid "Products"
-msgstr ""
+msgstr "Produkte"
 
 #: applications/phortune/controller/PhortuneProductViewController.php:59
 #, php-format
 msgid "#%d"
-msgstr ""
+msgstr "#%d"
 
 #: applications/settings/panel/PhabricatorSettingsPanelSSHKeys.php:205
 #: applications/phortune/controller/PhortuneProductViewController.php:65
@@ -5497,49 +5497,49 @@ msgstr ""
 #: applications/diffusion/controller/DiffusionRepositoryCreateController.php:212
 #: applications/herald/controller/HeraldNewController.php:55
 msgid "Type"
-msgstr ""
+msgstr "Art"
 
 #: applications/phortune/controller/PhortuneProductListController.php:17
 #: applications/phortune/controller/PhortuneProductListController.php:31
 msgid "Product List"
-msgstr ""
+msgstr "Produktangebot"
 
 #: applications/phortune/controller/PhortuneProductListController.php:26
 #: applications/phortune/controller/PhortuneProductEditController.php:132
 msgid "Create Product"
-msgstr ""
+msgstr "Neues Produkt"
 
 #: applications/phortune/controller/PhortuneProductListController.php:35
 msgid "No products."
-msgstr ""
+msgstr "Keine Produkte"
 
 #: applications/phortune/controller/PhortuneProductEditController.php:48
 msgid "Product must have a name."
-msgstr ""
+msgstr "Produkte müssen Namen haben"
 
 #: applications/phortune/controller/PhortuneProductEditController.php:58
 msgid "Product type is invalid."
-msgstr ""
+msgstr "Die Produktart ist ungültig."
 
 #: applications/phortune/controller/PhortuneProductEditController.php:70
 msgid "Price should be formatted as: $1.23"
-msgstr ""
+msgstr "Preise müssen folgendermaßen formatiert sein: EUR 1,23"
 
 #: applications/phortune/controller/PhortuneProductEditController.php:133
 msgid "Save Product"
-msgstr ""
+msgstr "Produkt speichern"
 
 #: applications/phortune/controller/PhortuneAccountViewController.php:40
 msgid "Edit Account"
-msgstr ""
+msgstr "Konto editieren"
 
 #: applications/phortune/controller/PhortuneAccountViewController.php:57
 msgid "Balance"
-msgstr ""
+msgstr "Kontostand"
 
 #: applications/phortune/controller/PhortuneAccountViewController.php:104
 msgid "No payment methods associated with this account."
-msgstr ""
+msgstr "Keine Zahlungsmethode ist mit dem Konto verknüpft."
 
 #: applications/phortune/controller/PhortuneAccountViewController.php:129
 #, php-format
@@ -5548,11 +5548,11 @@ msgstr ""
 
 #: applications/phortune/controller/PhortuneAccountViewController.php:148
 msgid "Purchase History"
-msgstr ""
+msgstr "Bestellhistorie"
 
 #: applications/phortune/controller/PhortuneAccountViewController.php:161
 msgid "Account History"
-msgstr ""
+msgstr "Kontenhistorie"
 
 #: applications/phortune/application/PhabricatorApplicationPhortune.php:10
 msgid "Account and Billing"
@@ -18614,11 +18614,11 @@ msgstr "Deine Einstellungen wurden gespeichert."
 
 #: applications/settings/panel/PhabricatorSettingsPanelAccount.php:15
 msgid "Account Information"
-msgstr ""
+msgstr "Konteninformationen"
 
 #: applications/settings/panel/PhabricatorSettingsPanelAccount.php:30
 msgid "The selected timezone is not a valid timezone."
-msgstr ""
+msgstr "Die ausgewählte Zeitzone ist ungültig."
 
 #: applications/settings/panel/PhabricatorSettingsPanelAccount.php:73
 msgid "Unspecified"
@@ -18672,11 +18672,11 @@ msgstr ""
 
 #: applications/settings/panel/PhabricatorSettingsPanelAccount.php:138
 msgid "Save Account Settings"
-msgstr ""
+msgstr "Konteneinstellungen speichern"
 
 #: applications/settings/panel/PhabricatorSettingsPanelAccount.php:141
 msgid "Account Settings"
-msgstr ""
+msgstr "Konteneinstellungen"
 
 #: applications/settings/panel/PhabricatorSettingsPanelConpherencePreferences.php:16
 #: applications/settings/panel/PhabricatorSettingsPanelConpherencePreferences.php:68
@@ -18689,7 +18689,7 @@ msgstr ""
 #: applications/settings/panel/PhabricatorSettingsPanelDisplayPreferences.php:15
 #: applications/settings/panel/PhabricatorSettingsPanelConpherencePreferences.php:20
 msgid "Application Settings"
-msgstr ""
+msgstr "Anwendungseinstellungen"
 
 #: applications/settings/panel/PhabricatorSettingsPanelConpherencePreferences.php:41
 msgid "Conpherence Notifications"
@@ -18709,23 +18709,23 @@ msgstr ""
 
 #: applications/settings/panel/PhabricatorSettingsPanelHomePreferences.php:11
 msgid "Home Page"
-msgstr ""
+msgstr "Hauptseite"
 
 #: applications/settings/panel/PhabricatorSettingsPanelHomePreferences.php:166
 msgid "Applications"
-msgstr ""
+msgstr "Anwendungen"
 
 #: applications/settings/panel/PhabricatorSettingsPanelHomePreferences.php:169
 msgid "Small"
-msgstr ""
+msgstr "Klein"
 
 #: applications/settings/panel/PhabricatorSettingsPanelHomePreferences.php:170
 msgid "Large"
-msgstr ""
+msgstr "Groß"
 
 #: applications/settings/panel/PhabricatorSettingsPanelHomePreferences.php:206
 msgid "Home Page Preferences"
-msgstr ""
+msgstr "Hauptseiten-Einstellungen"
 
 #: applications/settings/panel/PhabricatorSettingsPanelExternalAccounts.php:11
 msgid "External Accounts"
@@ -18763,11 +18763,11 @@ msgstr ""
 #: applications/settings/panel/PhabricatorSettingsPanelEmailAddresses.php:11
 #: applications/settings/panel/PhabricatorSettingsPanelEmailAddresses.php:145
 msgid "Email Addresses"
-msgstr ""
+msgstr "Emailadressen"
 
 #: applications/settings/panel/PhabricatorSettingsPanelEmailAddresses.php:62
 msgid "Verify"
-msgstr ""
+msgstr "Verifizieren"
 
 #: applications/settings/panel/PhabricatorSettingsPanelEmailAddresses.php:71
 msgid "Make Primary"
@@ -18817,11 +18817,11 @@ msgstr ""
 
 #: applications/settings/panel/PhabricatorSettingsPanelEmailAddresses.php:344
 msgid "Change primary email address?"
-msgstr ""
+msgstr "Die primäre Email-Adresse ändern?"
 
 #: applications/settings/panel/PhabricatorSettingsPanelEmailAddresses.php:349
 msgid "Change Primary Address"
-msgstr ""
+msgstr "Primäre Adresse ändern"
 
 #: applications/settings/panel/PhabricatorSettingsPanelDisplayPreferences.php:11
 #: applications/settings/panel/PhabricatorSettingsPanelDisplayPreferences.php:149
@@ -18839,7 +18839,7 @@ msgstr ""
 
 #: applications/settings/panel/PhabricatorSettingsPanelDisplayPreferences.php:82
 msgid "Page Titles"
-msgstr ""
+msgstr "Seitentitel"
 
 msgid "In page titles, show Tool names as unicode glyphs: â"
 msgstr ""
@@ -18883,15 +18883,15 @@ msgstr ""
 
 #: applications/settings/panel/PhabricatorSettingsPanelDiffPreferences.php:44
 msgid "Show Filetree"
-msgstr ""
+msgstr "Verzeichnisbaum zeigen"
 
 #: applications/settings/panel/PhabricatorSettingsPanelDiffPreferences.php:49
 msgid "Disable Filetree"
-msgstr ""
+msgstr "Verzeichnisbaum deaktivieren"
 
 #: applications/settings/panel/PhabricatorSettingsPanelDiffPreferences.php:50
 msgid "Enable Filetree"
-msgstr ""
+msgstr "Verzeichnisbaum aktivieren"
 
 #: applications/settings/panel/PhabricatorSettingsPanelDiffPreferences.php:53
 #, php-format
@@ -18901,43 +18901,43 @@ msgstr ""
 #: applications/settings/panel/PhabricatorSettingsPanelSSHKeys.php:11
 #: applications/settings/panel/PhabricatorSettingsPanelSSHKeys.php:229
 msgid "SSH Public Keys"
-msgstr ""
+msgstr "SSH Public Keys"
 
 #: applications/settings/panel/PhabricatorSettingsPanelSSHKeys.php:61
 msgid "You must provide an SSH Public Key."
-msgstr ""
+msgstr "Du mußt einen SSH Public Key angeben."
 
 #: applications/settings/panel/PhabricatorSettingsPanelSSHKeys.php:75
 msgid "Provide your public key, not your private key!"
-msgstr ""
+msgstr "Bitte den Public Key angeben, nicht Deinen Private Key!!!"
 
 #: applications/settings/panel/PhabricatorSettingsPanelSSHKeys.php:78
 msgid "Provided public key is not properly formatted."
-msgstr ""
+msgstr "Der angegebene Public Key ist nicht richtig formatiert / beschädigt."
 
 #: applications/settings/panel/PhabricatorSettingsPanelSSHKeys.php:86
 msgid "Public key should be \"ssh-dsa\" or \"ssh-rsa\"."
-msgstr ""
+msgstr "Der Public Key sollte vom Typ \"ssh-dsa\" oder \"ssh-rsa\" sein."
 
 #: applications/settings/panel/PhabricatorSettingsPanelSSHKeys.php:99
 msgid "You must name this public key."
-msgstr ""
+msgstr "Du mußt diesem Public Key einen Namen geben."
 
 #: applications/settings/panel/PhabricatorSettingsPanelSSHKeys.php:112
 msgid "This public key is already associated with a user account."
-msgstr ""
+msgstr "Dieser Public Key ist bereits mit einem Benutzerkonto verbunden."
 
 #: applications/settings/panel/PhabricatorSettingsPanelSSHKeys.php:128
 msgid "Add New SSH Public Key"
-msgstr ""
+msgstr "Neuer SSH Public Key"
 
 #: applications/settings/panel/PhabricatorSettingsPanelSSHKeys.php:129
 msgid "Add Key"
-msgstr ""
+msgstr "Neuer Key"
 
 #: applications/settings/panel/PhabricatorSettingsPanelSSHKeys.php:131
 msgid "Edit SSH Public Key"
-msgstr ""
+msgstr "SSH Public Key ändern"
 
 #: applications/settings/panel/PhabricatorSettingsPanelSSHKeys.php:200
 msgid "You haven't added any SSH Public Keys."
@@ -18976,7 +18976,7 @@ msgstr ""
 #: applications/settings/panel/PhabricatorSettingsPanelEmailPreferences.php:11
 #: applications/settings/panel/PhabricatorSettingsPanelEmailPreferences.php:220
 msgid "Email Preferences"
-msgstr ""
+msgstr "Emaileinstellungen"
 
 #: applications/settings/panel/PhabricatorSettingsPanelEmailPreferences.php:92
 msgid "Vary"
@@ -18992,15 +18992,15 @@ msgstr ""
 
 #: applications/settings/panel/PhabricatorSettingsPanelEmailPreferences.php:122
 msgid "Send me an email when I take an action"
-msgstr ""
+msgstr "Mir bei meinen eigenen Aktionen auch eine Email schicken"
 
 #: applications/settings/panel/PhabricatorSettingsPanelEmailPreferences.php:123
 msgid "Do not send me an email when I take an action"
-msgstr ""
+msgstr "Mit keine Email für meine eigenen Aktionen schicken"
 
 #: applications/settings/panel/PhabricatorSettingsPanelEmailPreferences.php:125
 msgid "You can disable email about your own actions."
-msgstr ""
+msgstr "Du kannst verhindern, daß Dir für Deine eigenen Aktionen Emails geschickt werden."
 
 #: applications/settings/panel/PhabricatorSettingsPanelEmailPreferences.php:133
 #: applications/settings/panel/PhabricatorSettingsPanelEmailPreferences.php:143
