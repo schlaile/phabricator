@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-01 14:07+0100\n"
-"PO-Revision-Date: 2013-11-04 00:41+0100\n"
+"PO-Revision-Date: 2013-11-09 11:05+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: Deutsch <peter@schlaile.de>\n"
 "Language: \n"
@@ -14605,40 +14605,40 @@ msgstr ""
 
 #: applications/auth/provider/PhabricatorAuthProviderPassword.php:9
 msgid "Username/Password"
-msgstr ""
+msgstr "Benutzername/Passwort"
 
 #: applications/auth/provider/PhabricatorAuthProviderPassword.php:14
 msgid "You can select a minimum password length by setting `account.minimum-password-length` in configuration."
-msgstr ""
+msgstr "Du kannst eine Minimalpasswortlänge festlegen, in dem Du den Eintrag 'account.minimum-password-length' in der Konfiguration setzt."
 
 #: applications/auth/provider/PhabricatorAuthProviderPassword.php:20
 msgid "Allow users to login or register using a username and password."
-msgstr ""
+msgstr "Den Benutzern die Anmeldung mittels Benutzername und Kennwort erlauben."
 
 #: applications/auth/provider/PhabricatorAuthProviderPassword.php:77
 msgid "Register New Account"
-msgstr ""
+msgstr "Neues Konto anlegen"
 
 #: applications/auth/provider/PhabricatorAuthProviderPassword.php:86
 msgid "Forgot your password?"
-msgstr ""
+msgstr "Passwort vergessen?"
 
 #: applications/auth/provider/PhabricatorAuthProviderPassword.php:100
 msgid "CAPTCHA was not entered correctly."
-msgstr ""
+msgstr "Das CAPTCHA war nicht korrekt."
 
 #: applications/auth/provider/PhabricatorAuthProviderPassword.php:103
 msgid "Too many login failures recently. You must submit a CAPTCHA with your login request."
-msgstr ""
+msgstr "Zu viele Fehlanmeldungen innerhalb kürzester Zeit. Du mußt beim Login ein CAPTCHA angeben."
 
 #: applications/auth/provider/PhabricatorAuthProviderPassword.php:111
 #: applications/auth/provider/PhabricatorAuthProviderLDAP.php:104
 msgid "Username or password are incorrect."
-msgstr ""
+msgstr "Benutzername oder Passwort sind nicht korrekt."
 
 #: applications/auth/provider/PhabricatorAuthProviderOAuth1Twitter.php:7
 msgid "Twitter"
-msgstr ""
+msgstr "Twitter"
 
 #: applications/auth/provider/PhabricatorAuthProviderOAuth1Twitter.php:14
 #, php-format
@@ -14656,7 +14656,7 @@ msgstr ""
 
 #: applications/auth/provider/PhabricatorAuthProviderLDAP.php:9
 msgid "LDAP"
-msgstr ""
+msgstr "LDAP"
 
 #: applications/auth/provider/PhabricatorAuthProviderLDAP.php:14
 msgid "Configure a connection to an LDAP server so that users can use their LDAP credentials to log in to Phabricator."
@@ -14664,11 +14664,11 @@ msgstr ""
 
 #: applications/auth/provider/PhabricatorAuthProviderLDAP.php:73
 msgid "Link LDAP Account"
-msgstr ""
+msgstr "LDAP Konto verknüpfen"
 
 #: applications/auth/provider/PhabricatorAuthProviderLDAP.php:74
 msgid "Link Accounts"
-msgstr ""
+msgstr "Konten verknüpfen"
 
 #: applications/auth/provider/PhabricatorAuthProviderLDAP.php:77
 msgid "Refresh LDAP Account"
@@ -14680,15 +14680,15 @@ msgstr ""
 
 #: applications/auth/provider/PhabricatorAuthProviderLDAP.php:85
 msgid "Login with LDAP"
-msgstr ""
+msgstr "Mittels LDAP anmelden"
 
 #: applications/auth/provider/PhabricatorAuthProviderLDAP.php:198
 msgid "LDAP Hostname"
-msgstr ""
+msgstr "LDAP Hostname"
 
 #: applications/auth/provider/PhabricatorAuthProviderLDAP.php:199
 msgid "LDAP Port"
-msgstr ""
+msgstr "LDAP Port"
 
 #: applications/auth/provider/PhabricatorAuthProviderLDAP.php:200
 msgid "Base Distinguished Name"
