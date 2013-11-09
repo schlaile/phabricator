@@ -6,13 +6,55 @@ final class HarbormasterBuild extends HarbormasterDAO
   protected $buildablePHID;
   protected $buildPlanPHID;
   protected $buildStatus;
+  protected $cancelRequested;
 
   private $buildable = self::ATTACHABLE;
   private $buildPlan = self::ATTACHABLE;
 
+  /**
+   * Not currently being built.
+   */
+  const STATUS_INACTIVE = 'inactive';
+
+  /**
+   * Pending pick up by the Harbormaster daemon.
+   */
+  const STATUS_PENDING = 'pending';
+
+  /**
+   * Waiting for a resource to be allocated (not yet relevant).
+   */
+  const STATUS_WAITING = 'waiting';
+
+  /**
+   * Current building the buildable.
+   */
+  const STATUS_BUILDING = 'building';
+
+  /**
+   * The build has passed.
+   */
+  const STATUS_PASSED = 'passed';
+
+  /**
+   * The build has failed.
+   */
+  const STATUS_FAILED = 'failed';
+
+  /**
+   * The build encountered an unexpected error.
+   */
+  const STATUS_ERROR = 'error';
+
+  /**
+   * The build has been cancelled.
+   */
+  const STATUS_CANCELLED = 'cancelled';
+
   public static function initializeNewBuild(PhabricatorUser $actor) {
     return id(new HarbormasterBuild())
-      ->setBuildStatus('building'); // TODO: Sort this.
+      ->setBuildStatus(self::STATUS_INACTIVE)
+      ->setCancelRequested(false);
   }
 
   public function getConfiguration() {
@@ -50,6 +92,37 @@ final class HarbormasterBuild extends HarbormasterDAO
 
   public function getBuildPlan() {
     return $this->assertAttached($this->buildPlan);
+  }
+
+  public function createLog(
+    HarbormasterBuildStep $build_step,
+    $log_source,
+    $log_type) {
+
+    $log = HarbormasterBuildLog::initializeNewBuildLog($this, $build_step);
+    $log->setLogSource($log_source);
+    $log->setLogType($log_type);
+    $log->save();
+    return $log;
+  }
+
+  /**
+   * Checks for and handles build cancellation.  If this method returns
+   * true, the caller should stop any current operations and return control
+   * as quickly as possible.
+   */
+  public function checkForCancellation() {
+    // Here we load a copy of the current build and check whether
+    // the user requested cancellation.  We can't do `reload()` here
+    // in case there are changes that have not yet been saved.
+    $copy = id(new HarbormasterBuild())->load($this->getID());
+    if ($copy->getCancelRequested()) {
+      $this->setBuildStatus(HarbormasterBuild::STATUS_CANCELLED);
+      $this->setCancelRequested(false);
+      $this->save();
+      return true;
+    }
+    return false;
   }
 
 
