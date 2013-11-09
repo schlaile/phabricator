@@ -11983,8 +11983,9 @@ msgstr ""
 #: applications/settings/panel/PhabricatorSettingsPanelPassword.php:11
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:309
 #: applications/people/controller/PhabricatorPeopleLdapController.php:23
+#: applications/auth/provider/PhabricatorAuthProviderPassword.php:120
 msgid "Password"
-msgstr ""
+msgstr "Passwort"
 
 #: applications/people/controller/PhabricatorPeopleLdapController.php:27
 msgid "LDAP query"
@@ -20014,7 +20015,7 @@ msgstr "Offene Aufgaben mit \"zu Sortieren\" Priorität in <a href=\"/project/\"
 
 #: applications/directory/controller/PhabricatorDirectoryMainController.php:198
 msgid "View All Triage »"
-msgstr ""
+msgstr "Zeige alle ohne Priorisierung »"
 
 #: applications/directory/controller/PhabricatorDirectoryMainController.php:223
 msgid "No Waiting Revisions"
@@ -20666,4 +20667,9 @@ msgstr "Offene Aufgaben, die priorisiert werden müssen in %s."
 #, php-format
 msgid "Create Another"
 msgstr "Noch eine anlegen"
+
+#: applications/auth/provider/PhabricatorAuthProviderPassword.php:120
+#, php-format
+msgid "Username or Email"
+msgstr "Benutzername oder Emailadresse"
 
