@@ -20662,3 +20662,8 @@ msgstr "Keine Aufgaben in %s müssen priorisiert werden."
 msgid "Open tasks with \"Needs Triage\" priority in %s."
 msgstr "Offene Aufgaben, die priorisiert werden müssen in %s."
 
+#: applications/maniphest/controller/ManiphestTraskDetailController.php:125
+#, php-format
+msgid "Create Another"
+msgstr "Noch eine anlegen"
+
