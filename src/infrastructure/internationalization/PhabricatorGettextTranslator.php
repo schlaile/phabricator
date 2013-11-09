@@ -19,7 +19,7 @@ extends PhutilCustomTranslator {
       return dngettext("phabricator", 
                        $text[0][0], $text[0][1], $variant);
     } else {
-      return dgettext("phabricator", $text);
+      return dgettext("phabricator", $text[0][0]);
     }
   }
 }
