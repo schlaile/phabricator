@@ -122,7 +122,7 @@ final class ManiphestTaskDetailController extends ManiphestController {
         $this->getHandle($parent_task->getPHID())->renderLink()));
     } else if ($workflow == 'create') {
       $context_bar = new AphrontContextBarView();
-      $context_bar->addButton(phutil_tag('label', array(), 'Create Another'));
+      $context_bar->addButton(phutil_tag('label', array(), pht('Create Another')));
       $context_bar->addButton(phutil_tag(
         'a',
         array(
