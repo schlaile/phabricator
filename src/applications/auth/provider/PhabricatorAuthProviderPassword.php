@@ -120,13 +120,13 @@ final class PhabricatorAuthProviderPassword
       ->appendChild($errors)
       ->appendChild(
         id(new AphrontFormTextControl())
-          ->setLabel('Username or Email')
+	  ->setLabel(pht('Username or Email'))
           ->setName('username')
           ->setValue($v_user)
           ->setError($e_user))
       ->appendChild(
         id(new AphrontFormPasswordControl())
-          ->setLabel('Password')
+          ->setLabel(pht('Password'))
           ->setName('password')
           ->setError($e_pass));
 
