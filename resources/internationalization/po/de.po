@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-01 14:07+0100\n"
-"PO-Revision-Date: 2013-11-09 11:05+0100\n"
+"PO-Revision-Date: 2013-11-11 00:56+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: Deutsch <peter@schlaile.de>\n"
 "Language: \n"
@@ -18327,11 +18327,11 @@ msgstr ""
 
 #: applications/config/controller/PhabricatorConfigIssueViewController.php:23
 msgid "Issue Resolved"
-msgstr ""
+msgstr "Problem gelöst"
 
 #: applications/config/controller/PhabricatorConfigIssueViewController.php:24
 msgid "This setup issue has been resolved. "
-msgstr ""
+msgstr "Dieses Installationsproblem wurde gelöst."
 
 #: applications/config/controller/PhabricatorConfigIssueViewController.php:31
 msgid "Return to Open Issue List"
@@ -18339,13 +18339,13 @@ msgstr ""
 
 #: applications/config/controller/PhabricatorConfigIssueViewController.php:32
 msgid "Resolved Issue"
-msgstr ""
+msgstr "Problem gelöst"
 
 #: applications/config/controller/PhabricatorConfigController.php:16
 #: applications/config/controller/PhabricatorConfigIssueListController.php:29
 #: applications/config/controller/PhabricatorConfigIssueViewController.php:43
 msgid "Setup Issues"
-msgstr ""
+msgstr "Probleme bei der Installation"
 
 #: applications/config/controller/PhabricatorConfigEditController.php:22
 #, php-format
@@ -18361,7 +18361,7 @@ msgstr ""
 
 #: applications/config/controller/PhabricatorConfigEditController.php:105
 msgid "You broke everything!"
-msgstr ""
+msgstr "Du hast alles kaputt gemacht!"
 
 #: applications/config/controller/PhabricatorConfigEditController.php:109
 msgid "This configuration is hidden and can not be edited or viewed from the web interface."
@@ -18411,24 +18411,24 @@ msgstr ""
 #: applications/config/controller/PhabricatorConfigEditController.php:417
 #: applications/config/controller/PhabricatorConfigEditController.php:432
 msgid "(Use Default)"
-msgstr ""
+msgstr "(Vorgabe verwenden)"
 
 #: applications/config/controller/PhabricatorConfigEditController.php:441
 msgid "Separate values with newlines."
-msgstr ""
+msgstr "Werte durch Zeilenumbrüche trennen."
 
 #: applications/config/controller/PhabricatorConfigEditController.php:445
 msgid "Separate values with newlines or commas."
-msgstr ""
+msgstr "Werte durch Zeilenumbrüche oder Kommata trennen."
 
 #: applications/config/controller/PhabricatorConfigEditController.php:451
 msgid "Enter value in JSON."
-msgstr ""
+msgstr "Werte als JSON eintragen."
 
 #: applications/config/controller/PhabricatorConfigEditController.php:484
 #: applications/config/controller/PhabricatorConfigEditController.php:523
 msgid "(empty)"
-msgstr ""
+msgstr "(leer)"
 
 #: applications/config/controller/PhabricatorConfigEditController.php:514
 msgid "Source"
@@ -18462,27 +18462,27 @@ msgstr ""
 
 #: applications/config/controller/PhabricatorConfigIssueListController.php:70
 msgid "Ignored"
-msgstr ""
+msgstr "Ignoriert"
 
 #: applications/config/controller/PhabricatorConfigIgnoreController.php:32
 #: applications/config/controller/PhabricatorConfigIssueListController.php:76
 msgid "Unignore"
-msgstr ""
+msgstr "Nicht ignorieren"
 
 #: applications/config/controller/PhabricatorConfigGroupController.php:22
 #, php-format
 msgid "%s Configuration"
-msgstr ""
+msgstr "%s Einstellungen"
 
 #: applications/config/controller/PhabricatorConfigGroupController.php:93
 msgid "Current Value:"
-msgstr ""
+msgstr "Aktueller Wert:"
 
 #: applications/config/controller/PhabricatorConfigGroupController.php:102
 #: applications/config/controller/PhabricatorConfigAllController.php:38
 #: applications/config/controller/PhabricatorConfigAllController.php:52
 msgid "Customized"
-msgstr ""
+msgstr "Angepasst"
 
 #: applications/config/controller/PhabricatorConfigGroupController.php:108
 #: applications/config/controller/PhabricatorConfigAllController.php:21
@@ -18491,7 +18491,7 @@ msgstr ""
 
 #: applications/config/controller/PhabricatorConfigGroupController.php:110
 msgid "Locked"
-msgstr ""
+msgstr "Gesperrt"
 
 #: applications/config/controller/PhabricatorConfigAllController.php:84
 msgid "Local Version"
@@ -18682,7 +18682,7 @@ msgstr "Konteneinstellungen"
 #: applications/settings/panel/PhabricatorSettingsPanelConpherencePreferences.php:16
 #: applications/settings/panel/PhabricatorSettingsPanelConpherencePreferences.php:68
 msgid "Conpherence Preferences"
-msgstr ""
+msgstr "Conpherence-Einstellungen"
 
 #: applications/settings/panel/PhabricatorSettingsPanelSearchPreferences.php:15
 #: applications/settings/panel/PhabricatorSettingsPanelDiffPreferences.php:15
@@ -18698,7 +18698,7 @@ msgstr ""
 
 #: applications/settings/panel/PhabricatorSettingsPanelConpherencePreferences.php:47
 msgid "Email Always"
-msgstr ""
+msgstr "Immer Emails schicken"
 
 #: applications/settings/panel/PhabricatorSettingsPanelConpherencePreferences.php:49
 msgid "Notifications Only"
@@ -18730,7 +18730,7 @@ msgstr "Hauptseiten-Einstellungen"
 
 #: applications/settings/panel/PhabricatorSettingsPanelExternalAccounts.php:11
 msgid "External Accounts"
-msgstr ""
+msgstr "Externe Konten"
 
 #: applications/settings/panel/PhabricatorSettingsPanelExternalAccounts.php:34
 msgid "Linked Accounts and Authentication"
@@ -18755,11 +18755,11 @@ msgstr ""
 
 #: applications/settings/panel/PhabricatorSettingsPanelExternalAccounts.php:96
 msgid "Add External Account"
-msgstr ""
+msgstr "Neues externes Konto"
 
 #: applications/settings/panel/PhabricatorSettingsPanelExternalAccounts.php:101
 msgid "Your account is linked with all available providers."
-msgstr ""
+msgstr "Dein Konto ist mit allen verfügbaren Zugangsanbietern verbunden."
 
 #: applications/settings/panel/PhabricatorSettingsPanelEmailAddresses.php:11
 #: applications/settings/panel/PhabricatorSettingsPanelEmailAddresses.php:145
@@ -18772,11 +18772,11 @@ msgstr "Verifizieren"
 
 #: applications/settings/panel/PhabricatorSettingsPanelEmailAddresses.php:71
 msgid "Make Primary"
-msgstr ""
+msgstr "Zur primären Adresse machen"
 
 #: applications/settings/panel/PhabricatorSettingsPanelEmailAddresses.php:87
 msgid "Primary"
-msgstr ""
+msgstr "Primäre Adresse"
 
 #: applications/settings/panel/PhabricatorSettingsPanelEmailAddresses.php:143
 msgid "Add New Address"
@@ -18855,7 +18855,7 @@ msgstr ""
 
 #: applications/settings/panel/PhabricatorSettingsPanelDisplayPreferences.php:103
 msgid "Edit Multiple Files"
-msgstr ""
+msgstr "Mehrere Dateien gleichzeitig ändern"
 
 #: applications/settings/panel/PhabricatorSettingsPanelDisplayPreferences.php:106
 msgid "Supported (paths separated by spaces)"
@@ -18880,7 +18880,7 @@ msgstr ""
 #: applications/settings/panel/PhabricatorSettingsPanelDiffPreferences.php:11
 #: applications/settings/panel/PhabricatorSettingsPanelDiffPreferences.php:70
 msgid "Diff Preferences"
-msgstr ""
+msgstr "Diff Einstellungen"
 
 #: applications/settings/panel/PhabricatorSettingsPanelDiffPreferences.php:44
 msgid "Show Filetree"
@@ -18942,7 +18942,7 @@ msgstr "SSH Public Key ändern"
 
 #: applications/settings/panel/PhabricatorSettingsPanelSSHKeys.php:200
 msgid "You haven't added any SSH Public Keys."
-msgstr ""
+msgstr "Du hast noch keine SSH Public Keys hinzugefügt."
 
 #: applications/settings/panel/PhabricatorSettingsPanelSSHKeys.php:228
 msgid "Add New Public Key"
@@ -18989,7 +18989,7 @@ msgstr ""
 
 #: applications/settings/panel/PhabricatorSettingsPanelEmailPreferences.php:118
 msgid "Self Actions"
-msgstr ""
+msgstr "Eigene Aktionen"
 
 #: applications/settings/panel/PhabricatorSettingsPanelEmailPreferences.php:122
 msgid "Send me an email when I take an action"
@@ -19081,27 +19081,27 @@ msgstr ""
 
 #: applications/settings/panel/PhabricatorSettingsPanelEmailPreferences.php:248
 msgid "A task's status changes."
-msgstr ""
+msgstr "Der Status einer Aufgabe wurde verändert."
 
 #: applications/settings/panel/PhabricatorSettingsPanelEmailPreferences.php:250
 msgid "A task's owner changes."
-msgstr ""
+msgstr "Der Besitzer einer Aufgabe wurde verändert."
 
 #: applications/settings/panel/PhabricatorSettingsPanelEmailPreferences.php:252
 msgid "Someone comments on a task."
-msgstr ""
+msgstr "Jemand hat eine Aufgabe kommentiert."
 
 #: applications/settings/panel/PhabricatorSettingsPanelEmailPreferences.php:254
 msgid "A task's priority changes."
-msgstr ""
+msgstr "Eine Aufgabe hat eine neue Priorität bekommen."
 
 #: applications/settings/panel/PhabricatorSettingsPanelEmailPreferences.php:256
 msgid "A task's CCs change."
-msgstr ""
+msgstr "Die Teilnehmerliste für eine Aufgabe wurde verändert."
 
 #: applications/settings/panel/PhabricatorSettingsPanelEmailPreferences.php:258
 msgid "A task's associated projects change."
-msgstr ""
+msgstr "Die einer Aufgabe zugeordenten Projekte wurden verändert."
 
 #: applications/settings/panel/PhabricatorSettingsPanelEmailPreferences.php:260
 msgid "Other task activity not listed above occurs."
@@ -19188,28 +19188,28 @@ msgid "Two settings panels share the same panel key ('%s'): %s, %s."
 msgstr ""
 
 msgid "âª Drop Files to Upload"
-msgstr ""
+msgstr "âª Dateien hier ablegen, um sie hochzuladen"
 
 #: applications/files/editor/PhabricatorFileEditor.php:77
 msgid "FILE DETAIL"
-msgstr ""
+msgstr "DATEI DETAILS"
 
 #: applications/files/query/PhabricatorFileSearchEngine.php:68
 msgid "Show only manually uploaded files."
-msgstr ""
+msgstr "Zeige nur manuell hochgeladene Dateien."
 
 #: applications/files/storage/PhabricatorFile.php:904
 msgid "The user who uploaded a file can always view and edit it."
-msgstr ""
+msgstr "Der Benutzer, der die Datei hochgeladen hat, darf sie immer ansehen und verändern."
 
 #: applications/files/storage/PhabricatorFile.php:908
 msgid "Files attached to objects are visible to users who can view those objects."
-msgstr ""
+msgstr "Dateien, die an bestimmte Objekte gebunden sind, sind sichtbar für die Benutzer,die diese Objekte sehen können."
 
 #: applications/files/controller/PhabricatorFileListController.php:56
 #, php-format
 msgid "Uploaded by %s on %s"
-msgstr ""
+msgstr "Hochgeladen von %s auf %s."
 
 #: applications/files/controller/PhabricatorFileListController.php:58
 #, php-format
@@ -19490,7 +19490,7 @@ msgstr ""
 
 #: applications/files/controller/PhabricatorFileComposeController.php:206
 msgid "Choose Background Color"
-msgstr ""
+msgstr "Die Hintergrundfarbe wählen"
 
 #: applications/files/controller/PhabricatorFileComposeController.php:214
 msgid "Choose Icon"
@@ -19502,11 +19502,11 @@ msgstr "Bild speichern"
 
 #: applications/files/controller/PhabricatorFileInfoController.php:101
 msgid "Question File Integrity"
-msgstr ""
+msgstr "Der Datei das Misstrauen aussprechen (konstruktiv)"
 
 #: applications/files/controller/PhabricatorFileInfoController.php:105
 msgid "Debate the Bits"
-msgstr ""
+msgstr "Über den Dateiinhalt diskutieren"
 
 #: applications/files/controller/PhabricatorFileInfoController.php:140
 msgid "View File"
@@ -19536,7 +19536,7 @@ msgstr "Breite"
 #: applications/files/controller/PhabricatorFileInfoController.php:209
 #, php-format
 msgid "%s px"
-msgstr ""
+msgstr "%s Pixel"
 
 #: applications/files/controller/PhabricatorFileInfoController.php:208
 msgid "Height"
@@ -19694,7 +19694,7 @@ msgstr ""
 
 #: applications/files/config/PhabricatorFilesConfigOptions.php:189
 msgid "Enable"
-msgstr ""
+msgstr "Aktivieren"
 
 #: applications/files/config/PhabricatorFilesConfigOptions.php:192
 msgid "This option will enable animated gif imagesto be set as profile pictures. The \\'convert\\' binary should be available to the webserver for this to work"
@@ -19714,11 +19714,11 @@ msgstr ""
 
 #: applications/slowvote/view/SlowvoteEmbedView.php:121
 msgid "Only the author can see the results."
-msgstr ""
+msgstr "Nur der Autor kann das Abstimmungsergebnis sehen."
 
 #: applications/slowvote/view/SlowvoteEmbedView.php:147
 msgid "Engage in Deliberations"
-msgstr ""
+msgstr "Mit abstimmen"
 
 #: applications/slowvote/view/SlowvoteEmbedView.php:326
 #, php-format
@@ -19728,11 +19728,11 @@ msgstr ""
 #: applications/slowvote/view/SlowvoteEmbedView.php:329
 #, php-format
 msgid "%s Approval (%d / %d)"
-msgstr ""
+msgstr "%s Zustimmung (%d / %d)"
 
 #: applications/slowvote/query/PhabricatorSlowvoteSearchEngine.php:51
 msgid "Show only polls I've voted in."
-msgstr ""
+msgstr "Nur Ergebnisse zeigen, bei denen ich mitabgestimmt habe."
 
 #: applications/slowvote/query/PhabricatorSlowvoteSearchEngine.php:61
 msgid "All Polls"
@@ -19740,12 +19740,12 @@ msgstr "Alle Umfragen"
 
 #: applications/slowvote/query/PhabricatorSlowvoteSearchEngine.php:66
 msgid "Voted In"
-msgstr ""
+msgstr "Mit abgestimmt"
 
 #: applications/slowvote/storage/PhabricatorSlowvoteTransaction.php:47
 #, php-format
 msgid "%s created this poll."
-msgstr ""
+msgstr "%s hat diese Abstimmung erstellt."
 
 #: applications/slowvote/storage/PhabricatorSlowvoteTransaction.php:51
 #, php-format
@@ -19778,7 +19778,7 @@ msgstr ""
 
 #: applications/slowvote/phid/PhabricatorSlowvotePHIDTypePoll.php:12
 msgid "Slowvote Poll"
-msgstr ""
+msgstr "Slowvote Abstimmung"
 
 #: applications/slowvote/controller/PhabricatorSlowvoteEditController.php:62
 msgid "You must ask a poll question."
@@ -19820,15 +19820,15 @@ msgstr ""
 #: applications/slowvote/controller/PhabricatorSlowvoteEditController.php:193
 #: applications/slowvote/controller/PhabricatorSlowvoteEditController.php:200
 msgid "Vote Type"
-msgstr ""
+msgstr "Abstimmungsart"
 
 #: applications/slowvote/controller/PhabricatorSlowvoteEditController.php:205
 msgid "Create Slowvote"
-msgstr ""
+msgstr "Neuer Abstimmung"
 
 #: applications/slowvote/controller/PhabricatorSlowvoteEditController.php:222
 msgid "Responses"
-msgstr ""
+msgstr "Antworten"
 
 #: applications/slowvote/controller/PhabricatorSlowvoteEditController.php:228
 msgid "Shuffle"
@@ -19836,7 +19836,7 @@ msgstr ""
 
 #: applications/slowvote/controller/PhabricatorSlowvoteEditController.php:232
 msgid "Show choices in random order."
-msgstr ""
+msgstr "Zeige Wahlmöglichkeiten in zufälliger Reihenfolge."
 
 #: applications/slowvote/controller/PhabricatorSlowvoteController.php:15
 #: applications/slowvote/controller/PhabricatorSlowvoteController.php:37
@@ -19969,7 +19969,7 @@ msgstr ""
 
 #: applications/diffusion/controller/DiffusionRepositoryController.php:252
 msgid "Show All Branches »"
-msgstr ""
+msgstr "Alle Branches zeigen »"
 
 #: applications/diffusion/controller/DiffusionRepositoryController.php:321
 msgid "Show All Tags »"
@@ -19981,7 +19981,7 @@ msgstr ""
 
 #: applications/files/view/PhabricatorGlobalUploadTargetView.php:35
 msgid "⇪ Drop Files to Upload"
-msgstr ""
+msgstr "⇪ Dateien zum Hochladen hier ablegen"
 
 #: applications/files/controller/PhabricatorFileComposeController.php:113
 msgid "♫"
@@ -20105,7 +20105,7 @@ msgstr ""
 #: applications/phriction/controller/PhrictionDiffController.php:116
 #, php-format
 msgid "Version %s vs %s"
-msgstr ""
+msgstr "Version %s vs %s"
 
 #: applications/repository/storage/PhabricatorRepositoryTransaction.php:109
 #, php-format
@@ -20144,11 +20144,11 @@ msgstr ""
 
 #: applications/repository/storage/PhabricatorRepository.php:760
 msgid "Read Only"
-msgstr ""
+msgstr "Nur Lesen"
 
 #: applications/repository/storage/PhabricatorRepository.php:762
 msgid "Read/Write"
-msgstr ""
+msgstr "Lesen & Schreiben"
 
 #: applications/repository/engine/PhabricatorRepositoryPullEngine.php:32
 #, php-format
@@ -20289,7 +20289,7 @@ msgstr ""
 
 #: applications/diffusion/controller/DiffusionRepositoryEditHostingController.php:107
 msgid "Save and Continue"
-msgstr ""
+msgstr "Speichern und Fortsetzen"
 
 #: applications/diffusion/controller/DiffusionRepositoryEditHostingController.php:165
 msgid "Edit Protocols"
@@ -20332,7 +20332,7 @@ msgstr ""
 
 #: applications/diffusion/controller/DiffusionRepositoryEditHostingController.php:236
 msgid "Back"
-msgstr ""
+msgstr "Zurück"
 
 #: applications/diffusion/controller/DiffusionRepositoryEditDeleteController.php:29
 msgid "If you really want to delete the repository, run this command from the command line:"
@@ -20354,7 +20354,7 @@ msgstr ""
 #: applications/diffusion/controller/DiffusionRepositoryEditLocalController.php:87
 #: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:505
 msgid "Local Path"
-msgstr ""
+msgstr "Lokaler Pfad"
 
 #: applications/diffusion/controller/DiffusionRepositoryEditLocalController.php:92
 msgid "Save Local"
@@ -20398,7 +20398,7 @@ msgstr ""
 
 #: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:181
 msgid "Delete Repository"
-msgstr ""
+msgstr "Repository löschen"
 
 #: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:306
 msgid "Pushable By"
@@ -20472,7 +20472,7 @@ msgstr ""
 
 #: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:671
 msgid "Initialization Error"
-msgstr ""
+msgstr "Initialisierungsfehler"
 
 #: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:679
 msgid "Working Copy OK"
@@ -20530,20 +20530,20 @@ msgstr ""
 
 #: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:790
 msgid "Importing"
-msgstr ""
+msgstr "Importiere"
 
 #: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:792
 #, php-format
 msgid "%s Complete"
-msgstr ""
+msgstr "%s abgeschlossen"
 
 #: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:797
 msgid "Fully Imported"
-msgstr ""
+msgstr "Vollständig importiert"
 
 #: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:804
 msgid "Prioritized"
-msgstr ""
+msgstr "Priorisiert"
 
 #: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:805
 msgid "This repository will be updated soon."
@@ -20567,7 +20567,7 @@ msgstr ""
 
 #: applications/diffusion/controller/DiffusionRepositoryController.php:156
 msgid "Importing..."
-msgstr ""
+msgstr "Importiere..."
 
 #: applications/diffusion/controller/DiffusionRepositoryController.php:370
 msgid "This repository is still importing. History is not yet available."
