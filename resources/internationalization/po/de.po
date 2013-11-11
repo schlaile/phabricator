@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-01 14:07+0100\n"
-"PO-Revision-Date: 2013-11-11 00:56+0100\n"
+"PO-Revision-Date: 2013-11-11 19:26+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: Deutsch <peter@schlaile.de>\n"
 "Language: \n"
@@ -7941,11 +7941,11 @@ msgstr "Alle Aufgaben"
 #: applications/maniphest/query/ManiphestTaskSearchEngine.php:403
 #: applications/maniphest/export/ManiphestExcelDefaultFormat.php:62
 msgid "Date Updated"
-msgstr ""
+msgstr "Datum geändert"
 
 #: applications/maniphest/storage/ManiphestTransaction.php:150
 msgid "Retitled"
-msgstr ""
+msgstr "Neu tituliert"
 
 #: applications/maniphest/storage/ManiphestTransaction.php:158
 msgid "Reopened"
@@ -7953,31 +7953,31 @@ msgstr "Neu geöffnet"
 
 #: applications/maniphest/storage/ManiphestTransaction.php:161
 msgid "Spited"
-msgstr ""
+msgstr "Aus Trotz geschlossen"
 
 #: applications/maniphest/storage/ManiphestTransaction.php:163
 msgid "Merged"
-msgstr ""
+msgstr "Zusammengeführt"
 
 #: applications/maniphest/storage/ManiphestTransaction.php:173
 msgid "Claimed"
-msgstr ""
+msgstr "An sich gerissen"
 
 #: applications/maniphest/storage/ManiphestTransaction.php:175
 msgid "Up For Grabs"
-msgstr ""
+msgstr "Freigegeben zur Bearbeitung"
 
 #: applications/maniphest/storage/ManiphestTransaction.php:179
 msgid "Reassigned"
-msgstr ""
+msgstr "Neu zugewiesen"
 
 #: applications/maniphest/storage/ManiphestTransaction.php:183
 msgid "Changed CC"
-msgstr ""
+msgstr "CC verändert"
 
 #: applications/maniphest/storage/ManiphestTransaction.php:186
 msgid "Changed Projects"
-msgstr ""
+msgstr "Projektzuordnung verändert"
 
 #: applications/maniphest/storage/ManiphestTransaction.php:190
 #: applications/maniphest/storage/ManiphestTransaction.php:240
@@ -7995,7 +7995,7 @@ msgstr "Priorität erhöht"
 #: applications/files/controller/PhabricatorFileInfoController.php:232
 #: applications/maniphest/storage/ManiphestTransaction.php:199
 msgid "Attached"
-msgstr ""
+msgstr "Verknüpft"
 
 #: applications/maniphest/storage/ManiphestTransaction.php:267
 #, php-format
@@ -8040,62 +8040,62 @@ msgstr "%s hat diese Aufgabe an sich gerissen."
 #: applications/maniphest/storage/ManiphestTransaction.php:316
 #, php-format
 msgid "%s placed this task up for grabs."
-msgstr ""
+msgstr "%s hat diese Aufgabe zur Bearbeitung freigegeben."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:320
 #, php-format
 msgid "%s assigned this task to %s."
-msgstr ""
+msgstr "%s hat diese Aufgabe %s zugewiesen."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:325
 #, php-format
 msgid "%s reassigned this task from %s to %s."
-msgstr ""
+msgstr "%s hat diese Aufgabe %s weggenommen und %s zugeordnet."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:336
 #, php-format
 msgid "%s added %d project(s): %s"
-msgstr ""
+msgstr "%s hat %d Projekte hinzugefügt: %s"
 
 #: applications/maniphest/storage/ManiphestTransaction.php:342
 #, php-format
 msgid "%s removed %d project(s): %s"
-msgstr ""
+msgstr "%s hat %d Projekte entfernt: %s"
 
 #: applications/maniphest/storage/ManiphestTransaction.php:348
 #, php-format
 msgid "%s changed project(s), added %d: %s; removed %d: %s"
-msgstr ""
+msgstr "%s hat die Projektzuordnung geändert: %d hinzugefügt: %s; %d entfernt: %s"
 
 #: applications/maniphest/storage/ManiphestTransaction.php:357
 #, php-format
 msgid "%s changed projects..."
-msgstr ""
+msgstr "%s hat Projektzuordnungen verändert..."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:367
 #, php-format
 msgid "%s triaged this task as \"%s\" priority."
-msgstr ""
+msgstr "%s hat dieser Aufgabe die Priorität \"%s\" zugewiesen"
 
 #: applications/maniphest/storage/ManiphestTransaction.php:372
 #, php-format
 msgid "%s lowered the priority of this task from \"%s\" to \"%s\"."
-msgstr ""
+msgstr "%s hat die Priorität dieser Aufgabe von \"%s\" auf \"%s\" verringert."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:378
 #, php-format
 msgid "%s raised the priority of this task from \"%s\" to \"%s\"."
-msgstr ""
+msgstr "%s hat die Priorität dieser Aufgabe von \"%s\" auf \"%s\" erhöht."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:408
 #, php-format
 msgid "%s attached %d file(s): %s"
-msgstr ""
+msgstr "%s hat %d Dateien angehängt: %s"
 
 #: applications/maniphest/storage/ManiphestTransaction.php:414
 #, php-format
 msgid "%s detached %d file(s): %s"
-msgstr ""
+msgstr "%s hat die Zuordnung von %d Dateien entfernt: %s"
 
 #: applications/maniphest/storage/ManiphestTransaction.php:420
 #, php-format
@@ -8107,12 +8107,12 @@ msgstr ""
 #: applications/maniphest/storage/ManiphestTransaction.php:444
 #, php-format
 msgid "%s renamed %s from \"%s\" to \"%s\"."
-msgstr ""
+msgstr "%s hat %s von \"%s\" nach \"%s\" umbenannt."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:452
 #, php-format
 msgid "%s edited the description of %s."
-msgstr ""
+msgstr "%s hat die Beschreibung von %s geändert."
 
 #: applications/macro/storage/PhabricatorMacroTransaction.php:157
 #: applications/pholio/storage/PholioTransaction.php:195
@@ -8120,47 +8120,47 @@ msgstr ""
 #: applications/maniphest/storage/ManiphestTransaction.php:461
 #, php-format
 msgid "%s created %s."
-msgstr ""
+msgstr "%s hat %s erzeugt."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:466
 #, php-format
 msgid "%s reopened %s."
-msgstr ""
+msgstr "%s hat %s wiedergeöffnet."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:473
 #, php-format
 msgid "%s closed %s out of spite."
-msgstr ""
+msgstr "%s hat %s aus Trotz für erledigt erklärt."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:478
 #, php-format
 msgid "%s closed %s as a duplicate."
-msgstr ""
+msgstr "%s hat %s abgeschlossen, da es ein Dublikat ist."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:487
 #, php-format
 msgid "%s closed %s as \"%s\"."
-msgstr ""
+msgstr "%s hat %s auf Grund von \"%s\" abgeschlossen."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:496
 #, php-format
 msgid "%s claimed %s."
-msgstr ""
+msgstr "%s hat %s an sich gerissen."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:501
 #, php-format
 msgid "%s placed %s up for grabs."
-msgstr ""
+msgstr "%s hat %s zur allgemeinen Bearbeitung freigegeben."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:506
 #, php-format
 msgid "%s assigned %s to %s."
-msgstr ""
+msgstr "%s hat %s an %s zugewiesen."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:512
 #, php-format
 msgid "%s reassigned %s from %s to %s."
-msgstr ""
+msgstr "%s hat %s von %s an %s übergeben."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:524
 #, php-format
