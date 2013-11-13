@@ -9760,7 +9760,7 @@ msgstr ""
 #: applications/legalpad/controller/LegalpadDocumentEditController.php:156
 #: applications/legalpad/controller/LegalpadDocumentEditController.php:157
 msgid "Create Document"
-msgstr ""
+msgstr "Neues Dokument"
 
 #: applications/phriction/controller/PhrictionDocumentController.php:283
 #: applications/phriction/controller/PhrictionEditController.php:230
@@ -9768,20 +9768,20 @@ msgstr ""
 #: applications/phriction/controller/PhrictionNewController.php:33
 #: applications/legalpad/controller/LegalpadDocumentViewController.php:139
 msgid "Edit Document"
-msgstr ""
+msgstr "Dokument ändern"
 
 #: applications/phriction/controller/PhrictionDocumentController.php:253
 #: applications/legalpad/controller/LegalpadDocumentViewController.php:160
 msgid "Last Updated"
-msgstr ""
+msgstr "Letzte Änderung"
 
 #: applications/legalpad/controller/LegalpadDocumentViewController.php:164
 msgid "Updated By"
-msgstr ""
+msgstr "Geändert durch"
 
 #: applications/legalpad/controller/LegalpadDocumentViewController.php:169
 msgid "Versions"
-msgstr ""
+msgstr "Versionen"
 
 #: applications/legalpad/controller/LegalpadDocumentViewController.php:197
 msgid "Debate Legislation"
@@ -9796,15 +9796,15 @@ msgstr ""
 
 #: applications/legalpad/controller/LegalpadDocumentSignController.php:69
 msgid "Name field is required."
-msgstr ""
+msgstr "Eine Name ist erforderlich."
 
 #: applications/legalpad/controller/LegalpadDocumentSignController.php:75
 msgid "Email field is required."
-msgstr ""
+msgstr "Eine Email ist erforderlich."
 
 #: applications/legalpad/controller/LegalpadDocumentSignController.php:81
 msgid "A valid email is required."
-msgstr ""
+msgstr "Eine gültige Emailadresse ist erforderlich."
 
 #: applications/legalpad/controller/LegalpadDocumentSignController.php:88
 msgid "Address line 1 field is required."
@@ -10611,6 +10611,7 @@ msgid "Wiki"
 msgstr "Wiki"
 
 #: applications/phriction/config/PhabricatorPhrictionConfigOptions.php:7
+#: applications/phriction/application/PhabricatorApplicationPhriction.php:5
 msgid "Phriction"
 msgstr "Wiki"
 
