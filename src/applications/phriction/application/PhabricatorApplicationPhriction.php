@@ -1,6 +1,9 @@
 <?php
 
 final class PhabricatorApplicationPhriction extends PhabricatorApplication {
+  public function getName() {
+    return pht('Phriction');
+  }
 
   public function getShortDescription() {
     return pht('Wiki');
