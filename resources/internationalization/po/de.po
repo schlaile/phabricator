@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-01 14:07+0100\n"
-"PO-Revision-Date: 2013-11-11 19:26+0100\n"
+"PO-Revision-Date: 2013-11-13 17:29+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: Deutsch <peter@schlaile.de>\n"
 "Language: \n"
@@ -8509,7 +8509,7 @@ msgstr "Aufgabe ändern"
 
 #: applications/maniphest/controller/ManiphestTaskDetailController.php:481
 msgid "Merge Duplicates In"
-msgstr "Dublikate auflösen"
+msgstr "Duplikate auflösen"
 
 #: applications/maniphest/controller/ManiphestTaskDetailController.php:543
 msgid "From Email"
@@ -10240,11 +10240,11 @@ msgstr ""
 
 #: applications/policy/config/PhabricatorPolicyConfigOptions.php:20
 msgid "Require Login"
-msgstr ""
+msgstr "Login erzwingen"
 
 #: applications/policy/config/PhabricatorPolicyConfigOptions.php:21
 msgid "Allow users to set object visibility to public."
-msgstr ""
+msgstr "Erlaube Benutzern, ein Objekt für die Öffentlichkeit zugänglich zu machen."
 
 #: applications/policy/config/PhabricatorPolicyConfigOptions.php:24
 msgid ""
@@ -10259,21 +10259,21 @@ msgstr ""
 
 #: applications/phriction/event/PhrictionActionMenuEventListener.php:40
 msgid "View Wiki"
-msgstr ""
+msgstr "Zeige Wiki"
 
 #: applications/phriction/editor/PhrictionDocumentEditor.php:234
 msgid "Empty Parent Document"
-msgstr ""
+msgstr "Leeres Elterndokument"
 
 #: applications/phriction/editor/PhrictionDocumentEditor.php:314
 #, php-format
 msgid "Phriction Document %s was %s"
-msgstr ""
+msgstr "Wiki-Dokument %s war einmal %s"
 
 #: applications/phriction/editor/PhrictionDocumentEditor.php:321
 #, php-format
 msgid "Title was changed from \"%s\" to \"%s\""
-msgstr ""
+msgstr "Der Titel wurde von \"%s\" nach \"%s\" geändert"
 
 #: applications/phriction/editor/PhrictionDocumentEditor.php:325
 #, php-format
@@ -10281,6 +10281,8 @@ msgid ""
 "Link to new version:\n"
 "%s"
 msgstr ""
+"Verweis auf neue Version:\n"
+"%s"
 
 #: applications/phriction/editor/PhrictionDocumentEditor.php:328
 #, php-format
@@ -10288,6 +10290,8 @@ msgid ""
 "Link to diff:\n"
 "%s"
 msgstr ""
+"Verweis auf Diff:\n"
+"%s"
 
 #: applications/phriction/editor/PhrictionDocumentEditor.php:335
 #, php-format
@@ -10295,296 +10299,298 @@ msgid ""
 "Link to destination document:\n"
 "%s"
 msgstr ""
+"Verweis auf Zieldokument:\n"
+"%s"
 
 #: applications/phriction/query/PhrictionSearchEngine.php:86
 msgid "Show Active Documents"
-msgstr ""
+msgstr "Zeige aktive Dokumente"
 
 #: applications/phriction/query/PhrictionSearchEngine.php:87
 msgid "Show All Documents"
-msgstr ""
+msgstr "Alle Dokumente zeigen"
 
 #: applications/phriction/storage/PhrictionDocument.php:131
 msgid "This is a project wiki page, and inherits the project's policies."
-msgstr ""
+msgstr "Dies ist die Projekt-Wiki-Seite und erbt die Berechtigungen des Projektes."
 
 #: applications/phriction/phid/PhrictionPHIDTypeDocument.php:12
 msgid "Wiki Document"
-msgstr ""
+msgstr "Wiki Dokument"
 
 #: applications/phriction/controller/PhrictionMoveController.php:61
 msgid "An already moved or deleted document can not be moved again."
-msgstr ""
+msgstr "Ein bereits verschobenes oder gelöschtes Dokument kann nicht nochmals verschoben werden."
 
 #: applications/phriction/controller/PhrictionMoveController.php:80
 msgid "Can not overwrite existing target document."
-msgstr ""
+msgstr "Das Ziel der Umbenennung existiert bereits und kann nicht einfach so überschrieben werden."
 
 #: applications/phriction/controller/PhrictionMoveController.php:81
 msgid "Already exists."
-msgstr ""
+msgstr "Existiert bereits."
 
 #: applications/phriction/controller/PhrictionMoveController.php:118
 msgid "A reason for the move."
-msgstr ""
+msgstr "Grund für die Umbenennung"
 
 #: applications/phriction/controller/PhrictionMoveController.php:119
 msgid "You better give a good reason for this."
-msgstr ""
+msgstr "Für diese Änderung hast Du besser mal einen guten Grund."
 
 #: applications/phriction/controller/PhrictionMoveController.php:129
 msgid "New URI"
-msgstr ""
+msgstr "Neuer Pfad"
 
 #: applications/phriction/controller/PhrictionMoveController.php:133
 msgid "The new location of the document."
-msgstr ""
+msgstr "Der neue Pfad des Dokuments."
 
 #: applications/phriction/controller/PhrictionEditController.php:220
 #: applications/phriction/controller/PhrictionMoveController.php:136
 msgid "Edit Notes"
-msgstr ""
+msgstr "Notizen ändern"
 
 #: applications/phriction/controller/PhrictionDocumentController.php:290
 #: applications/phriction/controller/PhrictionMoveController.php:144
 #: applications/phriction/controller/PhrictionMoveController.php:147
 msgid "Move Document"
-msgstr ""
+msgstr "Dokument verschieben"
 
 #: applications/phriction/controller/PhrictionDeleteController.php:31
 msgid "An already moved or deleted document can not be deleted"
-msgstr ""
+msgstr "Ein bereits verschobenes oder gelöschtes Dokument kann nicht nochmal gelöscht werden"
 
 #: applications/phriction/controller/PhrictionDeleteController.php:46
 msgid "Can not delete document!"
-msgstr ""
+msgstr "Dokument kann nicht gelöscht werden!"
 
 #: applications/phriction/controller/PhrictionDeleteController.php:52
 msgid "Delete Document?"
-msgstr ""
+msgstr "Dokument löschen?"
 
 #: applications/phriction/controller/PhrictionDeleteController.php:54
 msgid "Really delete this document? You can recover it later by reverting to a previous version."
-msgstr ""
+msgstr "Dieses Dokument wirklich löschen? Du kannst es zu einem späteren Zeitpunkt wiederherstellen, wenn Du möchtest."
 
 #: applications/phriction/controller/PhrictionHistoryController.php:92
 #, php-format
 msgid "%s by %s"
-msgstr ""
+msgstr "%s durch %s"
 
 #: applications/phriction/controller/PhrictionHistoryController.php:100
 #: applications/phriction/controller/PhrictionDiffController.php:276
 #, php-format
 msgid "Version %s"
-msgstr ""
+msgstr "Version %s"
 
 #: applications/phriction/controller/PhrictionHistoryController.php:112
 msgid "Show Change"
-msgstr ""
+msgstr "Änderungen zeigen"
 
 #: applications/phriction/controller/PhrictionHistoryController.php:118
 msgid "No previous change"
-msgstr ""
+msgstr "Kein vorherigen Änderungen"
 
 #: applications/phriction/controller/PhrictionHistoryController.php:124
 msgid "Show Later Changes"
-msgstr ""
+msgstr "Neuere Änderungen zeigen"
 
 #: applications/phriction/controller/PhrictionHistoryController.php:130
 msgid "No later changes"
-msgstr ""
+msgstr "Keine neueren Änderungen"
 
 #: applications/phriction/controller/PhrictionHistoryController.php:148
 #, php-format
 msgid "Document History for %s"
-msgstr ""
+msgstr "Dokumentenhistorie von %s"
 
 #: applications/phriction/controller/PhrictionHistoryController.php:162
 #: applications/phriction/controller/PhrictionDiffController.php:214
 msgid "Document History"
-msgstr ""
+msgstr "Dokumentenhistorie"
 
 #: applications/phriction/controller/PhrictionController.php:15
 #: applications/phriction/controller/PhrictionController.php:45
 #: applications/phriction/controller/PhrictionNewController.php:67
 msgid "New Document"
-msgstr ""
+msgstr "Neues Dokument"
 
 #: applications/phriction/controller/PhrictionController.php:16
 #: applications/phriction/controller/PhrictionController.php:38
 msgid "Index"
-msgstr ""
+msgstr "Index"
 
 msgid "Â« Previous Change"
-msgstr ""
+msgstr "Â« Vorhergehende Änderung"
 
 #: applications/phriction/controller/PhrictionDiffController.php:155
 msgid "Original Change"
-msgstr ""
+msgstr "Ursprüngliche Änderung"
 
 msgid "Next Change Â»"
-msgstr ""
+msgstr "Weitere Änderungen Â»"
 
 #: applications/phriction/controller/PhrictionDiffController.php:174
 msgid "Most Recent Change"
-msgstr ""
+msgstr "Neues Änderungen"
 
 #: applications/phriction/controller/PhrictionDiffController.php:245
 msgid "Edit Current Version"
-msgstr ""
+msgstr "Aktuelle Version verändern"
 
 #: applications/phriction/controller/PhrictionDiffController.php:255
 #, php-format
 msgid "Revert to Version %s..."
-msgstr ""
+msgstr "Zu Version %s zurückkehren..."
 
 #: applications/phriction/controller/PhrictionDiffController.php:273
 #, php-format
 msgid "%s by %s, %s"
-msgstr ""
+msgstr "%s von %s, %s"
 
 #: applications/phriction/controller/PhrictionListController.php:54
 #, php-format
 msgid "Edited by %s"
-msgstr ""
+msgstr "Von %s verändert"
 
 #: applications/phriction/controller/PhrictionEditController.php:99
 msgid "Document title is required."
-msgstr ""
+msgstr "Ohne Dokumententitel geht es leider nicht."
 
 #: applications/phriction/controller/PhrictionEditController.php:110
 msgid "No Edits"
-msgstr ""
+msgstr "Keine Änderungen"
 
 #: applications/phriction/controller/PhrictionEditController.php:112
 msgid "You did not make any changes to the document."
-msgstr ""
+msgstr "Du hast keinerlei Änderungen an diesem Dokument durchgeführt."
 
 #: applications/phriction/controller/PhrictionEditController.php:124
 msgid "Empty Page"
-msgstr ""
+msgstr "Leere Seite"
 
 #: applications/phriction/controller/PhrictionEditController.php:126
 msgid "You can not create an empty document."
-msgstr ""
+msgstr "Du kannst kein leeres Dokument erstellen"
 
 #: applications/phriction/controller/PhrictionEditController.php:158
 msgid "Edit Phriction Document"
-msgstr ""
+msgstr "Wiki Dokument ändern"
 
 #: applications/phriction/controller/PhrictionEditController.php:161
 msgid "Create New Phriction Document"
-msgstr ""
+msgstr "Neues Wiki Dokument"
 
 #: applications/phriction/controller/PhrictionEditController.php:181
 msgid "discard this draft"
-msgstr ""
+msgstr "dieses Entwurf löschen"
 
 #: applications/phriction/controller/PhrictionEditController.php:212
 msgid "Content"
-msgstr ""
+msgstr "Inhalt"
 
 #: applications/phriction/controller/PhrictionDocumentController.php:54
 msgid "No content here!"
-msgstr ""
+msgstr "Hier ist leider kein Inhalt!"
 
 #: applications/phriction/controller/PhrictionDocumentController.php:57
 #, php-format
 msgid "No document found at %s. You can <strong><a href=\"%s\">create a new document here</a></strong>."
-msgstr ""
+msgstr "Kein Dokument unter %s gefunden. Du kannst <strong><a href=\"%s\">ein neues Dokument hier erstellen</a></strong>."
 
 #: applications/phriction/controller/PhrictionDocumentController.php:63
 msgid "Page Not Found"
-msgstr ""
+msgstr "Seite nicht gefunden"
 
 #: applications/phriction/controller/PhrictionDocumentController.php:81
 #, php-format
 msgid "You are viewing an older version of this document, as it appeared on %s."
-msgstr ""
+msgstr "Du siehst dir gerade eine alte Version dieses Dokuments an, so wie es am %s aussah."
 
 #: applications/phriction/controller/PhrictionDocumentController.php:101
 msgid "Document Deleted"
-msgstr ""
+msgstr "Dokument gelöscht"
 
 #: applications/phriction/controller/PhrictionDocumentController.php:103
 msgid "This document has been deleted. You can edit it to put new content here, or use history to revert to an earlier version."
-msgstr ""
+msgstr "Dieses Dokument wurde gelöscht. Du kannst es editieren, um neuen Inhalt an diese Stelle zu packen oderdie Historie benutzen, um die alte Version wieder herzustellen."
 
 #: applications/phriction/controller/PhrictionDocumentController.php:109
 msgid "Empty Document"
-msgstr ""
+msgstr "Leeres Dokument"
 
 #: applications/phriction/controller/PhrictionDocumentController.php:111
 msgid "This document is empty. You can edit it to put some proper content here."
-msgstr ""
+msgstr "Dieses Dokument hat keinen Inhalt. Du kannst es editieren, um das Gerippe mit etwas Fleisch zu füllen."
 
 #: applications/phriction/controller/PhrictionDocumentController.php:123
 msgid "Document Moved"
-msgstr ""
+msgstr "Dokument verschoben"
 
 #: applications/phriction/controller/PhrictionDocumentController.php:125
 #, php-format
 msgid "This document has been moved to %s. You can edit it to put new content here, or use history to revert to an earlier version."
-msgstr ""
+msgstr "Dieses Dokument wurde nach %s verschoben. Du kannst auf Editieren klicken, um hier neue Inhalte einzufügen oderdie Historie benutzen, um eine alte Version wiederherzustellen."
 
 #: applications/phriction/controller/PhrictionDocumentController.php:141
 #, php-format
 msgid "This document was moved from %s"
-msgstr ""
+msgstr "Dieses Dokument wurde von %s hierher verschoben."
 
 #: applications/phriction/controller/PhrictionDocumentController.php:236
 msgid "Project Info"
-msgstr ""
+msgstr "Projektdetails"
 
 #: applications/phriction/controller/PhrictionDocumentController.php:241
 msgid "Last Author"
-msgstr ""
+msgstr "Letzter Auto"
 
 #: applications/phriction/controller/PhrictionDocumentController.php:247
 msgid "Today"
-msgstr ""
+msgstr "Heute"
 
 #: applications/phriction/controller/PhrictionDocumentController.php:249
 msgid "Yesterday"
-msgstr ""
+msgstr "Gestern"
 
 #: applications/phriction/controller/PhrictionDocumentController.php:251
 #, php-format
 msgid "%d Days Ago"
-msgstr ""
+msgstr "vor %d Tagen"
 
 #: applications/phriction/controller/PhrictionDocumentController.php:276
 msgid "Create This Document"
-msgstr ""
+msgstr "Dieses Dokument erzeugen"
 
 #: applications/phriction/controller/PhrictionDocumentController.php:297
 msgid "Delete Document"
-msgstr ""
+msgstr "Dokument löschen"
 
 #: applications/phriction/controller/PhrictionDocumentController.php:414
 msgid "More..."
-msgstr ""
+msgstr "Weiter..."
 
 #: applications/phriction/controller/PhrictionDocumentController.php:424
 msgid "Document Hierarchy"
-msgstr ""
+msgstr "Dokumentenbaum"
 
 #: applications/phriction/controller/PhrictionDocumentController.php:439
 msgid "(Untitled Document)"
-msgstr ""
+msgstr "(unbenanntes Dokument)"
 
 #: applications/phriction/controller/PhrictionNewController.php:25
 msgid "Edit Existing Document?"
-msgstr ""
+msgstr "Bestehendes Dokument ändern?"
 
 #: applications/phriction/controller/PhrictionNewController.php:28
 #, php-format
 msgid "The document %s already exists. Do you want to edit it instead?"
-msgstr ""
+msgstr "Das Dokument %s existiert bereits. Möchtest Du es stattdessen einfach ändern?"
 
 #: applications/phriction/controller/PhrictionNewController.php:39
 msgid "Oops!"
-msgstr ""
+msgstr "Hoppala!"
 
 #: applications/phriction/controller/PhrictionNewController.php:42
 msgid ""
@@ -10592,26 +10598,29 @@ msgid ""
 "                  because they are reserved as project pages.\n"
 "                  Create a new project with this name first."
 msgstr ""
+"Du kannst keine Wiki-Dokumente mit dem Pfad \"/projects/\" erzeugen,\n"
+"da sie bereits für das Projektmodul reserviert sind.\n"
+"Bitte stattdessen erstmal ein Projekt mit diesem Namen erzeugen."
 
 #: applications/phriction/controller/PhrictionNewController.php:71
 msgid "Create a new document at"
-msgstr ""
+msgstr "Neues Dokument erstellen und zwar hier:"
 
 #: applications/phriction/application/PhabricatorApplicationPhriction.php:6
 msgid "Wiki"
-msgstr ""
+msgstr "Wiki"
 
 #: applications/phriction/config/PhabricatorPhrictionConfigOptions.php:7
 msgid "Phriction"
-msgstr ""
+msgstr "Wiki"
 
 #: applications/phriction/config/PhabricatorPhrictionConfigOptions.php:11
 msgid "Options related to Phriction (wiki)."
-msgstr ""
+msgstr "Wiki-Einstellungen"
 
 #: applications/phriction/config/PhabricatorPhrictionConfigOptions.php:18
 msgid "Subject prefix for Phriction email."
-msgstr ""
+msgstr "Betreffkürzel für Wiki-Emails"
 
 #: applications/mailinglists/query/PhabricatorMailingListSearchEngine.php:26
 msgid "No query filters are available for mailing lists."
@@ -10619,41 +10628,41 @@ msgstr ""
 
 #: applications/mailinglists/query/PhabricatorMailingListSearchEngine.php:35
 msgid "All Lists"
-msgstr ""
+msgstr "Alle Listen"
 
 #: applications/mailinglists/phid/PhabricatorMailingListPHIDTypeList.php:12
 msgid "Mailing List"
-msgstr ""
+msgstr "Mailing-Liste"
 
 #: applications/mailinglists/controller/PhabricatorMailingListsController.php:12
 #: applications/mailinglists/controller/PhabricatorMailingListsController.php:33
 msgid "Create List"
-msgstr ""
+msgstr "Liste erzeugen"
 
 #: applications/mailinglists/controller/PhabricatorMailingListsEditController.php:17
 #: applications/mailinglists/controller/PhabricatorMailingListsEditController.php:122
 msgid "Edit Mailing List"
-msgstr ""
+msgstr "Mailing-Liste verändern"
 
 #: applications/mailinglists/controller/PhabricatorMailingListsEditController.php:26
 #: applications/mailinglists/controller/PhabricatorMailingListsEditController.php:126
 msgid "Create Mailing List"
-msgstr ""
+msgstr "Neue Mailing-Liste"
 
 #: applications/settings/panel/PhabricatorSettingsPanelEmailAddresses.php:171
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:180
 #: applications/people/controller/PhabricatorPeopleEditController.php:144
 #: applications/mailinglists/controller/PhabricatorMailingListsEditController.php:47
 msgid "Email is required."
-msgstr ""
+msgstr "Email ist zwingend erforderlich."
 
 #: applications/mailinglists/controller/PhabricatorMailingListsEditController.php:52
 msgid "Name is required."
-msgstr ""
+msgstr "Ein Name ist zwingend erforderlich."
 
 #: applications/mailinglists/controller/PhabricatorMailingListsEditController.php:55
 msgid "Name must not contain spaces or commas."
-msgstr ""
+msgstr "Der Name darf keine Leerzeichen oder Kommata enthalten."
 
 #: applications/mailinglists/controller/PhabricatorMailingListsEditController.php:61
 msgid "Mailing list URI must point to a valid web page."
@@ -10784,7 +10793,7 @@ msgstr ""
 #: applications/owners/controller/PhabricatorOwnersEditController.php:137
 #: applications/owners/controller/PhabricatorOwnersController.php:40
 msgid "New Package"
-msgstr ""
+msgstr "Neues Paket"
 
 #: applications/owners/controller/PhabricatorOwnersEditController.php:192
 #: applications/owners/controller/PhabricatorOwnersDetailController.php:62
