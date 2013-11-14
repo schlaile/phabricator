@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-01 14:07+0100\n"
-"PO-Revision-Date: 2013-11-13 17:29+0100\n"
+"PO-Revision-Date: 2013-11-14 19:21+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: Deutsch <peter@schlaile.de>\n"
 "Language: \n"
@@ -6095,40 +6095,40 @@ msgstr ""
 #: applications/transactions/view/PhabricatorApplicationTransactionView.php:224
 #: applications/transactions/view/PhabricatorApplicationTransactionView.php:268
 msgid "(Show Details)"
-msgstr ""
+msgstr "(Zeige Details)"
 
 #: applications/transactions/view/PhabricatorApplicationTransactionView.php:238
 msgid "(Hide Details)"
-msgstr ""
+msgstr "(Verstecke Details)"
 
 #: applications/transactions/view/PhabricatorApplicationTransactionView.php:289
 msgid "This comment has been deleted."
-msgstr ""
+msgstr "Dieser Kommentar wurde gelöscht"
 
 #: applications/transactions/view/PhabricatorApplicationTransactionCommentView.php:93
 msgid "Login to Comment"
-msgstr ""
+msgstr "Zum Kommentieren einloggen"
 
 #: applications/transactions/view/PhabricatorApplicationTransactionCommentView.php:115
 msgid "Loading Preview..."
-msgstr ""
+msgstr "Lade Vorschau..."
 
 #: applications/transactions/view/PhabricatorApplicationTransactionCommentView.php:116
 msgid "Saving Draft..."
-msgstr ""
+msgstr "Speichere Entwurf..."
 
 #: applications/transactions/view/PhabricatorApplicationTransactionCommentView.php:117
 msgid "Saved Draft"
-msgstr ""
+msgstr "Entwurf gespeichert"
 
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:43
 #: applications/herald/controller/HeraldTranscriptListController.php:48
 msgid "Object"
-msgstr ""
+msgstr "Objekt"
 
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:267
 msgid "You can not post an empty comment."
-msgstr ""
+msgstr "Du kannst keine leeren Kommentare abgeben."
 
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:270
 #, php-format
@@ -6161,7 +6161,7 @@ msgstr ""
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:300
 #, php-format
 msgid "%s added a comment."
-msgstr ""
+msgstr "%s hat einen Kommentar hinzugefügt."
 
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:304
 #, php-format
@@ -6186,7 +6186,7 @@ msgstr ""
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:337
 #, php-format
 msgid "%s added %d subscriber(s): %s."
-msgstr ""
+msgstr "%s hat %d Mitleser hinzugefügt: %s."
 
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:343
 #, php-format
@@ -6211,7 +6211,7 @@ msgstr ""
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:424
 #, php-format
 msgid "%s added a comment to %s."
-msgstr ""
+msgstr "%s hat %s kommentiert."
 
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:429
 #, php-format
@@ -6265,15 +6265,15 @@ msgstr ""
 
 #: applications/transactions/response/PhabricatorApplicationTransactionNoEffectResponse.php:41
 msgid "Do you want to post your comment anyway?"
-msgstr ""
+msgstr "Möchtest Du Deinen Kommentar trotzdem abgeben?"
 
 #: applications/transactions/response/PhabricatorApplicationTransactionNoEffectResponse.php:42
 msgid "Post Comment"
-msgstr ""
+msgstr "Kommentar abgeben"
 
 #: applications/transactions/response/PhabricatorApplicationTransactionNoEffectResponse.php:46
 msgid "Empty Comment"
-msgstr ""
+msgstr "Leerer Kommentar"
 
 #: applications/transactions/response/PhabricatorApplicationTransactionNoEffectResponse.php:50
 #, php-format
@@ -6287,23 +6287,23 @@ msgstr ""
 #: applications/transactions/controller/PhabricatorApplicationTransactionCommentEditController.php:63
 #: applications/transactions/controller/PhabricatorApplicationTransactionCommentEditController.php:76
 msgid "Edit Comment"
-msgstr ""
+msgstr "Kommentar ändern"
 
 #: applications/transactions/controller/PhabricatorApplicationTransactionCommentHistoryController.php:71
 msgid "Comment History"
-msgstr ""
+msgstr "Kommentar-Historie"
 
 #: applications/ponder/view/PonderAddAnswerView.php:25
 #: applications/ponder/view/PonderAddAnswerView.php:43
 msgid "Add Answer"
-msgstr ""
+msgstr "Neue Antwort"
 
 #: applications/ponder/view/PonderAddAnswerView.php:36
 #: applications/ponder/phid/PonderPHIDTypeAnswer.php:12
 #: applications/ponder/controller/PonderQuestionViewController.php:365
 #: applications/ponder/controller/PonderAnswerEditController.php:78
 msgid "Answer"
-msgstr ""
+msgstr "Antwort"
 
 #: applications/ponder/view/PonderAddAnswerView.php:44
 msgid "Bequeath Wisdom"
@@ -6311,50 +6311,50 @@ msgstr ""
 
 #: applications/ponder/editor/PonderQuestionEditor.php:218
 msgid "QUESTION DETAIL"
-msgstr ""
+msgstr "FRAGE DETAILS"
 
 #: applications/ponder/editor/PonderAnswerEditor.php:98
 #: applications/ponder/editor/PonderQuestionEditor.php:235
 msgid "ANSWER DETAIL"
-msgstr ""
+msgstr "ANTWORT DETAILS"
 
 #: applications/ponder/query/PonderQuestionSearchEngine.php:76
 msgid "Answered By"
-msgstr ""
+msgstr "Beantwortet von"
 
 #: applications/ponder/query/PonderQuestionSearchEngine.php:92
 msgid "Open Questions"
-msgstr ""
+msgstr "Offene Fragen"
 
 #: applications/ponder/query/PonderQuestionSearchEngine.php:93
 msgid "All Questions"
-msgstr ""
+msgstr "Alle Fragen"
 
 #: applications/ponder/storage/PonderQuestionTransaction.php:177
 #: applications/ponder/query/PonderQuestionSearchEngine.php:98
 msgid "Answered"
-msgstr ""
+msgstr "Beantwortet"
 
 #: applications/ponder/storage/PonderQuestionTransaction.php:51
 #, php-format
 msgid "%s asked this question."
-msgstr ""
+msgstr "%s hat diese Frage gestellt."
 
 #: applications/ponder/storage/PonderQuestionTransaction.php:55
 #, php-format
 msgid "%s edited the question title from \"%s\" to \"%s\"."
-msgstr ""
+msgstr "%s hat den Titel dieser Frage von \"%s\" nach \"%s\" geändert."
 
 #: applications/ponder/storage/PonderQuestionTransaction.php:62
 #, php-format
 msgid "%s edited the question description."
-msgstr ""
+msgstr "%s hat die Beschreibung der Frage geändert."
 
 #: applications/ponder/storage/PonderQuestionTransaction.php:68
 #: applications/ponder/storage/PonderQuestionTransaction.php:227
 #, php-format
 msgid "%s answered %s"
-msgstr ""
+msgstr "%s hat %s beantwortet"
 
 #: applications/ponder/storage/PonderQuestionTransaction.php:75
 #, php-format
@@ -6438,15 +6438,15 @@ msgstr ""
 
 #: applications/ponder/controller/PonderQuestionViewController.php:98
 msgid "Edit Question"
-msgstr ""
+msgstr "Frage ändern"
 
 #: applications/ponder/controller/PonderQuestionViewController.php:104
 msgid "Close Question"
-msgstr ""
+msgstr "Frage als beantwortet kennzeichnen"
 
 #: applications/ponder/controller/PonderQuestionViewController.php:108
 msgid "Reopen Question"
-msgstr ""
+msgstr "Frage erneut in die Runde werfen"
 
 #: applications/ponder/controller/PonderQuestionViewController.php:218
 msgid "Question Comment"
@@ -6494,50 +6494,50 @@ msgstr ""
 
 #: applications/ponder/controller/PonderQuestionEditController.php:48
 msgid "Title must not be empty."
-msgstr ""
+msgstr "Der Titel darf nicht leer bleiben."
 
 #: applications/ponder/controller/PonderQuestionEditController.php:51
 msgid "Title is too long."
-msgstr ""
+msgstr "Der Titel ist zu lang."
 
 #: applications/ponder/controller/PonderQuestionEditController.php:52
 msgid "Too Long"
-msgstr ""
+msgstr "Zu lang"
 
 #: applications/ponder/controller/PonderQuestionEditController.php:104
 msgid "Ask Away!"
-msgstr ""
+msgstr "Frage abfeuern!"
 
 #: applications/ponder/controller/PonderQuestionEditController.php:107
 msgid "Question Preview"
-msgstr ""
+msgstr "Vorschau der Frage"
 
 #: applications/ponder/controller/PonderQuestionEditController.php:112
 #: applications/ponder/controller/PonderQuestionEditController.php:140
 msgid "Ask New Question"
-msgstr ""
+msgstr "Neue Frage stellen"
 
 #: applications/ponder/controller/PonderQuestionEditController.php:130
 msgid "Ask Question"
-msgstr ""
+msgstr "Frage stellen"
 
 #: applications/ponder/controller/PonderAnswerHistoryController.php:67
 msgid "Answer History"
-msgstr ""
+msgstr "Fragen-Historie"
 
 #: applications/ponder/controller/PonderQuestionListController.php:56
 #, php-format
 msgid "Asked by %s"
-msgstr ""
+msgstr "gefragt von %s"
 
 #: applications/ponder/controller/PonderQuestionListController.php:60
 #, php-format
 msgid "%d Answer(s)"
-msgstr ""
+msgstr "%d Antworten"
 
 #: applications/ponder/application/PhabricatorApplicationPonder.php:10
 msgid "Find Answers"
-msgstr ""
+msgstr "Antworten finden"
 
 #: applications/flag/events/PhabricatorFlagsUIEventListener.php:42
 #, php-format
@@ -6546,7 +6546,7 @@ msgstr ""
 
 #: applications/flag/events/PhabricatorFlagsUIEventListener.php:48
 msgid "Flag For Later"
-msgstr ""
+msgstr "Mittels Flagge markieren"
 
 #: applications/flag/query/PhabricatorFlagSearchEngine.php:51
 #: applications/maniphest/query/ManiphestTaskSearchEngine.php:317
@@ -6568,20 +6568,20 @@ msgstr ""
 
 #: applications/flag/constants/PhabricatorFlagColor.php:21
 msgid "Pink"
-msgstr ""
+msgstr "Pink"
 
 #: applications/flag/constants/PhabricatorFlagColor.php:22
 msgid "Purple"
-msgstr ""
+msgstr "Lila"
 
 #: applications/flag/constants/PhabricatorFlagColor.php:23
 msgid "Checkered"
-msgstr ""
+msgstr "Gescheckt"
 
 #: applications/flag/controller/PhabricatorFlagEditController.php:48
 #, php-format
 msgid "Flag %s"
-msgstr ""
+msgstr "Flagge %s"
 
 #: applications/flag/controller/PhabricatorFlagEditController.php:60
 #, php-format
@@ -6708,21 +6708,21 @@ msgstr ""
 #: applications/audit/controller/PhabricatorAuditController.php:16
 #: applications/maniphest/controller/ManiphestReportController.php:34
 msgid "By User"
-msgstr ""
+msgstr "Nach Benutzer"
 
 #: applications/audit/controller/PhabricatorAuditController.php:17
 #: applications/maniphest/controller/ManiphestReportController.php:35
 msgid "By Project"
-msgstr ""
+msgstr "Nach Projekt"
 
 #: applications/audit/controller/PhabricatorAuditController.php:18
 #: applications/audit/controller/PhabricatorAuditController.php:24
 msgid "By Package"
-msgstr ""
+msgstr "Nach Paket"
 
 #: applications/audit/controller/PhabricatorAuditController.php:19
 msgid "By Repository"
-msgstr ""
+msgstr "Nach Repository"
 
 #: applications/audit/controller/PhabricatorAuditListController.php:464
 #: applications/audit/controller/PhabricatorAuditController.php:21
@@ -6767,12 +6767,12 @@ msgstr ""
 #: applications/maniphest/controller/ManiphestReportController.php:414
 #: applications/people/controller/PhabricatorPeopleLogsController.php:182
 msgid "User"
-msgstr ""
+msgstr "Benutzer"
 
 #: applications/audit/controller/PhabricatorAuditListController.php:134
 #: applications/owners/controller/PhabricatorOwnersController.php:43
 msgid "Package"
-msgstr ""
+msgstr "Paket"
 
 #: applications/audit/controller/PhabricatorAuditListController.php:171
 msgid "Filter Audits"
@@ -8496,11 +8496,11 @@ msgstr "Datei"
 
 #: applications/maniphest/controller/ManiphestTaskDetailController.php:296
 msgid "Avast!"
-msgstr ""
+msgstr "Kommentieren!"
 
 #: applications/maniphest/controller/ManiphestTaskDetailController.php:349
 msgid "Weigh In"
-msgstr ""
+msgstr "Kommentar einwerfen"
 
 #: applications/maniphest/controller/ManiphestTaskDetailController.php:453
 #: applications/maniphest/controller/ManiphestTaskEditController.php:452
@@ -8599,7 +8599,7 @@ msgstr ""
 #: applications/maniphest/application/PhabricatorApplicationManiphest.php:87
 #, php-format
 msgid "%s Assigned Task(s)"
-msgstr ""
+msgstr "%s zugewiesene Aufgaben"
 
 #: applications/maniphest/application/PhabricatorApplicationManiphest.php:97
 msgid "Default view policy for newly created tasks."
