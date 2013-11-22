@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-01 14:07+0100\n"
-"PO-Revision-Date: 2013-11-14 19:21+0100\n"
+"PO-Revision-Date: 2013-11-22 16:11+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: Deutsch <peter@schlaile.de>\n"
 "Language: \n"
@@ -4375,22 +4375,22 @@ msgstr ""
 #: applications/uiexample/examples/PHUIObjectItemListExample.php:67
 #: applications/uiexample/examples/PHUIObjectItemListExample.php:91
 msgid "Monday"
-msgstr ""
+msgstr "Montag"
 
 #: applications/uiexample/examples/PHUIObjectItemListExample.php:71
 #: applications/uiexample/examples/PHUIObjectItemListExample.php:96
 msgid "Tuesday"
-msgstr ""
+msgstr "Dienstag"
 
 #: applications/uiexample/examples/PHUIObjectItemListExample.php:75
 #: applications/uiexample/examples/PHUIObjectItemListExample.php:101
 msgid "Wednesday"
-msgstr ""
+msgstr "Mittwoch"
 
 #: applications/uiexample/examples/PHUIObjectItemListExample.php:79
 #: applications/uiexample/examples/PHUIObjectItemListExample.php:106
 msgid "Thursday"
-msgstr ""
+msgstr "Donnerstag"
 
 #: applications/uiexample/examples/PHUIObjectItemListExample.php:85
 msgid "Plain List"
@@ -6240,15 +6240,15 @@ msgstr ""
 
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:506
 msgid "Commented On"
-msgstr ""
+msgstr "Kommentiert"
 
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:510
 msgid "Changed Policy"
-msgstr ""
+msgstr "Policy ändern"
 
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:512
 msgid "Changed Subscribers"
-msgstr ""
+msgstr "Veränderte Mitleser"
 
 #: applications/transactions/response/PhabricatorApplicationTransactionNoEffectResponse.php:36
 #, php-format
@@ -6282,7 +6282,7 @@ msgstr ""
 
 #: applications/transactions/phid/PhabricatorApplicationTransactionPHIDTypeTransaction.php:13
 msgid "Transaction"
-msgstr ""
+msgstr "Transaktion"
 
 #: applications/transactions/controller/PhabricatorApplicationTransactionCommentEditController.php:63
 #: applications/transactions/controller/PhabricatorApplicationTransactionCommentEditController.php:76
@@ -6307,7 +6307,7 @@ msgstr "Antwort"
 
 #: applications/ponder/view/PonderAddAnswerView.php:44
 msgid "Bequeath Wisdom"
-msgstr ""
+msgstr "Weisheit der Nachwelt hinterlassen"
 
 #: applications/ponder/editor/PonderQuestionEditor.php:218
 msgid "QUESTION DETAIL"
@@ -6359,58 +6359,58 @@ msgstr "%s hat %s beantwortet"
 #: applications/ponder/storage/PonderQuestionTransaction.php:75
 #, php-format
 msgid "%s reopened this question."
-msgstr ""
+msgstr "%s hat diese Frage wieder aufgeworfen."
 
 #: applications/ponder/storage/PonderQuestionTransaction.php:79
 #, php-format
 msgid "%s closed this question."
-msgstr ""
+msgstr "%s hat diese Frage abgeschlossen."
 
 #: applications/ponder/storage/PonderQuestionTransaction.php:173
 msgid "Asked"
-msgstr ""
+msgstr "Gefragt"
 
 #: applications/ponder/storage/PonderQuestionTransaction.php:208
 #, php-format
 msgid "%s asked a question: %s"
-msgstr ""
+msgstr "%s hat eine Frage gestellt: %s"
 
 #: applications/ponder/storage/PonderQuestionTransaction.php:213
 #, php-format
 msgid "%s edited the title of %s (was \"%s\")"
-msgstr ""
+msgstr "%s hat die Überschrift von %s geändert (war \"%s\")"
 
 #: applications/ponder/storage/PonderQuestionTransaction.php:220
 #, php-format
 msgid "%s edited the description of %s"
-msgstr ""
+msgstr "%s hat die Beschreibung von %s geändert"
 
 #: applications/ponder/storage/PonderQuestionTransaction.php:234
 #, php-format
 msgid "%s reopened %s"
-msgstr ""
+msgstr "%s hat %s wieder aufgeworfen"
 
 #: applications/ponder/storage/PonderQuestionTransaction.php:239
 #, php-format
 msgid "%s closed %s"
-msgstr ""
+msgstr "%s hat %s abgeschlossen"
 
 #: applications/ponder/storage/PonderAnswerTransaction.php:64
 #, php-format
 msgid "%s updated their answer to %s"
-msgstr ""
+msgstr "%s hat seine Antwort zu %s verändert"
 
 #: applications/ponder/storage/PonderQuestion.php:210
 msgid "The user who asked a question can always view and edit it."
-msgstr ""
+msgstr "Der Benutzer, der eine Frage gestellt hat, darf sie grundsätzlich sehen und verändern."
 
 #: applications/ponder/storage/PonderAnswer.php:163
 msgid "The author of an answer can always view and edit it."
-msgstr ""
+msgstr "Der Autor einer Frage darf sie immer ansehen und verändern."
 
 #: applications/ponder/storage/PonderAnswer.php:167
 msgid "The user who asks a question can always view the answers."
-msgstr ""
+msgstr "Der Benutzer, der eine Frage gestellt hat, darf sich grundsätzlich die Antworten ansehen."
 
 #: applications/ponder/phid/PonderPHIDTypeQuestion.php:12
 #: applications/ponder/controller/PonderQuestionViewController.php:163
@@ -6418,23 +6418,23 @@ msgstr ""
 #: applications/ponder/controller/PonderQuestionEditController.php:90
 #: applications/slowvote/controller/PhabricatorSlowvoteEditController.php:148
 msgid "Question"
-msgstr ""
+msgstr "Frage"
 
 #: applications/ponder/constants/PonderQuestionStatus.php:21
 msgid "Closed by author"
-msgstr ""
+msgstr "Durch Autor geschlossen"
 
 #: applications/ponder/controller/PonderAnswerSaveController.php:28
 msgid "Empty Answer"
-msgstr ""
+msgstr "Leere Antwort"
 
 #: applications/ponder/controller/PonderAnswerSaveController.php:31
 msgid "Your answer must not be empty."
-msgstr ""
+msgstr "Deine Antwort darf nicht leer sein."
 
 #: applications/ponder/controller/PonderQuestionViewController.php:37
 msgid "You have already answered this question. You can not answer twice, but you can edit your existing answer."
-msgstr ""
+msgstr "Du hast diese Frage bereits beantwortet. Du kannst sie nicht zweimal beantworten, aber Du kannst Deine bereits bestehende Antwort jederzeit ändern."
 
 #: applications/ponder/controller/PonderQuestionViewController.php:98
 msgid "Edit Question"
@@ -6450,47 +6450,47 @@ msgstr "Frage erneut in die Runde werfen"
 
 #: applications/ponder/controller/PonderQuestionViewController.php:218
 msgid "Question Comment"
-msgstr ""
+msgstr "Kommentar zur Frage"
 
 #: applications/ponder/controller/PonderQuestionViewController.php:294
 msgid "Answer Comment"
-msgstr ""
+msgstr "Kommentar beantworten"
 
 #: applications/ponder/controller/PonderQuestionViewController.php:329
 #: applications/ponder/controller/PonderAnswerEditController.php:95
 #: applications/ponder/controller/PonderAnswerEditController.php:98
 #: applications/ponder/controller/PonderAnswerEditController.php:114
 msgid "Edit Answer"
-msgstr ""
+msgstr "Antwort ändern"
 
 #: applications/ponder/controller/PonderQuestionViewController.php:385
 msgid "Add a Comment"
-msgstr ""
+msgstr "Kommentar hinzufügen"
 
 #: applications/ponder/controller/PonderQuestionViewController.php:387
 #, php-format
 msgid "Show %s Comments"
-msgstr ""
+msgstr "Zeige %s Kommentare"
 
 #: applications/ponder/controller/PonderQuestionHistoryController.php:62
 msgid "Question History"
-msgstr ""
+msgstr "Historie der Frage"
 
 #: applications/ponder/controller/PonderController.php:25
 msgid "Create Question"
-msgstr ""
+msgstr "Frage stellen"
 
 #: applications/ponder/controller/PonderAnswerEditController.php:42
 msgid "You must provide some substance in your answer."
-msgstr ""
+msgstr "Du solltest Deine Antwort schon ein bißchen substantiieren."
 
 #: applications/ponder/controller/PonderAnswerEditController.php:85
 msgid "Update Answer"
-msgstr ""
+msgstr "Antwort ändern"
 
 #: applications/ponder/controller/PonderAnswerEditController.php:103
 msgid "Answer Preview"
-msgstr ""
+msgstr "Vorschau der Antwort"
 
 #: applications/ponder/controller/PonderQuestionEditController.php:48
 msgid "Title must not be empty."
@@ -6542,7 +6542,7 @@ msgstr "Antworten finden"
 #: applications/flag/events/PhabricatorFlagsUIEventListener.php:42
 #, php-format
 msgid "Remove %s Flag"
-msgstr ""
+msgstr "Die %s Flagge entfernen"
 
 #: applications/flag/events/PhabricatorFlagsUIEventListener.php:48
 msgid "Flag For Later"
@@ -6551,16 +6551,16 @@ msgstr "Mittels Flagge markieren"
 #: applications/flag/query/PhabricatorFlagSearchEngine.php:51
 #: applications/maniphest/query/ManiphestTaskSearchEngine.php:317
 msgid "Group By"
-msgstr ""
+msgstr "Gruppieren nach"
 
 #: applications/flag/query/PhabricatorFlagSearchEngine.php:57
 #: applications/herald/controller/HeraldTranscriptController.php:457
 msgid "Object Type"
-msgstr ""
+msgstr "Objekttyp"
 
 #: applications/flag/query/PhabricatorFlagSearchEngine.php:111
 msgid "All Object Types"
-msgstr ""
+msgstr "Alle Objekttypen"
 
 #: applications/flag/storage/PhabricatorFlag.php:54
 msgid "Flags are private. Only you can view or edit your flags."
@@ -8030,7 +8030,7 @@ msgstr "%s hat diese Aufgabe geschlossen (war ein Duplikat)."
 #: applications/maniphest/storage/ManiphestTransaction.php:304
 #, php-format
 msgid "%s closed this task as \"%s\"."
-msgstr "%s hat diese Aufgabe wegen \"%s\" geschlossen."
+msgstr "%s hat diese Aufgabe geschlossen: %s."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:312
 #, php-format
@@ -11566,7 +11566,7 @@ msgstr ""
 #: applications/macro/controller/PhabricatorMacroDisableController.php:58
 #: applications/files/config/PhabricatorFilesConfigOptions.php:190
 msgid "Disable"
-msgstr ""
+msgstr "Deaktivieren"
 
 #: applications/macro/application/PhabricatorApplicationMacro.php:10
 msgid "Image Macros and Memes"
@@ -11578,7 +11578,7 @@ msgstr ""
 
 #: applications/macro/config/PhabricatorMacroConfigOptions.php:11
 msgid "Configure Macro."
-msgstr ""
+msgstr "Macro einrichten."
 
 #: applications/macro/config/PhabricatorMacroConfigOptions.php:18
 msgid "As {{metamta.maniphest.reply-handler-domain}}, but affects Macro."
@@ -11604,27 +11604,27 @@ msgstr ""
 #: applications/people/event/PhabricatorPeopleHovercardEventListener.php:49
 #: applications/people/customfield/PhabricatorUserStatusField.php:31
 msgid "Available"
-msgstr ""
+msgstr "Verfügbar"
 
 #: applications/people/event/PhabricatorPeopleHovercardEventListener.php:53
 msgid "User since"
-msgstr ""
+msgstr "Registriert seit"
 
 #: applications/people/query/PhabricatorPeopleSearchEngine.php:87
 msgid "Usernames"
-msgstr ""
+msgstr "Benutzernamen"
 
 #: applications/people/query/PhabricatorPeopleSearchEngine.php:100
 msgid "Show only Administrators."
-msgstr ""
+msgstr "Nur Administratoren zeigen"
 
 #: applications/people/query/PhabricatorPeopleSearchEngine.php:105
 msgid "Show only disabled users."
-msgstr ""
+msgstr "Nur deaktivierte Benutzer zeigen."
 
 #: applications/people/query/PhabricatorPeopleSearchEngine.php:110
 msgid "Show only System Agents."
-msgstr ""
+msgstr "Nur Systembenutzer zeigen."
 
 #: applications/people/query/PhabricatorPeopleSearchEngine.php:119
 msgid "Joined After"
@@ -11637,7 +11637,7 @@ msgstr ""
 #: applications/people/storage/PhabricatorUser.php:696
 #, php-format
 msgid "Usernames must contain only numbers, letters, period, underscore and hyphen, and can not end with a period. They must have no more than %d characters."
-msgstr ""
+msgstr "Benutzernamen dürfen nur aus Ziffern, Buchstaben, Punkten, Unterstrichen ('_') und Bindestrichen bestehen und: dürfen nicht mit einem Punkt enden. Sie dürfen nicht mehr als %d Zeichen enthalten."
 
 #: applications/people/storage/PhabricatorUser.php:841
 msgid "Only you can edit your information."
@@ -11658,55 +11658,55 @@ msgstr ""
 
 #: applications/people/phid/PhabricatorPeoplePHIDTypeUser.php:12
 msgid "Phabricator User"
-msgstr ""
+msgstr "Phabricator Benutzer"
 
 #: applications/people/controller/PhabricatorPeopleController.php:20
 msgid "User Administration"
-msgstr ""
+msgstr "Benutzeradministration"
 
 #: applications/people/controller/PhabricatorPeopleController.php:22
 msgid "Import from LDAP"
-msgstr ""
+msgstr "Aus LDAP-Verzeichnis importieren"
 
 #: applications/people/controller/PhabricatorPeopleController.php:25
 #: applications/people/controller/PhabricatorPeopleLogsController.php:202
 #: applications/people/controller/PhabricatorPeopleLogsController.php:212
 #: applications/people/controller/PhabricatorPeopleLogsController.php:227
 msgid "Activity Logs"
-msgstr ""
+msgstr "Aktivitätenprotokoll"
 
 #: applications/people/controller/PhabricatorPeopleController.php:43
 #: applications/people/controller/PhabricatorPeopleEditController.php:39
 #: applications/people/controller/PhabricatorPeopleEditController.php:349
 msgid "Create New User"
-msgstr ""
+msgstr "Neuen Benutzer anlegen"
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:28
 #: applications/people/controller/PhabricatorPeopleEditController.php:116
 #: applications/people/controller/PhabricatorPeopleEditController.php:347
 msgid "Edit User"
-msgstr ""
+msgstr "Benutzer ändern"
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:45
 msgid "User Information"
-msgstr ""
+msgstr "Benutzerinformationen"
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:46
 msgid "Basic Information"
-msgstr ""
+msgstr "Grundeinstellungen"
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:47
 msgid "Edit Roles"
-msgstr ""
+msgstr "Rollen ändern"
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:48
 #: applications/people/controller/PhabricatorPeopleEditController.php:497
 msgid "Conduit Certificate"
-msgstr ""
+msgstr "Conduit-Zertifikat"
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:50
 msgid "View Profile"
-msgstr ""
+msgstr "Profil zeigen"
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:51
 msgid "Special"
@@ -11716,17 +11716,17 @@ msgstr ""
 #: applications/people/controller/PhabricatorPeopleEditController.php:593
 #: applications/people/controller/PhabricatorPeopleEditController.php:596
 msgid "Change Username"
-msgstr ""
+msgstr "Benutzername ändern"
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:54
 msgid "Set Account Picture"
-msgstr ""
+msgstr "Bild des Kontos festlegen"
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:56
 #: applications/people/controller/PhabricatorPeopleEditController.php:686
 #: applications/people/controller/PhabricatorPeopleEditController.php:689
 msgid "Delete User"
-msgstr ""
+msgstr "Benutzer löschen"
 
 #: applications/settings/panel/PhabricatorSettingsPanelPassword.php:116
 #: applications/settings/panel/PhabricatorSettingsPanelEmailPreferences.php:77
@@ -11748,129 +11748,129 @@ msgstr ""
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:193
 #: applications/people/controller/PhabricatorPeopleEditController.php:167
 msgid "Real name is required."
-msgstr ""
+msgstr "Ohne Angabe des vollen Namens geht es nicht."
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:205
 msgid "Username and email must be unique."
-msgstr ""
+msgstr "Benutzername und Email dürfen im System nicht doppelt vergeben werden."
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:247
 #: applications/people/controller/PhabricatorPeopleEditController.php:483
 #: applications/people/controller/PhabricatorPeopleEditController.php:675
 #: applications/people/controller/PhabricatorPeopleLdapController.php:175
 msgid "Username"
-msgstr ""
+msgstr "Benutzername"
 
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:336
 #: applications/people/customfield/PhabricatorUserRealNameField.php:13
 #: applications/people/controller/PhabricatorPeopleEditController.php:254
 #: applications/people/controller/PhabricatorPeopleLdapController.php:177
 msgid "Real Name"
-msgstr ""
+msgstr "Voller Name"
 
 #: applications/people/controller/PhabricatorPeopleListController.php:44
 #: applications/people/controller/PhabricatorPeopleEditController.php:272
 msgid "Verified"
-msgstr ""
+msgstr "Verifiziert"
 
 #: applications/people/controller/PhabricatorPeopleListController.php:46
 #: applications/people/controller/PhabricatorPeopleEditController.php:272
 msgid "Unverified"
-msgstr ""
+msgstr "Nicht verifiziert"
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:274
 msgid "No Email Address"
-msgstr ""
+msgstr "Keine Email-Adresse"
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:287
 msgid "Re-send \"Welcome to Phabricator\" email."
-msgstr ""
+msgstr "\"Phabricator Willkommens-Email\" erneut versenden."
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:298
 msgid "Role"
-msgstr ""
+msgstr "Rolle"
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:303
 #: applications/people/controller/PhabricatorPeopleEditController.php:330
 msgid "Normal User"
-msgstr ""
+msgstr "Normaler Benutzer"
 
 #: applications/people/controller/PhabricatorPeopleListController.php:69
 #: applications/people/controller/PhabricatorPeopleEditController.php:304
 #: applications/people/controller/PhabricatorPeopleEditController.php:320
 msgid "System Agent"
-msgstr ""
+msgstr "Systembenutzer"
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:307
 msgid "You can create a \"system agent\" account for bots, scripts, etc."
-msgstr ""
+msgstr "Du kannst \"Systembenutzer\"-Konten für Bots, Skripte, etc. anlegen."
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:314
 msgid "Send \"Welcome to Phabricator\" email."
-msgstr ""
+msgstr "Die \"Phabricator Willkommens-Email\" senden."
 
 #: applications/people/controller/PhabricatorPeopleListController.php:65
 #: applications/people/controller/PhabricatorPeopleEditController.php:323
 msgid "Admin"
-msgstr ""
+msgstr "Admin"
 
 #: applications/people/customfield/PhabricatorUserRolesField.php:13
 #: applications/people/controller/PhabricatorPeopleEditController.php:337
 msgid "Roles"
-msgstr ""
+msgstr "Rollen"
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:378
 msgid "You can not edit your own role."
-msgstr ""
+msgstr "Du kannst Deine eigenen Rollen nicht verändern."
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:416
 msgid "NOTE: You can not edit your own role."
-msgstr ""
+msgstr "HINWEIS: Du kannst Deine eigene Rolle nicht selbst festlegen."
 
 #: applications/people/customfield/PhabricatorUserRolesField.php:29
 #: applications/people/controller/PhabricatorPeopleEditController.php:428
 msgid "Administrator"
-msgstr ""
+msgstr "Administrator"
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:444
 msgid "System Agent (Bot/Script User)"
-msgstr ""
+msgstr "Systembenutzer (Bot/Skript-Benutzer)"
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:452
 #: applications/people/controller/PhabricatorPeopleEditController.php:455
 msgid "Edit Role"
-msgstr ""
+msgstr "Rolle ändern"
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:469
 msgid "You can use this certificate to write scripts or bots which interface with Phabricator over Conduit."
-msgstr ""
+msgstr "Du kannst dieses Zertifikat benutzen, um Skripten oder Bots den Zugriff auf Phabricator über Conduit zu ermöglichen."
 
 #: applications/settings/panel/PhabricatorSettingsPanelConduit.php:77
 #: applications/people/controller/PhabricatorPeopleEditController.php:487
 #: applications/people/controller/PhabricatorPeopleEditController.php:492
 msgid "Certificate"
-msgstr ""
+msgstr "Zertifikat"
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:494
 msgid "You may only view the certificates of System Agents."
-msgstr ""
+msgstr "Du kannst Dir nur Zertifikate von Systembenutzern ansehen."
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:519
 msgid "New username is required."
-msgstr ""
+msgstr "Ein neuer Benutzername ist nötig."
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:522
 msgid "New username must be different from old username."
-msgstr ""
+msgstr "Der neue Benutzername muß sich vom alten unterscheiden."
 
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:258
 #: applications/people/controller/PhabricatorPeopleEditController.php:539
 msgid "Another user already has that username."
-msgstr ""
+msgstr "Ein anderer Benutzer hat bereits diesen Benutzernamen"
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:552
 msgid "Be careful when renaming users!"
-msgstr ""
+msgstr "Beim Umbenennen von Benutzern bitte vorsichtig sein!"
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:553
 msgid "The old username will no longer be tied to the user, so anything which uses it (like old commit messages) will no longer associate correctly. And if you give a user a username which some other user used to have, username lookups will begin returning the wrong user."
@@ -11886,35 +11886,35 @@ msgstr ""
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:583
 msgid "Old Username"
-msgstr ""
+msgstr "Alter Benutzername"
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:587
 msgid "New Username"
-msgstr ""
+msgstr "Neuer Benutzername"
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:607
 msgid "As you stare into the gaping maw of the abyss, something hold you back."
-msgstr ""
+msgstr "Du starrst in das tiefe schwarze Loch des Abgrunds und es gibt etwas, was Dich zurückhält."
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:609
 msgid "You can not delete your own account."
-msgstr ""
+msgstr "Du kannst Dein eigenes Konto nicht löschen."
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:613
 msgid "You Shall Journey No Farther"
-msgstr ""
+msgstr "Du Sollst Diese Brücke Nicht Überschreiten"
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:628
 msgid "You must type the username to confirm deletion."
-msgstr ""
+msgstr "Du mußt den Benutzernamen noch einmal eintippen, um die Löschung zu bestätigen."
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:631
 msgid "You must type the username correctly."
-msgstr ""
+msgstr "Du mußt den Benutzernamen auch korrekt eingeben."
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:651
 msgid "Be careful when deleting users!"
-msgstr ""
+msgstr "Vorsicht beim Löschen von Benutzern!"
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:652
 msgid "If this user interacted with anything, it is generally better to disable them, not delete them. If you delete them, it will no longer be possible to search for their objects, for example, and you will lose other information about their history. Disabling them instead will prevent them from logging in but not destroy any of their data."
@@ -11926,7 +11926,7 @@ msgstr ""
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:679
 msgid "Confirm"
-msgstr ""
+msgstr "Bestätigen"
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:682
 msgid "Type the username again to confirm deletion."
