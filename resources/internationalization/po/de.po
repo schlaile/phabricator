@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-24 16:18+0100\n"
-"PO-Revision-Date: 2013-11-24 16:20+0100\n"
+"PO-Revision-Date: 2013-11-24 18:16+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: Deutsch <peter@schlaile.de>\n"
 "Language: \n"
@@ -12612,7 +12612,7 @@ msgstr ""
 #: applications/daemon/view/PhabricatorDaemonLogListView.php:56
 #: applications/daemon/controller/PhabricatorDaemonLogViewController.php:55
 msgid "Waiting"
-msgstr ""
+msgstr "Warte..."
 
 #: applications/daemon/view/PhabricatorDaemonLogListView.php:63
 msgid "This daemon has not reported its status recently. It may have exited uncleanly."
@@ -20572,11 +20572,11 @@ msgstr ""
 
 #: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:877
 msgid "Waiting For Update"
-msgstr ""
+msgstr "Warte auf Updates..."
 
 #: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:879
 msgid "Waiting for daemons to read updates."
-msgstr ""
+msgstr "Warte darauf, daß die Daemonen die Updates gelesen haben."
 
 #: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:920
 msgid "Importing"
@@ -21863,7 +21863,7 @@ msgstr ""
 
 #: applications/passphrase/controller/PassphraseCredentialRevealController.php:37
 msgid "Plaintext"
-msgstr ""
+msgstr "Klartext"
 
 #: applications/passphrase/controller/PassphraseCredentialRevealController.php:40
 msgid "This credential has no associated secret."
@@ -21895,7 +21895,7 @@ msgstr ""
 
 #: applications/passphrase/controller/PassphraseCredentialEditController.php:208
 msgid "Login/Username"
-msgstr ""
+msgstr "Login/Benutzername"
 
 #: applications/passphrase/controller/PassphraseCredentialEditController.php:227
 #, php-format
@@ -21909,15 +21909,15 @@ msgstr ""
 
 #: applications/passphrase/credentialtype/PassphraseCredentialTypeSSHPrivateKeyText.php:13
 msgid "SSH Private Key"
-msgstr ""
+msgstr "Privater SSH-Schlüssel"
 
 #: applications/passphrase/credentialtype/PassphraseCredentialTypeSSHPrivateKeyText.php:17
 msgid "Store the plaintext of an SSH private key."
-msgstr ""
+msgstr "Einen privaten SSH-Schlüssel im Klartext speichern."
 
 #: applications/passphrase/credentialtype/PassphraseCredentialTypeSSHPrivateKeyText.php:21
 msgid "Private Key"
-msgstr ""
+msgstr "Privater Schlüssel"
 
 #: applications/passphrase/credentialtype/PassphraseCredentialTypeSSHPrivateKeyFile.php:13
 msgid "SSH Private Key File"
@@ -21937,69 +21937,69 @@ msgstr ""
 
 #: applications/auth/application/PhabricatorApplicationAuth.php:51
 msgid "Log In"
-msgstr ""
+msgstr "Einloggen"
 
 #: applications/auth/management/PhabricatorAuthManagementRecoverWorkflow.php:75
 #, php-format
 msgid "Use this link to recover access to the \"%s\" account from the web interface:"
-msgstr ""
+msgstr "Benutze den folgenden Link, um Zugriff auf das Konto von \"%s\" über die Webschnittstelle zu erhalten:"
 
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:71
 #, php-format
 msgid "The account you are attempting to register with has an invalid email address (%s). This Phabricator install only allows registration with specific email addresses:"
-msgstr ""
+msgstr "Das Konto, das Du gerade versuchst zu registrieren, hat eine ungültige Email-Adresse (%s). Diese Phabricator-Installation beschränkt die Anlage von Benutzern auf die folgendenen Email-Adressen:"
 
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:535
 #, php-format
 msgid "New User \"%s\" Awaiting Approval"
-msgstr ""
+msgstr "Neuer Benutzer \"%s\" Wartet Auf Freigabe"
 
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:542
 #, php-format
 msgid "Newly registered user \"%s\" is awaiting account approval by an administrator."
-msgstr ""
+msgstr "Der neu registrierte Benutzer \"%s\" wartet auf die Freigabe seines Kontos durch einen Administrator."
 
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:547
 msgid "APPROVAL QUEUE"
-msgstr ""
+msgstr "FREIGABE-WARTESCHLANGE"
 
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:552
 msgid "DISABLE APPROVAL QUEUE"
-msgstr ""
+msgstr "FREIGABE-WARTESCHLANGE DEAKTIVIEREN"
 
 #: applications/auth/controller/PhabricatorAuthNeedsApprovalController.php:23
 msgid "Your account has been created, but needs to be approved by an administrator. You'll receive an email once your account is approved."
-msgstr ""
+msgstr "Dein Konto wurde erfolgreich angelegt, muß jedoch noch durch einen Administrator freigeschaltet werden. Du erhälst eine Email-Benachrichtung, wenn es soweit ist."
 
 #: applications/auth/controller/PhabricatorAuthNeedsApprovalController.php:28
 msgid "Wait for Approval"
-msgstr ""
+msgstr "Warte auf Freischaltung"
 
 #: applications/auth/controller/PhabricatorAuthNeedsApprovalController.php:30
 msgid "Wait Patiently"
-msgstr ""
+msgstr "Übe Dich In Geduld"
 
 #: applications/auth/controller/PhabricatorAuthNeedsApprovalController.php:35
 msgid "Wait For Approval"
-msgstr ""
+msgstr "Warte auf Freischaltung"
 
 #: applications/auth/controller/config/PhabricatorAuthListController.php:108
 msgid "Registration is Restricted"
-msgstr ""
+msgstr "Die Registrierung von Konten ist eingeschränkt"
 
 #: applications/auth/controller/config/PhabricatorAuthListController.php:111
 #, php-format
 msgid "Only users with a verified email address at one of the %s domains will be able to register a Phabricator account: %s"
-msgstr ""
+msgstr "Nur Benutzer mit einer verifizierten Email-Adresse aus den Domänen %s haben die Möglichkeit ein Phabricator-Konto anzulegen: %s"
 
 #: applications/auth/controller/config/PhabricatorAuthListController.php:117
 msgid "Anyone Can Register an Account"
-msgstr ""
+msgstr "Jeder darf ein Konto registrieren"
 
 #: applications/auth/controller/config/PhabricatorAuthListController.php:120
 #, php-format
 msgid "Anyone who can browse to this Phabricator install will be able to register an account. To restrict who can register an account, configure %s."
-msgstr ""
+msgstr "Jeder, der die Login-Seite dieser Installation aufrufen kann, kann sich auch ein Phabricator-Konto anlegen! Um das einzuschränken, konfiguriere bitte [[ %s | %s ]]."
 
 #: applications/auth/controller/config/PhabricatorAuthEditController.php:178
 #, php-format
@@ -22009,7 +22009,7 @@ msgstr ""
 #: applications/auth/controller/config/PhabricatorAuthEditController.php:185
 #, php-format
 msgid "NOTE: Any user who can browse to this install's login page will be able to register a Phabricator account. To restrict who can register an account, configure [[ %s | %s ]]."
-msgstr ""
+msgstr "HINWEIS: Jeder Benutzer, der die Login-Seite dieser Installation aufrufen kann, kann sich auch ein Phabricator-Konto anlegen! Um das einzuschränken, konfiguriere bitte [[ %s | %s ]]."
 
 #: applications/auth/controller/config/PhabricatorAuthEditController.php:193
 msgid "Allow Registration:"
@@ -22025,15 +22025,15 @@ msgstr ""
 
 #: applications/config/option/PhabricatorAuthenticationConfigOptions.php:48
 msgid "Require Administrators to Approve Accounts"
-msgstr ""
+msgstr "Erzwinge Kontenfreigabe durch einen Administrator"
 
 #: applications/config/option/PhabricatorAuthenticationConfigOptions.php:49
 msgid "Don't Require Manual Approval"
-msgstr ""
+msgstr "Eine manuelle Freigabe ist nicht nötig"
 
 #: applications/config/option/PhabricatorAuthenticationConfigOptions.php:52
 msgid "Require administrators to approve new accounts."
-msgstr ""
+msgstr "Neue Benutzer-Konten müssen erst durch einen Administrator freigeschaltet werden."
 
 #: applications/config/option/PhabricatorAuthenticationConfigOptions.php:55
 msgid ""
@@ -22073,42 +22073,42 @@ msgstr ""
 
 #: applications/policy/constants/PhabricatorPolicyType.php:27
 msgid "User Policies"
-msgstr ""
+msgstr "Benutzer-Policies"
 
 #: applications/people/event/PhabricatorPeopleHovercardEventListener.php:39
 msgid "Not Activated"
-msgstr ""
+msgstr "Nicht aktiviert"
 
 #: applications/people/application/PhabricatorApplicationPeople.php:85
 #, php-format
 msgid "%d User(s) Need Approval"
-msgstr ""
+msgstr "%d Benutzer warten auf Freigabe"
 
 #: applications/people/customfield/PhabricatorUserRolesField.php:35
 #: applications/people/controller/PhabricatorPeopleEditController.php:332
 msgid "Not Approved"
-msgstr ""
+msgstr "Nicht freigegeben"
 
 #: applications/people/query/PhabricatorPeopleSearchEngine.php:125
 msgid "Show only users who need approval."
-msgstr ""
+msgstr "Zeige nur Benutzer, die auf Freigabe warten."
 
 #: applications/people/query/PhabricatorPeopleSearchEngine.php:150
 msgid "Approval Queue"
-msgstr ""
+msgstr "Freigabe Warteschlange"
 
 #: applications/people/controller/PhabricatorPeopleListController.php:68
 msgid "Needs Approval"
-msgstr ""
+msgstr "Benötigt Freigabe"
 
 #: applications/people/controller/PhabricatorPeopleListController.php:92
 msgid "Approve"
-msgstr ""
+msgstr "Freigeben"
 
 #: applications/people/controller/PhabricatorPeopleApproveController.php:33
 #, php-format
 msgid "Phabricator Account \"%s\" Approved"
-msgstr ""
+msgstr "Phabricator-Konto \"%s\" freigegeben"
 
 #: applications/people/controller/PhabricatorPeopleApproveController.php:38
 #, php-format
@@ -22118,32 +22118,36 @@ msgid ""
 "  %s\n"
 "\n"
 msgstr ""
+"Dein Phabricator-Konto (%s) wurde durch %s freigegeben. Bitte hier einloggen:\n"
+"\n"
+"  %s\n"
+"\n"
 
 #: applications/people/controller/PhabricatorPeopleApproveController.php:56
 msgid "Confirm Approval"
-msgstr ""
+msgstr "Freigabe Bestätigen"
 
 #: applications/people/controller/PhabricatorPeopleApproveController.php:59
 #, php-format
 msgid "Allow %s to access this Phabricator install?"
-msgstr ""
+msgstr "%s den Zugriff auf diese Phabricator-Installation erlauben?"
 
 #: applications/people/controller/PhabricatorPeopleApproveController.php:62
 msgid "Approve Account"
-msgstr ""
+msgstr "Konto freigeben"
 
 #: applications/people/controller/PhabricatorPeopleDisableController.php:37
 msgid "Confirm Disable"
-msgstr ""
+msgstr "Deaktivierung bestätigen"
 
 #: applications/people/controller/PhabricatorPeopleDisableController.php:40
 #, php-format
 msgid "Disable %s? They will no longer be able to access Phabricator or receive email."
-msgstr ""
+msgstr "%s deaktivieren? Diese Benutzer werden danach nicht mehr in der Lage sein, auf Phabricator zuzugreifen oder Emails von Phabricator zu empfangen."
 
 #: applications/people/controller/PhabricatorPeopleDisableController.php:44
 msgid "Disable Account"
-msgstr ""
+msgstr "Konto deaktivieren"
 
 #: applications/herald/adapter/HeraldDifferentialRevisionAdapter.php:484
 #: applications/herald/adapter/HeraldCommitAdapter.php:438
