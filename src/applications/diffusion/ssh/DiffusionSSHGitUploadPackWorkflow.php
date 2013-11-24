@@ -14,21 +14,26 @@ final class DiffusionSSHGitUploadPackWorkflow
       ));
   }
 
-  public function isReadOnly() {
-    return true;
-  }
-
-  public function getRequestPath() {
+  protected function executeRepositoryOperations() {
     $args = $this->getArgs();
-    return head($args->getArg('dir'));
-  }
+    $path = head($args->getArg('dir'));
+    $repository = $this->loadRepository($path);
 
-  protected function executeRepositoryOperations(
-    PhabricatorRepository $repository) {
+    $command = csprintf('git-upload-pack -- %s', $repository->getLocalPath());
+    $command = PhabricatorDaemon::sudoCommandAsDaemonUser($command);
 
-    $future = new ExecFuture('git-upload-pack %s', $repository->getLocalPath());
+    $future = new ExecFuture('%C', $command);
 
-    return $this->passthruIO($future);
+    $err = $this->newPassthruCommand()
+      ->setIOChannel($this->getIOChannel())
+      ->setCommandChannelFromExecFuture($future)
+      ->execute();
+
+    if (!$err) {
+      $this->waitForGitClient();
+    }
+
+    return $err;
   }
 
 }

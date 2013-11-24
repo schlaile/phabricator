@@ -36,32 +36,35 @@ final class DifferentialRevisionLandController extends DifferentialController {
     }
 
     if ($request->isDialogFormPost()) {
+      $response = null;
+      $text = '';
       try {
-        $this->attemptLand($revision, $request);
+        $response = $this->attemptLand($revision, $request);
         $title = pht("Success!");
         $text = pht("Revision was successfully landed.");
       } catch (Exception $ex) {
         $title = pht("Failed to land revision");
-        $text = 'moo';
         if ($ex instanceof PhutilProxyException) {
           $text = hsprintf(
             '%s:<br><pre>%s</pre>',
             $ex->getMessage(),
             $ex->getPreviousException()->getMessage());
         } else {
-          $text = hsprintf('<pre>%s</pre>', $ex->getMessage());
+          $text = phutil_tag('pre', array(), $ex->getMessage());
         }
         $text = id(new AphrontErrorView())
            ->appendChild($text);
       }
 
-      $dialog = id(new AphrontDialogView())
-        ->setUser($viewer)
-        ->setTitle($title)
-        ->appendChild(phutil_tag('p', array(), $text))
-        ->setSubmitURI('/D'.$revision_id)
-        ->addSubmitButton(pht('Done'));
-
+      if ($response instanceof AphrontDialogView) {
+        $dialog = $response;
+      } else {
+        $dialog = id(new AphrontDialogView())
+          ->setUser($viewer)
+          ->setTitle($title)
+          ->appendChild(phutil_tag('p', array(), $text))
+          ->addCancelButton('/D'.$revision_id, pht('Done'));
+      }
       return id(new AphrontDialogResponse())->setDialog($dialog);
     }
 
@@ -108,7 +111,7 @@ final class DifferentialRevisionLandController extends DifferentialController {
     $lock = $this->lockRepository($repository);
 
     try {
-      $this->pushStrategy->processLandRequest(
+      $response = $this->pushStrategy->processLandRequest(
         $request,
         $revision,
         $repository);
@@ -118,6 +121,7 @@ final class DifferentialRevisionLandController extends DifferentialController {
     }
 
     $lock->unlock();
+    return $response;
   }
 
   private function lockRepository($repository) {

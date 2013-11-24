@@ -345,16 +345,18 @@ final class ManiphestTaskDetailController extends ManiphestController {
       ));
     }
 
-    $comment_header = id(new PHUIHeaderView())
-      ->setHeader($is_serious ? pht('Add Comment') : pht('Weigh In'));
+    $comment_header = $is_serious
+      ? pht('Add Comment')
+      : pht('Weigh In');
 
-    $preview_panel = hsprintf(
-      '<div class="aphront-panel-preview">
-        <div id="transaction-preview">
-          <div class="aphront-panel-preview-loading-text">%s</div>
-        </div>
-      </div>',
-      pht('Loading preview...'));
+    $preview_panel = phutil_tag_div(
+      'aphront-panel-preview',
+      phutil_tag(
+        'div',
+        array('id' => 'transaction-preview'),
+        phutil_tag_div(
+          'aphront-panel-preview-loading-text',
+          pht('Loading preview...'))));
 
     $timeline = id(new PhabricatorApplicationTransactionView())
       ->setUser($user)
@@ -396,7 +398,7 @@ final class ManiphestTaskDetailController extends ManiphestController {
 
     $comment_box = id(new PHUIObjectBoxView())
       ->setFlush(true)
-      ->setHeader($comment_header)
+      ->setHeaderText($comment_header)
       ->appendChild($comment_form);
 
     return $this->buildApplicationPage(
