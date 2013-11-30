@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-24 16:18+0100\n"
-"PO-Revision-Date: 2013-11-24 18:16+0100\n"
+"PO-Revision-Date: 2013-11-30 20:06+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: Deutsch <peter@schlaile.de>\n"
 "Language: \n"
@@ -5911,33 +5911,33 @@ msgstr "Nur Countdowns anzeigen, die noch am Laufen sind."
 
 #: applications/countdown/query/PhabricatorCountdownSearchEngine.php:66
 msgid "Upcoming"
-msgstr ""
+msgstr "Nächste Deadlines"
 
 #: applications/countdown/storage/PhabricatorCountdown.php:63
 msgid "The author of a countdown can always view and edit it."
-msgstr ""
+msgstr "Der Autor eines Countdowns darf ihn sowohl ansehen als auch verändern."
 
 #: applications/countdown/phid/PhabricatorCountdownPHIDTypeCountdown.php:12
 msgid "Countdown"
-msgstr ""
+msgstr "Countdown"
 
 #: applications/countdown/controller/PhabricatorCountdownDeleteController.php:40
 #, php-format
 msgid "Are you sure you want to delete the countdown %s?"
-msgstr ""
+msgstr "Bist Du sicher, dass Du den Countdown %s löschen möchtest?"
 
 #: applications/countdown/controller/PhabricatorCountdownDeleteController.php:45
 msgid "Really delete this countdown?"
-msgstr ""
+msgstr "Diesen Countdown wirklich löschen?"
 
 #: applications/countdown/controller/PhabricatorCountdownEditController.php:20
 #: applications/countdown/controller/PhabricatorCountdownViewController.php:86
 msgid "Edit Countdown"
-msgstr ""
+msgstr "Countdown ändern"
 
 #: applications/countdown/controller/PhabricatorCountdownViewController.php:94
 msgid "Delete Countdown"
-msgstr ""
+msgstr "Countdown löschen"
 
 #: applications/countdown/controller/PhabricatorCountdownEditController.php:34
 #: applications/countdown/controller/PhabricatorCountdownEditController.php:104
@@ -5945,19 +5945,19 @@ msgstr ""
 #: applications/countdown/controller/PhabricatorCountdownController.php:15
 #: applications/countdown/controller/PhabricatorCountdownController.php:36
 msgid "Create Countdown"
-msgstr ""
+msgstr "Neuer Countdown"
 
 #: applications/countdown/controller/PhabricatorCountdownEditController.php:51
 msgid "You must give the countdown a name."
-msgstr ""
+msgstr "Der Countdown braucht einen Namen."
 
 #: applications/countdown/controller/PhabricatorCountdownEditController.php:58
 msgid "You entered an incorrect date. You can enter date like '2011-06-26 13:33:37' to create an event at 13:33:37 on the 26th of June 2011."
-msgstr ""
+msgstr "Du hast leider einen ungültigen Zeitpunkt angegeben. Der Zeitpunkt wird in englischer Notation so in der Art wie '2011-06-26 13:33:37' angegeben, um ein Event um 13:33:37 am 26. Juni 2011 anzulegen."
 
 #: applications/countdown/controller/PhabricatorCountdownEditController.php:64
 msgid "You must specify the end date for a countdown."
-msgstr ""
+msgstr "Du mußt einen Endzeitpunkt für einen Countdown angeben."
 
 #: applications/countdown/controller/PhabricatorCountdownEditController.php:77
 msgid "It's not The Final Countdown (du nu nuuu nun) until you fix these problem"
@@ -6058,84 +6058,84 @@ msgstr "Benutzer"
 
 #: applications/phrequent/query/PhrequentSearchEngine.php:70
 msgid "Ended"
-msgstr ""
+msgstr "Beendet am"
 
 #: applications/phrequent/query/PhrequentSearchEngine.php:88
 msgid "Currently Tracking"
-msgstr ""
+msgstr "Aktuell in der Erfassung"
 
 #: applications/phrequent/query/PhrequentSearchEngine.php:89
 msgid "All Tracked"
-msgstr ""
+msgstr "Alle Einträge"
 
 #: applications/phrequent/query/PhrequentUserTimeQuery.php:220
 msgid "No"
-msgstr ""
+msgstr "Nein"
 
 #: applications/phrequent/query/PhrequentUserTimeQuery.php:226
 msgid "by furthest start date"
-msgstr ""
+msgstr "größte Entfernung zum Startzeitpunkt"
 
 #: applications/phrequent/query/PhrequentUserTimeQuery.php:227
 msgid "by nearest start date"
-msgstr ""
+msgstr "nächst gelegener Startzeitpunkt"
 
 #: applications/phrequent/query/PhrequentUserTimeQuery.php:228
 msgid "by furthest end date"
-msgstr ""
+msgstr "größte Entfernung zum Endzeitpunkt"
 
 #: applications/phrequent/query/PhrequentUserTimeQuery.php:229
 msgid "by nearest end date"
-msgstr ""
+msgstr "nächst gelegener Endzeitpunkt"
 
 #: applications/phrequent/query/PhrequentUserTimeQuery.php:230
 msgid "by smallest duration"
-msgstr ""
+msgstr "kleinste Dauer"
 
 #: applications/phrequent/query/PhrequentUserTimeQuery.php:231
 msgid "by largest duration"
-msgstr ""
+msgstr "größte Dauer"
 
 #: applications/phrequent/controller/PhrequentListController.php:56
 #, php-format
 msgid "Tracked: %s"
-msgstr ""
+msgstr "Erfasst: %s"
 
 #: applications/phrequent/controller/PhrequentListController.php:75
 #, php-format
 msgid "Tracked %s"
-msgstr ""
+msgstr "Erfasst %s"
 
 #: applications/phrequent/controller/PhrequentListController.php:79
 #, php-format
 msgid "Ended on %s"
-msgstr ""
+msgstr "Beendet am %s"
 
 #: applications/phrequent/controller/PhrequentListController.php:84
 #, php-format
 msgid "Tracked %s so far"
-msgstr ""
+msgstr "bisher %s erfasst"
 
 #: applications/phrequent/controller/PhrequentListController.php:94
 msgid "Stop"
-msgstr ""
+msgstr "Stoppen"
 
 #: applications/phrequent/application/PhabricatorApplicationPhrequent.php:6
 msgid "Track Time"
-msgstr ""
+msgstr "Zeit erfassen"
 
 #: applications/phrequent/application/PhabricatorApplicationPhrequent.php:55
 #, php-format
 msgid "%d Object(s) Tracked"
-msgstr ""
+msgstr "%d Objekte erfasst"
 
 #: applications/phrequent/config/PhabricatorPhrequentConfigOptions.php:7
 msgid "Phrequent"
-msgstr ""
+msgstr "Zeiterfassung"
 
 #: applications/phrequent/config/PhabricatorPhrequentConfigOptions.php:11
 msgid "Configure Phrequent."
-msgstr ""
+msgstr "Zeiterfassung konfigurieren"
 
 #: applications/transactions/view/PhabricatorApplicationTransactionView.php:224
 #: applications/transactions/view/PhabricatorApplicationTransactionView.php:268
@@ -6193,7 +6193,7 @@ msgstr ""
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:282
 #, php-format
 msgid "All users are already subscribed to this %s."
-msgstr ""
+msgstr "Alle Benutzer sind bereits Mitleser des Objekts %s."
 
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:285
 msgid "Edges already exist; transaction has no effect."
@@ -6201,7 +6201,7 @@ msgstr ""
 
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:288
 msgid "Transaction has no effect."
-msgstr ""
+msgstr "Diese Transaktion bewirkt ... nichts."
 
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:300
 #, php-format
@@ -6211,12 +6211,12 @@ msgstr "%s hat einen Kommentar hinzugefügt."
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:304
 #, php-format
 msgid "%s changed the visibility of this %s from \"%s\" to \"%s\"."
-msgstr ""
+msgstr "%s hat die Sichtbarkeit des Objekts %s von \"%s\" auf \"%s\" geändert."
 
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:311
 #, php-format
 msgid "%s changed the edit policy of this %s from \"%s\" to \"%s\"."
-msgstr ""
+msgstr "%s hat die Editier-Rechte des Objekts %s von \"%s\" auf \"%s\" geändert."
 
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:318
 #, php-format
@@ -6226,7 +6226,7 @@ msgstr ""
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:329
 #, php-format
 msgid "%s edited subscriber(s), added %d: %s; removed %d: %s."
-msgstr ""
+msgstr "%s hat die Mitleser verändert, %d hinzugefügt: %s, %d entfernt: %s."
 
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:337
 #, php-format
@@ -6236,22 +6236,22 @@ msgstr "%s hat %d Mitleser hinzugefügt: %s."
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:343
 #, php-format
 msgid "%s removed %d subscriber(s): %s."
-msgstr ""
+msgstr "%s hat %d Mitleser entfernt: %s."
 
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:351
 #, php-format
 msgid "%s updated subscribers..."
-msgstr ""
+msgstr "%s hat die Mitleser verändert..."
 
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:402
 #, php-format
 msgid "%s edited a custom field."
-msgstr ""
+msgstr "%s hat ein benutzerdefiniertes Feld verändert."
 
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:408
 #, php-format
 msgid "%s edited this %s."
-msgstr ""
+msgstr "%s hat das Objekt %s verändert."
 
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:424
 #, php-format
@@ -6261,27 +6261,27 @@ msgstr "%s hat %s kommentiert."
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:429
 #, php-format
 msgid "%s changed the visibility for %s."
-msgstr ""
+msgstr "%s hat die Sichtbarkeit von %s verändert."
 
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:434
 #, php-format
 msgid "%s changed the edit policy for %s."
-msgstr ""
+msgstr "%s hat die Editier-Rechte von %s verändert."
 
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:439
 #, php-format
 msgid "%s changed the join policy for %s."
-msgstr ""
+msgstr "%s hat die Rechte zum Zusammenführen von %s verändert."
 
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:444
 #, php-format
 msgid "%s updated subscribers of %s."
-msgstr ""
+msgstr "%s hat die Mitleser von %s verändert."
 
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:469
 #, php-format
 msgid "%s edited a custom field on %s."
-msgstr ""
+msgstr "%s hat ein benutzerdefiniertes Feld von %s verändert."
 
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:506
 msgid "Commented On"
@@ -6970,11 +6970,11 @@ msgstr ""
 
 #: applications/metamta/query/PhabricatorMetaMTAActorQuery.php:79
 msgid "This user is disabled; disabled users do not receive mail."
-msgstr ""
+msgstr "Dieser Benutzer ist deaktiviert; deaktivierte Benutzer bekommen keine Emails."
 
 #: applications/metamta/query/PhabricatorMetaMTAActorQuery.php:83
 msgid "This user is a bot; bot accounts do not receive mail."
-msgstr ""
+msgstr "Dieser Benutzer ist ein Systembenutzer; Systembenutzer bekommen keine Emails."
 
 #: applications/metamta/query/PhabricatorMetaMTAActorQuery.php:95
 msgid "Unable to load email record for this PHID."
@@ -7008,7 +7008,7 @@ msgstr ""
 #: applications/metamta/storage/PhabricatorMetaMTAMail.php:452
 #, php-format
 msgid "(This email was truncated at %d bytes.)"
-msgstr ""
+msgstr "(Diese Email wurde auf %d Zeichen verkürzt.)"
 
 #: applications/metamta/storage/PhabricatorMetaMTAMail.php:767
 msgid "This message is a response to another email message, and this recipient received the original email message, so we are not sending them this substantially similar message (for example, the sender used \"Reply All\" instead of \"Reply\" in response to mail from Phabricator)."
