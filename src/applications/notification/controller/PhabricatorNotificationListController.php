@@ -15,8 +15,8 @@ final class PhabricatorNotificationListController
 
     $nav = new AphrontSideNavFilterView();
     $nav->setBaseURI(new PhutilURI('/notification/'));
-    $nav->addFilter('all', 'All Notifications');
-    $nav->addFilter('unread', 'Unread Notifications');
+    $nav->addFilter('all', pht('All Notifications'));
+    $nav->addFilter('unread', pht('Unread Notifications'));
     $filter = $nav->selectFilter($this->filter, 'all');
 
     $pager = new AphrontPagerView();
@@ -63,7 +63,7 @@ final class PhabricatorNotificationListController
           'class' => 'button',
           'sigil' => 'workflow',
         ),
-        'Mark All Read'));
+        pht('Mark All Read')));
     $panel->appendChild($view);
     $panel->appendChild($pager);
 
@@ -72,7 +72,7 @@ final class PhabricatorNotificationListController
     return $this->buildStandardPageResponse(
       $nav,
       array(
-        'title' => 'Notifications',
+	      'title' => pht('Notifications'),
       ));
   }
 
