@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-12-02 21:04+0100\n"
-"PO-Revision-Date: 2013-12-02 21:05+0100\n"
+"PO-Revision-Date: 2013-12-02 21:23+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: German <peter@schlaile.de>\n"
 "Language: \n"
@@ -5129,12 +5129,12 @@ msgstr ""
 #: applications/repository/storage/PhabricatorRepositoryTransaction.php:248
 #, php-format
 msgid "%s enabled notifications and publishing for this repository."
-msgstr ""
+msgstr "%s hat Benachrichtungen und Veröffentlichungen für dieses Repository aktiviert."
 
 #: applications/repository/storage/PhabricatorRepositoryTransaction.php:252
 #, php-format
 msgid "%s disabled notifications and publishing for this repository."
-msgstr ""
+msgstr "%s hat Benachrichtigungen und Veröffentlichungen für dieses Repository deaktiviert."
 
 #: applications/repository/storage/PhabricatorRepositoryTransaction.php:259
 #, php-format
@@ -7420,11 +7420,11 @@ msgstr ""
 
 #: applications/meta/query/PhabricatorAppSearchEngine.php:108
 msgid "All Applications"
-msgstr ""
+msgstr "Alle Anwendungen"
 
 #: applications/meta/phid/PhabricatorApplicationPHIDTypeApplication.php:13
 msgid "Application"
-msgstr ""
+msgstr "Anwendung"
 
 #: applications/meta/controller/PhabricatorApplicationDetailViewController.php:39
 #: applications/meta/controller/PhabricatorApplicationsListController.php:39
@@ -7490,20 +7490,20 @@ msgstr ""
 
 #: applications/phame/phid/PhabricatorPhamePHIDTypeBlog.php:15
 msgid "Phame Blog"
-msgstr ""
+msgstr "Phame Blog"
 
 #: applications/phame/phid/PhabricatorPhamePHIDTypePost.php:15
 msgid "Phame Post"
-msgstr ""
+msgstr "Phame Beitrag"
 
 #: applications/phame/controller/PhameController.php:26
 #: applications/phame/controller/blog/PhameBlogListController.php:26
 msgid "All Blogs"
-msgstr ""
+msgstr "Alle Blogs"
 
 #: applications/phame/controller/blog/PhameBlogListController.php:27
 msgid "No blogs have been created."
-msgstr ""
+msgstr "Keine Blogs wurden bis dato erstellt."
 
 #: applications/phame/controller/PhameController.php:25
 #: applications/phame/controller/blog/PhameBlogListController.php:30
@@ -7512,11 +7512,11 @@ msgstr ""
 
 #: applications/phame/controller/blog/PhameBlogListController.php:31
 msgid "There are no blogs you can contribute to."
-msgstr ""
+msgstr "Es gibt keine Blogs, zu denen Du etwas beitragen darfst."
 
 #: applications/phame/controller/blog/PhameBlogLiveController.php:42
 msgid "Blog Moved"
-msgstr ""
+msgstr "Blog verschoben"
 
 #: applications/phame/controller/blog/PhameBlogLiveController.php:45
 #, php-format
@@ -7525,7 +7525,7 @@ msgstr ""
 
 #: applications/phame/controller/blog/PhameBlogViewController.php:51
 msgid "This blog has no visible posts."
-msgstr ""
+msgstr "Dieser Blog hat keine sichtbaren Beiträge."
 
 #: applications/phame/controller/blog/PhameBlogViewController.php:97
 #: applications/phame/controller/blog/PhameBlogEditController.php:156
@@ -7546,7 +7546,7 @@ msgstr ""
 
 #: applications/phame/controller/blog/PhameBlogViewController.php:170
 msgid "Write Post"
-msgstr ""
+msgstr "Beitrag schreiben"
 
 #: applications/phame/controller/post/PhamePostViewController.php:159
 #: applications/phame/controller/blog/PhameBlogViewController.php:180
@@ -7555,140 +7555,140 @@ msgstr ""
 
 #: applications/phame/controller/blog/PhameBlogEditController.php:33
 msgid "Edit Blog"
-msgstr ""
+msgstr "Blog ändern"
 
 #: applications/phame/controller/blog/PhameBlogEditController.php:43
 #: applications/phame/controller/blog/PhameBlogEditController.php:44
 msgid "Create Blog"
-msgstr ""
+msgstr "Neuer Blog"
 
 #: applications/phame/controller/blog/PhameBlogEditController.php:59
 msgid "You must give the blog a name."
-msgstr ""
+msgstr "Der Blog braucht einen Namen"
 
 #: applications/phame/controller/blog/PhameBlogEditController.php:94
 msgid "Domain must be unique."
-msgstr ""
+msgstr "Domänennamen dürfen nicht doppelt vergeben werden."
 
 #: applications/phame/controller/blog/PhameBlogEditController.php:148
 msgid "Custom Domain"
-msgstr ""
+msgstr "Eigene Domäne"
 
 #: applications/phame/controller/blog/PhameBlogEditController.php:152
 msgid "Must include at least one dot (.), e.g. blog.example.com"
-msgstr ""
+msgstr "Das muß mindestens einen Punkt (.) enthalten, also z.B. blog.example.com"
 
 #: applications/phame/controller/blog/PhameBlogDeleteController.php:40
 msgid "Delete Blog?"
-msgstr ""
+msgstr "Blog löschen?"
 
 #: applications/phame/controller/blog/PhameBlogDeleteController.php:43
 #, php-format
 msgid "Really delete the blog \"%s\"? It will be gone forever."
-msgstr ""
+msgstr "Wirklich den Blog \"%s\" löschen? Das kann man nicht rückgängig machen!"
 
 #: applications/phame/controller/PhameController.php:16
 #: applications/phame/controller/PhameController.php:105
 msgid "New Post"
-msgstr ""
+msgstr "Neuer Beitrag"
 
 #: applications/phame/controller/PhameController.php:17
 #: applications/phame/controller/PhameController.php:100
 msgid "New Blog"
-msgstr ""
+msgstr "Neuer Blog"
 
 #: applications/phame/controller/post/PhamePostListController.php:56
 #: applications/phame/controller/PhameController.php:19
 msgid "Posts"
-msgstr ""
+msgstr "Beiträge"
 
 #: applications/phame/controller/PhameController.php:20
 msgid "My Drafts"
-msgstr ""
+msgstr "Meine Entwürfe"
 
 #: applications/phame/controller/PhameController.php:21
 msgid "My Posts"
-msgstr ""
+msgstr "Meine Beiträge"
 
 #: applications/phame/controller/PhameController.php:22
 msgid "All Posts"
-msgstr ""
+msgstr "Alle Beiträge"
 
 #: applications/phame/controller/PhameController.php:24
 msgid "Blogs"
-msgstr ""
+msgstr "Blogs"
 
 #: applications/phame/controller/PhameController.php:62
 #, php-format
 msgid "%s drafted a blog post on %s."
-msgstr ""
+msgstr "%s hat einen Entwurf auf %s erstellt."
 
 #: applications/phame/controller/PhameController.php:66
 #, php-format
 msgid "%s wrote a blog post on %s."
-msgstr ""
+msgstr "%s hat einen Blogbeitrag auf %s geschrieben."
 
 #: applications/phame/controller/post/PhamePostListController.php:29
 msgid "You have no unpublished drafts."
-msgstr ""
+msgstr "Du kannst keine nichtveröffentlichten Entwürfe."
 
 #: applications/phame/controller/post/PhamePostListController.php:30
 msgid "Unpublished Drafts"
-msgstr ""
+msgstr "Unveröffentlichte Entwürfe"
 
 #: applications/phame/controller/post/PhamePostListController.php:48
 msgid "You have not written any posts."
-msgstr ""
+msgstr "Du hast noch keine Beiträge geschrieben."
 
 #: applications/phame/controller/post/PhamePostListController.php:50
 #, php-format
 msgid "%s has not written any posts."
-msgstr ""
+msgstr "%s hat noch keine Beiträge geschrieben."
 
 #: applications/phame/controller/post/PhamePostListController.php:52
 #, php-format
 msgid "Posts By %s"
-msgstr ""
+msgstr "Beiträge von %s"
 
 #: applications/phame/controller/post/PhamePostListController.php:55
 msgid "There are no visible posts."
-msgstr ""
+msgstr "Es gibt keine sichtbaren Beiträge."
 
 #: applications/phame/controller/post/PhamePostEditController.php:34
 #: applications/phame/controller/post/PhamePostViewController.php:108
 msgid "Edit Post"
-msgstr ""
+msgstr "Beitrag ändern"
 
 #: applications/phame/controller/post/PhamePostEditController.php:52
 msgid "Save Draft"
-msgstr ""
+msgstr "Entwurf speichern"
 
 #: applications/phame/controller/post/PhamePostEditController.php:53
 #: applications/phame/controller/post/PhamePostNewController.php:56
 msgid "Create Post"
-msgstr ""
+msgstr "Neuer Beitrag"
 
 #: applications/phame/controller/post/PhamePostEditController.php:72
 msgid "Phame title must be nonempty."
-msgstr ""
+msgstr "Phame-Titel darf nicht leer sein."
 
 #: applications/phame/controller/post/PhamePostEditController.php:77
 msgid "Title must be nonempty."
-msgstr ""
+msgstr "Der Titel darf nicht leer sein."
 
 #: applications/phame/controller/post/PhamePostEditController.php:91
 msgid "Another post already uses this slug. Each post must have a unique slug."
-msgstr ""
+msgstr "Ein anderer Beitrag hat bereits diese Aufmacherzeile. Jeder Beitrag muß einen eindeutigen Aufmacher haben."
 
 #: applications/phame/controller/post/PhamePostEditController.php:107
 #: applications/phame/controller/post/PhamePostNewController.php:99
 #: applications/phame/controller/post/PhamePostViewController.php:178
 msgid "Blog"
-msgstr ""
+msgstr "Blog"
 
 #: applications/phame/controller/post/PhamePostEditController.php:118
 msgid "Phame Title"
-msgstr ""
+msgstr "Phame-Titel"
 
 #: applications/phame/controller/post/PhamePostEditController.php:122
 msgid "Up to 64 alphanumeric characters with underscores for spaces. Formatting is enforced."
@@ -7697,7 +7697,7 @@ msgstr ""
 #: applications/herald/adapter/HeraldAdapter.php:139
 #: applications/phame/controller/post/PhamePostEditController.php:128
 msgid "Body"
-msgstr ""
+msgstr "Inhalt"
 
 #: applications/phame/controller/post/PhamePostEditController.php:137
 msgid "Comments Widget"
@@ -7711,7 +7711,7 @@ msgstr ""
 #: applications/phame/controller/post/PhamePostNewController.php:108
 #: applications/phame/controller/post/PhamePostViewController.php:116
 msgid "Move Post"
-msgstr ""
+msgstr "Beitrag verschieben"
 
 #: applications/phame/controller/post/PhamePostNewController.php:82
 msgid "You do not have permission to join any blogs. Create a blog first, then you can post to it."
@@ -7719,30 +7719,30 @@ msgstr ""
 
 #: applications/phame/controller/post/PhamePostPublishController.php:44
 msgid "Publish Post"
-msgstr ""
+msgstr "Beitrag veröffentlichen"
 
 #: applications/phame/controller/post/PhamePostPublishController.php:50
 #: applications/phame/controller/post/PhamePostPublishController.php:70
 msgid "Preview Post"
-msgstr ""
+msgstr "Voransicht des Beitrags"
 
 #: applications/phame/controller/post/PhamePostUnpublishController.php:43
 msgid "Unpublish Post?"
-msgstr ""
+msgstr "Beitrag depublizieren?"
 
 #: applications/phame/controller/post/PhamePostUnpublishController.php:46
 #, php-format
 msgid "The post \"%s\" will no longer be visible to other users until you republish it."
-msgstr ""
+msgstr "Der Beitrag \"%s\" wird nicht länger für andere Benutzer sichtbar sein bis Du ihn wieder freigibst."
 
 #: applications/phame/controller/post/PhamePostUnpublishController.php:49
 #: applications/phame/controller/post/PhamePostViewController.php:131
 msgid "Unpublish"
-msgstr ""
+msgstr "Depublizieren"
 
 #: applications/phame/controller/post/PhamePostViewController.php:59
 msgid "Draft Post"
-msgstr ""
+msgstr "Beitrags-Entwurf"
 
 #: applications/phame/controller/post/PhamePostViewController.php:61
 msgid "Only you can see this draft until you publish it. Use \"Preview / Publish\" to publish this post."
@@ -7758,11 +7758,11 @@ msgstr ""
 
 #: applications/phame/controller/post/PhamePostViewController.php:125
 msgid "Preview / Publish"
-msgstr ""
+msgstr "Voransicht / Veröffentlichen"
 
 #: applications/phame/controller/post/PhamePostViewController.php:139
 msgid "Delete Post"
-msgstr ""
+msgstr "Beitrag löschen"
 
 #: applications/phame/controller/post/PhamePostViewController.php:184
 msgid "Blogger"
@@ -7770,15 +7770,15 @@ msgstr ""
 
 #: applications/phame/controller/post/PhamePostViewController.php:188
 msgid "Published"
-msgstr ""
+msgstr "Veröffentlicht"
 
 #: applications/phame/controller/post/PhamePostViewController.php:190
 msgid "Draft"
-msgstr ""
+msgstr "Entwurf"
 
 #: applications/phame/controller/post/PhamePostDeleteController.php:40
 msgid "Delete Post?"
-msgstr ""
+msgstr "Beitrag löschen?"
 
 #: applications/phame/controller/post/PhamePostDeleteController.php:43
 #, php-format
@@ -8802,57 +8802,57 @@ msgstr "Eigentümer"
 #: applications/maniphest/export/ManiphestExcelDefaultFormat.php:65
 #: applications/phriction/controller/PhrictionEditController.php:210
 msgid "URI"
-msgstr ""
+msgstr "URI"
 
 #: applications/notification/controller/PhabricatorNotificationPanelController.php:25
 #: applications/notification/controller/PhabricatorNotificationListController.php:38
 msgid "You have no notifications."
-msgstr ""
+msgstr "Keine Benachrichtungen für Dich."
 
 #: applications/config/option/PhabricatorNotificationConfigOptions.php:7
 #: applications/notification/controller/PhabricatorNotificationPanelController.php:32
 #: applications/notification/controller/PhabricatorNotificationListController.php:37
 #: applications/notification/controller/PhabricatorNotificationListController.php:75
 msgid "Notifications"
-msgstr ""
+msgstr "Benachrichtigungen"
 
 #: applications/notification/controller/PhabricatorNotificationClearController.php:32
 msgid "All unread notifications will be marked as read. You can not undo this action."
-msgstr ""
+msgstr "Alle ungelesenen Benachrichtigungen werden als Gelesen markiert. Du kannst das nicht rückgängig machen."
 
 #: applications/notification/controller/PhabricatorNotificationClearController.php:37
 msgid "You can't ignore your problems forever, you know."
-msgstr ""
+msgstr "Du kannst Deine Probleme nicht auf ewig vor Dir herschieben, das weißt Du?"
 
 #: applications/notification/controller/PhabricatorNotificationListController.php:19
 #: applications/notification/controller/PhabricatorNotificationListController.php:33
 msgid "Unread Notifications"
-msgstr ""
+msgstr "Ungelesene Benachrichtigungen"
 
 #: applications/notification/controller/PhabricatorNotificationListController.php:34
 msgid "You have no unread notifications."
-msgstr ""
+msgstr "Du hast keine ungelesenen Benachrichtigungen."
 
 #: applications/herald/view/HeraldRuleEditHistoryView.php:37
 #, php-format
 msgid "Created rule '%s'."
-msgstr ""
+msgstr "Regel '%s' erstellt."
 
 #: applications/herald/view/HeraldRuleEditHistoryView.php:40
 #, php-format
 msgid "Deleted rule '%s'."
-msgstr ""
+msgstr "Regel '%s' gelöscht."
 
 #: applications/herald/view/HeraldRuleEditHistoryView.php:44
 #, php-format
 msgid "Edited rule '%s'."
-msgstr ""
+msgstr "Regel '%s' verändert."
 
 #: applications/herald/controller/HeraldRuleViewController.php:47
 #: applications/herald/view/HeraldRuleEditHistoryView.php:52
 #, php-format
 msgid "Rule %d"
-msgstr ""
+msgstr "Regel %d"
 
 #: applications/herald/view/HeraldRuleEditHistoryView.php:55
 #, php-format
@@ -8865,11 +8865,11 @@ msgstr ""
 
 #: applications/herald/capability/HeraldCapabilityManageGlobalRules.php:13
 msgid "Can Manage Global Rules"
-msgstr ""
+msgstr "Darf globale Regeln verändern"
 
 #: applications/herald/capability/HeraldCapabilityManageGlobalRules.php:17
 msgid "You do not have permission to manage global Herald rules."
-msgstr ""
+msgstr "Du hast keine Berechtigung, um globale Herald-Regeln zu verändern."
 
 #: applications/herald/query/HeraldRuleSearchEngine.php:73
 msgid "Content Type"
@@ -8878,27 +8878,27 @@ msgstr ""
 #: applications/herald/controller/HeraldRuleViewController.php:125
 #: applications/herald/query/HeraldRuleSearchEngine.php:79
 msgid "Rule Type"
-msgstr ""
+msgstr "Regel-Typ"
 
 #: applications/herald/query/HeraldRuleSearchEngine.php:85
 msgid "Rule Status"
-msgstr ""
+msgstr "Regel-Status"
 
 #: applications/herald/query/HeraldRuleSearchEngine.php:89
 msgid "Show Enabled and Disabled Rules"
-msgstr ""
+msgstr "Zeige Aktive und Inaktive Regeln"
 
 #: applications/herald/query/HeraldRuleSearchEngine.php:90
 msgid "Show Only Enabled Rules"
-msgstr ""
+msgstr "Zeige nur aktive Regeln"
 
 #: applications/herald/query/HeraldRuleSearchEngine.php:91
 msgid "Show Only Disabled Rules"
-msgstr ""
+msgstr "Zeige nur inaktive Regeln"
 
 #: applications/herald/query/HeraldRuleSearchEngine.php:135
 msgid "(All Content Types)"
-msgstr ""
+msgstr "(Alle Inhalte)"
 
 #: applications/herald/query/HeraldRuleSearchEngine.php:147
 msgid "(All Rule Types)"
@@ -8919,98 +8919,98 @@ msgstr ""
 #: applications/owners/controller/PhabricatorOwnersEditController.php:214
 #: applications/auth/controller/config/PhabricatorAuthEditController.php:227
 msgid "Enabled"
-msgstr ""
+msgstr "Aktiviert"
 
 #: applications/herald/storage/HeraldRuleTransaction.php:80
 #, php-format
 msgid "%s disabled this rule."
-msgstr ""
+msgstr "%s hat diese Regel deaktiviert."
 
 #: applications/herald/storage/HeraldRuleTransaction.php:84
 #, php-format
 msgid "%s enabled this rule."
-msgstr ""
+msgstr "%s hat diese Regel aktiviert."
 
 #: applications/herald/phid/HeraldPHIDTypeRule.php:12
 msgid "Herald Rule"
-msgstr ""
+msgstr "Herald Regel"
 
 #: applications/herald/controller/HeraldRuleEditHistoryController.php:34
 #: applications/herald/controller/HeraldRuleEditHistoryController.php:42
 msgid "Edit History"
-msgstr ""
+msgstr "Historie verändern"
 
 #: applications/herald/controller/HeraldRuleEditHistoryController.php:53
 msgid "Rule Edit History"
-msgstr ""
+msgstr "Regel Historie verändern"
 
 #: applications/herald/controller/HeraldRuleListController.php:44
 #, php-format
 msgid "Rule %s"
-msgstr ""
+msgstr "Regel %s"
 
 #: applications/herald/controller/HeraldRuleListController.php:51
 #, php-format
 msgid "Authored by %s"
-msgstr ""
+msgstr "Erstellt von %s"
 
 #: applications/herald/controller/HeraldRuleListController.php:54
 msgid "Global Rule"
-msgstr ""
+msgstr "Globale Regel"
 
 #: applications/herald/controller/HeraldController.php:53
 #: applications/herald/controller/HeraldRuleListController.php:66
 msgid "Edit Log"
-msgstr ""
+msgstr "Log ändern"
 
 #: applications/herald/controller/HeraldRuleListController.php:69
 #, php-format
 msgid "Affects: %s"
-msgstr ""
+msgstr "Betrifft: %s"
 
 #: applications/herald/controller/HeraldDisableController.php:55
 msgid "Really disable this rule?"
-msgstr ""
+msgstr "Diese Regel wirklich deaktivieren?"
 
 #: applications/herald/controller/HeraldDisableController.php:56
 msgid "This rule will no longer activate."
-msgstr ""
+msgstr "Diese Regel wird nicht länger aktiv sein."
 
 #: applications/herald/controller/HeraldRuleViewController.php:96
 #: applications/herald/controller/HeraldRuleViewController.php:101
 #: applications/herald/controller/HeraldDisableController.php:57
 msgid "Disable Rule"
-msgstr ""
+msgstr "Regel deaktivieren"
 
 #: applications/herald/controller/HeraldDisableController.php:59
 msgid "Really enable this rule?"
-msgstr ""
+msgstr "Wirklich diese Regel aktivieren?"
 
 #: applications/herald/controller/HeraldDisableController.php:60
 msgid "This rule will become active again."
-msgstr ""
+msgstr "Diese Regel wird dann wieder aktiv sein."
 
 #: applications/herald/controller/HeraldRuleViewController.php:92
 #: applications/herald/controller/HeraldDisableController.php:61
 msgid "Enable Rule"
-msgstr ""
+msgstr "Regel aktivieren"
 
 #: applications/herald/controller/HeraldRuleController.php:124
 msgid "Rule Name"
-msgstr ""
+msgstr "Name der Regel"
 
 #: applications/herald/controller/HeraldRuleController.php:133
 #, php-format
 msgid "This %s rule triggers for %s."
-msgstr ""
+msgstr "Diese %s Regel wird bei %s ausgelöst."
 
 #: applications/herald/controller/HeraldRuleController.php:138
 msgid "Conditions"
-msgstr ""
+msgstr "Bedingungen"
 
 #: applications/herald/controller/HeraldRuleController.php:147
 msgid "New Condition"
-msgstr ""
+msgstr "Neue Bedingung"
 
 #: applications/herald/controller/HeraldRuleController.php:149
 #, php-format
@@ -9028,39 +9028,39 @@ msgstr ""
 
 #: applications/herald/controller/HeraldRuleController.php:181
 msgid "Save Rule"
-msgstr ""
+msgstr "Regel speichern"
 
 #: applications/herald/controller/HeraldRuleController.php:187
 msgid "Edit Herald Rule"
-msgstr ""
+msgstr "Herald Regel ändern"
 
 #: applications/herald/controller/HeraldRuleController.php:188
 #: applications/herald/controller/HeraldController.php:28
 #: applications/herald/controller/HeraldNewController.php:87
 #: applications/herald/controller/HeraldNewController.php:102
 msgid "Create Herald Rule"
-msgstr ""
+msgstr "Herald Regel erstellen"
 
 #: applications/herald/controller/HeraldRuleViewController.php:83
 #: applications/herald/controller/HeraldRuleController.php:207
 msgid "Edit Rule"
-msgstr ""
+msgstr "Regel ändern"
 
 #: applications/herald/controller/HeraldRuleController.php:226
 msgid "Rule must have a name."
-msgstr ""
+msgstr "Regeln müssen einen Namen haben."
 
 #: applications/herald/controller/HeraldRuleController.php:306
 msgid "Rule name is not unique. Choose a unique name."
-msgstr ""
+msgstr "Der Name der Regel ist bereits vergeben. Bitte einen eigenen Namen wählen."
 
 #: applications/herald/controller/HeraldRuleController.php:468
 msgid "all of"
-msgstr ""
+msgstr "alles davon trifft zu"
 
 #: applications/herald/controller/HeraldRuleController.php:469
 msgid "any of"
-msgstr ""
+msgstr "etwas davon trifft zu"
 
 #: applications/herald/controller/HeraldRuleViewController.php:137
 msgid "Applies To"
@@ -9068,7 +9068,7 @@ msgstr ""
 
 #: applications/herald/controller/HeraldRuleViewController.php:144
 msgid "Rule Description"
-msgstr ""
+msgstr "Beschreibung der Regel"
 
 #: applications/herald/controller/HeraldTestConsoleController.php:19
 msgid "An object name is required."
@@ -22230,14 +22230,14 @@ msgstr ""
 
 #: applications/notification/controller/PhabricatorNotificationClearController.php:26
 msgid "Really mark all notifications as read?"
-msgstr ""
+msgstr "Wirklich alle Benachrichtigungen als Gelesen markieren?"
 
 #: applications/notification/controller/PhabricatorNotificationClearController.php:41
 #: applications/notification/controller/PhabricatorNotificationListController.php:66
 msgid "Mark All Read"
-msgstr ""
+msgstr "Alles als Gelesen markieren"
 
 #: applications/notification/controller/PhabricatorNotificationListController.php:18
 msgid "All Notifications"
-msgstr ""
+msgstr "Alle Benachrichtigungen"
 
