@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-02 21:04+0100\n"
-"PO-Revision-Date: 2013-12-02 21:23+0100\n"
+"POT-Creation-Date: 2013-12-03 15:42+0100\n"
+"PO-Revision-Date: 2013-12-03 15:43+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: German <peter@schlaile.de>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: GERMAN\n"
-"X-Poedit-Country: GERMANY\n"
+"X-Poedit-Language: DEUTSCH\n"
+"X-Poedit-Country: Germany\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #: applications/diffusion/controller/DiffusionRepositoryEditDeleteController.php:52
@@ -22240,4 +22240,8 @@ msgstr "Alles als Gelesen markieren"
 #: applications/notification/controller/PhabricatorNotificationListController.php:18
 msgid "All Notifications"
 msgstr "Alle Benachrichtigungen"
+
+#: applications/notification/controller/PhabricatorNotificationPanelController.php:39
+msgid "View All Notifications"
+msgstr "Alle Benachrichtigungen zeigen"
 
