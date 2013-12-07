@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-24 16:18+0100\n"
-"PO-Revision-Date: 2013-11-30 20:06+0100\n"
+"PO-Revision-Date: 2013-11-30 23:50+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: Deutsch <peter@schlaile.de>\n"
 "Language: \n"
@@ -6099,12 +6099,12 @@ msgstr "größte Dauer"
 #: applications/phrequent/controller/PhrequentListController.php:56
 #, php-format
 msgid "Tracked: %s"
-msgstr "Erfasst: %s"
+msgstr "verbraucht von: %s"
 
 #: applications/phrequent/controller/PhrequentListController.php:75
 #, php-format
 msgid "Tracked %s"
-msgstr "Erfasst %s"
+msgstr "Verbrauchte Zeit %s"
 
 #: applications/phrequent/controller/PhrequentListController.php:79
 #, php-format
