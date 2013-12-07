@@ -23,7 +23,7 @@ final class PhabricatorNotificationClearController
 
     $dialog = new AphrontDialogView();
     $dialog->setUser($user);
-    $dialog->setTitle('Really mark all notifications as read?');
+    $dialog->setTitle(pht('Really mark all notifications as read?'));
 
     $is_serious = PhabricatorEnv::getEnvConfig('phabricator.serious-business');
     if ($is_serious) {
@@ -38,7 +38,7 @@ final class PhabricatorNotificationClearController
     }
 
     $dialog->addCancelButton('/notification/');
-    $dialog->addSubmitButton('Mark All Read');
+    $dialog->addSubmitButton(pht('Mark All Read'));
 
     return id(new AphrontDialogResponse())->setDialog($dialog);
   }
