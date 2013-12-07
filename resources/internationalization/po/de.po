@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-12-03 15:42+0100\n"
-"PO-Revision-Date: 2013-12-07 03:01+0100\n"
+"PO-Revision-Date: 2013-12-07 09:50+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: German <peter@schlaile.de>\n"
 "Language: \n"
@@ -11651,7 +11651,7 @@ msgstr ""
 
 #: applications/people/event/PhabricatorPeopleHovercardEventListener.php:48
 msgid "Until"
-msgstr ""
+msgstr "Bis"
 
 #: applications/people/customfield/PhabricatorUserStatusField.php:31
 #: applications/people/event/PhabricatorPeopleHovercardEventListener.php:51
@@ -11680,11 +11680,11 @@ msgstr "Nur Systembenutzer zeigen."
 
 #: applications/people/query/PhabricatorPeopleSearchEngine.php:134
 msgid "Joined After"
-msgstr ""
+msgstr "Registriert nach"
 
 #: applications/people/query/PhabricatorPeopleSearchEngine.php:136
 msgid "Joined Before"
-msgstr ""
+msgstr "Registriert vor"
 
 #: applications/people/storage/PhabricatorUser.php:738
 #, php-format
@@ -11693,20 +11693,20 @@ msgstr "Benutzernamen dürfen nur aus Ziffern, Buchstaben, Punkten, Unterstriche
 
 #: applications/people/storage/PhabricatorUser.php:883
 msgid "Only you can edit your information."
-msgstr ""
+msgstr "Nur Du kannst Deine Angaben ändern."
 
 #: applications/people/storage/PhabricatorUserStatus.php:25
 msgid "Away"
-msgstr ""
+msgstr "Außer Haus"
 
 #: applications/people/storage/PhabricatorUserStatus.php:26
 msgid "Sporadic"
-msgstr ""
+msgstr "Sporadisch anwesend"
 
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:320
 #: applications/people/phid/PhabricatorPeoplePHIDTypeExternal.php:12
 msgid "External Account"
-msgstr ""
+msgstr "Externes Konto"
 
 #: applications/people/phid/PhabricatorPeoplePHIDTypeUser.php:12
 msgid "Phabricator User"
@@ -11786,17 +11786,17 @@ msgstr "Benutzer löschen"
 #: applications/people/controller/PhabricatorPeopleEditController.php:69
 #: applications/people/controller/PhabricatorPeopleEditController.php:795
 msgid "Changes Saved"
-msgstr ""
+msgstr "Änderungen gespeichert"
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:71
 msgid "Your changes were saved."
-msgstr ""
+msgstr "Deine Änderungen wurden gespeichert."
 
 #: applications/passphrase/editor/PassphraseCredentialTransactionEditor.php:160
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:162
 #: applications/people/controller/PhabricatorPeopleEditController.php:157
 msgid "Username is required."
-msgstr ""
+msgstr "Benutzername fehlt."
 
 #: applications/auth/controller/PhabricatorAuthRegisterController.php:207
 #: applications/people/controller/PhabricatorPeopleEditController.php:167
@@ -11928,11 +11928,11 @@ msgstr "Beim Umbenennen von Benutzern bitte vorsichtig sein!"
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:558
 msgid "The old username will no longer be tied to the user, so anything which uses it (like old commit messages) will no longer associate correctly. And if you give a user a username which some other user used to have, username lookups will begin returning the wrong user."
-msgstr ""
+msgstr "Der alte Benutzername wird nicht länger mit dem Benutzer verbunden sein. Daher wird alles, was ihn mal benutzt hat (z.B. alte Commit-Beschreibungen) nicht mehr korrekt mit ihm verbunden sein. Daher werden auch in dem Fall, daß ein alter Benutzername wiederbelebt wird, Abfragen an Hand des Benutzernamens falsche Daten zurückliefern."
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:563
 msgid "It is generally safe to rename newly created users (and test users and so on), but less safe to rename established users and unsafe to reissue a username."
-msgstr ""
+msgstr "Im Allgemeinen gibt es keine Probleme damit, neu erzeugte Benutzer umzubenennen (und Testbenutzer etc.), etwas weniger clever ist es, Benutzer, die schon länger mit dem System gearbeitet haben umzubennen und völlig unclever ist es, alte Benutzernamen neu zu vergeben."
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:566
 msgid "Users who rely on password auth will need to reset their passwordafter their username is changed (their username is part of the salt in the password hash). They will receive an email with instructions on how to do this."
@@ -11984,7 +11984,7 @@ msgstr "Bestätigen"
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:687
 msgid "Type the username again to confirm deletion."
-msgstr ""
+msgstr "Bitte den Benutzernamen noch einmal eintippen, um den Löschvorgang zu bestätigen."
 
 #: applications/people/controller/PhabricatorPeopleEditController.php:709
 msgid "User Guide: Account Roles"
