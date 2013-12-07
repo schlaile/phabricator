@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-12-03 15:42+0100\n"
-"PO-Revision-Date: 2013-12-03 15:43+0100\n"
+"PO-Revision-Date: 2013-12-07 03:01+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: German <peter@schlaile.de>\n"
 "Language: \n"
@@ -15981,20 +15981,20 @@ msgstr ""
 
 #: applications/diffusion/controller/DiffusionCommitController.php:232
 msgid "Enormous Commit"
-msgstr ""
+msgstr "Gigantischer Commit"
 
 #: applications/diffusion/controller/DiffusionCommitController.php:234
 #, php-format
 msgid "This commit is enormous, and affects more than %d files. Changes are not shown."
-msgstr ""
+msgstr "Dieser Commit ist gigantisch und verändert mehr als %d Dateien. Änderungen werden daher nicht angezeigt."
 
 #: applications/diffusion/controller/DiffusionCommitController.php:252
 msgid "Show All Changes"
-msgstr ""
+msgstr "Alle Änderungen zeigen"
 
 #: applications/diffusion/controller/DiffusionCommitController.php:258
 msgid "This commit is very large. Load each file individually."
-msgstr ""
+msgstr "Dieser Commit ist sehr groß. Bitte die Dateien individuell ansehen."
 
 #: applications/diffusion/controller/DiffusionCommitController.php:704
 msgid "Cook the Books"
@@ -16179,32 +16179,32 @@ msgstr ""
 
 #: applications/feed/query/PhabricatorFeedSearchEngine.php:79
 msgid "Include Users"
-msgstr ""
+msgstr "Benutzer mit einschließen"
 
 #: applications/feed/query/PhabricatorFeedSearchEngine.php:85
 msgid "Include Projects"
-msgstr ""
+msgstr "Projekte mit einschließen"
 
 #: applications/feed/query/PhabricatorFeedSearchEngine.php:92
 msgid "Include stories about projects I am a member of."
-msgstr ""
+msgstr "Neuigkeiten aller meiner Projekt-Mitgliedschaften mit einbeziehen."
 
 #: applications/feed/query/PhabricatorFeedSearchEngine.php:102
 msgid "All Stories"
-msgstr ""
+msgstr "Alle Neuigkeiten"
 
 #: applications/feed/controller/PhabricatorFeedPublicStreamController.php:35
 msgid "Public Feed"
-msgstr ""
+msgstr "Öffentlicher Newsticker"
 
 #: applications/feed/controller/PhabricatorFeedDetailController.php:28
 msgid "Story"
-msgstr ""
+msgstr "Beitrag"
 
 #: applications/feed/config/PhabricatorFeedConfigOptions.php:7
 #: applications/feed/controller/PhabricatorFeedController.php:8
 msgid "Feed"
-msgstr ""
+msgstr "Newsticker"
 
 #: applications/feed/application/PhabricatorApplicationFeed.php:10
 msgid "Review Activity"
@@ -16233,19 +16233,19 @@ msgstr ""
 
 #: applications/feed/config/PhabricatorFeedConfigOptions.php:11
 msgid "Feed options."
-msgstr ""
+msgstr "Newsticker Optionen."
 
 #: applications/feed/config/PhabricatorFeedConfigOptions.php:19
 msgid "Allow anyone to view the feed"
-msgstr ""
+msgstr "Den Newsticker öffentlich sichtbar machen"
 
 #: applications/feed/config/PhabricatorFeedConfigOptions.php:20
 msgid "Require authentication"
-msgstr ""
+msgstr "Authentisierung erzwingen"
 
 #: applications/feed/config/PhabricatorFeedConfigOptions.php:22
 msgid "Should the feed be public?"
-msgstr ""
+msgstr "Soll der Newsticker öffentlich sein?"
 
 #: applications/feed/config/PhabricatorFeedConfigOptions.php:25
 msgid ""
@@ -16253,6 +16253,9 @@ msgid ""
 "\n"
 "NOTE: You must also set `policy.allow-public` to true for this setting to work properly."
 msgstr ""
+"Wenn Du diesen Wert auf 'true' setzt, kannst Du den Phabricator Aktivitäten-Newsticker in andere Seiten mittelsdes iframe-Tags einbinden. Diese Newsticker sind komplett öffentlich und ein Login ist nicht erforderlich, um sie ansehen zu können! Gedacht ist das für Open Source Projekte, die ihren Aktiviten-Newsticker auf die Projekt-Webseite setzen wollen.\n"
+"\n"
+"HINWEIS: Du mußt auch 'policy.allow-public' auf 'true' setzen, damit diese Einstellung vernünftig funktioniert."
 
 #: applications/feed/config/PhabricatorFeedConfigOptions.php:33
 msgid "POST notifications of feed events."
