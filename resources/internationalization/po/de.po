@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-12-03 15:42+0100\n"
-"PO-Revision-Date: 2013-12-07 09:50+0100\n"
+"PO-Revision-Date: 2013-12-07 10:53+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: German <peter@schlaile.de>\n"
 "Language: \n"
@@ -8170,7 +8170,7 @@ msgstr "%s hat %s erzeugt."
 #: applications/maniphest/storage/ManiphestTransaction.php:466
 #, php-format
 msgid "%s reopened %s."
-msgstr "%s hat %s wiedergeöffnet."
+msgstr "%s hat %s wieder geöffnet."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:473
 #, php-format
@@ -8180,12 +8180,12 @@ msgstr "%s hat %s aus Trotz für erledigt erklärt."
 #: applications/maniphest/storage/ManiphestTransaction.php:478
 #, php-format
 msgid "%s closed %s as a duplicate."
-msgstr "%s hat %s abgeschlossen, da es ein Dublikat ist."
+msgstr "%s hat %s abgeschlossen, da es ein Duplikat ist."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:487
 #, php-format
 msgid "%s closed %s as \"%s\"."
-msgstr "%s hat %s auf Grund von \"%s\" abgeschlossen."
+msgstr "%s hat %s abgeschlossen: \"%s\"."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:496
 #, php-format
