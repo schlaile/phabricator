@@ -2,6 +2,10 @@
 
 final class PhabricatorApplicationFeed extends PhabricatorApplication {
 
+  public function getName() {
+    return pht('Feed');
+  }
+
   public function getBaseURI() {
     return '/feed/';
   }
