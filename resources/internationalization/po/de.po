@@ -16204,7 +16204,7 @@ msgstr "Beitrag"
 #: applications/feed/config/PhabricatorFeedConfigOptions.php:7
 #: applications/feed/controller/PhabricatorFeedController.php:8
 msgid "Feed"
-msgstr "Newsticker"
+msgstr "Chronik"
 
 #: applications/feed/application/PhabricatorApplicationFeed.php:10
 msgid "Review Activity"
