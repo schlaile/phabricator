@@ -274,7 +274,6 @@ abstract class PhabricatorApplicationSearchEngine {
     $user_type = PhabricatorPHIDConstants::PHID_TYPE_USER;
     foreach ($list as $item) {
       $type = phid_get_type($item);
-      phlog($type);
       if ($type == $user_type) {
         $phids[] = $item;
       } else if (isset($allow_types[$type])) {
@@ -298,6 +297,56 @@ abstract class PhabricatorApplicationSearchEngine {
     return $phids;
   }
 
+
+  /**
+   * Read a list of generic PHIDs from a request in a flexible way. Like
+   * @{method:readUsersFromRequest}, this method supports either array or
+   * comma-delimited forms. Objects can be specified either by PHID or by
+   * object name.
+   *
+   * @param AphrontRequest  Request to read PHIDs from.
+   * @param string          Key to read in the request.
+   * @param list<const>     Optional, list of permitted PHID types.
+   * @return list<phid>     List of object PHIDs.
+   *
+   * @task read
+   */
+  protected function readPHIDsFromRequest(
+    AphrontRequest $request,
+    $key,
+    array $allow_types = array()) {
+
+    $list = $request->getArr($key, null);
+    if ($list === null) {
+      $list = $request->getStrList($key);
+    }
+
+    if (!$list) {
+      return array();
+    }
+
+    $objects = id(new PhabricatorObjectQuery())
+      ->setViewer($this->requireViewer())
+      ->withNames($list)
+      ->execute();
+    $list = mpull($objects, 'getPHID');
+
+    if (!$list) {
+      return array();
+    }
+
+    // If only certain PHID types are allowed, filter out all the others.
+    if ($allow_types) {
+      $allow_types = array_fuse($allow_types);
+      foreach ($list as $key => $phid) {
+        if (empty($allow_types[phid_get_type($phid)])) {
+          unset($list[$key]);
+        }
+      }
+    }
+
+    return $list;
+  }
 
   protected function readBoolFromRequest(
     AphrontRequest $request,

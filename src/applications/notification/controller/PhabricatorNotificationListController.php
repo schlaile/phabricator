@@ -50,29 +50,38 @@ final class PhabricatorNotificationListController
         $no_data);
     }
 
-    $view = phutil_tag_div('phabricator-notification-list', $view);
+    $view = id(new PHUIBoxView())
+      ->addPadding(PHUI::PADDING_MEDIUM)
+      ->addClass('phabricator-notification-list')
+      ->appendChild($view);
 
-    $panel = new AphrontPanelView();
-    $panel->setHeader($header);
-    $panel->setWidth(AphrontPanelView::WIDTH_FORM);
-    $panel->addButton(
-      javelin_tag(
-        'a',
-        array(
-          'href'  => '/notification/clear/',
-          'class' => 'button',
-          'sigil' => 'workflow',
-        ),
-        pht('Mark All Read')));
-    $panel->appendChild($view);
-    $panel->appendChild($pager);
+    $image = id(new PHUIIconView())
+        ->setSpriteSheet(PHUIIconView::SPRITE_ICONS)
+        ->setSpriteIcon('preview');
+    $button = id(new PHUIButtonView())
+        ->setTag('a')
+        ->setColor(PHUIButtonView::SIMPLE)
+        ->setHref('/notification/clear/')
+        ->addSigil('workflow')
+        ->setIcon($image)
+        ->setText(pht('Mark All Read'));
 
-    $nav->appendChild($panel);
+    $notif_header = id(new PHUIHeaderView())
+      ->setHeader($header)
+      ->addActionLink($button);
 
-    return $this->buildStandardPageResponse(
+    $box = id(new PHUIObjectBoxView())
+      ->setHeader($notif_header)
+      ->appendChild($view);
+
+    $nav->appendChild($box);
+    $nav->appendChild($pager);
+
+    return $this->buildApplicationPage(
       $nav,
       array(
-	      'title' => pht('Notifications'),
+        'title' => pht('Notifications'),
+        'device' => true,
       ));
   }
 
