@@ -4,18 +4,30 @@
 $root = dirname(dirname(dirname(__FILE__)));
 require_once $root.'/scripts/__init_script__.php';
 
-if ($argc !== 2) {
-	echo "usage: user_auth.php <username>\n";
-	exit(1);
+if (isset($_ENV["PAM_USER"])) {
+	$username = $_ENV["PAM_USER"];
+} else {
+	if ($argc !== 2) {
+		echo "usage: user_auth.php <username>\n";
+		exit(1);
+	}
+
+	$username = $argv[1];
 }
 
-$username = $argv[1];
+if (isset($_ENV["PAM_AUTHTOK"])) {
+	$password = $_ENV["PAM_AUTHTOK"];
+} else {
+	phutil_passthru('stty -echo');
+	$password = phutil_console_prompt("Enter password:");
+	phutil_passthru('stty echo');
+	echo "\n";
+}
 
 $table = new PhabricatorUser();
 
 if (!PhabricatorUser::validateUsername($username)) {
-	$valid = PhabricatorUser::describeValidUsername();
-	echo "The username '{$username}' is invalid. {$valid}\n";
+	echo "x1 Login failed!\n";
 	exit(1);
 }
 
@@ -23,34 +35,25 @@ $user = id(new PhabricatorUser())->loadOneWhere(
 	'username = %s', $username);
 
 if (!$user) {
-	echo "There is no existing user account '{$username}'.\n";
+	echo "x2 Login failed!\n";
 	exit(1);
 }
 
 if (!$user->isUserActivated()) {
-	echo "Account is disabled!\n";
+	echo "x3 Login failed!\n";
 	exit(1);
 }
 
-$changed_pass = false;
-// This disables local echo, so the user's password is not shown as they type
-// it.
-phutil_passthru('stty -echo');
-$password = phutil_console_prompt("Enter password:");
-phutil_passthru('stty echo');
-
-echo "\n";
-
 if (!strlen($password)) {
-	echo "Invalid password.\n";
+	echo "x4 Login failed!\n";
 	exit(1);
 }
 
 $envelope = new PhutilOpaqueEnvelope($password);
 if (!$user->comparePassword($envelope)) {
-	echo "Invalid password.\n";
+	echo "x5 Login failed!\n";
 	exit(1);
 }
 
-echo "User can login!\n";
+echo "Login ok!\n";
 exit(0);
