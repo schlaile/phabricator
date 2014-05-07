@@ -7,8 +7,12 @@ final class PhabricatorConduitTokenController
   extends PhabricatorConduitController {
 
   public function processRequest() {
-
     $user = $this->getRequest()->getUser();
+
+    id(new PhabricatorAuthSessionEngine())->requireHighSecuritySession(
+      $user,
+      $this->getRequest(),
+      '/');
 
     // Ideally we'd like to verify this, but it's fine to leave it unguarded
     // for now and verifying it would need some Ajax junk or for the user to
@@ -38,6 +42,8 @@ final class PhabricatorConduitTokenController
       'After you copy and paste this token, `arc` will complete '.
       'the certificate install process for you.');
 
+    Javelin::initBehavior('select-on-click');
+
     $form = id(new AphrontFormView())
       ->setUser($user)
       ->appendRemarkupInstructions($pre_instructions)
@@ -45,13 +51,13 @@ final class PhabricatorConduitTokenController
         id(new AphrontFormTextAreaControl())
           ->setLabel(pht('Token'))
           ->setHeight(AphrontFormTextAreaControl::HEIGHT_VERY_SHORT)
+          ->setReadonly(true)
+          ->setSigil('select-on-click')
           ->setValue($token->getToken()))
       ->appendRemarkupInstructions($post_instructions);
 
     $crumbs = $this->buildApplicationCrumbs();
-    $crumbs->addCrumb(
-      id(new PhabricatorCrumbView())
-        ->setName(pht('Install Certificate')));
+    $crumbs->addTextCrumb(pht('Install Certificate'));
 
     $object_box = id(new PHUIObjectBoxView())
       ->setHeaderText(pht('Certificate Token'))

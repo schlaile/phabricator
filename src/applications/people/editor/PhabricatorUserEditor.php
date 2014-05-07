@@ -64,9 +64,9 @@ final class PhabricatorUserEditor extends PhabricatorEditor {
         throw $ex;
       }
 
-      $log = PhabricatorUserLog::newLog(
+      $log = PhabricatorUserLog::initializeNewLog(
         $this->requireActor(),
-        $user,
+        $user->getPHID(),
         PhabricatorUserLog::ACTION_CREATE);
       $log->setNewValue($email->getAddress());
       $log->save();
@@ -93,9 +93,9 @@ final class PhabricatorUserEditor extends PhabricatorEditor {
         $email->save();
       }
 
-      $log = PhabricatorUserLog::newLog(
+      $log = PhabricatorUserLog::initializeNewLog(
         $this->requireActor(),
-        $user,
+        $user->getPHID(),
         PhabricatorUserLog::ACTION_EDIT);
       $log->save();
 
@@ -122,9 +122,9 @@ final class PhabricatorUserEditor extends PhabricatorEditor {
       $user->setPassword($envelope);
       $user->save();
 
-      $log = PhabricatorUserLog::newLog(
+      $log = PhabricatorUserLog::initializeNewLog(
         $this->requireActor(),
-        $user,
+        $user->getPHID(),
         PhabricatorUserLog::ACTION_CHANGE_PASSWORD);
       $log->save();
 
@@ -161,9 +161,9 @@ final class PhabricatorUserEditor extends PhabricatorEditor {
         throw $ex;
       }
 
-      $log = PhabricatorUserLog::newLog(
+      $log = PhabricatorUserLog::initializeNewLog(
         $actor,
-        $user,
+        $user->getPHID(),
         PhabricatorUserLog::ACTION_CHANGE_USERNAME);
       $log->setOldValue($old_username);
       $log->setNewValue($username);
@@ -198,14 +198,14 @@ final class PhabricatorUserEditor extends PhabricatorEditor {
           return $this;
         }
 
-        $log = PhabricatorUserLog::newLog(
+        $log = PhabricatorUserLog::initializeNewLog(
           $actor,
-          $user,
+          $user->getPHID(),
           PhabricatorUserLog::ACTION_ADMIN);
         $log->setOldValue($user->getIsAdmin());
         $log->setNewValue($admin);
 
-        $user->setIsAdmin($admin);
+        $user->setIsAdmin((int)$admin);
         $user->save();
 
         $log->save();
@@ -236,9 +236,9 @@ final class PhabricatorUserEditor extends PhabricatorEditor {
           return $this;
         }
 
-        $log = PhabricatorUserLog::newLog(
+        $log = PhabricatorUserLog::initializeNewLog(
           $actor,
-          $user,
+          $user->getPHID(),
           PhabricatorUserLog::ACTION_SYSTEM_AGENT);
         $log->setOldValue($user->getIsSystemAgent());
         $log->setNewValue($system_agent);
@@ -275,14 +275,14 @@ final class PhabricatorUserEditor extends PhabricatorEditor {
           return $this;
         }
 
-        $log = PhabricatorUserLog::newLog(
+        $log = PhabricatorUserLog::initializeNewLog(
           $actor,
-          $user,
+          $user->getPHID(),
           PhabricatorUserLog::ACTION_DISABLE);
         $log->setOldValue($user->getIsDisabled());
         $log->setNewValue($disable);
 
-        $user->setIsDisabled($disable);
+        $user->setIsDisabled((int)$disable);
         $user->save();
 
         $log->save();
@@ -314,9 +314,9 @@ final class PhabricatorUserEditor extends PhabricatorEditor {
           return $this;
         }
 
-        $log = PhabricatorUserLog::newLog(
+        $log = PhabricatorUserLog::initializeNewLog(
           $actor,
-          $user,
+          $user->getPHID(),
           PhabricatorUserLog::ACTION_APPROVE);
         $log->setOldValue($user->getIsApproved());
         $log->setNewValue($approve);
@@ -327,69 +327,6 @@ final class PhabricatorUserEditor extends PhabricatorEditor {
         $log->save();
 
       $user->endWriteLocking();
-    $user->saveTransaction();
-
-    return $this;
-  }
-
-  /**
-   * @task role
-   */
-  public function deleteUser(PhabricatorUser $user, $disable) {
-    $actor = $this->requireActor();
-
-    if (!$user->getID()) {
-      throw new Exception("User has not been created yet!");
-    }
-
-    if ($actor->getPHID() == $user->getPHID()) {
-      throw new Exception("You can not delete yourself!");
-    }
-
-    $user->openTransaction();
-      $externals = id(new PhabricatorExternalAccount())->loadAllWhere(
-        'userPHID = %s',
-        $user->getPHID());
-      foreach ($externals as $external) {
-        $external->delete();
-      }
-
-      $prefs = id(new PhabricatorUserPreferences())->loadAllWhere(
-        'userPHID = %s',
-        $user->getPHID());
-      foreach ($prefs as $pref) {
-        $pref->delete();
-      }
-
-      $profiles = id(new PhabricatorUserProfile())->loadAllWhere(
-        'userPHID = %s',
-        $user->getPHID());
-      foreach ($profiles as $profile) {
-        $profile->delete();
-      }
-
-      $keys = id(new PhabricatorUserSSHKey())->loadAllWhere(
-        'userPHID = %s',
-        $user->getPHID());
-      foreach ($keys as $key) {
-        $key->delete();
-      }
-
-      $emails = id(new PhabricatorUserEmail())->loadAllWhere(
-        'userPHID = %s',
-        $user->getPHID());
-      foreach ($emails as $email) {
-        $email->delete();
-      }
-
-      $log = PhabricatorUserLog::newLog(
-        $actor,
-        $user,
-        PhabricatorUserLog::ACTION_DELETE);
-      $log->save();
-
-      $user->delete();
-
     $user->saveTransaction();
 
     return $this;
@@ -435,9 +372,9 @@ final class PhabricatorUserEditor extends PhabricatorEditor {
           throw $ex;
         }
 
-        $log = PhabricatorUserLog::newLog(
+        $log = PhabricatorUserLog::initializeNewLog(
           $actor,
-          $user,
+          $user->getPHID(),
           PhabricatorUserLog::ACTION_EMAIL_ADD);
         $log->setNewValue($email->getAddress());
         $log->save();
@@ -480,9 +417,9 @@ final class PhabricatorUserEditor extends PhabricatorEditor {
 
         $email->delete();
 
-        $log = PhabricatorUserLog::newLog(
+        $log = PhabricatorUserLog::initializeNewLog(
           $actor,
-          $user,
+          $user->getPHID(),
           PhabricatorUserLog::ACTION_EMAIL_REMOVE);
         $log->setOldValue($email->getAddress());
         $log->save();
@@ -536,9 +473,9 @@ final class PhabricatorUserEditor extends PhabricatorEditor {
         $email->setIsPrimary(1);
         $email->save();
 
-        $log = PhabricatorUserLog::newLog(
+        $log = PhabricatorUserLog::initializeNewLog(
           $actor,
-          $user,
+          $user->getPHID(),
           PhabricatorUserLog::ACTION_EMAIL_PRIMARY);
         $log->setOldValue($old_primary ? $old_primary->getAddress() : null);
         $log->setNewValue($email->getAddress());
@@ -569,6 +506,10 @@ final class PhabricatorUserEditor extends PhabricatorEditor {
     // addresses. Normally, the application does checks and raises more
     // user friendly errors for us, but we omit the courtesy checks on some
     // pathways like administrative scripts for simplicity.
+
+    if (!PhabricatorUserEmail::isValidAddress($email->getAddress())) {
+      throw new Exception(PhabricatorUserEmail::describeValidAddresses());
+    }
 
     if (!PhabricatorUserEmail::isAllowedAddress($email->getAddress())) {
       throw new Exception(PhabricatorUserEmail::describeAllowedAddresses());

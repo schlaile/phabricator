@@ -33,7 +33,7 @@ final class PhabricatorAuthManagementRefreshWorkflow
 
   public function execute(PhutilArgumentParser $args) {
     $console = PhutilConsole::getConsole();
-    $viewer = PhabricatorUser::getOmnipotentUser();
+    $viewer = $this->getViewer();
 
     $query = id(new PhabricatorExternalAccountQuery())
       ->setViewer($viewer);
@@ -96,10 +96,10 @@ final class PhabricatorAuthManagementRefreshWorkflow
       }
 
       $provider = $providers[$key];
-      if (!($provider instanceof PhabricatorAuthProviderOAuth)) {
+      if (!($provider instanceof PhabricatorAuthProviderOAuth2)) {
         $console->writeOut(
           "> %s\n",
-          pht("Skipping, provider is not an OAuth provider."));
+          pht("Skipping, provider is not an OAuth2 provider."));
         continue;
       }
 

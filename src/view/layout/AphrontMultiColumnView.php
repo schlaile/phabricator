@@ -10,7 +10,7 @@ final class AphrontMultiColumnView extends AphrontView {
   private $fluidLayout = false;
   private $fluidishLayout = false;
   private $gutter;
-  private $shadow;
+  private $border;
 
   public function addColumn($column) {
     $this->columns[] = $column;
@@ -33,8 +33,8 @@ final class AphrontMultiColumnView extends AphrontView {
     return $this;
   }
 
-  public function setShadow($shadow) {
-    $this->shadow = $shadow;
+  public function setBorder($border) {
+    $this->border = $border;
     return $this;
   }
 
@@ -45,8 +45,11 @@ final class AphrontMultiColumnView extends AphrontView {
     $classes[] = 'aphront-multi-column-inner';
     $classes[] = 'grouped';
 
-    if (count($this->columns) > 7) {
-      throw new Exception("No more than 7 columns per view.");
+    if ($this->fluidishLayout || $this->fluidLayout) {
+      // we only support seven columns for now for fluid views; see T4054
+      if (count($this->columns) > 7) {
+        throw new Exception("No more than 7 columns per view.");
+      }
     }
 
     $classes[] = 'aphront-multi-column-'.count($this->columns).'-up';
@@ -106,9 +109,9 @@ final class AphrontMultiColumnView extends AphrontView {
         ),
         $view);
 
-    if ($this->shadow) {
+    if ($this->border) {
       $board = id(new PHUIBoxView())
-        ->setShadow(true)
+        ->setBorder(true)
         ->appendChild($board)
         ->addPadding(PHUI::PADDING_MEDIUM_TOP)
         ->addPadding(PHUI::PADDING_MEDIUM_BOTTOM);

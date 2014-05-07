@@ -5,6 +5,8 @@
  *           javelin-workflow
  *           javelin-dom
  *           javelin-fx
+ *           javelin-uri
+ *           phabricator-textareautils
  */
 
 JX.behavior('phabricator-transaction-list', function(config) {
@@ -62,31 +64,61 @@ JX.behavior('phabricator-transaction-list', function(config) {
     }
   }
 
-  JX.DOM.listen(list, 'click', 'transaction-edit', function(e) {
-    if (!e.isNormalClick()) {
-      return;
-    }
+  JX.Stratcom.listen(
+    'click',
+    [['transaction-edit'], ['transaction-remove']],
+    function(e) {
+      if (!e.isNormalClick()) {
+        return;
+      }
 
-    JX.Workflow.newFromLink(e.getTarget())
-      .setData({anchor: e.getNodeData('transaction').anchor})
-      .setHandler(ontransactions)
-      .start();
+      e.prevent();
 
-    e.kill();
-  });
+      var anchor = e.getNodeData('tag:a').anchor;
+      var uri = JX.$U(window.location).setFragment(anchor);
 
-  JX.DOM.listen(list, 'click', 'transaction-detail', function(e) {
-    if (!e.isNormalClick()) {
-      return;
-    }
+      JX.Workflow.newFromLink(e.getNode('tag:a'))
+        .setHandler(function() {
+          // In most cases, `uri` is on the same page (just at a new anchor),
+          // so we have to call reload() explicitly to get the browser to
+          // refresh the page. It would be nice to just issue a server-side
+          // redirect instead, but there isn't currently an easy way to do
+          // that without complexity and/or a semi-open redirect.
+          uri.go();
+          window.location.reload();
+        })
+        .start();
+    });
 
-    JX.Workflow.newFromLink(e.getTarget())
-      .setData({anchor: e.getData('anchor')})
-      .setHandler(ontransactions)
-      .start();
+  JX.Stratcom.listen(
+    'click',
+    'transaction-quote',
+    function(e) {
+      e.prevent();
 
-    e.kill();
-  });
+      var data = e.getNodeData('transaction-quote');
+      new JX.Workflow(data.uri)
+        .setData({ref: data.ref})
+        .setHandler(function(r) {
+          var textarea = JX.$(data.targetID);
+
+          JX.DOM.scrollTo(textarea);
+
+          var value = textarea.value;
+          if (value.length) {
+            value += "\n\n";
+          }
+          value += r.quoteText;
+          value += "\n\n";
+          textarea.value = value;
+
+          JX.TextAreaUtils.setSelectionRange(
+            textarea,
+            textarea.value.length,
+            textarea.value.length);
+        })
+        .start();
+    });
 
   JX.Stratcom.listen(
     ['submit', 'didSyntheticSubmit'],
@@ -109,11 +141,40 @@ JX.behavior('phabricator-transaction-list', function(config) {
 
           var e = JX.DOM.invoke(form, 'willClear');
           if (!e.getPrevented()) {
-            form.reset();
+            var ii;
+            var textareas = JX.DOM.scry(form, 'textarea');
+            for (ii = 0; ii < textareas.length; ii++) {
+              textareas[ii].value = '';
+            }
+
+            var inputs = JX.DOM.scry(form, 'input');
+            for (ii = 0; ii < inputs.length; ii++) {
+            switch (inputs[ii].type) {
+              case 'password':
+              case 'text':
+                inputs[ii].value = '';
+                break;
+              case 'checkbox':
+              case 'radio':
+                inputs[ii].checked = false;
+                break;
+              }
+            }
+
+            var selects = JX.DOM.scry(form, 'select');
+            var jj;
+            for (ii = 0; ii < selects.length; ii++) {
+              if (selects[ii].type == 'select-one') {
+                selects[ii].selectedIndex = 0;
+              } else {
+               for (jj = 0; jj < selects[ii].options.length; jj++) {
+                 selects[ii].options[jj].selected = false;
+               }
+              }
+            }
           }
         })
         .start();
 
     });
-
 });

@@ -36,10 +36,12 @@ final class PhabricatorApplicationAuth extends PhabricatorApplication {
       $item = id(new PHUIListItemView())
         ->addClass('core-menu-item')
         ->setName(pht('Log Out'))
-        ->setIcon('power')
+        ->setIcon('logout-sm')
         ->setWorkflow(true)
         ->setHref('/logout/')
-        ->setSelected(($controller instanceof PhabricatorLogoutController));
+        ->setSelected(($controller instanceof PhabricatorLogoutController))
+        ->setAural(pht('Log Out'))
+        ->setOrder(900);
       $items[] = $item;
     } else {
       if ($controller instanceof PhabricatorAuthController) {
@@ -51,7 +53,9 @@ final class PhabricatorApplicationAuth extends PhabricatorApplication {
           ->setName(pht('Log In'))
           // TODO: Login icon?
           ->setIcon('power')
-          ->setHref('/auth/start/');
+          ->setHref('/auth/start/')
+          ->setAural(pht('Log In'))
+          ->setOrder(900);
         $items[] = $item;
       }
     }
@@ -74,15 +78,21 @@ final class PhabricatorApplicationAuth extends PhabricatorApplication {
           '(?P<action>enable|disable)/(?P<id>\d+)/' =>
             'PhabricatorAuthDisableController',
         ),
-        'login/(?P<pkey>[^/]+)/' => 'PhabricatorAuthLoginController',
+        'login/(?P<pkey>[^/]+)/(?:(?P<extra>[^/]+)/)?' =>
+          'PhabricatorAuthLoginController',
         'register/(?:(?P<akey>[^/]+)/)?' => 'PhabricatorAuthRegisterController',
         'start/' => 'PhabricatorAuthStartController',
         'validate/' => 'PhabricatorAuthValidateController',
+        'finish/' => 'PhabricatorAuthFinishController',
         'unlink/(?P<pkey>[^/]+)/' => 'PhabricatorAuthUnlinkController',
         '(?P<action>link|refresh)/(?P<pkey>[^/]+)/'
           => 'PhabricatorAuthLinkController',
         'confirmlink/(?P<akey>[^/]+)/'
           => 'PhabricatorAuthConfirmLinkController',
+        'session/terminate/(?P<id>[^/]+)/'
+          => 'PhabricatorAuthTerminateSessionController',
+        'session/downgrade/'
+          => 'PhabricatorAuthDowngradeSessionController',
       ),
 
       '/oauth/(?P<provider>\w+)/login/'

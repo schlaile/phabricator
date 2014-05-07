@@ -15,7 +15,7 @@ final class PhabricatorApplicationDiffusion extends PhabricatorApplication {
   }
 
   public function getHelpURI() {
-    return PhabricatorEnv::getDoclink('article/Diffusion_User_Guide.html');
+    return PhabricatorEnv::getDoclink('Diffusion User Guide');
   }
 
   public function getFactObjectsForAnalysis() {
@@ -32,7 +32,8 @@ final class PhabricatorApplicationDiffusion extends PhabricatorApplication {
 
   public function getRemarkupRules() {
     return array(
-      new DiffusionRemarkupRule(),
+      new DiffusionRepositoryRemarkupRule(),
+      new DiffusionCommitRemarkupRule(),
     );
   }
 
@@ -46,9 +47,10 @@ final class PhabricatorApplicationDiffusion extends PhabricatorApplication {
         'new/' => 'DiffusionRepositoryNewController',
         '(?P<edit>create)/' => 'DiffusionRepositoryCreateController',
         '(?P<edit>import)/' => 'DiffusionRepositoryCreateController',
-        'pushlog/(?:query/(?P<queryKey>[^/]+)/)?'
-          => 'DiffusionPushLogListController',
-
+        'pushlog/' => array(
+          '(?:query/(?P<queryKey>[^/]+)/)?' => 'DiffusionPushLogListController',
+          'view/(?P<id>\d+)/' => 'DiffusionPushEventViewController',
+        ),
         '(?P<callsign>[A-Z]+)/' => array(
           '' => 'DiffusionRepositoryController',
 
@@ -73,11 +75,11 @@ final class PhabricatorApplicationDiffusion extends PhabricatorApplication {
             'encoding/' => 'DiffusionRepositoryEditEncodingController',
             'activate/' => 'DiffusionRepositoryEditActivateController',
             'dangerous/' => 'DiffusionRepositoryEditDangerousController',
-            'policy/' => 'DiffusionRepositoryEditPolicyController',
             'branches/' => 'DiffusionRepositoryEditBranchesController',
             'subversion/' => 'DiffusionRepositoryEditSubversionController',
             'actions/' => 'DiffusionRepositoryEditActionsController',
             '(?P<edit>remote)/' => 'DiffusionRepositoryCreateController',
+            '(?P<edit>policy)/' => 'DiffusionRepositoryCreateController',
             'local/' => 'DiffusionRepositoryEditLocalController',
             'delete/' => 'DiffusionRepositoryEditDeleteController',
             'hosting/' => 'DiffusionRepositoryEditHostingController',

@@ -343,6 +343,38 @@ final class CeleritySpriteGenerator {
     return $sheet;
   }
 
+  public function buildButtonBarSheet() {
+    $icons = $this->getDirectoryList('button_bar_1x');
+    $scales = array(
+      '1x' => 1,
+      '2x' => 2,
+    );
+    $template = id(new PhutilSprite())
+      ->setSourceSize(14, 14);
+
+    $sprites = array();
+    $prefix = 'button_bar_';
+    foreach ($icons as $icon) {
+      $sprite = id(clone $template)
+        ->setName('buttonbar-'.$icon)
+        ->setTargetCSS('.buttonbar-'.$icon);
+
+      foreach ($scales as $scale_key => $scale) {
+        $path = $this->getPath($prefix.$scale_key.'/'.$icon.'.png');
+        $sprite->setSourceFile($path, $scale);
+      }
+      $sprites[] = $sprite;
+    }
+
+    $sheet = $this->buildSheet('buttonbar', true);
+    $sheet->setScales($scales);
+    foreach ($sprites as $sprite) {
+      $sheet->addSprite($sprite);
+    }
+
+    return $sheet;
+  }
+
   public function buildProjectsSheet() {
     $icons = $this->getDirectoryList('projects_1x');
     $scales = array(
@@ -526,21 +558,16 @@ final class CeleritySpriteGenerator {
 
     $sprites = array();
     $prefix = 'status_';
+
+    $pre_rule = ', .phuix-dropdown-menu .phabricator-action-view:hover ';
     $extra_css = array(
-      'policy-custom-white' =>
-        ', .dropdown-menu-item:hover .status-policy-custom',
-      'policy-all-white' =>
-        ', .dropdown-menu-item:hover .status-policy-all',
-      'policy-unknown-white' =>
-        ', .dropdown-menu-item:hover .status-policy-unknown',
-      'policy-admin-white' =>
-        ', .dropdown-menu-item:hover .status-policy-admin',
-      'policy-public-white' =>
-        ', .dropdown-menu-item:hover .status-policy-public',
-      'policy-project-white' =>
-        ', .dropdown-menu-item:hover .status-policy-project',
-      'policy-noone-white' =>
-        ', .dropdown-menu-item:hover .status-policy-noone',
+      'policy-custom-white' => $pre_rule.'.status-policy-custom',
+      'policy-all-white' => $pre_rule.'.status-policy-all',
+      'policy-unknown-white' => $pre_rule.'.status-policy-unknown',
+      'policy-admin-white' => $pre_rule.'.status-policy-admin',
+      'policy-public-white' => $pre_rule.'.status-policy-public',
+      'policy-project-white' => $pre_rule.'.status-policy-project',
+      'policy-noone-white' => $pre_rule.'.status-policy-noone',
     );
 
     foreach ($icons as $icon) {
@@ -722,6 +749,10 @@ final class CeleritySpriteGenerator {
           $css .= ', .phabricator-crumb-view:hover .apps-'.$app.'-dark-large';
         }
 
+        if ($color == 'white' && $variant == 1) {
+          $css .= ', .phui-list-item-href:hover .apps-'.$app.'-dark';
+        }
+
         $sprite = id(clone $template)
           ->setName('apps-'.$app.'-'.$color.$variant_short)
           ->setTargetCSS($css);
@@ -827,5 +858,3 @@ EOCSS
     return $sheet;
   }
 }
-
-

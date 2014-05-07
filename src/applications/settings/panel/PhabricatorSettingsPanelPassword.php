@@ -35,6 +35,11 @@ final class PhabricatorSettingsPanelPassword
   public function processRequest(AphrontRequest $request) {
     $user = $request->getUser();
 
+    $token = id(new PhabricatorAuthSessionEngine())->requireHighSecuritySession(
+      $user,
+      $request,
+      '/settings/');
+
     $min_len = PhabricatorEnv::getEnvConfig('account.minimum-password-length');
     $min_len = (int)$min_len;
 
@@ -75,11 +80,15 @@ final class PhabricatorSettingsPanelPassword
       if (strlen($pass) < $min_len) {
         $errors[] = pht('Your new password is too short.');
         $e_new = pht('Too Short');
-      }
-
-      if ($pass !== $conf) {
+      } else if ($pass !== $conf) {
         $errors[] = pht('New password and confirmation do not match.');
         $e_conf = pht('Invalid');
+      } else if (PhabricatorCommonPasswords::isCommonPassword($pass)) {
+        $e_new = pht('Very Weak');
+        $e_conf = pht('Very Weak');
+        $errors[] = pht(
+          'Your new password is very weak: it is one of the most common '.
+          'passwords in use. Choose a stronger password.');
       }
 
       if (!$errors) {
@@ -108,19 +117,14 @@ final class PhabricatorSettingsPanelPassword
       }
     }
 
-    $notice = null;
-    if (!$errors) {
-      if ($request->getStr('saved')) {
-        $notice = new AphrontErrorView();
-        $notice->setSeverity(AphrontErrorView::SEVERITY_NOTICE);
-        $notice->setTitle(pht('Changes Saved'));
-        $notice->appendChild(
-          phutil_tag('p', array(), pht('Your password has been updated.')));
+    $hash_envelope = new PhutilOpaqueEnvelope($user->getPasswordHash());
+    if (strlen($hash_envelope->openEnvelope())) {
+      if (PhabricatorPasswordHasher::canUpgradeHash($hash_envelope)) {
+        $errors[] = pht(
+          'The strength of your stored password hash can be upgraded. '.
+          'To upgrade, either: log out and log in using your password; or '.
+          'change your password.');
       }
-    } else {
-      $notice = new AphrontErrorView();
-      $notice->setTitle(pht('Error Changing Password'));
-      $notice->setErrors($errors);
     }
 
     $len_caption = null;
@@ -157,11 +161,23 @@ final class PhabricatorSettingsPanelPassword
     $form
       ->appendChild(
         id(new AphrontFormSubmitControl())
-          ->setValue(pht('Save')));
+          ->setValue(pht('Change Password')));
+
+    $form->appendChild(
+      id(new AphrontFormStaticControl())
+        ->setLabel(pht('Current Algorithm'))
+        ->setValue(PhabricatorPasswordHasher::getCurrentAlgorithmName(
+          new PhutilOpaqueEnvelope($user->getPasswordHash()))));
+
+    $form->appendChild(
+      id(new AphrontFormStaticControl())
+        ->setLabel(pht('Best Available Algorithm'))
+        ->setValue(PhabricatorPasswordHasher::getBestAlgorithmName()));
 
     $form_box = id(new PHUIObjectBoxView())
       ->setHeaderText(pht('Change Password'))
-      ->setFormError($notice)
+      ->setFormSaved($request->getStr('saved'))
+      ->setFormErrors($errors)
       ->setForm($form);
 
     return array(

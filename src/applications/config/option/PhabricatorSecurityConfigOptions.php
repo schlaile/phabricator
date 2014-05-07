@@ -12,8 +12,11 @@ final class PhabricatorSecurityConfigOptions
   }
 
   public function getOptions() {
+    $support_href = PhabricatorEnv::getDoclink('Give Feedback! Get Support!');
+
     return array(
       $this->newOption('security.alternate-file-domain', 'string', null)
+        ->setLocked(true)
         ->setSummary(pht("Alternate domain to serve files from."))
         ->setDescription(
           pht(
@@ -41,6 +44,7 @@ final class PhabricatorSecurityConfigOptions
         'string',
         '[D\t~Y7eNmnQGJ;rnH6aF;m2!vJ8@v8C=Cs:aQS\.Qw')
         ->setMasked(true)
+        ->setLocked(true)
         ->setSummary(
           pht("Key for HMAC digests."))
         ->setDescription(
@@ -50,8 +54,9 @@ final class PhabricatorSecurityConfigOptions
             "want (to any other string), but doing so will break existing ".
             "sessions and CSRF tokens.")),
       $this->newOption('security.require-https', 'bool', false)
+        ->setLocked(true)
         ->setSummary(
-          pht("Force users to connect via https instead of http."))
+          pht("Force users to connect via HTTPS instead of HTTP."))
         ->setDescription(
           pht(
             "If the web server responds to both HTTP and HTTPS requests but ".
@@ -65,15 +70,13 @@ final class PhabricatorSecurityConfigOptions
             "balancer which terminates HTTPS connections and you can not ".
             "reasonably configure more granular behavior there.\n\n".
 
-            "NOTE: Phabricator determines if a request is HTTPS or not by ".
-            "examining the PHP \$_SERVER['HTTPS'] variable. If you run ".
+            "IMPORTANT: Phabricator determines if a request is HTTPS or not ".
+            "by examining the PHP \$_SERVER['HTTPS'] variable. If you run ".
             "Apache/mod_php this will probably be set correctly for you ".
             "automatically, but if you run Phabricator as CGI/FCGI (e.g., ".
             "through nginx or lighttpd), you need to configure your web ".
             "server so that it passes the value correctly based on the ".
-            "connection type. Alternatively, you can add a PHP snippet to ".
-            "the top of this configuration file to directly set ".
-            "\$_SERVER['HTTPS'] to the correct value."))
+            "connection type."))
         ->setBoolOptions(
           array(
             pht('Force HTTPS'),
@@ -84,6 +87,7 @@ final class PhabricatorSecurityConfigOptions
         'string',
         '0b7ec0592e0a2829d8b71df2fa269b2c6172eca3')
         ->setMasked(true)
+        ->setLocked(true)
         ->setSummary(
           pht("Hashed with other inputs to generate CSRF tokens."))
         ->setDescription(
@@ -99,6 +103,7 @@ final class PhabricatorSecurityConfigOptions
          'string',
          '5ce3e7e8787f6e40dfae861da315a5cdf1018f12')
         ->setMasked(true)
+        ->setLocked(true)
         ->setSummary(
           pht("Hashed with other inputs to generate mail tokens."))
         ->setDescription(
@@ -114,6 +119,7 @@ final class PhabricatorSecurityConfigOptions
         array(
           'http' => true,
           'https' => true,
+          'mailto' => true,
         ))
         ->setSummary(
           pht("Determines which URI protocols are auto-linked."))
@@ -123,8 +129,42 @@ final class PhabricatorSecurityConfigOptions
             "automatically linked if the protocol appears in this set. This ".
             "whitelist is primarily to prevent security issues like ".
             "javascript:// URIs."))
-        ->addExample(
-          '{"http": true, "https": true"}', pht('Valid Setting'))
+        ->addExample("http\nhttps", pht('Valid Setting'))
+        ->setLocked(true),
+      $this->newOption(
+        'uri.allowed-editor-protocols',
+        'set',
+        array(
+          'http' => true,
+          'https' => true,
+
+          // This handler is installed by Textmate.
+          'txmt' => true,
+
+          // This handler is for MacVim.
+          'mvim' => true,
+
+          // Unofficial handler for Vim.
+          'vim' => true,
+
+          // Unofficial handler for Sublime.
+          'subl' => true,
+
+          // Unofficial handler for Emacs.
+          'emacs' => true,
+
+          // This isn't a standard handler installed by an application, but
+          // is a reasonable name for a user-installed handler.
+          'editor' => true,
+        ))
+        ->setSummary(pht('Whitelists editor protocols for "Open in Editor".'))
+        ->setDescription(
+          pht(
+            "Users can configure a URI pattern to open files in a text ".
+            "editor. The URI must use a protocol on this whitelist.\n\n".
+            "(If you use an editor which defines a protocol not on this ".
+            "list, [[ %s | let us know ]] and we'll update the defaults.)",
+            $support_href))
         ->setLocked(true),
        $this->newOption(
          'celerity.resource-hash',
@@ -156,17 +196,18 @@ final class PhabricatorSecurityConfigOptions
             "referrers to YouTube) and is pretty silly (but sort of ".
             "awesome).")),
         $this->newOption('security.allow-outbound-http', 'bool', true)
-        ->setBoolOptions(
-          array(
-            pht("Allow"),
-            pht("Disallow"),
-          ))
-        ->setSummary(
-          pht("Allow outbound HTTP requests"))
-        ->setDescription(
-          pht(
-            "If you enable this, you are allowing Phabricator to potentially ".
-            "make requests to external servers.")),
+          ->setBoolOptions(
+            array(
+              pht("Allow"),
+              pht("Disallow"),
+            ))
+          ->setLocked(true)
+          ->setSummary(
+            pht("Allow outbound HTTP requests"))
+          ->setDescription(
+            pht(
+              "If you enable this, you are allowing Phabricator to ".
+              "potentially make requests to external servers.")),
     );
   }
 

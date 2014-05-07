@@ -63,6 +63,15 @@ final class PhabricatorEdgeConfig extends PhabricatorEdgeConstants {
   const TYPE_OBJECT_USES_CREDENTIAL     = 39;
   const TYPE_CREDENTIAL_USED_BY_OBJECT  = 40;
 
+  const TYPE_OBJECT_HAS_PROJECT         = 41;
+  const TYPE_PROJECT_HAS_OBJECT         = 42;
+
+  const TYPE_OBJECT_HAS_COLUMN          = 43;
+  const TYPE_COLUMN_HAS_OBJECT          = 44;
+
+  const TYPE_DASHBOARD_HAS_PANEL        = 45;
+  const TYPE_PANEL_HAS_DASHBOARD        = 46;
+
   const TYPE_TEST_NO_CYCLE              = 9000;
 
   const TYPE_PHOB_HAS_ASANATASK         = 80001;
@@ -73,7 +82,6 @@ final class PhabricatorEdgeConfig extends PhabricatorEdgeConstants {
 
   const TYPE_PHOB_HAS_JIRAISSUE         = 80004;
   const TYPE_JIRAISSUE_HAS_PHOB         = 80005;
-
 
   public static function getInverse($edge_type) {
     static $map = array(
@@ -142,6 +150,15 @@ final class PhabricatorEdgeConfig extends PhabricatorEdgeConstants {
 
       self::TYPE_OBJECT_USES_CREDENTIAL => self::TYPE_CREDENTIAL_USED_BY_OBJECT,
       self::TYPE_CREDENTIAL_USED_BY_OBJECT => self::TYPE_OBJECT_USES_CREDENTIAL,
+
+      self::TYPE_OBJECT_HAS_PROJECT => self::TYPE_PROJECT_HAS_OBJECT,
+      self::TYPE_PROJECT_HAS_OBJECT => self::TYPE_OBJECT_HAS_PROJECT,
+
+      self::TYPE_OBJECT_HAS_COLUMN => self::TYPE_COLUMN_HAS_OBJECT,
+      self::TYPE_COLUMN_HAS_OBJECT => self::TYPE_OBJECT_HAS_COLUMN,
+
+      self::TYPE_PANEL_HAS_DASHBOARD => self::TYPE_DASHBOARD_HAS_PANEL,
+      self::TYPE_DASHBOARD_HAS_PANEL => self::TYPE_PANEL_HAS_DASHBOARD,
     );
 
     return idx($map, $edge_type);
@@ -213,6 +230,7 @@ final class PhabricatorEdgeConfig extends PhabricatorEdgeConstants {
         return '%s edited member(s), added %d: %s; removed %d: %s.';
       case self::TYPE_MEMBER_OF_PROJ:
       case self::TYPE_COMMIT_HAS_PROJECT:
+      case self::TYPE_OBJECT_HAS_PROJECT:
         return '%s edited project(s), added %d: %s; removed %d: %s.';
       case self::TYPE_QUESTION_HAS_VOTING_USER:
       case self::TYPE_ANSWER_HAS_VOTING_USER:
@@ -227,6 +245,7 @@ final class PhabricatorEdgeConfig extends PhabricatorEdgeConstants {
       case self::TYPE_UNSUBSCRIBED_FROM_OBJECT:
       case self::TYPE_FILE_HAS_OBJECT:
       case self::TYPE_CONTRIBUTED_TO_OBJECT:
+      case self::TYPE_PROJECT_HAS_OBJECT:
         return '%s edited object(s), added %d: %s; removed %d: %s.';
       case self::TYPE_OBJECT_HAS_UNSUBSCRIBER:
         return '%s edited unsubcriber(s), added %d: %s; removed %d: %s.';
@@ -246,6 +265,10 @@ final class PhabricatorEdgeConfig extends PhabricatorEdgeConstants {
         return '%s edited reviewer(s), added %d: %s; removed %d: %s.';
       case self::TYPE_TASK_HAS_MOCK:
         return '%s edited mock(s), added %d: %s; removed %d: %s.';
+      case self::TYPE_DASHBOARD_HAS_PANEL:
+        return '%s edited panel(s), added %d: %s; removed %d: %s.';
+      case self::TYPE_PANEL_HAS_DASHBOARD:
+        return '%s edited dashboard(s), added %d: %s; removed %d: %s.';
       case self::TYPE_SUBSCRIBED_TO_OBJECT:
       case self::TYPE_UNSUBSCRIBED_FROM_OBJECT:
       case self::TYPE_FILE_HAS_OBJECT:
@@ -287,6 +310,7 @@ final class PhabricatorEdgeConfig extends PhabricatorEdgeConstants {
         return '%s added %d member(s): %s.';
       case self::TYPE_MEMBER_OF_PROJ:
       case self::TYPE_COMMIT_HAS_PROJECT:
+      case self::TYPE_OBJECT_HAS_PROJECT:
         return '%s added %d project(s): %s.';
       case self::TYPE_QUESTION_HAS_VOTING_USER:
       case self::TYPE_ANSWER_HAS_VOTING_USER:
@@ -315,10 +339,15 @@ final class PhabricatorEdgeConfig extends PhabricatorEdgeConstants {
         return '%s added %d reviewer(s): %s.';
       case self::TYPE_TASK_HAS_MOCK:
         return '%s added %d mock(s): %s.';
+      case self::TYPE_DASHBOARD_HAS_PANEL:
+        return '%s added %d panel(s): %s.';
+      case self::TYPE_PANEL_HAS_DASHBOARD:
+        return '%s added %d dashboard(s): %s.';
       case self::TYPE_SUBSCRIBED_TO_OBJECT:
       case self::TYPE_UNSUBSCRIBED_FROM_OBJECT:
       case self::TYPE_FILE_HAS_OBJECT:
       case self::TYPE_CONTRIBUTED_TO_OBJECT:
+      case self::TYPE_PROJECT_HAS_OBJECT:
       default:
         return '%s added %d object(s): %s.';
 
@@ -356,6 +385,7 @@ final class PhabricatorEdgeConfig extends PhabricatorEdgeConstants {
         return '%s removed %d member(s): %s.';
       case self::TYPE_MEMBER_OF_PROJ:
       case self::TYPE_COMMIT_HAS_PROJECT:
+      case self::TYPE_OBJECT_HAS_PROJECT:
         return '%s removed %d project(s): %s.';
       case self::TYPE_QUESTION_HAS_VOTING_USER:
       case self::TYPE_ANSWER_HAS_VOTING_USER:
@@ -384,10 +414,15 @@ final class PhabricatorEdgeConfig extends PhabricatorEdgeConstants {
         return '%s removed %d reviewer(s): %s.';
       case self::TYPE_TASK_HAS_MOCK:
         return '%s removed %d mock(s): %s.';
+      case self::TYPE_DASHBOARD_HAS_PANEL:
+        return '%s removed %d panel(s): %s.';
+      case self::TYPE_PANEL_HAS_DASHBOARD:
+        return '%s removed %d dashboard(s): %s.';
       case self::TYPE_SUBSCRIBED_TO_OBJECT:
       case self::TYPE_UNSUBSCRIBED_FROM_OBJECT:
       case self::TYPE_FILE_HAS_OBJECT:
       case self::TYPE_CONTRIBUTED_TO_OBJECT:
+      case self::TYPE_PROJECT_HAS_OBJECT:
       default:
         return '%s removed %d object(s): %s.';
 
@@ -423,6 +458,7 @@ final class PhabricatorEdgeConfig extends PhabricatorEdgeConstants {
         return '%s updated members of %s.';
       case self::TYPE_MEMBER_OF_PROJ:
       case self::TYPE_COMMIT_HAS_PROJECT:
+      case self::TYPE_OBJECT_HAS_PROJECT:
         return '%s updated projects of %s.';
       case self::TYPE_QUESTION_HAS_VOTING_USER:
       case self::TYPE_ANSWER_HAS_VOTING_USER:
@@ -451,10 +487,15 @@ final class PhabricatorEdgeConfig extends PhabricatorEdgeConstants {
         return '%s updated reviewers of %s.';
       case self::TYPE_TASK_HAS_MOCK:
         return '%s updated mocks of %s.';
+      case self::TYPE_PANEL_HAS_DASHBOARD:
+        return '%s updated panels for %s.';
+      case self::TYPE_PANEL_HAS_DASHBOARD:
+        return '%s updated dashboards for %s.';
       case self::TYPE_SUBSCRIBED_TO_OBJECT:
       case self::TYPE_UNSUBSCRIBED_FROM_OBJECT:
       case self::TYPE_FILE_HAS_OBJECT:
       case self::TYPE_CONTRIBUTED_TO_OBJECT:
+      case self::TYPE_PROJECT_HAS_OBJECT:
       default:
         return '%s updated objects of %s.';
 

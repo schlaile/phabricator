@@ -88,10 +88,7 @@ final class PhabricatorPasteViewController extends PhabricatorPasteController {
 
     $crumbs = $this->buildApplicationCrumbs($this->buildSideNavView())
       ->setActionList($actions)
-      ->addCrumb(
-        id(new PhabricatorCrumbView())
-          ->setName('P'.$paste->getID())
-          ->setHref('/P'.$paste->getID()));
+      ->addTextCrumb('P'.$paste->getID(), '/P'.$paste->getID());
 
     $xactions = id(new PhabricatorPasteTransactionQuery())
       ->setViewer($request->getUser())
@@ -121,10 +118,6 @@ final class PhabricatorPasteViewController extends PhabricatorPasteController {
       ? pht('Add Comment')
       : pht('Debate Paste Accuracy');
 
-    $submit_button_name = $is_serious
-      ? pht('Add Comment')
-      : pht('Pity the Fool');
-
     $draft = PhabricatorDraft::newFromUserAndKey($user, $paste->getPHID());
 
     $add_comment_form = id(new PhabricatorApplicationTransactionCommentView())
@@ -133,7 +126,7 @@ final class PhabricatorPasteViewController extends PhabricatorPasteController {
       ->setDraft($draft)
       ->setHeaderText($add_comment_header)
       ->setAction($this->getApplicationURI('/comment/'.$paste->getID().'/'))
-      ->setSubmitButtonName($submit_button_name);
+      ->setSubmitButtonName(pht('Add Comment'));
 
     return $this->buildApplicationPage(
       array(
@@ -180,6 +173,13 @@ final class PhabricatorPasteViewController extends PhabricatorPasteController {
       ->setObjectURI($this->getRequest()->getRequestURI())
       ->addAction(
         id(new PhabricatorActionView())
+          ->setName(pht('Edit Paste'))
+          ->setIcon('edit')
+          ->setDisabled(!$can_edit)
+          ->setWorkflow(!$can_edit)
+          ->setHref($this->getApplicationURI('/edit/'.$paste->getID().'/')))
+      ->addAction(
+        id(new PhabricatorActionView())
           ->setName(pht('Fork This Paste'))
           ->setIcon('fork')
           ->setDisabled(!$can_fork)
@@ -189,14 +189,7 @@ final class PhabricatorPasteViewController extends PhabricatorPasteController {
         id(new PhabricatorActionView())
           ->setName(pht('View Raw File'))
           ->setIcon('file')
-          ->setHref($file->getBestURI()))
-      ->addAction(
-        id(new PhabricatorActionView())
-          ->setName(pht('Edit Paste'))
-          ->setIcon('edit')
-          ->setDisabled(!$can_edit)
-          ->setWorkflow(!$can_edit)
-          ->setHref($this->getApplicationURI('/edit/'.$paste->getID().'/')));
+          ->setHref($file->getBestURI()));
   }
 
   private function buildPropertyView(
