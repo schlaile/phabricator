@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-07 22:00+0200\n"
-"PO-Revision-Date: 2014-05-07 23:27+0100\n"
+"PO-Revision-Date: 2014-05-07 23:32+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: German <peter@schlaile.de>\n"
 "Language: \n"
@@ -19675,7 +19675,7 @@ msgstr "Du mußt mindestens eine mögliche Antwort angeben."
 
 #: applications/slowvote/controller/PhabricatorSlowvoteEditController.php:132
 msgid "Resolve issues and build consensus through protracted deliberation."
-msgstr ""
+msgstr "Löse Probleme und schaffe einen Konsens durch ausgedehnte Beratungszeit."
 
 #: applications/slowvote/controller/PhabricatorSlowvoteEditController.php:155
 #, php-format
@@ -19709,7 +19709,7 @@ msgstr "Abstimmungsart"
 
 #: applications/slowvote/controller/PhabricatorSlowvoteEditController.php:198
 msgid "Create Slowvote"
-msgstr "Neuer Abstimmung"
+msgstr "Neue Abstimmung"
 
 #: applications/slowvote/controller/PhabricatorSlowvoteEditController.php:215
 msgid "Responses"
