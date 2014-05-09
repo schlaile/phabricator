@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-07 22:00+0200\n"
-"PO-Revision-Date: 2014-05-09 18:52+0100\n"
+"PO-Revision-Date: 2014-05-09 19:51+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: German <peter@schlaile.de>\n"
 "Language: \n"
@@ -5223,11 +5223,11 @@ msgstr ""
 
 #: applications/help/controller/PhabricatorHelpKeyboardShortcutController.php:25
 msgid "Close any dialog, including this one."
-msgstr ""
+msgstr "Schließe alle Dialogfenster (inklusive diesem hier)."
 
 #: applications/help/controller/PhabricatorHelpKeyboardShortcutController.php:62
 msgid "Keyboard Shortcuts"
-msgstr ""
+msgstr "Kurztasten"
 
 #: applications/subscriptions/view/SubscriptionListDialogBuilder.php:59
 #: applications/help/controller/PhabricatorHelpKeyboardShortcutController.php:64
@@ -5239,7 +5239,7 @@ msgstr ""
 #: applications/oauthserver/controller/PhabricatorOAuthServerTestController.php:47
 #: aphront/configuration/AphrontDefaultApplicationConfiguration.php:221
 msgid "Close"
-msgstr ""
+msgstr "Schließen"
 
 #: applications/phortune/storage/PhortunePaymentMethod.php:112
 msgid "Members of an account can always view and edit its payment methods."
@@ -5248,12 +5248,12 @@ msgstr ""
 #: applications/phortune/storage/PhortuneAccountTransaction.php:30
 #, php-format
 msgid "%s created this account."
-msgstr ""
+msgstr "%s hat dieses Konto erstellt."
 
 #: applications/phortune/storage/PhortuneAccountTransaction.php:34
 #, php-format
 msgid "%s renamed this account from \"%s\" to \"%s\"."
-msgstr ""
+msgstr "%s hat dieses Konto von \"%s\" nach \"%s\" umbenannt."
 
 #: applications/phortune/storage/PhortuneAccountTransaction.php:47
 #, php-format
@@ -22611,7 +22611,7 @@ msgstr ""
 
 #: applications/differential/customfield/DifferentialDependenciesField.php:11
 msgid "Dependencies"
-msgstr ""
+msgstr "Abhängigkeiten"
 
 #: applications/differential/customfield/DifferentialDependenciesField.php:19
 msgid "Lists revisions this one is depended on by."
