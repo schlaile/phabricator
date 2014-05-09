@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-07 22:00+0200\n"
-"PO-Revision-Date: 2014-05-07 23:32+0100\n"
+"PO-Revision-Date: 2014-05-09 18:52+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: German <peter@schlaile.de>\n"
 "Language: \n"
@@ -6938,7 +6938,7 @@ msgstr ""
 
 #: applications/metamta/view/PhabricatorMetaMTAMailBody.php:86
 msgid "REPLY HANDLER ACTIONS"
-msgstr ""
+msgstr "MÖGLICHE KOMMANDOS IN DER EMAIL-ANTWORT"
 
 #: applications/metamta/query/PhabricatorMetaMTAActorQuery.php:74
 msgid "Unable to load user record for this PHID."
@@ -12257,7 +12257,7 @@ msgstr ""
 #: applications/files/mail/FileReplyHandler.php:25
 #: applications/legalpad/mail/LegalpadReplyHandler.php:30
 msgid "Reply to comment or !unsubscribe."
-msgstr ""
+msgstr "Per Email-Antwort kommentieren oder per !unsubscribe von weiteren Email-Benachrichtigungen abmelden."
 
 msgid "Pasted via email."
 msgstr ""
@@ -16143,34 +16143,34 @@ msgstr ""
 #: applications/feed/story/PhabricatorFeedStoryDifferentialAggregate.php:28
 #, php-format
 msgid "%s and %s made multiple updates to %s"
-msgstr ""
+msgstr "%s und %s haben mehrere Änderungen an %s vorgenommen"
 
 #: applications/feed/story/PhabricatorFeedStoryManiphestAggregate.php:38
 #: applications/feed/story/PhabricatorFeedStoryDifferentialAggregate.php:38
 #, php-format
 msgid "%s, %s, and %s made multiple updates to %s"
-msgstr ""
+msgstr "%s, %s und %s haben mehrere Änderungen an %s vorgenommen"
 
 #: applications/feed/story/PhabricatorFeedStoryManiphestAggregate.php:49
 #: applications/feed/story/PhabricatorFeedStoryDifferentialAggregate.php:49
 #, php-format
 msgid "%s, %s, and %d others made multiple updates to %s"
-msgstr ""
+msgstr "%s, %s und %d andere haben mehrere Änderungen an %s vorgenommen"
 
 #: applications/feed/story/PhabricatorFeedStoryStatus.php:31
 #, php-format
 msgid "% updated their status %s"
-msgstr ""
+msgstr "% hat seinen Status aktualisiert: %s"
 
 #: applications/feed/story/PhabricatorFeedStoryPhriction.php:41
 #, php-format
 msgid "%s moved the document %s from %s to %s."
-msgstr ""
+msgstr "%s hat das Dokument %s von %s nach %s verschoben."
 
 #: applications/feed/story/PhabricatorFeedStoryPhriction.php:61
 #, php-format
 msgid "%s %s the document %s."
-msgstr ""
+msgstr "%s %s das Dokument %s."
 
 #: applications/phpast/controller/PhabricatorXHPASTViewRunController.php:47
 msgid "Generate XHP AST"
@@ -22230,11 +22230,11 @@ msgstr ""
 #: applications/search/management/PhabricatorSearchManagementIndexWorkflow.php:91
 #, php-format
 msgid "Indexing '%s'..."
-msgstr ""
+msgstr "Indexiere '%s'..."
 
 #: applications/search/query/PhabricatorSearchApplicationSearchEngine.php:87
 msgid "Document Status"
-msgstr ""
+msgstr "Dokumenten-Status"
 
 #: applications/search/query/PhabricatorSearchApplicationSearchEngine.php:102
 msgid "Document Types"
@@ -22255,35 +22255,35 @@ msgstr ""
 #: applications/subscriptions/view/SubscriptionListStringBuilder.php:67
 #, php-format
 msgid "%d other(s)"
-msgstr ""
+msgstr "%d andere(r)"
 
 #: applications/subscriptions/view/SubscriptionListStringBuilder.php:77
 #, php-format
 msgid "%s, %s, %s and %s"
-msgstr ""
+msgstr "%s, %s, %s und %s"
 
 #: applications/subscriptions/controller/PhabricatorSubscriptionsEditController.php:61
 msgid "You Can Not Subscribe"
-msgstr ""
+msgstr "Du kannst kein Mitleser werden"
 
 #: applications/subscriptions/controller/PhabricatorSubscriptionsEditController.php:62
 msgid "You can not subscribe to this object."
-msgstr ""
+msgstr "Du kannst kein Mitleser für Änderungen dieses Objektes werden."
 
 #: applications/subscriptions/controller/PhabricatorSubscriptionsTransactionController.php:59
 #, php-format
 msgid "All %d subscribers added by %s"
-msgstr ""
+msgstr "Alle %d Mitleser durch %s hinzugefügt"
 
 #: applications/subscriptions/controller/PhabricatorSubscriptionsTransactionController.php:65
 #, php-format
 msgid "All %d subscribers removed by %s"
-msgstr ""
+msgstr "Alle %d Mitleser durch %s entfernt"
 
 #: applications/subscriptions/controller/PhabricatorSubscriptionsListController.php:41
 #, php-format
 msgid "Subscribers for %s"
-msgstr ""
+msgstr "Mitleser von %s"
 
 #: applications/base/controller/PhabricatorController.php:108
 #, php-format
@@ -27002,7 +27002,7 @@ msgstr ""
 
 #: applications/audit/query/PhabricatorCommitSearchEngine.php:116
 msgid "All Commits"
-msgstr ""
+msgstr "Alle Commits"
 
 #: applications/audit/query/PhabricatorCommitSearchEngine.php:156
 msgid "Any"
@@ -27019,48 +27019,48 @@ msgstr ""
 #: applications/maniphest/storage/ManiphestTransaction.php:344
 #, php-format
 msgid "%s reopened this task as \"%s\"."
-msgstr ""
+msgstr "%s hat diese Aufgabe als \"%s\" wieder geöffnet."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:349
 #, php-format
 msgid "%s changed the task status from \"%s\" to \"%s\"."
-msgstr ""
+msgstr "%s hat den Aufgaben-Status von \"%s\" auf \"%s\" geändert."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:478
 #, php-format
 msgid "%s moved this task to %s on the %s workboard."
-msgstr ""
+msgstr "%s hat diese Aufgabe nach %s auf der %s Arbeitsfläche verschoben."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:541
 #, php-format
 msgid "%s reopened %s as \"%s\"."
-msgstr ""
+msgstr "%s hat %s als \"%s\" wieder geöffnet."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:547
 #, php-format
 msgid "%s changed the status of %s from \"%s\" to \"%s\"."
-msgstr ""
+msgstr "%s hat den Status von %s von \"%s\" nach \"%s\" geändert."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:685
 #, php-format
 msgid "%s moved %s to %s on the %s workboard."
-msgstr ""
+msgstr "%s hat %s nach %s auf der %s Arbeitsfläche verschoben."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:743
 msgid "The task already has the selected status."
-msgstr ""
+msgstr "Diese Aufgabe hat bereits den ausgewählten Status."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:745
 msgid "The task already has the selected owner."
-msgstr ""
+msgstr "Diese Aufgabe hat bereits den ausgewählten Autor."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:747
 msgid "The task is already associated with those projects."
-msgstr ""
+msgstr "Diese Aufgabe ist bereits mit den angegebenen Projekten verbunden."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:749
 msgid "The task already has the selected priority."
-msgstr ""
+msgstr "Die Aufgabe hat bereits die ausgewählte Priorität."
 
 #: applications/maniphest/application/PhabricatorApplicationManiphest.php:93
 msgid "Maniphest Task"
@@ -27068,15 +27068,15 @@ msgstr "Maniphest Aufgabe"
 
 #: applications/maniphest/mail/ManiphestReplyHandler.php:31
 msgid "Reply to comment or attach files, or !close, !claim, !unsubscribe or !assign <username>."
-msgstr ""
+msgstr "Per Email-Antwort kommentieren, Dateien anhängen, oder per !close die Aufgabe schließen,per !claim die Aufgabe an sich reißen, per !unsubscribe Benachrichtigungen abbestellen oder per !assign <username> die Aufgabe jemand anderem zuweisen."
 
 #: applications/maniphest/query/ManiphestTaskSearchEngine.php:370
 msgid "Updated After"
-msgstr ""
+msgstr "Danach geändert"
 
 #: applications/maniphest/query/ManiphestTaskSearchEngine.php:372
 msgid "Updated Before"
-msgstr ""
+msgstr "Davor geändert"
 
 #: applications/maniphest/controller/ManiphestTaskDetailController.php:154
 msgid "Change Status"
@@ -29445,11 +29445,11 @@ msgstr ""
 
 #: view/phui/calendar/PHUICalendarMonthView.php:215
 msgid "Previous Month"
-msgstr ""
+msgstr "Voriger Monat"
 
 #: view/phui/calendar/PHUICalendarMonthView.php:225
 msgid "Next Month"
-msgstr ""
+msgstr "Nächster Monat"
 
 #: view/phui/PHUITimelineEventView.php:287
 msgid "Comment Actions"
@@ -29457,24 +29457,24 @@ msgstr ""
 
 #: view/phui/PHUITimelineEventView.php:514
 msgid "Quote"
-msgstr ""
+msgstr "Zitat"
 
 #: view/phui/PHUITimelineEventView.php:553
 msgid "View Edit History"
-msgstr ""
+msgstr "Änderungshistorie zeigen"
 
 #: view/phui/PHUIObjectBoxView.php:92
 msgid "Changes saved."
-msgstr ""
+msgstr "Änderungen gespeichert."
 
 #: view/phui/PHUITimelineView.php:65
 #, php-format
 msgid "%s older changes(s) are hidden."
-msgstr ""
+msgstr "%s ältere Änderungen werden nicht angezeigt."
 
 #: view/phui/PHUITimelineView.php:74
 msgid "Show all changes."
-msgstr ""
+msgstr "Alle Änderungen zeigen."
 
 #: view/page/menu/PhabricatorMainMenuView.php:257
 msgid "Home"
@@ -29483,20 +29483,20 @@ msgstr ""
 #: view/page/menu/PhabricatorMainMenuView.php:303
 #, php-format
 msgid "%s unread messages."
-msgstr ""
+msgstr "%s ungelesene Nachrichten."
 
 #: view/page/menu/PhabricatorMainMenuView.php:306
 msgid "No messages."
-msgstr ""
+msgstr "Keine Nachrichten."
 
 #: view/page/menu/PhabricatorMainMenuView.php:379
 #, php-format
 msgid "%s unread notifications."
-msgstr ""
+msgstr "%s ungelesene Benachrichtigungen."
 
 #: view/page/menu/PhabricatorMainMenuView.php:382
 msgid "No notifications."
-msgstr ""
+msgstr "Keine Benachrichtigungen."
 
 #: view/page/PhabricatorStandardPageView.php:180
 msgid "Your session is in high security mode. When you finish using it, click here to leave."
