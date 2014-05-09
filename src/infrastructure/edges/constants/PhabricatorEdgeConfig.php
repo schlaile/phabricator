@@ -206,75 +206,75 @@ final class PhabricatorEdgeConfig extends PhabricatorEdgeConstants {
       case self::TYPE_TASK_HAS_COMMIT:
       case self::TYPE_PROJECT_HAS_COMMIT:
       case self::TYPE_DREV_HAS_COMMIT:
-        return '%s edited commit(s), added %d: %s; removed %d: %s.';
+	return pht('%s edited commit(s), added %d: %s; removed %d: %s.');
       case self::TYPE_COMMIT_HAS_TASK:
       case self::TYPE_TASK_DEPENDS_ON_TASK:
       case self::TYPE_TASK_DEPENDED_ON_BY_TASK:
       case self::TYPE_DREV_HAS_RELATED_TASK:
       case self::TYPE_MOCK_HAS_TASK:
-        return '%s edited task(s), added %d: %s; removed %d: %s.';
+        return pht('%s edited task(s), added %d: %s; removed %d: %s.');
       case self::TYPE_DREV_DEPENDS_ON_DREV:
       case self::TYPE_DREV_DEPENDED_ON_BY_DREV:
       case self::TYPE_TASK_HAS_RELATED_DREV:
       case self::TYPE_COMMIT_HAS_DREV:
       case self::TYPE_REVIEWER_FOR_DREV:
-        return '%s edited revision(s), added %d: %s; removed %d: %s.';
+        return pht('%s edited revision(s), added %d: %s; removed %d: %s.');
       case self::TYPE_BLOG_HAS_POST:
-        return '%s edited post(s), added %d: %s; removed %d: %s.';
+        return pht('%s edited post(s), added %d: %s; removed %d: %s.');
       case self::TYPE_POST_HAS_BLOG:
       case self::TYPE_BLOGGER_HAS_BLOG:
-        return '%s edited blog(s), added %d: %s; removed %d: %s.';
+        return pht('%s edited blog(s), added %d: %s; removed %d: %s.');
       case self::TYPE_BLOG_HAS_BLOGGER:
-        return '%s edited blogger(s), added %d: %s; removed %d: %s.';
+        return pht('%s edited blogger(s), added %d: %s; removed %d: %s.');
       case self::TYPE_PROJ_MEMBER:
-        return '%s edited member(s), added %d: %s; removed %d: %s.';
+        return pht('%s edited member(s), added %d: %s; removed %d: %s.');
       case self::TYPE_MEMBER_OF_PROJ:
       case self::TYPE_COMMIT_HAS_PROJECT:
       case self::TYPE_OBJECT_HAS_PROJECT:
-        return '%s edited project(s), added %d: %s; removed %d: %s.';
+        return pht('%s edited project(s), added %d: %s; removed %d: %s.');
       case self::TYPE_QUESTION_HAS_VOTING_USER:
       case self::TYPE_ANSWER_HAS_VOTING_USER:
-        return '%s edited voting user(s), added %d: %s; removed %d: %s.';
+        return pht('%s edited voting user(s), added %d: %s; removed %d: %s.');
       case self::TYPE_VOTING_USER_HAS_QUESTION:
-        return '%s edited question(s), added %d: %s; removed %d: %s.';
+        return pht('%s edited question(s), added %d: %s; removed %d: %s.');
       case self::TYPE_VOTING_USER_HAS_ANSWER:
-        return '%s edited answer(s), added %d: %s; removed %d: %s.';
+        return pht('%s edited answer(s), added %d: %s; removed %d: %s.');
       case self::TYPE_OBJECT_HAS_SUBSCRIBER:
-        return '%s edited subscriber(s), added %d: %s; removed %d: %s.';
+        return pht('%s edited subscriber(s), added %d: %s; removed %d: %s.');
       case self::TYPE_SUBSCRIBED_TO_OBJECT:
       case self::TYPE_UNSUBSCRIBED_FROM_OBJECT:
       case self::TYPE_FILE_HAS_OBJECT:
       case self::TYPE_CONTRIBUTED_TO_OBJECT:
       case self::TYPE_PROJECT_HAS_OBJECT:
-        return '%s edited object(s), added %d: %s; removed %d: %s.';
+        return pht('%s edited object(s), added %d: %s; removed %d: %s.');
       case self::TYPE_OBJECT_HAS_UNSUBSCRIBER:
-        return '%s edited unsubcriber(s), added %d: %s; removed %d: %s.';
+        return pht('%s edited unsubcriber(s), added %d: %s; removed %d: %s.');
       case self::TYPE_OBJECT_HAS_FILE:
-        return '%s edited file(s), added %d: %s; removed %d: %s.';
+        return pht('%s edited file(s), added %d: %s; removed %d: %s.');
       case self::TYPE_ACCOUNT_HAS_MEMBER:
-        return '%s edited member(s), added %d: %s; removed %d: %s.';
+        return pht('%s edited member(s), added %d: %s; removed %d: %s.');
       case self::TYPE_MEMBER_HAS_ACCOUNT:
-        return '%s edited account(s), added %d: %s; removed %d: %s.';
+        return pht('%s edited account(s), added %d: %s; removed %d: %s.');
       case self::TYPE_PURCAHSE_HAS_CHARGE:
-        return '%s edited charge(s), added %d: %s; removed %d: %s.';
+        return pht('%s edited charge(s), added %d: %s; removed %d: %s.');
       case self::TYPE_CHARGE_HAS_PURCHASE:
-        return '%s edited purchase(s), added %d: %s; removed %d: %s.';
+        return pht('%s edited purchase(s), added %d: %s; removed %d: %s.');
       case self::TYPE_OBJECT_HAS_CONTRIBUTOR:
-        return '%s edited contributor(s), added %d: %s; removed %d: %s.';
+        return pht('%s edited contributor(s), added %d: %s; removed %d: %s.');
       case self::TYPE_DREV_HAS_REVIEWER:
-        return '%s edited reviewer(s), added %d: %s; removed %d: %s.';
+        return pht('%s edited reviewer(s), added %d: %s; removed %d: %s.');
       case self::TYPE_TASK_HAS_MOCK:
-        return '%s edited mock(s), added %d: %s; removed %d: %s.';
+        return pht('%s edited mock(s), added %d: %s; removed %d: %s.');
       case self::TYPE_DASHBOARD_HAS_PANEL:
-        return '%s edited panel(s), added %d: %s; removed %d: %s.';
+        return pht('%s edited panel(s), added %d: %s; removed %d: %s.');
       case self::TYPE_PANEL_HAS_DASHBOARD:
-        return '%s edited dashboard(s), added %d: %s; removed %d: %s.';
+        return pht('%s edited dashboard(s), added %d: %s; removed %d: %s.');
       case self::TYPE_SUBSCRIBED_TO_OBJECT:
       case self::TYPE_UNSUBSCRIBED_FROM_OBJECT:
       case self::TYPE_FILE_HAS_OBJECT:
       case self::TYPE_CONTRIBUTED_TO_OBJECT:
       default:
-        return '%s edited object(s), added %d: %s; removed %d: %s.';
+        return pht('%s edited object(s), added %d: %s; removed %d: %s.');
 
     }
   }
@@ -284,72 +284,72 @@ final class PhabricatorEdgeConfig extends PhabricatorEdgeConstants {
       case self::TYPE_TASK_HAS_COMMIT:
       case self::TYPE_PROJECT_HAS_COMMIT:
       case self::TYPE_DREV_HAS_COMMIT:
-        return '%s added %d commit(s): %s.';
+        return pht('%s added %d commit(s): %s.');
       case self::TYPE_TASK_DEPENDS_ON_TASK:
-        return '%s added %d dependencie(s): %s.';
+        return pht('%s added %d dependencie(s): %s.');
       case self::TYPE_TASK_DEPENDED_ON_BY_TASK:
-        return '%s added %d dependent task(s): %s.';
+        return pht('%s added %d dependent task(s): %s.');
       case self::TYPE_COMMIT_HAS_TASK:
       case self::TYPE_DREV_HAS_RELATED_TASK:
       case self::TYPE_MOCK_HAS_TASK:
-        return '%s added %d task(s): %s.';
+        return pht('%s added %d task(s): %s.');
       case self::TYPE_DREV_DEPENDS_ON_DREV:
       case self::TYPE_DREV_DEPENDED_ON_BY_DREV:
       case self::TYPE_TASK_HAS_RELATED_DREV:
       case self::TYPE_COMMIT_HAS_DREV:
       case self::TYPE_REVIEWER_FOR_DREV:
-        return '%s added %d revision(s): %s.';
+        return pht('%s added %d revision(s): %s.');
       case self::TYPE_BLOG_HAS_POST:
-        return '%s added %d post(s): %s.';
+        return pht('%s added %d post(s): %s.');
       case self::TYPE_POST_HAS_BLOG:
       case self::TYPE_BLOGGER_HAS_BLOG:
-        return '%s added %d blog(s): %s.';
+        return pht('%s added %d blog(s): %s.');
       case self::TYPE_BLOG_HAS_BLOGGER:
-        return '%s added %d blogger(s): %s.';
+        return pht('%s added %d blogger(s): %s.');
       case self::TYPE_PROJ_MEMBER:
-        return '%s added %d member(s): %s.';
+        return pht('%s added %d member(s): %s.');
       case self::TYPE_MEMBER_OF_PROJ:
       case self::TYPE_COMMIT_HAS_PROJECT:
       case self::TYPE_OBJECT_HAS_PROJECT:
-        return '%s added %d project(s): %s.';
+        return pht('%s added %d project(s): %s.');
       case self::TYPE_QUESTION_HAS_VOTING_USER:
       case self::TYPE_ANSWER_HAS_VOTING_USER:
-        return '%s added %d voting user(s): %s.';
+        return pht('%s added %d voting user(s): %s.');
       case self::TYPE_VOTING_USER_HAS_QUESTION:
-        return '%s added %d question(s): %s.';
+        return pht('%s added %d question(s): %s.');
       case self::TYPE_VOTING_USER_HAS_ANSWER:
-        return '%s added %d answer(s): %s.';
+        return pht('%s added %d answer(s): %s.');
       case self::TYPE_OBJECT_HAS_SUBSCRIBER:
-        return '%s added %d subscriber(s): %s.';
+        return pht('%s added %d subscriber(s): %s.');
       case self::TYPE_OBJECT_HAS_UNSUBSCRIBER:
-        return '%s added %d unsubcriber(s): %s.';
+        return pht('%s added %d unsubcriber(s): %s.');
       case self::TYPE_OBJECT_HAS_FILE:
-        return '%s added %d file(s): %s.';
+        return pht('%s added %d file(s): %s.');
       case self::TYPE_ACCOUNT_HAS_MEMBER:
-        return '%s added %d member(s): %s.';
+        return pht('%s added %d member(s): %s.');
       case self::TYPE_MEMBER_HAS_ACCOUNT:
-        return '%s added %d account(s): %s.';
+        return pht('%s added %d account(s): %s.');
       case self::TYPE_PURCAHSE_HAS_CHARGE:
-        return '%s added %d charge(s): %s.';
+        return pht('%s added %d charge(s): %s.');
       case self::TYPE_CHARGE_HAS_PURCHASE:
-        return '%s added %d purchase(s): %s.';
+        return pht('%s added %d purchase(s): %s.');
       case self::TYPE_OBJECT_HAS_CONTRIBUTOR:
-        return '%s added %d contributor(s): %s.';
+        return pht('%s added %d contributor(s): %s.');
       case self::TYPE_DREV_HAS_REVIEWER:
-        return '%s added %d reviewer(s): %s.';
+        return pht('%s added %d reviewer(s): %s.');
       case self::TYPE_TASK_HAS_MOCK:
-        return '%s added %d mock(s): %s.';
+        return pht('%s added %d mock(s): %s.');
       case self::TYPE_DASHBOARD_HAS_PANEL:
-        return '%s added %d panel(s): %s.';
+        return pht('%s added %d panel(s): %s.');
       case self::TYPE_PANEL_HAS_DASHBOARD:
-        return '%s added %d dashboard(s): %s.';
+        return pht('%s added %d dashboard(s): %s.');
       case self::TYPE_SUBSCRIBED_TO_OBJECT:
       case self::TYPE_UNSUBSCRIBED_FROM_OBJECT:
       case self::TYPE_FILE_HAS_OBJECT:
       case self::TYPE_CONTRIBUTED_TO_OBJECT:
       case self::TYPE_PROJECT_HAS_OBJECT:
       default:
-        return '%s added %d object(s): %s.';
+        return pht('%s added %d object(s): %s.');
 
     }
   }
@@ -359,72 +359,72 @@ final class PhabricatorEdgeConfig extends PhabricatorEdgeConstants {
       case self::TYPE_TASK_HAS_COMMIT:
       case self::TYPE_PROJECT_HAS_COMMIT:
       case self::TYPE_DREV_HAS_COMMIT:
-        return '%s removed %d commit(s): %s.';
+        return pht('%s removed %d commit(s): %s.');
       case self::TYPE_TASK_DEPENDS_ON_TASK:
-        return '%s removed %d dependencie(s): %s.';
+        return pht('%s removed %d dependencie(s): %s.');
       case self::TYPE_TASK_DEPENDED_ON_BY_TASK:
-        return '%s removed %d dependent task(s): %s.';
+        return pht('%s removed %d dependent task(s): %s.');
       case self::TYPE_COMMIT_HAS_TASK:
       case self::TYPE_DREV_HAS_RELATED_TASK:
       case self::TYPE_MOCK_HAS_TASK:
-        return '%s removed %d task(s): %s.';
+        return pht('%s removed %d task(s): %s.');
       case self::TYPE_DREV_DEPENDS_ON_DREV:
       case self::TYPE_DREV_DEPENDED_ON_BY_DREV:
       case self::TYPE_TASK_HAS_RELATED_DREV:
       case self::TYPE_COMMIT_HAS_DREV:
       case self::TYPE_REVIEWER_FOR_DREV:
-        return '%s removed %d revision(s): %s.';
+        return pht('%s removed %d revision(s): %s.');
       case self::TYPE_BLOG_HAS_POST:
-        return '%s removed %d post(s): %s.';
+        return pht('%s removed %d post(s): %s.');
       case self::TYPE_POST_HAS_BLOG:
       case self::TYPE_BLOGGER_HAS_BLOG:
-        return '%s removed %d blog(s): %s.';
+        return pht('%s removed %d blog(s): %s.');
       case self::TYPE_BLOG_HAS_BLOGGER:
-        return '%s removed %d blogger(s): %s.';
+        return pht('%s removed %d blogger(s): %s.');
       case self::TYPE_PROJ_MEMBER:
-        return '%s removed %d member(s): %s.';
+        return pht('%s removed %d member(s): %s.');
       case self::TYPE_MEMBER_OF_PROJ:
       case self::TYPE_COMMIT_HAS_PROJECT:
       case self::TYPE_OBJECT_HAS_PROJECT:
-        return '%s removed %d project(s): %s.';
+        return pht('%s removed %d project(s): %s.');
       case self::TYPE_QUESTION_HAS_VOTING_USER:
       case self::TYPE_ANSWER_HAS_VOTING_USER:
-        return '%s removed %d voting user(s): %s.';
+        return pht('%s removed %d voting user(s): %s.');
       case self::TYPE_VOTING_USER_HAS_QUESTION:
-        return '%s removed %d question(s): %s.';
+        return pht('%s removed %d question(s): %s.');
       case self::TYPE_VOTING_USER_HAS_ANSWER:
-        return '%s removed %d answer(s): %s.';
+        return pht('%s removed %d answer(s): %s.');
       case self::TYPE_OBJECT_HAS_SUBSCRIBER:
-        return '%s removed %d subscriber(s): %s.';
+        return pht('%s removed %d subscriber(s): %s.');
       case self::TYPE_OBJECT_HAS_UNSUBSCRIBER:
-        return '%s removed %d unsubcriber(s): %s.';
+        return pht('%s removed %d unsubcriber(s): %s.');
       case self::TYPE_OBJECT_HAS_FILE:
-        return '%s removed %d file(s): %s.';
+        return pht('%s removed %d file(s): %s.');
       case self::TYPE_ACCOUNT_HAS_MEMBER:
-        return '%s removed %d member(s): %s.';
+        return pht('%s removed %d member(s): %s.');
       case self::TYPE_MEMBER_HAS_ACCOUNT:
-        return '%s removed %d account(s): %s.';
+        return pht('%s removed %d account(s): %s.');
       case self::TYPE_PURCAHSE_HAS_CHARGE:
-        return '%s removed %d charge(s): %s.';
+        return pht('%s removed %d charge(s): %s.');
       case self::TYPE_CHARGE_HAS_PURCHASE:
-        return '%s removed %d purchase(s): %s.';
+        return pht('%s removed %d purchase(s): %s.');
       case self::TYPE_OBJECT_HAS_CONTRIBUTOR:
-        return '%s removed %d contributor(s): %s.';
+        return pht('%s removed %d contributor(s): %s.');
       case self::TYPE_DREV_HAS_REVIEWER:
-        return '%s removed %d reviewer(s): %s.';
+        return pht('%s removed %d reviewer(s): %s.');
       case self::TYPE_TASK_HAS_MOCK:
-        return '%s removed %d mock(s): %s.';
+        return pht('%s removed %d mock(s): %s.');
       case self::TYPE_DASHBOARD_HAS_PANEL:
-        return '%s removed %d panel(s): %s.';
+        return pht('%s removed %d panel(s): %s.');
       case self::TYPE_PANEL_HAS_DASHBOARD:
-        return '%s removed %d dashboard(s): %s.';
+        return pht('%s removed %d dashboard(s): %s.');
       case self::TYPE_SUBSCRIBED_TO_OBJECT:
       case self::TYPE_UNSUBSCRIBED_FROM_OBJECT:
       case self::TYPE_FILE_HAS_OBJECT:
       case self::TYPE_CONTRIBUTED_TO_OBJECT:
       case self::TYPE_PROJECT_HAS_OBJECT:
       default:
-        return '%s removed %d object(s): %s.';
+        return pht('%s removed %d object(s): %s.');
 
     }
   }
@@ -434,70 +434,70 @@ final class PhabricatorEdgeConfig extends PhabricatorEdgeConstants {
       case self::TYPE_TASK_HAS_COMMIT:
       case self::TYPE_PROJECT_HAS_COMMIT:
       case self::TYPE_DREV_HAS_COMMIT:
-        return '%s updated commits of %s.';
+        return pht('%s updated commits of %s.');
       case self::TYPE_COMMIT_HAS_TASK:
       case self::TYPE_TASK_DEPENDS_ON_TASK:
       case self::TYPE_TASK_DEPENDED_ON_BY_TASK:
       case self::TYPE_DREV_HAS_RELATED_TASK:
       case self::TYPE_MOCK_HAS_TASK:
-        return '%s updated tasks of %s.';
+        return pht('%s updated tasks of %s.');
       case self::TYPE_DREV_DEPENDS_ON_DREV:
       case self::TYPE_DREV_DEPENDED_ON_BY_DREV:
       case self::TYPE_TASK_HAS_RELATED_DREV:
       case self::TYPE_COMMIT_HAS_DREV:
       case self::TYPE_REVIEWER_FOR_DREV:
-        return '%s updated revisions of %s.';
+        return pht('%s updated revisions of %s.');
       case self::TYPE_BLOG_HAS_POST:
-        return '%s updated posts of %s.';
+        return pht('%s updated posts of %s.');
       case self::TYPE_POST_HAS_BLOG:
       case self::TYPE_BLOGGER_HAS_BLOG:
-        return '%s updated blogs of %s.';
+        return pht('%s updated blogs of %s.');
       case self::TYPE_BLOG_HAS_BLOGGER:
-        return '%s updated bloggers of %s.';
+        return pht('%s updated bloggers of %s.');
       case self::TYPE_PROJ_MEMBER:
-        return '%s updated members of %s.';
+        return pht('%s updated members of %s.');
       case self::TYPE_MEMBER_OF_PROJ:
       case self::TYPE_COMMIT_HAS_PROJECT:
       case self::TYPE_OBJECT_HAS_PROJECT:
-        return '%s updated projects of %s.';
+        return pht('%s updated projects of %s.');
       case self::TYPE_QUESTION_HAS_VOTING_USER:
       case self::TYPE_ANSWER_HAS_VOTING_USER:
-        return '%s updated voting users of %s.';
+        return pht('%s updated voting users of %s.');
       case self::TYPE_VOTING_USER_HAS_QUESTION:
-        return '%s updated questions of %s.';
+        return pht('%s updated questions of %s.');
       case self::TYPE_VOTING_USER_HAS_ANSWER:
-        return '%s updated answers of %s.';
+        return pht('%s updated answers of %s.');
       case self::TYPE_OBJECT_HAS_SUBSCRIBER:
-        return '%s updated subscribers of %s.';
+        return pht('%s updated subscribers of %s.');
       case self::TYPE_OBJECT_HAS_UNSUBSCRIBER:
-        return '%s updated unsubcribers of %s.';
+        return pht('%s updated unsubcribers of %s.');
       case self::TYPE_OBJECT_HAS_FILE:
-        return '%s updated files of %s.';
+        return pht('%s updated files of %s.');
       case self::TYPE_ACCOUNT_HAS_MEMBER:
-        return '%s updated members of %s.';
+        return pht('%s updated members of %s.');
       case self::TYPE_MEMBER_HAS_ACCOUNT:
-        return '%s updated accounts of %s.';
+        return pht('%s updated accounts of %s.');
       case self::TYPE_PURCAHSE_HAS_CHARGE:
-        return '%s updated charges of %s.';
+        return pht('%s updated charges of %s.');
       case self::TYPE_CHARGE_HAS_PURCHASE:
-        return '%s updated purchases of %s.';
+        return pht('%s updated purchases of %s.');
       case self::TYPE_OBJECT_HAS_CONTRIBUTOR:
-        return '%s updated contributors of %s.';
+        return pht('%s updated contributors of %s.');
       case self::TYPE_DREV_HAS_REVIEWER:
-        return '%s updated reviewers of %s.';
+        return pht('%s updated reviewers of %s.');
       case self::TYPE_TASK_HAS_MOCK:
-        return '%s updated mocks of %s.';
+        return pht('%s updated mocks of %s.');
       case self::TYPE_PANEL_HAS_DASHBOARD:
-        return '%s updated panels for %s.';
+        return pht('%s updated panels for %s.');
       case self::TYPE_PANEL_HAS_DASHBOARD:
-        return '%s updated dashboards for %s.';
+        return pht('%s updated dashboards for %s.');
       case self::TYPE_SUBSCRIBED_TO_OBJECT:
       case self::TYPE_UNSUBSCRIBED_FROM_OBJECT:
       case self::TYPE_FILE_HAS_OBJECT:
       case self::TYPE_CONTRIBUTED_TO_OBJECT:
       case self::TYPE_PROJECT_HAS_OBJECT:
       default:
-        return '%s updated objects of %s.';
+        return pht('%s updated objects of %s.');
 
     }
   }
