@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-07 22:00+0200\n"
-"PO-Revision-Date: 2014-05-09 19:51+0100\n"
+"PO-Revision-Date: 2014-05-17 11:56+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: German <peter@schlaile.de>\n"
 "Language: \n"
@@ -9719,12 +9719,12 @@ msgstr ""
 
 #: applications/legalpad/editor/LegalpadDocumentEditor.php:175
 msgid "DOCUMENT DETAIL"
-msgstr ""
+msgstr "Dokumenten Details"
 
 #: applications/oauthserver/query/PhabricatorOAuthServerClientSearchEngine.php:42
 #: applications/legalpad/query/LegalpadDocumentSearchEngine.php:62
 msgid "Creators"
-msgstr ""
+msgstr "Autoren"
 
 #: applications/legalpad/query/LegalpadDocumentSearchEngine.php:68
 #: applications/legalpad/controller/LegalpadDocumentViewController.php:192
@@ -9734,17 +9734,17 @@ msgstr ""
 #: applications/search/query/PhabricatorSearchApplicationSearchEngine.php:166
 #: applications/legalpad/query/LegalpadDocumentSearchEngine.php:87
 msgid "All Documents"
-msgstr ""
+msgstr "Alle Dokumente"
 
 #: applications/legalpad/storage/LegalpadTransaction.php:46
 #, php-format
 msgid "%s renamed this document from \"%s\" to \"%s\"."
-msgstr ""
+msgstr "%s hat das Dokument von \"%s\" nach \"%s\" umbenannt."
 
 #: applications/legalpad/storage/LegalpadTransaction.php:53
 #, php-format
 msgid "%s updated the document's text."
-msgstr ""
+msgstr "%s hat den Text des Dokumentes geändert."
 
 #: applications/legalpad/storage/LegalpadDocument.php:142
 msgid "The author of a document can always view and edit it."
@@ -9807,7 +9807,7 @@ msgstr "Eine gültige Emailadresse ist erforderlich."
 
 #: applications/legalpad/controller/LegalpadDocumentSignController.php:122
 msgid "Address line 1 field is required."
-msgstr ""
+msgstr "Anschriftzeile 1 ist ein Pflichtfeld."
 
 #: applications/legalpad/controller/LegalpadDocumentSignController.php:131
 msgid "You must check \"I agree to the terms laid forth above.\""
@@ -9823,40 +9823,40 @@ msgstr ""
 #: applications/legalpad/controller/LegalpadDocumentSignController.php:226
 #: applications/legalpad/controller/LegalpadDocumentSignController.php:290
 msgid "Thank you for signing and agreeing."
-msgstr ""
+msgstr "Vielen Dank für die Gegenzeichnung!"
 
 #: applications/legalpad/controller/LegalpadDocumentSignController.php:228
 msgid "Please enter the following information."
-msgstr ""
+msgstr "Gib bitte die folgenden Daten an:"
 
 #: applications/legalpad/controller/LegalpadDocumentSignController.php:277
 #: applications/legalpad/controller/LegalpadDocumentSignController.php:281
 msgid "Sign and Agree"
-msgstr ""
+msgstr "Unterschreiben und Zustimmen"
 
 #: applications/legalpad/controller/LegalpadDocumentSignController.php:250
 msgid "Address line 1"
-msgstr ""
+msgstr "Anschrift Zeile 1"
 
 #: applications/legalpad/controller/LegalpadDocumentSignController.php:257
 msgid "Address line 2"
-msgstr ""
+msgstr "Anschrift Zeile 2"
 
 #: applications/legalpad/controller/LegalpadDocumentSignController.php:263
 msgid "Phone"
-msgstr ""
+msgstr "Telefon"
 
 #: applications/legalpad/controller/LegalpadDocumentSignController.php:272
 msgid "I agree to the terms laid forth above."
-msgstr ""
+msgstr "Ich stimme den obigen Bestimmungen zu."
 
 #: applications/legalpad/controller/LegalpadDocumentEditController.php:61
 msgid "The document title may not be blank."
-msgstr ""
+msgstr "Der Dokumententitel darf nicht leer sein."
 
 #: applications/legalpad/controller/LegalpadDocumentEditController.php:71
 msgid "The document may not be blank."
-msgstr ""
+msgstr "Das Dokument darf nicht leer sein."
 
 msgid "A Fatal Omission!"
 msgstr ""
@@ -9866,22 +9866,22 @@ msgstr ""
 #: applications/legalpad/controller/LegalpadDocumentEditController.php:118
 #: infrastructure/celerity/management/CelerityManagementMapWorkflow.php:103
 msgid "Text"
-msgstr ""
+msgstr "Text"
 
 #: applications/legalpad/controller/LegalpadDocumentEditController.php:152
 #: applications/legalpad/controller/LegalpadDocumentEditController.php:155
 msgid "Update Document"
-msgstr ""
+msgstr "Dokument ändern"
 
 #: applications/phriction/controller/PhrictionEditController.php:230
 #: applications/legalpad/controller/LegalpadDocumentEditController.php:181
 msgid "Document Preview"
-msgstr ""
+msgstr "Dokumentenvorschau"
 
 #: applications/legalpad/controller/LegalpadDocumentListController.php:50
 #, php-format
 msgid "Last updated: %s"
-msgstr ""
+msgstr "Zulest geändert: %s"
 
 #: applications/legalpad/controller/LegalpadDocumentListController.php:51
 #, php-format
@@ -9915,71 +9915,71 @@ msgstr ""
 
 #: applications/policy/rule/PhabricatorPolicyRuleUsers.php:7
 msgid "users"
-msgstr ""
+msgstr "Benutzer"
 
 #: applications/policy/rule/PhabricatorPolicyRuleAdministrators.php:7
 msgid "administrators"
-msgstr ""
+msgstr "Administratoren"
 
 #: applications/policy/rule/PhabricatorPolicyRuleProjects.php:9
 msgid "members of projects"
-msgstr ""
+msgstr "Teilnehmer des Projektes"
 
 #: applications/policy/rule/PhabricatorPolicyRuleLunarPhase.php:12
 msgid "when the moon"
-msgstr ""
+msgstr "wenn der Mond..."
 
 #: applications/policy/rule/PhabricatorPolicyRuleLunarPhase.php:39
 msgid "is full"
-msgstr ""
+msgstr "voll ist"
 
 #: applications/policy/rule/PhabricatorPolicyRuleLunarPhase.php:40
 msgid "is new"
-msgstr ""
+msgstr "neu ist"
 
 #: applications/policy/rule/PhabricatorPolicyRuleLunarPhase.php:41
 msgid "is waxing"
-msgstr ""
+msgstr "zunimmt"
 
 #: applications/policy/rule/PhabricatorPolicyRuleLunarPhase.php:42
 msgid "is waning"
-msgstr ""
+msgstr "abnimmt"
 
 #: applications/policy/capability/PhabricatorPolicyCapabilityCanView.php:11
 msgid "Can View"
-msgstr ""
+msgstr "Darf sehen"
 
 #: applications/policy/capability/PhabricatorPolicyCapabilityCanView.php:15
 msgid "You do not have permission to view this object."
-msgstr ""
+msgstr "Du hast leider keine Berechtigung, dieses Objekt anzusehen."
 
 #: applications/policy/capability/PhabricatorPolicyCapabilityCanEdit.php:11
 msgid "Can Edit"
-msgstr ""
+msgstr "Darf ändern"
 
 #: applications/policy/capability/PhabricatorPolicyCapabilityCanEdit.php:15
 msgid "You do not have permission to edit this object."
-msgstr ""
+msgstr "Du hast leider keine Berechtigung, dieses Objekt zu verändern."
 
 #: applications/policy/capability/PhabricatorPolicyCapabilityCanJoin.php:11
 msgid "Can Join"
-msgstr ""
+msgstr "Darf mitlesen"
 
 #: applications/policy/capability/PhabricatorPolicyCapabilityCanJoin.php:15
 msgid "You do not have permission to join this object."
-msgstr ""
+msgstr "Du hast leider keine Berechtigung, Dich an diesem Objekt zu beteiligen."
 
 #: applications/policy/query/PhabricatorPolicyQuery.php:160
 msgid "Public (No Login Required)"
-msgstr ""
+msgstr "Öffentlich (Ohne Login zugänglich!)"
 
 #: applications/policy/query/PhabricatorPolicyQuery.php:162
 msgid "All Users"
-msgstr ""
+msgstr "Alle Benutzer"
 
 #: applications/policy/query/PhabricatorPolicyQuery.php:164
 msgid "Administrators"
-msgstr ""
+msgstr "Administratoren"
 
 #: applications/policy/query/PhabricatorPolicyQuery.php:166
 msgid "No One"
@@ -23424,7 +23424,7 @@ msgstr "Diesen Kommentar wirklich entfernen?"
 
 #: applications/transactions/controller/PhabricatorApplicationTransactionDetailController.php:29
 msgid "Change Details"
-msgstr "Details Ändern"
+msgstr "Änderungen im Detail"
 
 #: applications/transactions/controller/PhabricatorApplicationTransactionValueController.php:104
 msgid "These rules are processed in order:"
@@ -27006,15 +27006,15 @@ msgstr "Alle Commits"
 
 #: applications/audit/query/PhabricatorCommitSearchEngine.php:156
 msgid "Any"
-msgstr ""
+msgstr "Beliebig"
 
 #: applications/maniphest/storage/ManiphestTransaction.php:198
 msgid "Changed Status"
-msgstr ""
+msgstr "Status verändert"
 
 #: applications/maniphest/storage/ManiphestTransaction.php:222
 msgid "Changed Project Column"
-msgstr ""
+msgstr "Projekt-Spalte verändert"
 
 #: applications/maniphest/storage/ManiphestTransaction.php:344
 #, php-format
@@ -27080,7 +27080,7 @@ msgstr "Davor geändert"
 
 #: applications/maniphest/controller/ManiphestTaskDetailController.php:154
 msgid "Change Status"
-msgstr ""
+msgstr "Status ändern"
 
 #: applications/maniphest/controller/ManiphestReportController.php:248
 msgid "NOTE: This table reflects tasks currently in the project. If a task was opened in the past but added to the project recently, it is counted on the day it was opened, not the day it was categorized. If a task was part of this project in the past but no longer is, it is not counted at all."
@@ -27088,17 +27088,17 @@ msgstr ""
 
 #: applications/maniphest/config/PhabricatorManiphestConfigOptions.php:251
 msgid "Configure Maniphest task statuses."
-msgstr ""
+msgstr "Konfiguration des Maniphest-Aufgaben-Status-Feldes."
 
 #: applications/maniphest/config/PhabricatorManiphestConfigOptions.php:253
 #: applications/maniphest/constants/__tests__/ManiphestTaskStatusTestCase.php:51
 msgid "Minimal Valid Config"
-msgstr ""
+msgstr "Minimale, gültige Konfiguration"
 
 #: applications/maniphest/constants/ManiphestTaskStatus.php:42
 #: applications/maniphest/constants/ManiphestTaskStatus.php:51
 msgid "Unknown Status"
-msgstr ""
+msgstr "Unbekannter Status"
 
 #: applications/maniphest/constants/ManiphestTaskStatus.php:207
 #, php-format
@@ -29402,7 +29402,7 @@ msgstr "Projekt archivieren"
 
 #: applications/project/controller/PhabricatorProjectEditMainController.php:91
 msgid "Edit Details"
-msgstr "Details ändern"
+msgstr "Änderungen im Detail"
 
 #: applications/project/config/PhabricatorProjectConfigOptions.php:11
 msgid "Configure Projects."
