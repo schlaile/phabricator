@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-07 22:00+0200\n"
-"PO-Revision-Date: 2014-05-17 11:56+0100\n"
+"PO-Revision-Date: 2014-05-17 13:20+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: German <peter@schlaile.de>\n"
 "Language: \n"
@@ -10352,7 +10352,7 @@ msgstr "Der neue Pfad des Dokuments."
 #: applications/phriction/controller/PhrictionEditController.php:215
 #: applications/phriction/controller/PhrictionMoveController.php:131
 msgid "Edit Notes"
-msgstr "Notizen ändern"
+msgstr "Notizen zur Änderung"
 
 #: applications/phriction/controller/PhrictionDocumentController.php:294
 #: applications/phriction/controller/PhrictionMoveController.php:138
