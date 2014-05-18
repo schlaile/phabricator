@@ -15,12 +15,18 @@ extends PhutilCustomTranslator {
   }
   
   final public function plural_translate($text, $variant) {
-    if (is_int($variant)) {
-      return dngettext("phabricator", 
-                       $text[0][0], $text[0][1], $variant);
-    } else {
-      return dgettext("phabricator", $text[0][0]);
+    $t = $text;
+    if (is_array($t[0])) {
+      $t = $t[0];
     }
+
+    if (is_int($variant)) {
+      $r = dngettext("phabricator", $t[0], $t[1], $variant);
+    } else {
+      $r = dgettext("phabricator", $t[0]);
+    }
+
+    return $r;
   }
 }
 
