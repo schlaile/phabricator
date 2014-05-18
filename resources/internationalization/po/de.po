@@ -7,17 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-07 22:00+0200\n"
-"PO-Revision-Date: 2014-05-17 13:20+0100\n"
+"POT-Creation-Date: 2014-05-18 07:31+0200\n"
+"PO-Revision-Date: 2014-05-18 07:41+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: German <peter@schlaile.de>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-Language: GERMAN\n"
-"X-Poedit-Country: Germany\n"
-"X-Poedit-SourceCharset: UTF-8\n"
 
 #: applications/diffusion/controller/DiffusionRepositoryEditDeleteController.php:52
 #: view/AphrontDialogView.php:72
@@ -6234,16 +6231,19 @@ msgid "%s changed the join policy of this %s from \"%s\" to \"%s\"."
 msgstr ""
 
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:562
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:243
 #, php-format
 msgid "%s edited subscriber(s), added %d: %s; removed %d: %s."
 msgstr "%s hat die Mitleser verändert, %d hinzugefügt: %s, %d entfernt: %s."
 
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:570
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:323
 #, php-format
 msgid "%s added %d subscriber(s): %s."
 msgstr "%s hat %d Mitleser hinzugefügt: %s."
 
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:576
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:398
 #, php-format
 msgid "%s removed %d subscriber(s): %s."
 msgstr "%s hat %d Mitleser entfernt: %s."
@@ -6284,6 +6284,7 @@ msgid "%s changed the join policy for %s."
 msgstr "%s hat die Rechte zum Zusammenführen von %s verändert."
 
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:706
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:471
 #, php-format
 msgid "%s updated subscribers of %s."
 msgstr "%s hat die Mitleser von %s verändert."
@@ -29872,5 +29873,470 @@ msgstr ""
 
 #: aphront/configuration/AphrontDefaultApplicationConfiguration.php:160
 msgid "Enter High Security"
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:209
+#, php-format
+msgid "%s edited commit(s), added %d: %s; removed %d: %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:215
+#, php-format
+msgid "%s edited task(s), added %d: %s; removed %d: %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:221
+#, php-format
+msgid "%s edited revision(s), added %d: %s; removed %d: %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:223
+#, php-format
+msgid "%s edited post(s), added %d: %s; removed %d: %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:226
+#, php-format
+msgid "%s edited blog(s), added %d: %s; removed %d: %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:228
+#, php-format
+msgid "%s edited blogger(s), added %d: %s; removed %d: %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:230
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:255
+#, php-format
+msgid "%s edited member(s), added %d: %s; removed %d: %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:234
+#, php-format
+msgid "%s edited project(s), added %d: %s; removed %d: %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:237
+#, php-format
+msgid "%s edited voting user(s), added %d: %s; removed %d: %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:239
+#, php-format
+msgid "%s edited question(s), added %d: %s; removed %d: %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:241
+#, php-format
+msgid "%s edited answer(s), added %d: %s; removed %d: %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:249
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:277
+#, php-format
+msgid "%s edited object(s), added %d: %s; removed %d: %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:251
+#, php-format
+msgid "%s edited unsubcriber(s), added %d: %s; removed %d: %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:253
+#, php-format
+msgid "%s edited file(s), added %d: %s; removed %d: %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:257
+#, php-format
+msgid "%s edited account(s), added %d: %s; removed %d: %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:259
+#, php-format
+msgid "%s edited charge(s), added %d: %s; removed %d: %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:261
+#, php-format
+msgid "%s edited purchase(s), added %d: %s; removed %d: %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:263
+#, php-format
+msgid "%s edited contributor(s), added %d: %s; removed %d: %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:265
+#, php-format
+msgid "%s edited reviewer(s), added %d: %s; removed %d: %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:267
+#, php-format
+msgid "%s edited mock(s), added %d: %s; removed %d: %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:269
+#, php-format
+msgid "%s edited panel(s), added %d: %s; removed %d: %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:271
+#, php-format
+msgid "%s edited dashboard(s), added %d: %s; removed %d: %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:287
+#, php-format
+msgid "%s added %d commit(s): %s."
+msgstr "%s hat %d Commits hinzugefügt: %s."
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:289
+#, php-format
+msgid "%s added %d dependencie(s): %s."
+msgstr "%s hat %d Abhängigkeiten hinzugefügt: %s."
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:291
+#, php-format
+msgid "%s added %d dependent task(s): %s."
+msgstr "%s hat %d abhängige Aufgaben hinzugefügt: %s."
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:295
+#, php-format
+msgid "%s added %d task(s): %s."
+msgstr "%s hat %d Aufgaben hinzugefügt: %s."
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:301
+#, php-format
+msgid "%s added %d revision(s): %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:303
+#, php-format
+msgid "%s added %d post(s): %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:306
+#, php-format
+msgid "%s added %d blog(s): %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:308
+#, php-format
+msgid "%s added %d blogger(s): %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:310
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:329
+#, php-format
+msgid "%s added %d member(s): %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:314
+#, php-format
+msgid "%s added %d project(s): %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:317
+#, php-format
+msgid "%s added %d voting user(s): %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:319
+#, php-format
+msgid "%s added %d question(s): %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:321
+#, php-format
+msgid "%s added %d answer(s): %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:325
+#, php-format
+msgid "%s added %d unsubcriber(s): %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:327
+#, php-format
+msgid "%s added %d file(s): %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:331
+#, php-format
+msgid "%s added %d account(s): %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:333
+#, php-format
+msgid "%s added %d charge(s): %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:335
+#, php-format
+msgid "%s added %d purchase(s): %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:337
+#, php-format
+msgid "%s added %d contributor(s): %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:339
+#, php-format
+msgid "%s added %d reviewer(s): %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:341
+#, php-format
+msgid "%s added %d mock(s): %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:343
+#, php-format
+msgid "%s added %d panel(s): %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:345
+#, php-format
+msgid "%s added %d dashboard(s): %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:352
+#, php-format
+msgid "%s added %d object(s): %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:362
+#, php-format
+msgid "%s removed %d commit(s): %s."
+msgstr "%s hat %d Commit(s) entfernt: %s."
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:364
+#, php-format
+msgid "%s removed %d dependencie(s): %s."
+msgstr "%s hat %d Abhängigkeit(en) entfernt: %s."
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:366
+#, php-format
+msgid "%s removed %d dependent task(s): %s."
+msgstr "%s hat %d abhängige Aufgabe(n) entfernt: %s."
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:370
+#, php-format
+msgid "%s removed %d task(s): %s."
+msgstr "%s hat %d Aufgabe(n) entfernt: %s."
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:376
+#, php-format
+msgid "%s removed %d revision(s): %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:378
+#, php-format
+msgid "%s removed %d post(s): %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:381
+#, php-format
+msgid "%s removed %d blog(s): %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:383
+#, php-format
+msgid "%s removed %d blogger(s): %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:385
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:404
+#, php-format
+msgid "%s removed %d member(s): %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:389
+#, php-format
+msgid "%s removed %d project(s): %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:392
+#, php-format
+msgid "%s removed %d voting user(s): %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:394
+#, php-format
+msgid "%s removed %d question(s): %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:396
+#, php-format
+msgid "%s removed %d answer(s): %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:400
+#, php-format
+msgid "%s removed %d unsubcriber(s): %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:402
+#, php-format
+msgid "%s removed %d file(s): %s."
+msgstr "%s hat %d Datei(en) entfernt: %s."
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:406
+#, php-format
+msgid "%s removed %d account(s): %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:408
+#, php-format
+msgid "%s removed %d charge(s): %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:410
+#, php-format
+msgid "%s removed %d purchase(s): %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:412
+#, php-format
+msgid "%s removed %d contributor(s): %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:414
+#, php-format
+msgid "%s removed %d reviewer(s): %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:416
+#, php-format
+msgid "%s removed %d mock(s): %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:418
+#, php-format
+msgid "%s removed %d panel(s): %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:420
+#, php-format
+msgid "%s removed %d dashboard(s): %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:427
+#, php-format
+msgid "%s removed %d object(s): %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:437
+#, php-format
+msgid "%s updated commits of %s."
+msgstr "%s hat den Quellcode von %s verändert."
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:443
+#, php-format
+msgid "%s updated tasks of %s."
+msgstr "%s hat die Aufgaben von %s verändert."
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:449
+#, php-format
+msgid "%s updated revisions of %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:451
+#, php-format
+msgid "%s updated posts of %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:454
+#, php-format
+msgid "%s updated blogs of %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:456
+#, php-format
+msgid "%s updated bloggers of %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:458
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:477
+#, php-format
+msgid "%s updated members of %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:462
+#, php-format
+msgid "%s updated projects of %s."
+msgstr "%s hat die Projektzuordnung von %s verändert."
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:465
+#, php-format
+msgid "%s updated voting users of %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:467
+#, php-format
+msgid "%s updated questions of %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:469
+#, php-format
+msgid "%s updated answers of %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:473
+#, php-format
+msgid "%s updated unsubcribers of %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:475
+#, php-format
+msgid "%s updated files of %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:479
+#, php-format
+msgid "%s updated accounts of %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:481
+#, php-format
+msgid "%s updated charges of %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:483
+#, php-format
+msgid "%s updated purchases of %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:485
+#, php-format
+msgid "%s updated contributors of %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:487
+#, php-format
+msgid "%s updated reviewers of %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:489
+#, php-format
+msgid "%s updated mocks of %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:491
+#, php-format
+msgid "%s updated panels for %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:493
+#, php-format
+msgid "%s updated dashboards for %s."
+msgstr ""
+
+#: infrastructure/edges/constants/PhabricatorEdgeConfig.php:500
+#, php-format
+msgid "%s updated objects of %s."
 msgstr ""
 
