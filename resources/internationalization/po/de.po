@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-18 07:31+0200\n"
-"PO-Revision-Date: 2014-05-18 07:41+0100\n"
+"PO-Revision-Date: 2014-05-18 08:50+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: German <peter@schlaile.de>\n"
 "Language: \n"
@@ -8104,7 +8104,7 @@ msgstr "%s hat die Zuordnung von %d Dateien entfernt: %s"
 #: applications/maniphest/storage/ManiphestTransaction.php:466
 #, php-format
 msgid "%s changed file(s), attached %d: %s; detached %d: %s"
-msgstr ""
+msgstr "%s hat Datei(en) verändert, %d verknüpft: %s; %d getrennt %s"
 
 #: applications/macro/storage/PhabricatorMacroTransaction.php:137
 #: applications/pholio/storage/PholioTransaction.php:197
@@ -8169,51 +8169,51 @@ msgstr "%s hat %s von %s an %s übergeben."
 #: applications/maniphest/storage/ManiphestTransaction.php:585
 #, php-format
 msgid "%s added %d project(s) to %s: %s"
-msgstr ""
+msgstr "%s hat %d Projekt(e) zu %s hinzugefügt: %s"
 
 #: applications/maniphest/storage/ManiphestTransaction.php:592
 #, php-format
 msgid "%s removed %d project(s) from %s: %s"
-msgstr ""
+msgstr "%s hat %d Projekt(e) von %s entfernt: %s"
 
 #: applications/maniphest/storage/ManiphestTransaction.php:599
 #, php-format
 msgid "%s changed project(s) of %s, added %d: %s; removed %d: %s"
-msgstr ""
+msgstr "%s hat die Projekt(e) von %s geändert, %d hinzugefügt: %s; %d entfernt: %s"
 
 #: applications/maniphest/storage/ManiphestTransaction.php:614
 #, php-format
 msgid "%s triaged %s as \"%s\" priority."
-msgstr ""
+msgstr "%s hat %s die Priorität \"%s\" zugewiesen."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:620
 #, php-format
 msgid "%s lowered the priority of %s from \"%s\" to \"%s\"."
-msgstr ""
+msgstr "%s hat die Priorität von %s von \"%s\" auf \"%s\" verringert."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:627
 #, php-format
 msgid "%s raised the priority of %s from \"%s\" to \"%s\"."
-msgstr ""
+msgstr "%s hat die Priorität von %s von \"%s\" auf \"%s\" erhöht."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:658
 #, php-format
 msgid "%s attached %d file(s) of %s: %s"
-msgstr ""
+msgstr "%s hat %d Datei(en) mit %s verknüpft: %s"
 
 #: applications/maniphest/storage/ManiphestTransaction.php:665
 #, php-format
 msgid "%s detached %d file(s) of %s: %s"
-msgstr ""
+msgstr "%s hat %d Datei(en) von %s getrennt: %s"
 
 #: applications/maniphest/storage/ManiphestTransaction.php:672
 #, php-format
 msgid "%s changed file(s) for %s, attached %d: %s; detached %d: %s"
-msgstr ""
+msgstr "%s hat die Datei(en) für %s geändert, %d verknüpft: %s, %d getrennt: %s"
 
 #: applications/maniphest/storage/ManiphestTask.php:248
 msgid "The owner of a task can always view and edit it."
-msgstr ""
+msgstr "Der Ersteller einer Aufgabe kann sie immer ansehen und auch ändern."
 
 #: applications/maniphest/phid/ManiphestPHIDTypeTask.php:12
 msgid "Task"
@@ -21843,12 +21843,12 @@ msgstr ""
 #: applications/feed/story/PhabricatorFeedStoryCommit.php:41
 #, php-format
 msgid "%s committed %s (authored by %s)"
-msgstr ""
+msgstr "%s hat %s eingepflegt (Autor ist %s)"
 
 #: applications/feed/story/PhabricatorFeedStoryCommit.php:47
 #, php-format
 msgid "%s committed %s"
-msgstr ""
+msgstr "%s hat %s eingepflegt"
 
 #: applications/policy/constants/PhabricatorPolicyType.php:27
 msgid "User Policies"
@@ -30232,7 +30232,7 @@ msgstr ""
 #: infrastructure/edges/constants/PhabricatorEdgeConfig.php:437
 #, php-format
 msgid "%s updated commits of %s."
-msgstr "%s hat den Quellcode von %s verändert."
+msgstr "%s hat die Commit(s) von %s verändert."
 
 #: infrastructure/edges/constants/PhabricatorEdgeConfig.php:443
 #, php-format
