@@ -1,8 +1,5 @@
 <?php
 
-/**
- * @group pholio
- */
 final class PhabricatorApplicationPholio extends PhabricatorApplication {
 
   public function getBaseURI() {
@@ -10,7 +7,7 @@ final class PhabricatorApplicationPholio extends PhabricatorApplication {
   }
 
   public function getShortDescription() {
-    return pht('Design Review');
+    return pht('Review Mocks and Design');
   }
 
   public function getIconName() {
@@ -23,15 +20,6 @@ final class PhabricatorApplicationPholio extends PhabricatorApplication {
 
   public function getFlavorText() {
     return pht('Things before they were cool.');
-  }
-
-  public function getApplicationGroup() {
-    // TODO: Move to CORE, this just keeps it out of the side menu.
-    return self::GROUP_COMMUNICATION;
-  }
-
-  public function isBeta() {
-    return true;
   }
 
   public function getEventListeners() {
@@ -55,16 +43,12 @@ final class PhabricatorApplicationPholio extends PhabricatorApplication {
         'edit/(?P<id>\d+)/'     => 'PholioMockEditController',
         'comment/(?P<id>\d+)/'  => 'PholioMockCommentController',
         'inline/' => array(
-          '(?P<id>\d+)/' => 'PholioInlineController',
-          'save/' => 'PholioInlineSaveController',
-          'delete/(?P<id>\d+)/' => 'PholioInlineDeleteController',
-          'view/(?P<id>\d+)/' => 'PholioInlineViewController',
-          'edit/(?P<id>\d+)/' => 'PholioInlineEditController',
+          '(?:(?P<id>\d+)/)?' => 'PholioInlineController',
+          'list/(?P<id>\d+)/' => 'PholioInlineListController',
           'thumb/(?P<imageid>\d+)/' => 'PholioInlineThumbController'
         ),
         'image/' => array(
           'upload/' => 'PholioImageUploadController',
-          'history/(?P<id>\d+)/' => 'PholioImageHistoryController',
         ),
       ),
     );
@@ -75,7 +59,7 @@ final class PhabricatorApplicationPholio extends PhabricatorApplication {
 
     $item = id(new PHUIListItemView())
       ->setName(pht('Pholio Mock'))
-      ->setAppIcon('pholio-dark')
+      ->setIcon('fa-picture-o')
       ->setHref($this->getBaseURI().'new/');
     $items[] = $item;
 
@@ -84,8 +68,8 @@ final class PhabricatorApplicationPholio extends PhabricatorApplication {
 
   protected function getCustomCapabilities() {
     return array(
-      PholioCapabilityDefaultView::CAPABILITY => array(
-      ),
+      PholioCapabilityDefaultView::CAPABILITY => array(),
+      PholioCapabilityDefaultEdit::CAPABILITY => array(),
     );
   }
 

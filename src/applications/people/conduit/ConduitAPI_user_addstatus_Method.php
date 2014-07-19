@@ -8,7 +8,7 @@ final class ConduitAPI_user_addstatus_Method
   }
 
   public function getMethodDescription() {
-    return pht("Add status information to the logged-in user.");
+    return pht('Add status information to the logged-in user.');
   }
 
   public function getMethodStatusDescription() {
@@ -18,10 +18,12 @@ final class ConduitAPI_user_addstatus_Method
   }
 
   public function defineParamTypes() {
+    $status_const = $this->formatStringConstants(array('away', 'sporadic'));
+
     return array(
       'fromEpoch'   => 'required int',
       'toEpoch'     => 'required int',
-      'status'      => 'required enum<away, sporadic>',
+      'status'      => 'required '.$status_const,
       'description' => 'optional string',
     );
   }

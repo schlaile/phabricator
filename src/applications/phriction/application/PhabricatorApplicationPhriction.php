@@ -17,6 +17,10 @@ final class PhabricatorApplicationPhriction extends PhabricatorApplication {
     return 'phriction';
   }
 
+  public function isPinnedByDefault(PhabricatorUser $viewer) {
+    return true;
+  }
+
   public function getHelpURI() {
     return PhabricatorEnv::getDoclink('Phriction User Guide');
   }
@@ -59,10 +63,6 @@ final class PhabricatorApplicationPhriction extends PhabricatorApplication {
         'diff/(?P<id>[1-9]\d*)/' => 'PhrictionDiffController',
       ),
     );
-  }
-
-  public function getApplicationGroup() {
-    return self::GROUP_COMMUNICATION;
   }
 
   public function getApplicationOrder() {

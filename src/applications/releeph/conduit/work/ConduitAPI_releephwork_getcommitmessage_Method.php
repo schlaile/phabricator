@@ -9,14 +9,16 @@ final class ConduitAPI_releephwork_getcommitmessage_Method
 
   public function getMethodDescription() {
     return
-      "Get commit message components for building ".
-      "a ReleephRequest commit message.";
+      'Get commit message components for building '.
+      'a ReleephRequest commit message.';
   }
 
   public function defineParamTypes() {
+    $action_const = $this->formatStringConstants(array('pick', 'revert'));
+
     return array(
       'requestPHID' => 'required string',
-      'action'      => 'required enum<"pick", "revert">',
+      'action'      => 'required '.$action_const,
     );
   }
 

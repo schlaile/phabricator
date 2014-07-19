@@ -41,7 +41,7 @@ final class PhabricatorMarkupEngine {
 
   private $objects = array();
   private $viewer;
-  private $version = 8;
+  private $version = 13;
 
 
 /* -(  Markup Pipeline  )---------------------------------------------------- */
@@ -190,7 +190,7 @@ final class PhabricatorMarkupEngine {
 
     if (!isset($this->objects[$key]['output'])) {
       throw new Exception(
-        "Call process() before using results.");
+        'Call process() before using results.');
     }
   }
 
@@ -373,6 +373,11 @@ final class PhabricatorMarkupEngine {
       case 'nolinebreaks':
         $engine = self::newMarkupEngine(array());
         $engine->setConfig('preserve-linebreaks', false);
+        break;
+      case 'diffusion-readme':
+        $engine = self::newMarkupEngine(array());
+        $engine->setConfig('preserve-linebreaks', false);
+        $engine->setConfig('header.generate-toc', true);
         break;
       case 'diviner':
         $engine = self::newMarkupEngine(array());

@@ -21,6 +21,7 @@ final class DiffusionCommitController extends DiffusionController {
 
   public function processRequest() {
     $drequest = $this->getDiffusionRequest();
+
     $request = $this->getRequest();
     $user = $request->getUser();
 
@@ -32,7 +33,6 @@ final class DiffusionCommitController extends DiffusionController {
     $callsign = $repository->getCallsign();
 
     $content = array();
-
     $commit = id(new DiffusionCommitQuery())
       ->setViewer($request->getUser())
       ->withRepository($repository)
@@ -67,6 +67,7 @@ final class DiffusionCommitController extends DiffusionController {
         ),
         array(
           'title' => pht('Commit Still Parsing'),
+          'device' => false,
         ));
     }
 
@@ -247,13 +248,12 @@ final class DiffusionCommitController extends DiffusionController {
 
       $change_panel = new PHUIObjectBoxView();
       $header = new PHUIHeaderView();
-      $header->setHeader("Changes (".number_format($count).")");
+      $header->setHeader('Changes ('.number_format($count).')');
       $change_panel->setID('toc');
       if ($count > self::CHANGES_LIMIT && !$show_all_details) {
 
         $icon = id(new PHUIIconView())
-          ->setSpriteSheet(PHUIIconView::SPRITE_ICONS)
-          ->setSpriteIcon('transcript');
+          ->setIconFont('fa-files-o');
 
         $button = id(new PHUIButtonView())
           ->setText(pht('Show All Changes'))
@@ -265,7 +265,7 @@ final class DiffusionCommitController extends DiffusionController {
           ->setSeverity(AphrontErrorView::SEVERITY_WARNING)
           ->setTitle('Very Large Commit')
           ->appendChild(
-            pht("This commit is very large. Load each file individually."));
+            pht('This commit is very large. Load each file individually.'));
 
         $change_panel->setErrorView($warning_view);
         $header->addActionLink($button);
@@ -289,7 +289,7 @@ final class DiffusionCommitController extends DiffusionController {
           $vcs_supports_directory_changes = false;
           break;
         default:
-          throw new Exception("Unknown VCS.");
+          throw new Exception('Unknown VCS.');
       }
 
       $references = array();
@@ -401,6 +401,7 @@ final class DiffusionCommitController extends DiffusionController {
       array(
         'title' => $commit_id,
         'pageObjects' => array($commit->getPHID()),
+        'device' => false,
       ));
   }
 
@@ -419,7 +420,7 @@ final class DiffusionCommitController extends DiffusionController {
     $edge_query = id(new PhabricatorEdgeQuery())
       ->withSourcePHIDs(array($commit_phid))
       ->withEdgeTypes(array(
-        PhabricatorEdgeConfig::TYPE_COMMIT_HAS_TASK,
+        DiffusionCommitHasTaskEdgeType::EDGECONST,
         PhabricatorEdgeConfig::TYPE_COMMIT_HAS_PROJECT,
         PhabricatorEdgeConfig::TYPE_COMMIT_HAS_DREV,
       ));
@@ -427,7 +428,7 @@ final class DiffusionCommitController extends DiffusionController {
     $edges = $edge_query->execute();
 
     $task_phids = array_keys(
-      $edges[$commit_phid][PhabricatorEdgeConfig::TYPE_COMMIT_HAS_TASK]);
+      $edges[$commit_phid][DiffusionCommitHasTaskEdgeType::EDGECONST]);
     $proj_phids = array_keys(
       $edges[$commit_phid][PhabricatorEdgeConfig::TYPE_COMMIT_HAS_PROJECT]);
     $revision_phid = key(
@@ -770,21 +771,24 @@ final class DiffusionCommitController extends DiffusionController {
 
     require_celerity_resource('phabricator-transaction-view-css');
 
+    $mailable_source = new PhabricatorMetaMTAMailableDatasource();
+    $auditor_source = new DiffusionAuditorDatasource();
+
     Javelin::initBehavior(
       'differential-add-reviewers-and-ccs',
       array(
         'dynamic' => array(
           'add-auditors-tokenizer' => array(
             'actions' => array('add_auditors' => 1),
-            'src' => '/typeahead/common/usersprojectsorpackages/',
+            'src' => $auditor_source->getDatasourceURI(),
             'row' => 'add-auditors',
-            'placeholder' => pht('Type a user, project, or package name...'),
+            'placeholder' => $auditor_source->getPlaceholderText(),
           ),
           'add-ccs-tokenizer' => array(
             'actions' => array('add_ccs' => 1),
-            'src' => '/typeahead/common/mailable/',
+            'src' => $mailable_source->getDatasourceURI(),
             'row' => 'add-ccs',
-            'placeholder' => pht('Type a user or mailing list...'),
+            'placeholder' => $mailable_source->getPlaceholderText(),
           ),
         ),
         'select' => 'audit-action',
@@ -987,7 +991,7 @@ final class DiffusionCommitController extends DiffusionController {
     $action = id(new PhabricatorActionView())
       ->setName(pht('Edit Commit'))
       ->setHref($uri)
-      ->setIcon('edit')
+      ->setIcon('fa-pencil')
       ->setDisabled(!$can_edit)
       ->setWorkflow(!$can_edit);
     $actions->addAction($action);
@@ -999,7 +1003,7 @@ final class DiffusionCommitController extends DiffusionController {
     if (PhabricatorApplication::isClassInstalled($maniphest)) {
       $action = id(new PhabricatorActionView())
         ->setName(pht('Edit Maniphest Tasks'))
-        ->setIcon('attach')
+        ->setIcon('fa-anchor')
         ->setHref('/search/attach/'.$commit->getPHID().'/TASK/edge/')
         ->setWorkflow(true)
         ->setDisabled(!$can_edit);
@@ -1009,7 +1013,7 @@ final class DiffusionCommitController extends DiffusionController {
     $action = id(new PhabricatorActionView())
       ->setName(pht('Download Raw Diff'))
       ->setHref($request->getRequestURI()->alter('diff', true))
-      ->setIcon('download');
+      ->setIcon('fa-download');
     $actions->addAction($action);
 
     return $actions;
@@ -1074,32 +1078,57 @@ final class DiffusionCommitController extends DiffusionController {
 
       switch ($request->getAuditStatus()) {
         case PhabricatorAuditStatusConstants::AUDIT_NOT_REQUIRED:
-          $item->setIcon('open-blue', pht('Commented'));
+          $item->setIcon(
+            PHUIStatusItemView::ICON_OPEN,
+            'blue',
+            pht('Commented'));
           break;
         case PhabricatorAuditStatusConstants::AUDIT_REQUIRED:
-          $item->setIcon('warning-blue', pht('Audit Required'));
+          $item->setIcon(
+            PHUIStatusItemView::ICON_WARNING,
+            'blue',
+            pht('Audit Required'));
           break;
         case PhabricatorAuditStatusConstants::CONCERNED:
-          $item->setIcon('reject-red', pht('Concern Raised'));
+          $item->setIcon(
+            PHUIStatusItemView::ICON_REJECT,
+            'red',
+            pht('Concern Raised'));
           break;
         case PhabricatorAuditStatusConstants::ACCEPTED:
-          $item->setIcon('accept-green', pht('Accepted'));
+          $item->setIcon(
+            PHUIStatusItemView::ICON_ACCEPT,
+            'green',
+            pht('Accepted'));
           break;
         case PhabricatorAuditStatusConstants::AUDIT_REQUESTED:
-          $item->setIcon('warning-dark', pht('Audit Requested'));
+          $item->setIcon(
+            PHUIStatusItemView::ICON_WARNING,
+            'dark',
+            pht('Audit Requested'));
           break;
         case PhabricatorAuditStatusConstants::RESIGNED:
-          $item->setIcon('open-dark', pht('Resigned'));
+          $item->setIcon(
+            PHUIStatusItemView::ICON_OPEN,
+            'dark',
+            pht('Resigned'));
           break;
         case PhabricatorAuditStatusConstants::CLOSED:
-          $item->setIcon('accept-blue', pht('Closed'));
+          $item->setIcon(
+            PHUIStatusItemView::ICON_ACCEPT,
+            'blue',
+            pht('Closed'));
           break;
         case PhabricatorAuditStatusConstants::CC:
-          $item->setIcon('info-dark', pht('Subscribed'));
+          $item->setIcon(
+            PHUIStatusItemView::ICON_INFO,
+            'dark',
+            pht('Subscribed'));
           break;
         default:
           $item->setIcon(
-            'question-dark',
+            PHUIStatusItemView::ICON_QUESTION,
+            'dark',
             pht('%s?', $request->getAuditStatus()));
           break;
       }

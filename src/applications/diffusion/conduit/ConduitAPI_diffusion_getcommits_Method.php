@@ -1,8 +1,5 @@
 <?php
 
-/**
- * @group conduit
- */
 final class ConduitAPI_diffusion_getcommits_Method
   extends ConduitAPI_diffusion_Method {
 
@@ -29,12 +26,10 @@ final class ConduitAPI_diffusion_getcommits_Method
   }
 
   public function defineErrorTypes() {
-    return array(
-    );
+    return array();
   }
 
   protected function execute(ConduitAPIRequest $request) {
-
     $results = array();
 
     $commits = $request->getValue('commits');
@@ -274,7 +269,7 @@ final class ConduitAPI_diffusion_getcommits_Method
    * Enhances the commits list with Maniphest information.
    */
   private function addManiphestInformation(array $commits) {
-    $task_type = PhabricatorEdgeConfig::TYPE_COMMIT_HAS_TASK;
+    $task_type = DiffusionCommitHasTaskEdgeType::EDGECONST;
 
     $commit_phids = ipull($commits, 'commitPHID');
 

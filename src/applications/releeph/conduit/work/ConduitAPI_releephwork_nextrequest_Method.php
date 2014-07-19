@@ -12,8 +12,8 @@ final class ConduitAPI_releephwork_nextrequest_Method
 
   public function getMethodDescription() {
     return
-      "Return info required to cut a branch, ".
-      "and pick and revert ReleephRequests";
+      'Return info required to cut a branch, '.
+      'and pick and revert ReleephRequests';
   }
 
   public function defineParamTypes() {
@@ -75,7 +75,7 @@ final class ConduitAPI_releephwork_nextrequest_Method
      * discovered by Phabricator (using the `id` column to perform that
      * ordering).
      *
-     * This is easy for $needs_pick as the ordinal is stored.  It is hard for
+     * This is easy for $needs_pick as the ordinal is stored. It is hard for
      * reverts, as we have to look that information up.
      */
     $needs_pick = $this->sortPicks($needs_pick);
@@ -99,7 +99,7 @@ final class ConduitAPI_releephwork_nextrequest_Method
       $action = 'revert';
       $commit_id = $releeph_request->getCommitIdentifier();
       $commit_phid = $releeph_request->getCommitPHID();
-    } elseif ($needs_pick) {
+    } else if ($needs_pick) {
       $releeph_request = head($needs_pick);
       $action = 'pick';
       $commit = $releeph_request->loadPhabricatorRepositoryCommit();

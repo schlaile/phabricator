@@ -4,14 +4,16 @@ final class ConduitAPI_differential_getcommitmessage_Method
   extends ConduitAPI_differential_Method {
 
   public function getMethodDescription() {
-    return "Retrieve Differential commit messages or message templates.";
+    return 'Retrieve Differential commit messages or message templates.';
   }
 
   public function defineParamTypes() {
+    $edit_types = array('edit', 'create');
+
     return array(
       'revision_id' => 'optional revision_id',
       'fields' => 'optional dict<string, wild>',
-      'edit' => 'optional enum<"edit", "create">',
+      'edit' => 'optional '.$this->formatStringConstants($edit_types),
     );
   }
 
@@ -183,7 +185,7 @@ final class ConduitAPI_differential_getcommitmessage_Method
 
     $lines = explode("\n", $tip);
     foreach ($lines as $key => $line) {
-      $lines[$key] = "# ".$line;
+      $lines[$key] = '# '.$line;
     }
 
     return implode("\n", $lines);

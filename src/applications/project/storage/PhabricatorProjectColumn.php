@@ -2,10 +2,11 @@
 
 final class PhabricatorProjectColumn
   extends PhabricatorProjectDAO
-  implements PhabricatorPolicyInterface {
+  implements PhabricatorPolicyInterface,
+  PhabricatorDestructableInterface {
 
   const STATUS_ACTIVE = 0;
-  const STATUS_DELETED = 1;
+  const STATUS_HIDDEN = 1;
 
   protected $name;
   protected $status;
@@ -44,22 +45,32 @@ final class PhabricatorProjectColumn
     return ($this->getSequence() == 0);
   }
 
-  public function isDeleted() {
-    return ($this->getStatus() == self::STATUS_DELETED);
+  public function isHidden() {
+    return ($this->getStatus() == self::STATUS_HIDDEN);
   }
 
   public function getDisplayName() {
+    $name = $this->getName();
+    if (strlen($name)) {
+      return $name;
+    }
+
     if ($this->isDefaultColumn()) {
       return pht('Backlog');
     }
-    return $this->getName();
+
+    return pht('Unnamed Column');
   }
 
   public function getHeaderColor() {
-    if ($this->isDefaultColumn()) {
-      return PhabricatorActionHeaderView::HEADER_DARK_GREY;
+    if ($this->isHidden()) {
+      return PHUIActionHeaderView::HEADER_LIGHTRED;
     }
-    return PhabricatorActionHeaderView::HEADER_GREY;
+
+    if ($this->isDefaultColumn()) {
+      return PHUIActionHeaderView::HEADER_DARK_GREY;
+    }
+    return PHUIActionHeaderView::HEADER_GREY;
   }
 
 
@@ -85,6 +96,17 @@ final class PhabricatorProjectColumn
 
   public function describeAutomaticCapability($capability) {
     return pht('Users must be able to see a project to see its board.');
+  }
+
+
+/* -(  PhabricatorDestructableInterface  )----------------------------------- */
+
+  public function destroyObjectPermanently(
+    PhabricatorDestructionEngine $engine) {
+
+    $this->openTransaction();
+    $this->delete();
+    $this->saveTransaction();
   }
 
 }

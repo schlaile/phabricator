@@ -18,8 +18,7 @@ final class DivinerMainController extends DivinerController {
     $crumbs->addTextCrumb(pht('Books'));
 
     $search_icon = id(new PHUIIconView())
-      ->setSpriteIcon('search')
-      ->setSpriteSheet(PHUIIconView::SPRITE_ICONS);
+      ->setIconFont('fa-search');
 
     $query_button = id(new PHUIButtonView())
       ->setTag('a')
@@ -87,7 +86,6 @@ final class DivinerMainController extends DivinerController {
       ),
       array(
         'title' => pht('Documentation Books'),
-        'device' => true,
         'fonts' => true,
       ));
   }

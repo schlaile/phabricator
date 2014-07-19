@@ -1,14 +1,12 @@
 <?php
 
-/**
- * @group slowvote
- */
 final class PhabricatorSlowvotePoll extends PhabricatorSlowvoteDAO
   implements
     PhabricatorPolicyInterface,
     PhabricatorSubscribableInterface,
     PhabricatorFlaggableInterface,
-    PhabricatorTokenReceiverInterface {
+    PhabricatorTokenReceiverInterface,
+    PhabricatorProjectInterface {
 
   const RESPONSES_VISIBLE = 0;
   const RESPONSES_VOTERS  = 1;

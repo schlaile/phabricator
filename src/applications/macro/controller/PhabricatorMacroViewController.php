@@ -114,7 +114,6 @@ final class PhabricatorMacroViewController
       ),
       array(
         'title' => $title_short,
-        'device' => true,
       ));
   }
 
@@ -134,7 +133,7 @@ final class PhabricatorMacroViewController
         ->setHref($this->getApplicationURI('/edit/'.$macro->getID().'/'))
         ->setDisabled(!$can_manage)
         ->setWorkflow(!$can_manage)
-        ->setIcon('edit'));
+        ->setIcon('fa-pencil'));
 
     $view->addAction(
       id(new PhabricatorActionView())
@@ -142,7 +141,7 @@ final class PhabricatorMacroViewController
         ->setHref($this->getApplicationURI('/audio/'.$macro->getID().'/'))
         ->setDisabled(!$can_manage)
         ->setWorkflow(!$can_manage)
-        ->setIcon('herald'));
+        ->setIcon('fa-music'));
 
     if ($macro->getIsDisabled()) {
       $view->addAction(
@@ -151,7 +150,7 @@ final class PhabricatorMacroViewController
           ->setHref($this->getApplicationURI('/disable/'.$macro->getID().'/'))
           ->setWorkflow(true)
           ->setDisabled(!$can_manage)
-          ->setIcon('undo'));
+          ->setIcon('fa-check-circle-o'));
     } else {
       $view->addAction(
         id(new PhabricatorActionView())
@@ -159,7 +158,7 @@ final class PhabricatorMacroViewController
           ->setHref($this->getApplicationURI('/disable/'.$macro->getID().'/'))
           ->setWorkflow(true)
           ->setDisabled(!$can_manage)
-          ->setIcon('delete'));
+          ->setIcon('fa-ban'));
     }
 
     return $view;

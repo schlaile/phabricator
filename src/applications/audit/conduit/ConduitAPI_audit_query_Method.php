@@ -1,20 +1,22 @@
 <?php
 
-/**
- * @group conduit
- */
 final class ConduitAPI_audit_query_Method extends ConduitAPI_audit_Method {
 
   public function getMethodDescription() {
-    return "Query audit requests.";
+    return 'Query audit requests.';
   }
 
   public function defineParamTypes() {
+    $statuses = array(
+      'status-any',
+      'status-open',
+    );
+    $status_const = $this->formatStringConstants($statuses);
+
     return array(
       'auditorPHIDs'  => 'optional list<phid>',
       'commitPHIDs'   => 'optional list<phid>',
-      'status'        => 'optional enum<"status-any", "status-open"> '.
-                         '(default = "status-any")',
+      'status'        => 'optional '.$status_const.' (default = "status-any")',
       'offset'        => 'optional int',
       'limit'         => 'optional int (default = 100)',
     );
@@ -49,15 +51,27 @@ final class ConduitAPI_audit_query_Method extends ConduitAPI_audit_Method {
       DiffusionCommitQuery::AUDIT_STATUS_ANY);
     $query->withAuditStatus($status);
 
+    // NOTE: These affect the number of commits identified, which is sort of
+    // reasonable but means the method may return an arbitrary number of
+    // actual audit requests.
     $query->setOffset($request->getValue('offset', 0));
     $query->setLimit($request->getValue('limit', 100));
 
     $commits = $query->execute();
 
+    $auditor_map = array_fuse($auditor_phids);
+
     $results = array();
     foreach ($commits as $commit) {
       $requests = $commit->getAudits();
       foreach ($requests as $request) {
+
+        // If this audit isn't triggered for one of the requested PHIDs,
+        // skip it.
+        if ($auditor_map && empty($auditor_map[$request->getAuditorPHID()])) {
+          continue;
+        }
+
         $results[] = array(
           'id'              => $request->getID(),
           'commitPHID'      => $request->getCommitPHID(),
@@ -70,6 +84,5 @@ final class ConduitAPI_audit_query_Method extends ConduitAPI_audit_Method {
 
     return $results;
   }
-
 
 }

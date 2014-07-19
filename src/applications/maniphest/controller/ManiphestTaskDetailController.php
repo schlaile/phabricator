@@ -51,10 +51,10 @@ final class ManiphestTaskDetailController extends ManiphestController {
       ->setViewer($user)
       ->readFieldsFromStorage($task);
 
-    $e_commit = PhabricatorEdgeConfig::TYPE_TASK_HAS_COMMIT;
+    $e_commit = ManiphestTaskHasCommitEdgeType::EDGECONST;
     $e_dep_on = PhabricatorEdgeConfig::TYPE_TASK_DEPENDS_ON_TASK;
     $e_dep_by = PhabricatorEdgeConfig::TYPE_TASK_DEPENDED_ON_BY_TASK;
-    $e_rev    = PhabricatorEdgeConfig::TYPE_TASK_HAS_RELATED_DREV;
+    $e_rev    = ManiphestTaskHasRevisionEdgeType::EDGECONST;
     $e_mock   = PhabricatorEdgeConfig::TYPE_TASK_HAS_MOCK;
 
     $phid = $task->getPHID();
@@ -205,21 +205,6 @@ final class ManiphestTaskDetailController extends ManiphestController {
       $draft_text = null;
     }
 
-    $submit_control = id(new PHUIFormMultiSubmitControl());
-    if (!$task->isClosed()) {
-      $close_image = id(new PHUIIconView())
-          ->setSpriteSheet(PHUIIconView::SPRITE_ICONS)
-          ->setSpriteIcon('check');
-      $submit_control->addButtonView(
-        id(new PHUIButtonView())
-          ->setColor(PHUIButtonView::GREY)
-          ->setIcon($close_image)
-          ->setText(pht('Close Task'))
-          ->setName('scuttle')
-          ->addSigil('alternate-submit-button'));
-    }
-    $submit_control->addSubmitButton(pht('Submit'));
-
     $comment_form = new AphrontFormView();
     $comment_form
       ->setUser($user)
@@ -285,7 +270,9 @@ final class ManiphestTaskDetailController extends ManiphestController {
           ->setValue($draft_text)
           ->setID('transaction-comments')
           ->setUser($user))
-      ->appendChild($submit_control);
+      ->appendChild(
+        id(new AphrontFormSubmitControl())
+          ->setValue(pht('Submit')));
 
     $control_map = array(
       ManiphestTransaction::TYPE_STATUS   => 'resolution',
@@ -295,23 +282,27 @@ final class ManiphestTaskDetailController extends ManiphestController {
       ManiphestTransaction::TYPE_PROJECTS => 'projects',
     );
 
+    $projects_source = new PhabricatorProjectDatasource();
+    $users_source = new PhabricatorPeopleDatasource();
+    $mailable_source = new PhabricatorMetaMTAMailableDatasource();
+
     $tokenizer_map = array(
       ManiphestTransaction::TYPE_PROJECTS => array(
         'id'          => 'projects-tokenizer',
-        'src'         => '/typeahead/common/projects/',
-        'placeholder' => pht('Type a project name...'),
+        'src'         => $projects_source->getDatasourceURI(),
+        'placeholder' => $projects_source->getPlaceholderText(),
       ),
       ManiphestTransaction::TYPE_OWNER => array(
         'id'          => 'assign-tokenizer',
-        'src'         => '/typeahead/common/users/',
+        'src'         => $users_source->getDatasourceURI(),
         'value'       => $default_claim,
         'limit'       => 1,
-        'placeholder' => pht('Type a user name...'),
+        'placeholder' => $users_source->getPlaceholderText(),
       ),
       ManiphestTransaction::TYPE_CCS => array(
         'id'          => 'cc-tokenizer',
-        'src'         => '/typeahead/common/mailable/',
-        'placeholder' => pht('Type a user or mailing list...'),
+        'src'         => $mailable_source->getDatasourceURI(),
+        'placeholder' => $mailable_source->getPlaceholderText(),
       ),
     );
 
@@ -401,7 +392,6 @@ final class ManiphestTaskDetailController extends ManiphestController {
       array(
         'title' => 'T'.$task->getID().' '.$task->getTitle(),
         'pageObjects' => array($task->getPHID()),
-        'device' => true,
       ));
   }
 
@@ -441,7 +431,7 @@ final class ManiphestTaskDetailController extends ManiphestController {
     $view->addAction(
       id(new PhabricatorActionView())
         ->setName(pht('Edit Task'))
-        ->setIcon('edit')
+        ->setIcon('fa-pencil')
         ->setHref($this->getApplicationURI("/task/edit/{$id}/"))
         ->setDisabled(!$can_edit)
         ->setWorkflow(!$can_edit));
@@ -451,11 +441,11 @@ final class ManiphestTaskDetailController extends ManiphestController {
         id(new PhabricatorActionView())
           ->setName(pht('Automatically Subscribed'))
           ->setDisabled(true)
-          ->setIcon('enable'));
+          ->setIcon('fa-check-circle'));
     } else {
       $action = $viewer_is_cc ? 'rem' : 'add';
       $name   = $viewer_is_cc ? pht('Unsubscribe') : pht('Subscribe');
-      $icon   = $viewer_is_cc ? 'disable' : 'check';
+      $icon   = $viewer_is_cc ? 'fa-minus-circle' : 'fa-plus-circle';
 
       $view->addAction(
         id(new PhabricatorActionView())
@@ -471,7 +461,7 @@ final class ManiphestTaskDetailController extends ManiphestController {
         ->setName(pht('Merge Duplicates In'))
         ->setHref("/search/attach/{$phid}/TASK/merge/")
         ->setWorkflow(true)
-        ->setIcon('merge')
+        ->setIcon('fa-compress')
         ->setDisabled(!$can_edit)
         ->setWorkflow(true));
 
@@ -479,14 +469,14 @@ final class ManiphestTaskDetailController extends ManiphestController {
       id(new PhabricatorActionView())
         ->setName(pht('Create Subtask'))
         ->setHref($this->getApplicationURI("/task/create/?parent={$id}"))
-        ->setIcon('fork'));
+        ->setIcon('fa-level-down'));
 
     $view->addAction(
       id(new PhabricatorActionView())
-        ->setName(pht('Edit Dependencies'))
-        ->setHref("/search/attach/{$phid}/TASK/dependencies/")
+        ->setName(pht('Edit Blocking Tasks'))
+        ->setHref("/search/attach/{$phid}/TASK/blocks/")
         ->setWorkflow(true)
-        ->setIcon('link')
+        ->setIcon('fa-link')
         ->setDisabled(!$can_edit)
         ->setWorkflow(true));
 
@@ -567,37 +557,33 @@ final class ManiphestTaskDetailController extends ManiphestController {
 
       $column_groups = mgroup($columns, 'getProjectPHID');
 
-      $project_rows = array();
+      $project_handles = array();
+      $project_annotations = array();
       foreach ($project_phids as $project_phid) {
-        $row = array();
-
         $handle = $this->getHandle($project_phid);
-        $row[] = $handle->renderLink();
+        $project_handles[] = $handle;
 
         $columns = idx($column_groups, $project_phid, array());
         $column = head(array_intersect_key($columns, $in_column_phids));
         if ($column) {
           $column_name = pht('(%s)', $column->getDisplayName());
-          // TODO: This is really hacky but there's no cleaner way to do it
-          // right now, T4022 should give us better tools for this.
-          $column_href = str_replace(
-            'project/view',
-            'project/board',
-            $handle->getURI());
           $column_link = phutil_tag(
             'a',
             array(
-              'href' => $column_href,
+              'href' => $handle->getURI().'board/',
               'class' => 'maniphest-board-link',
             ),
             $column_name);
 
-          $row[] = ' ';
-          $row[] = $column_link;
+          $project_annotations[$project_phid] = array(
+            ' ',
+            $column_link);
         }
-
-        $project_rows[] = phutil_tag('div', array(), $row);
       }
+
+      $project_rows = id(new PHUIHandleTagListView())
+        ->setHandles($project_handles)
+        ->setAnnotations($project_annotations);
     } else {
       $project_rows = phutil_tag('em', array(), pht('None'));
     }
@@ -606,20 +592,20 @@ final class ManiphestTaskDetailController extends ManiphestController {
 
     $edge_types = array(
       PhabricatorEdgeConfig::TYPE_TASK_DEPENDED_ON_BY_TASK
-      => pht('Dependent Tasks'),
+        => pht('Blocks'),
       PhabricatorEdgeConfig::TYPE_TASK_DEPENDS_ON_TASK
-      => pht('Depends On'),
-      PhabricatorEdgeConfig::TYPE_TASK_HAS_RELATED_DREV
-      => pht('Differential Revisions'),
+        => pht('Blocked By'),
+      ManiphestTaskHasRevisionEdgeType::EDGECONST
+        => pht('Differential Revisions'),
       PhabricatorEdgeConfig::TYPE_TASK_HAS_MOCK
-      => pht('Pholio Mocks'),
+        => pht('Pholio Mocks'),
     );
 
     $revisions_commits = array();
     $handles = $this->getLoadedHandles();
 
     $commit_phids = array_keys(
-      $edges[PhabricatorEdgeConfig::TYPE_TASK_HAS_COMMIT]);
+      $edges[ManiphestTaskHasCommitEdgeType::EDGECONST]);
     if ($commit_phids) {
       $commit_drev = PhabricatorEdgeConfig::TYPE_COMMIT_HAS_DREV;
       $drev_edges = id(new PhabricatorEdgeQuery())
@@ -632,7 +618,7 @@ final class ManiphestTaskDetailController extends ManiphestController {
         $revision_phid = key($drev_edges[$phid][$commit_drev]);
         $revision_handle = idx($handles, $revision_phid);
         if ($revision_handle) {
-          $task_drev = PhabricatorEdgeConfig::TYPE_TASK_HAS_RELATED_DREV;
+          $task_drev = ManiphestTaskHasRevisionEdgeType::EDGECONST;
           unset($edges[$task_drev][$revision_phid]);
           $revisions_commits[$phid] = hsprintf(
             '%s / %s',

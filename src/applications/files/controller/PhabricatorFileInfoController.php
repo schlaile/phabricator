@@ -41,7 +41,7 @@ final class PhabricatorFileInfoController extends PhabricatorFileController {
     if ($ttl !== null) {
       $ttl_tag = id(new PHUITagView())
         ->setType(PHUITagView::TYPE_OBJECT)
-        ->setName(pht("Temporary"));
+        ->setName(pht('Temporary'));
       $header->addTag($ttl_tag);
     }
 
@@ -66,7 +66,6 @@ final class PhabricatorFileInfoController extends PhabricatorFileController {
       ),
       array(
         'title' => $file->getName(),
-        'device'  => true,
         'pageObjects' => array($file->getPHID()),
       ));
   }
@@ -129,7 +128,7 @@ final class PhabricatorFileInfoController extends PhabricatorFileController {
       $view->addAction(
         id(new PhabricatorActionView())
           ->setName(pht('View File'))
-          ->setIcon('preview')
+          ->setIcon('fa-file-o')
           ->setHref($file->getViewURI()));
     } else {
       $view->addAction(
@@ -138,14 +137,14 @@ final class PhabricatorFileInfoController extends PhabricatorFileController {
           ->setRenderAsForm(true)
           ->setDownload(true)
           ->setName(pht('Download File'))
-          ->setIcon('download')
+          ->setIcon('fa-download')
           ->setHref($file->getViewURI()));
     }
 
     $view->addAction(
       id(new PhabricatorActionView())
         ->setName(pht('Delete File'))
-        ->setIcon('delete')
+        ->setIcon('fa-times')
         ->setHref($this->getApplicationURI("/delete/{$id}/"))
         ->setWorkflow(true));
 
@@ -180,7 +179,7 @@ final class PhabricatorFileInfoController extends PhabricatorFileController {
 
     $finfo->addProperty(
       pht('Size'),
-      phabricator_format_bytes($file->getByteSize()));
+      phutil_format_bytes($file->getByteSize()));
 
     $finfo->addProperty(
       pht('Mime Type'),

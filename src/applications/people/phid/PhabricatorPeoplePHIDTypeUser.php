@@ -17,7 +17,7 @@ final class PhabricatorPeoplePHIDTypeUser extends PhabricatorPHIDType {
   }
 
   public function getTypeIcon() {
-    return 'policy-all';
+    return 'fa-user bluegrey';
   }
 
   public function newObject() {
@@ -41,10 +41,11 @@ final class PhabricatorPeoplePHIDTypeUser extends PhabricatorPHIDType {
 
     foreach ($handles as $phid => $handle) {
       $user = $objects[$phid];
+      $realname = $user->getRealName();
+
       $handle->setName($user->getUsername());
       $handle->setURI('/p/'.$user->getUsername().'/');
-      $handle->setFullName(
-        $user->getUsername().' ('.$user->getRealName().')');
+      $handle->setFullName($user->getFullName());
       $handle->setImageURI($user->loadProfileImageURI());
       $handle->setDisabled(!$user->isUserActivated());
       if ($user->hasStatus()) {
@@ -67,6 +68,7 @@ final class PhabricatorPeoplePHIDTypeUser extends PhabricatorPHIDType {
     $id_map = array();
     foreach ($names as $name) {
       $id = substr($name, 1);
+      $id = phutil_utf8_strtolower($id);
       $id_map[$id][] = $name;
     }
 
@@ -77,8 +79,9 @@ final class PhabricatorPeoplePHIDTypeUser extends PhabricatorPHIDType {
 
     $results = array();
     foreach ($objects as $id => $object) {
-      $username = $object->getUsername();
-      foreach (idx($id_map, $username, array()) as $name) {
+      $user_key = $object->getUsername();
+      $user_key = phutil_utf8_strtolower($user_key);
+      foreach (idx($id_map, $user_key, array()) as $name) {
         $results[$name] = $object;
       }
     }

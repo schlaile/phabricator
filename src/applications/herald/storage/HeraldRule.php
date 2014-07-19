@@ -3,7 +3,8 @@
 final class HeraldRule extends HeraldDAO
   implements
     PhabricatorFlaggableInterface,
-    PhabricatorPolicyInterface {
+    PhabricatorPolicyInterface,
+    PhabricatorDestructableInterface {
 
   const TABLE_RULE_APPLIED = 'herald_ruleapplied';
 
@@ -17,7 +18,7 @@ final class HeraldRule extends HeraldDAO
   protected $isDisabled = 0;
   protected $triggerObjectPHID;
 
-  protected $configVersion = 36;
+  protected $configVersion = 37;
 
   // phids for which this rule has been applied
   private $ruleApplied = self::ATTACHABLE;
@@ -127,7 +128,7 @@ final class HeraldRule extends HeraldDAO
     assert_instances_of($children, 'HeraldDAO');
 
     if (!$this->getID()) {
-      throw new Exception("Save rule before saving children.");
+      throw new Exception('Save rule before saving children.');
     }
 
     foreach ($children as $child) {
@@ -244,10 +245,21 @@ final class HeraldRule extends HeraldDAO
     if ($this->isPersonalRule()) {
       return pht("A personal rule's owner can always view and edit it.");
     } else if ($this->isObjectRule()) {
-      return pht("Object rules inherit the policies of their objects.");
+      return pht('Object rules inherit the policies of their objects.');
     }
 
     return null;
+  }
+
+
+/* -(  PhabricatorDestructableInterface  )----------------------------------- */
+
+  public function destroyObjectPermanently(
+    PhabricatorDestructionEngine $engine) {
+
+    $this->openTransaction();
+    $this->delete();
+    $this->saveTransaction();
   }
 
 }

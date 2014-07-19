@@ -19,7 +19,6 @@ final class DiffusionCommitQuery
   const AUDIT_STATUS_ANY       = 'audit-status-any';
   const AUDIT_STATUS_OPEN      = 'audit-status-open';
   const AUDIT_STATUS_CONCERN   = 'audit-status-concern';
-  private $loadAuditIds;
 
   private $needCommitData;
 
@@ -94,10 +93,8 @@ final class DiffusionCommitQuery
    * rows must always have it.
    */
   private function shouldJoinAudits() {
-    return
-      $this->needAuditRequests ||
-      $this->auditStatus ||
-      $this->rowsMustHaveAudits();
+    return $this->auditStatus ||
+           $this->rowsMustHaveAudits();
   }
 
 
@@ -135,7 +132,7 @@ final class DiffusionCommitQuery
   public function getIdentifierMap() {
     if ($this->identifierMap === null) {
       throw new Exception(
-        "You must execute() the query before accessing the identifier map.");
+        'You must execute() the query before accessing the identifier map.');
     }
     return $this->identifierMap;
   }
@@ -156,29 +153,15 @@ final class DiffusionCommitQuery
 
     $data = queryfx_all(
       $conn_r,
-      'SELECT commit.* %Q FROM %T commit %Q %Q %Q %Q',
-      $this->buildAuditSelect($conn_r),
+      'SELECT commit.* FROM %T commit %Q %Q %Q %Q %Q',
       $table->getTableName(),
       $this->buildJoinClause($conn_r),
       $this->buildWhereClause($conn_r),
+      $this->buildGroupClause($conn_r),
       $this->buildOrderClause($conn_r),
       $this->buildLimitClause($conn_r));
 
-    if ($this->shouldJoinAudits()) {
-      $this->loadAuditIds = ipull($data, 'audit_id');
-    }
-
     return $table->loadAllFromArray($data);
-  }
-
-  private function buildAuditSelect($conn_r) {
-    if ($this->shouldJoinAudits()) {
-      return qsprintf(
-        $conn_r,
-        ', audit.id as audit_id');
-    }
-
-    return '';
   }
 
   protected function willFilterPage(array $commits) {
@@ -230,7 +213,7 @@ final class DiffusionCommitQuery
           $result[$identifier] = head($matching_commits);
         } else {
           // This reference is ambiguous (it matches more than one commit) so
-          // don't link it
+          // don't link it.
           unset($result[$identifier]);
         }
       }
@@ -250,18 +233,20 @@ final class DiffusionCommitQuery
       $data = mpull($data, null, 'getCommitID');
       foreach ($commits as $commit) {
         $commit_data = idx($data, $commit->getID());
+        if (!$commit_data) {
+          $commit_data = new PhabricatorRepositoryCommitData();
+        }
         $commit->attachCommitData($commit_data);
       }
     }
 
-    if ($this->shouldJoinAudits()) {
-      $load_ids = array_filter($this->loadAuditIds);
-      if ($load_ids) {
-        $requests = id(new PhabricatorRepositoryAuditRequest())
-          ->loadAllWhere('id IN (%Ld)', $this->loadAuditIds);
-      } else {
-        $requests = array();
-      }
+    // TODO: This should just be `needAuditRequests`, not `shouldJoinAudits()`,
+    // but leave that for a future diff.
+
+    if ($this->needAuditRequests || $this->shouldJoinAudits()) {
+      $requests = id(new PhabricatorRepositoryAuditRequest())->loadAllWhere(
+        'commitPHID IN (%Ls)',
+        mpull($commits, 'getPHID'));
 
       $requests = mgroup($requests, 'getCommitPHID');
       foreach ($commits as $commit) {
@@ -500,6 +485,23 @@ final class DiffusionCommitQuery
 
     if ($joins) {
       return implode(' ', $joins);
+    } else {
+      return '';
+    }
+  }
+
+  private function buildGroupClause(AphrontDatabaseConnection $conn_r) {
+    $should_group = $this->shouldJoinAudits();
+
+    // TODO: Currently, the audit table is missing a unique key, so we may
+    // require a GROUP BY if we perform this join. See T1768. This can be
+    // removed once the table has the key.
+    if ($this->auditAwaitingUser) {
+      $should_group = true;
+    }
+
+    if ($should_group) {
+      return 'GROUP BY commit.id';
     } else {
       return '';
     }
