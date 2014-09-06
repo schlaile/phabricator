@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Phabricator\n"
 "POT-Creation-Date: 2014-05-18 07:31+0200\n"
-"PO-Revision-Date: 2014-07-20 20:56+0100\n"
+"PO-Revision-Date: 2014-09-06 17:58+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: German <peter@schlaile.de>\n"
 "Language: \n"
@@ -15808,7 +15808,7 @@ msgstr ""
 
 #: applications/diffusion/controller/DiffusionCommitController.php:119
 msgid "Commit Detail"
-msgstr ""
+msgstr "Commit-Details"
 
 #: applications/diffusion/controller/DiffusionCommitController.php:222
 msgid "Bad Commit"
@@ -15838,7 +15838,7 @@ msgid "This commit is very large. Load each file individually."
 msgstr "Dieser Commit ist sehr groß. Bitte die Dateien individuell ansehen."
 
 msgid "Cook the Books"
-msgstr ""
+msgstr "Die Bücher frisieren"
 
 #: applications/diffusion/controller/DiffusionCommitController.php:770
 msgid "Audit Commit"
@@ -15846,7 +15846,7 @@ msgstr ""
 
 #: applications/diffusion/controller/DiffusionCommitController.php:770
 msgid "Creative Accounting"
-msgstr ""
+msgstr "Kreative Buchführung"
 
 #: applications/diffusion/controller/DiffusionCommitController.php:963
 msgid "Merged Changes"
@@ -15854,7 +15854,7 @@ msgstr ""
 
 #: applications/diffusion/controller/DiffusionCommitController.php:992
 msgid "Edit Commit"
-msgstr ""
+msgstr "Commit ändern"
 
 #: applications/diffusion/controller/DiffusionCommitController.php:1126
 #: applications/maniphest/query/ManiphestTaskSearchEngine.php:444
