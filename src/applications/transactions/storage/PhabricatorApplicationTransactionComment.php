@@ -5,7 +5,7 @@ abstract class PhabricatorApplicationTransactionComment
   implements
     PhabricatorMarkupInterface,
     PhabricatorPolicyInterface,
-    PhabricatorDestructableInterface {
+    PhabricatorDestructibleInterface {
 
   const MARKUP_FIELD_COMMENT  = 'markup:comment';
 
@@ -28,6 +28,19 @@ abstract class PhabricatorApplicationTransactionComment
   public function getConfiguration() {
     return array(
       self::CONFIG_AUX_PHID => true,
+      self::CONFIG_COLUMN_SCHEMA => array(
+        'transactionPHID' => 'phid?',
+        'commentVersion' => 'uint32',
+        'content' => 'text',
+        'contentSource' => 'text',
+        'isDeleted' => 'bool',
+      ),
+      self::CONFIG_KEY_SCHEMA => array(
+        'key_version' => array(
+          'columns' => array('transactionPHID', 'commentVersion'),
+          'unique' => true,
+        ),
+      ),
     ) + parent::getConfiguration();
   }
 
@@ -135,7 +148,7 @@ abstract class PhabricatorApplicationTransactionComment
   }
 
 
-/* -(  PhabricatorDestructableInterface  )----------------------------------- */
+/* -(  PhabricatorDestructibleInterface  )----------------------------------- */
 
   public function destroyObjectPermanently(
     PhabricatorDestructionEngine $engine) {

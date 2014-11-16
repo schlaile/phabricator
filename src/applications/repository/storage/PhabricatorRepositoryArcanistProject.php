@@ -2,8 +2,9 @@
 
 final class PhabricatorRepositoryArcanistProject
   extends PhabricatorRepositoryDAO
-  implements PhabricatorPolicyInterface,
-  PhabricatorDestructableInterface {
+  implements
+    PhabricatorPolicyInterface,
+    PhabricatorDestructibleInterface {
 
   protected $name;
   protected $repositoryID;
@@ -21,12 +22,27 @@ final class PhabricatorRepositoryArcanistProject
         'symbolIndexLanguages' => self::SERIALIZATION_JSON,
         'symbolIndexProjects'  => self::SERIALIZATION_JSON,
       ),
+      self::CONFIG_COLUMN_SCHEMA => array(
+        'name' => 'text128',
+        'repositoryID' => 'id?',
+      ),
+      self::CONFIG_KEY_SCHEMA => array(
+        'key_phid' => null,
+        'phid' => array(
+          'columns' => array('phid'),
+          'unique' => true,
+        ),
+        'name' => array(
+          'columns' => array('name'),
+          'unique' => true,
+        ),
+      ),
     ) + parent::getConfiguration();
   }
 
   public function generatePHID() {
     return PhabricatorPHID::generateNewPHID(
-      PhabricatorRepositoryPHIDTypeArcanistProject::TYPECONST);
+      PhabricatorRepositoryArcanistProjectPHIDType::TYPECONST);
   }
 
   // TODO: Remove. Also, T603.
@@ -89,7 +105,7 @@ final class PhabricatorRepositoryArcanistProject
   }
 
 
-/* -(  PhabricatorDestructableInterface  )----------------------------------- */
+/* -(  PhabricatorDestructibleInterface  )----------------------------------- */
 
   public function destroyObjectPermanently(
     PhabricatorDestructionEngine $engine) {

@@ -8,7 +8,7 @@ final class PhabricatorAppSearchEngine
   }
 
   public function getApplicationClassName() {
-    return 'PhabricatorApplicationApplications';
+    return 'PhabricatorApplicationsApplication';
   }
 
   public function getPageSize(PhabricatorSavedQuery $saved) {
@@ -24,8 +24,8 @@ final class PhabricatorAppSearchEngine
       'installed',
       $this->readBoolFromRequest($request, 'installed'));
     $saved->setParameter(
-      'beta',
-      $this->readBoolFromRequest($request, 'beta'));
+      'prototypes',
+      $this->readBoolFromRequest($request, 'prototypes'));
     $saved->setParameter(
       'firstParty',
       $this->readBoolFromRequest($request, 'firstParty'));
@@ -51,9 +51,16 @@ final class PhabricatorAppSearchEngine
       $query->withInstalled($installed);
     }
 
-    $beta = $saved->getParameter('beta');
-    if ($beta !== null) {
-      $query->withBeta($beta);
+    $prototypes = $saved->getParameter('prototypes');
+
+    if ($prototypes === null) {
+      // NOTE: This is the old name of the 'prototypes' option, see T6084.
+      $prototypes = $saved->getParameter('beta');
+      $saved->setParameter('prototypes', $prototypes);
+    }
+
+    if ($prototypes !== null) {
+      $query->withPrototypes($prototypes);
     }
 
     $first_party = $saved->getParameter('firstParty');
@@ -92,13 +99,13 @@ final class PhabricatorAppSearchEngine
             )))
       ->appendChild(
         id(new AphrontFormSelectControl())
-          ->setLabel(pht('Beta'))
-          ->setName('beta')
-          ->setValue($this->getBoolFromQuery($saved, 'beta'))
+          ->setLabel(pht('Prototypes'))
+          ->setName('prototypes')
+          ->setValue($this->getBoolFromQuery($saved, 'prototypes'))
           ->setOptions(
             array(
               '' => pht('Show All Applications'),
-              'true' => pht('Show Beta Applications'),
+              'true' => pht('Show Prototype Applications'),
               'false' => pht('Show Released Applications'),
             )))
       ->appendChild(
@@ -123,7 +130,6 @@ final class PhabricatorAppSearchEngine
               'true' => pht('Show Launchable Applications'),
               'false' => pht('Show Non-Launchable Applications'),
             )));
-
   }
 
   protected function getURI($path) {
@@ -131,16 +137,13 @@ final class PhabricatorAppSearchEngine
   }
 
   public function getBuiltinQueryNames() {
-    $names = array(
+    return array(
       'launcher' => pht('Launcher'),
       'all' => pht('All Applications'),
     );
-
-    return $names;
   }
 
   public function buildSavedQueryFromBuiltin($query_key) {
-
     $query = $this->newSavedQuery();
     $query->setQueryKey($query_key);
 
@@ -233,8 +236,8 @@ final class PhabricatorAppSearchEngine
           $item->addIcon('fa-times', pht('Uninstalled'));
         }
 
-        if ($application->isBeta()) {
-          $item->addIcon('fa-star-half-o grey', pht('Beta'));
+        if ($application->isPrototype()) {
+          $item->addIcon('fa-bomb grey', pht('Prototype'));
         }
 
         if (!$application->isFirstParty()) {

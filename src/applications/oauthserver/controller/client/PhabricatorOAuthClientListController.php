@@ -1,7 +1,7 @@
 <?php
 
 final class PhabricatorOAuthClientListController
-  extends PhabricatorOAuthClientBaseController {
+  extends PhabricatorOAuthClientController {
 
   private $queryKey;
 
@@ -14,8 +14,7 @@ final class PhabricatorOAuthClientListController
   }
 
   public function processRequest() {
-    $request = $this->getRequest();
-    $controller = id(new PhabricatorApplicationSearchController($request))
+    $controller = id(new PhabricatorApplicationSearchController())
       ->setQueryKey($this->queryKey)
       ->setSearchEngine(new PhabricatorOAuthServerClientSearchEngine())
       ->setNavigation($this->buildSideNavView());

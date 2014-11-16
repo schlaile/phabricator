@@ -24,7 +24,7 @@ final class PhabricatorDashboardInstallController
 
     $object_phid = $request->getStr('objectPHID', $viewer->getPHID());
     switch ($object_phid) {
-      case PhabricatorApplicationHome::DASHBOARD_DEFAULT:
+      case PhabricatorHomeApplication::DASHBOARD_DEFAULT:
         if (!$viewer->getIsAdmin()) {
           return new Aphront404Response();
         }
@@ -48,11 +48,12 @@ final class PhabricatorDashboardInstallController
     $installer_phid = $viewer->getPHID();
     $application_class = $request->getStr(
       'applicationClass',
-      'PhabricatorApplicationHome');
+      'PhabricatorHomeApplication');
 
     $handles = $this->loadHandles(array(
       $object_phid,
-      $installer_phid));
+      $installer_phid,
+    ));
 
     if ($request->isFormPost()) {
       $dashboard_install = id(new PhabricatorDashboardInstall())
@@ -80,7 +81,7 @@ final class PhabricatorDashboardInstallController
       ->addSubmitButton(pht('Install Dashboard'));
 
     switch ($application_class) {
-      case 'PhabricatorApplicationHome':
+      case 'PhabricatorHomeApplication':
         if ($viewer->getPHID() == $object_phid) {
           if ($viewer->getIsAdmin()) {
             $dialog->setWidth(AphrontDialogView::WIDTH_FORM);
@@ -92,9 +93,9 @@ final class PhabricatorDashboardInstallController
               ->appendChild(
                 id(new AphrontFormRadioButtonControl())
                   ->setName('objectPHID')
-                  ->setValue(PhabricatorApplicationHome::DASHBOARD_DEFAULT)
+                  ->setValue(PhabricatorHomeApplication::DASHBOARD_DEFAULT)
                   ->addButton(
-                    PhabricatorApplicationHome::DASHBOARD_DEFAULT,
+                    PhabricatorHomeApplication::DASHBOARD_DEFAULT,
                     pht('Default Dashboard for All Users'),
                     pht(
                       'Install this dashboard as the global default dashboard '.
@@ -133,11 +134,10 @@ final class PhabricatorDashboardInstallController
     return $dialog;
   }
 
-
   private function getCancelURI($application_class, $object_phid) {
     $uri = null;
     switch ($application_class) {
-      case 'PhabricatorApplicationHome':
+      case 'PhabricatorHomeApplication':
         $uri = '/dashboard/view/'.$this->id.'/';
         break;
     }
@@ -147,7 +147,7 @@ final class PhabricatorDashboardInstallController
   private function getRedirectURI($application_class, $object_phid) {
     $uri = null;
     switch ($application_class) {
-      case 'PhabricatorApplicationHome':
+      case 'PhabricatorHomeApplication':
         $uri = '/';
         break;
     }

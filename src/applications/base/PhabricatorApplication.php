@@ -27,8 +27,21 @@ abstract class PhabricatorApplication implements PhabricatorPolicyInterface {
 /* -(  Application Information  )-------------------------------------------- */
 
 
+  /**
+   * TODO: This should be abstract, but is not for historical reasons.
+   */
   public function getName() {
-    return substr(get_class($this), strlen('PhabricatorApplication'));
+    phutil_deprecated(
+      'Automatic naming of `PhabricatorApplication` classes.',
+      'You should override the `getName` method.');
+
+    $match = null;
+    $regex = '/^PhabricatorApplication([A-Z][a-zA-Z]*)$/';
+    if (preg_match($regex, get_class($this), $match)) {
+      return $match[1];
+    }
+
+    throw new PhutilMethodNotImplementedException();
   }
 
   public function getShortDescription() {
@@ -40,8 +53,8 @@ abstract class PhabricatorApplication implements PhabricatorPolicyInterface {
       return true;
     }
 
-    $beta = PhabricatorEnv::getEnvConfig('phabricator.show-beta-applications');
-    if (!$beta && $this->isBeta()) {
+    $prototypes = PhabricatorEnv::getEnvConfig('phabricator.show-prototypes');
+    if (!$prototypes && $this->isPrototype()) {
       return false;
     }
 
@@ -52,7 +65,7 @@ abstract class PhabricatorApplication implements PhabricatorPolicyInterface {
   }
 
 
-  public function isBeta() {
+  public function isPrototype() {
     return false;
   }
 

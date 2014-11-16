@@ -4,7 +4,7 @@ abstract class PhabricatorApplicationTransaction
   extends PhabricatorLiskDAO
   implements
     PhabricatorPolicyInterface,
-    PhabricatorDestructableInterface {
+    PhabricatorDestructibleInterface {
 
   const TARGET_TEXT = 'text';
   const TARGET_HTML = 'html';
@@ -76,7 +76,7 @@ abstract class PhabricatorApplicationTransaction
   }
 
   public function getApplicationTransactionCommentObject() {
-    throw new Exception('Not implemented!');
+    throw new PhutilMethodNotImplementedException();
   }
 
   public function getApplicationTransactionViewObject() {
@@ -93,7 +93,7 @@ abstract class PhabricatorApplicationTransaction
   }
 
   public function generatePHID() {
-    $type = PhabricatorApplicationTransactionPHIDTypeTransaction::TYPECONST;
+    $type = PhabricatorApplicationTransactionTransactionPHIDType::TYPECONST;
     $subtype = $this->getApplicationTransactionType();
 
     return PhabricatorPHID::generateNewPHID($type, $subtype);
@@ -106,6 +106,17 @@ abstract class PhabricatorApplicationTransaction
         'oldValue' => self::SERIALIZATION_JSON,
         'newValue' => self::SERIALIZATION_JSON,
         'metadata' => self::SERIALIZATION_JSON,
+      ),
+      self::CONFIG_COLUMN_SCHEMA => array(
+        'commentPHID' => 'phid?',
+        'commentVersion' => 'uint32',
+        'contentSource' => 'text',
+        'transactionType' => 'text32',
+      ),
+      self::CONFIG_KEY_SCHEMA => array(
+        'key_object' => array(
+          'columns' => array('objectPHID'),
+        ),
       ),
     ) + parent::getConfiguration();
   }
@@ -264,9 +275,10 @@ abstract class PhabricatorApplicationTransaction
     if (empty($this->handles[$phid])) {
       throw new Exception(
         pht(
-          'Transaction ("%s") requires a handle ("%s") that it did not '.
-          'load.',
+          'Transaction ("%s", of type "%s") requires a handle ("%s") that it '.
+          'did not load.',
           $this->getPHID(),
+          $this->getTransactionType(),
           $phid));
     }
     return $this->handles[$phid];
@@ -437,6 +449,27 @@ abstract class PhabricatorApplicationTransaction
         if ($field) {
           return $field->shouldHideInApplicationTransactions($this);
         }
+      case PhabricatorTransactions::TYPE_EDGE:
+        $edge_type = $this->getMetadataValue('edge:type');
+        switch ($edge_type) {
+          case PhabricatorObjectMentionsObject::EDGECONST:
+            return true;
+            break;
+          case PhabricatorObjectMentionedByObject::EDGECONST:
+            $new = ipull($this->getNewValue(), 'dst');
+            $old = ipull($this->getOldValue(), 'dst');
+            $add = array_diff($new, $old);
+            $add_value = reset($add);
+            $add_handle = $this->getHandle($add_value);
+            if ($add_handle->getPolicyFiltered()) {
+              return true;
+            }
+            return false;
+            break;
+          default:
+            break;
+        }
+        break;
     }
 
     return false;
@@ -455,6 +488,17 @@ abstract class PhabricatorApplicationTransaction
             return false;
         }
         return true;
+     case PhabricatorTransactions::TYPE_EDGE:
+        $edge_type = $this->getMetadataValue('edge:type');
+        switch ($edge_type) {
+          case PhabricatorObjectMentionsObject::EDGECONST:
+          case PhabricatorObjectMentionedByObject::EDGECONST:
+            return true;
+            break;
+          default:
+            break;
+        }
+        break;
     }
 
     return $this->shouldHide();
@@ -474,6 +518,17 @@ abstract class PhabricatorApplicationTransaction
             return false;
         }
         return true;
+     case PhabricatorTransactions::TYPE_EDGE:
+        $edge_type = $this->getMetadataValue('edge:type');
+        switch ($edge_type) {
+          case PhabricatorObjectMentionsObject::EDGECONST:
+          case PhabricatorObjectMentionedByObject::EDGECONST:
+            return true;
+            break;
+          default:
+            break;
+        }
+        break;
     }
 
     return $this->shouldHide();
@@ -787,6 +842,31 @@ abstract class PhabricatorApplicationTransaction
     return $this->getTitle();
   }
 
+  public function getMarkupFieldsForFeed(PhabricatorFeedStory $story) {
+    $fields = array();
+
+    switch ($this->getTransactionType()) {
+      case PhabricatorTransactions::TYPE_COMMENT:
+        $text = $this->getComment()->getContent();
+        if (strlen($text)) {
+          $fields[] = 'comment/'.$this->getID();
+        }
+        break;
+    }
+
+    return $fields;
+  }
+
+  public function getMarkupTextForFeed(PhabricatorFeedStory $story, $field) {
+    switch ($this->getTransactionType()) {
+      case PhabricatorTransactions::TYPE_COMMENT:
+        $text = $this->getComment()->getContent();
+        return PhabricatorMarkupEngine::summarize($text);
+    }
+
+    return null;
+  }
+
   public function getBodyForFeed(PhabricatorFeedStory $story) {
     $old = $this->getOldValue();
     $new = $this->getNewValue();
@@ -796,10 +876,12 @@ abstract class PhabricatorApplicationTransaction
     switch ($this->getTransactionType()) {
       case PhabricatorTransactions::TYPE_COMMENT:
         $text = $this->getComment()->getContent();
-        $body = phutil_escape_html_newlines(
-          phutil_utf8_shorten($text, 128));
+        if (strlen($text)) {
+          $body = $story->getMarkupFieldOutput('comment/'.$this->getID());
+        }
         break;
     }
+
     return $body;
   }
 
@@ -996,6 +1078,44 @@ abstract class PhabricatorApplicationTransaction
     return null;
   }
 
+  public function renderAsTextForDoorkeeper(
+    DoorkeeperFeedStoryPublisher $publisher,
+    PhabricatorFeedStory $story,
+    array $xactions) {
+
+    $text = array();
+    $body = array();
+
+    foreach ($xactions as $xaction) {
+      $xaction_body = $xaction->getBodyForMail();
+      if ($xaction_body !== null) {
+        $body[] = $xaction_body;
+      }
+
+      if ($xaction->shouldHideForMail($xactions)) {
+        continue;
+      }
+
+      $old_target = $xaction->getRenderingTarget();
+      $new_target = PhabricatorApplicationTransaction::TARGET_TEXT;
+      $xaction->setRenderingTarget($new_target);
+
+      if ($publisher->getRenderWithImpliedContext()) {
+        $text[] = $xaction->getTitle();
+      } else {
+        $text[] = $xaction->getTitleForFeed($story);
+      }
+
+      $xaction->setRenderingTarget($old_target);
+    }
+
+    $text = implode("\n", $text);
+    $body = implode("\n\n", $body);
+
+    return rtrim($text."\n\n".$body);
+  }
+
+
 
 /* -(  PhabricatorPolicyInterface Implementation  )-------------------------- */
 
@@ -1026,7 +1146,7 @@ abstract class PhabricatorApplicationTransaction
   }
 
 
-/* -(  PhabricatorDestructableInterface  )----------------------------------- */
+/* -(  PhabricatorDestructibleInterface  )----------------------------------- */
 
 
   public function destroyObjectPermanently(

@@ -14,6 +14,26 @@ final class PhabricatorUserEmail extends PhabricatorUserDAO {
 
   const MAX_ADDRESS_LENGTH = 128;
 
+  public function getConfiguration() {
+    return array(
+      self::CONFIG_COLUMN_SCHEMA => array(
+        'address' => 'sort128',
+        'isVerified' => 'bool',
+        'isPrimary' => 'bool',
+        'verificationCode' => 'text64?',
+      ),
+      self::CONFIG_KEY_SCHEMA => array(
+        'address' => array(
+          'columns' => array('address'),
+          'unique' => true,
+        ),
+        'userPHID' => array(
+          'columns' => array('userPHID', 'isPrimary'),
+        ),
+      ),
+    ) + parent::getConfiguration();
+  }
+
   public function getVerificationURI() {
     return '/emailverify/'.$this->getVerificationCode().'/';
   }
@@ -173,6 +193,7 @@ EOBODY;
 
     id(new PhabricatorMetaMTAMail())
       ->addRawTos(array($address))
+      ->setForceDelivery(true)
       ->setSubject('[Phabricator] Email Verification')
       ->setBody($body)
       ->setRelatedPHID($user->getPHID())
@@ -210,6 +231,7 @@ EOBODY;
 
     id(new PhabricatorMetaMTAMail())
       ->addRawTos(array($old_address))
+      ->setForceDelivery(true)
       ->setSubject('[Phabricator] Primary Address Changed')
       ->setBody($body)
       ->setFrom($user->getPHID())
@@ -241,6 +263,7 @@ EOBODY;
 
     id(new PhabricatorMetaMTAMail())
       ->addRawTos(array($new_address))
+      ->setForceDelivery(true)
       ->setSubject('[Phabricator] Primary Address Changed')
       ->setBody($body)
       ->setFrom($user->getPHID())

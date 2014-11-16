@@ -5,7 +5,7 @@ final class LegalpadDocument extends LegalpadDAO
     PhabricatorPolicyInterface,
     PhabricatorSubscribableInterface,
     PhabricatorApplicationTransactionInterface,
-    PhabricatorDestructableInterface {
+    PhabricatorDestructibleInterface {
 
   protected $title;
   protected $contributorCount;
@@ -30,11 +30,11 @@ final class LegalpadDocument extends LegalpadDAO
   public static function initializeNewDocument(PhabricatorUser $actor) {
     $app = id(new PhabricatorApplicationQuery())
       ->setViewer($actor)
-      ->withClasses(array('PhabricatorApplicationLegalpad'))
+      ->withClasses(array('PhabricatorLegalpadApplication'))
       ->executeOne();
 
-    $view_policy = $app->getPolicy(LegalpadCapabilityDefaultView::CAPABILITY);
-    $edit_policy = $app->getPolicy(LegalpadCapabilityDefaultEdit::CAPABILITY);
+    $view_policy = $app->getPolicy(LegalpadDefaultViewCapability::CAPABILITY);
+    $edit_policy = $app->getPolicy(LegalpadDefaultEditCapability::CAPABILITY);
 
     return id(new LegalpadDocument())
       ->setVersions(0)
@@ -54,12 +54,25 @@ final class LegalpadDocument extends LegalpadDAO
       self::CONFIG_SERIALIZATION => array(
         'recentContributorPHIDs' => self::SERIALIZATION_JSON,
       ),
+      self::CONFIG_COLUMN_SCHEMA => array(
+        'title' => 'text255',
+        'contributorCount' => 'uint32',
+        'versions' => 'uint32',
+        'mailKey' => 'bytes20',
+        'signatureType' => 'text4',
+        'preamble' => 'text',
+      ),
+      self::CONFIG_KEY_SCHEMA => array(
+        'key_creator' => array(
+          'columns' => array('creatorPHID', 'dateModified'),
+        ),
+      ),
     ) + parent::getConfiguration();
   }
 
   public function generatePHID() {
     return PhabricatorPHID::generateNewPHID(
-      PhabricatorLegalpadPHIDTypeDocument::TYPECONST);
+      PhabricatorLegalpadDocumentPHIDType::TYPECONST);
   }
 
   public function getDocumentBody() {
@@ -201,7 +214,7 @@ final class LegalpadDocument extends LegalpadDAO
   }
 
 
-/* -(  PhabricatorDestructableInterface  )----------------------------------- */
+/* -(  PhabricatorDestructibleInterface  )----------------------------------- */
 
 
   public function destroyObjectPermanently(

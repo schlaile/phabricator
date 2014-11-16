@@ -40,7 +40,7 @@
   overflow: hidden;
   border-radius: 3px;
   border-left-width: 6px;
-  background: #f0f0f0 url('/rsrc/image/texture/card-gradient.png') repeat-x;
+  background: #fff;
   margin-bottom: 4px;
 }
 
@@ -51,7 +51,6 @@
 .phui-object-item-frame {
   border-style: solid;
   border-color: {$lightgreyborder};
-  border-bottom-color: {$greyborder};
   border-width: 1px 1px 1px 0;
   position: relative;
   min-height: 29px;
@@ -61,7 +60,7 @@
 }
 
 .device-desktop .phui-object-item {
-  margin: 0 0 5px 0;
+  margin: 0 0 4px 0;
 }
 
 .phui-object-item-name {
@@ -272,6 +271,10 @@
   padding: 0 10px;
 }
 
+ul.phui-object-item-icons {
+  margin: 0;
+}
+
 /* NOTE: The main content is an "overflow: hidden" div which we give a right
    margin so it doesn't overlap the icons. The margin is slightly larger than
    the width + padding of the icon div, so the icons have some space even if
@@ -431,13 +434,13 @@
 
 */
 
-.phui-object-item-highlighted {
+.phui-object-item.phui-object-item-highlighted {
   background: {$lightyellow};
+  border-left-color: {$yellow};
 }
 
-.phui-object-item.phui-object-item-highlighted {
-  background-image: linear-gradient(to bottom, rgb(253, 255, 221), rgb(243, 245, 206));
-  background-image: -webkit-linear-gradient(top, rgb(253, 255, 221), rgb(243, 245, 206));
+.phui-object-item-highlighted .phui-object-item-frame {
+  border-color: {$yellow};
 }
 
 .phui-object-item-selected {
@@ -682,7 +685,8 @@
   border-radius: 0;
 }
 
-.dashboard-panel .phui-object-item-list-header {
+.dashboard-panel .phui-object-item-list-header,
+.dashboard-panel .maniphest-task-group-header {
   font-size: 13px;
   color: {$bluetext};
   background: {$lightgreybackground};

@@ -9,21 +9,22 @@ final class ManiphestTaskEditController extends ManiphestController {
   }
 
   public function processRequest() {
-
     $request = $this->getRequest();
     $user = $request->getUser();
+
     $response_type = $request->getStr('responseType', 'task');
+    $order = $request->getStr('order', PhabricatorProjectColumn::DEFAULT_ORDER);
 
     $can_edit_assign = $this->hasApplicationCapability(
-      ManiphestCapabilityEditAssign::CAPABILITY);
+      ManiphestEditAssignCapability::CAPABILITY);
     $can_edit_policies = $this->hasApplicationCapability(
-      ManiphestCapabilityEditPolicies::CAPABILITY);
+      ManiphestEditPoliciesCapability::CAPABILITY);
     $can_edit_priority = $this->hasApplicationCapability(
-      ManiphestCapabilityEditPriority::CAPABILITY);
+      ManiphestEditPriorityCapability::CAPABILITY);
     $can_edit_projects = $this->hasApplicationCapability(
-      ManiphestCapabilityEditProjects::CAPABILITY);
+      ManiphestEditProjectsCapability::CAPABILITY);
     $can_edit_status = $this->hasApplicationCapability(
-      ManiphestCapabilityEditStatus::CAPABILITY);
+      ManiphestEditStatusCapability::CAPABILITY);
 
     $parent_task = null;
     $template_id = null;
@@ -58,7 +59,7 @@ final class ManiphestTaskEditController extends ManiphestController {
           if ($projects) {
             $tokens = $request->getStrList('projects');
 
-            $type_project = PhabricatorProjectPHIDTypeProject::TYPECONST;
+            $type_project = PhabricatorProjectProjectPHIDType::TYPECONST;
             foreach ($tokens as $key => $token) {
               if (phid_get_type($token) == $type_project) {
                 // If this is formatted like a PHID, leave it as-is.
@@ -245,10 +246,13 @@ final class ManiphestTaskEditController extends ManiphestController {
                 array(
                   'new' => array(
                     'projectPHID' => $column->getProjectPHID(),
-                    'columnPHIDs' => array($column_phid)),
+                    'columnPHIDs' => array($column_phid),
+                  ),
                   'old' => array(
                     'projectPHID' => $column->getProjectPHID(),
-                    'columnPHIDs' => array()));
+                    'columnPHIDs' => array(),
+                  ),
+                );
             }
           }
         }
@@ -340,6 +344,7 @@ final class ManiphestTaskEditController extends ManiphestController {
 
 
         if ($parent_task) {
+          // TODO: This should be transactional now.
           id(new PhabricatorEdgeEditor())
             ->addEdge(
               $parent_task->getPHID(),
@@ -365,51 +370,43 @@ final class ManiphestTaskEditController extends ManiphestController {
                 ->setOwner($owner)
                 ->setCanEdit(true)
                 ->getItem();
-              $column_phid = $request->getStr('columnPHID');
+
               $column = id(new PhabricatorProjectColumnQuery())
                 ->setViewer($user)
-                ->withPHIDs(array($column_phid))
+                ->withPHIDs(array($request->getStr('columnPHID')))
                 ->executeOne();
-              if ($column->isDefaultColumn()) {
-                $column_tasks = array();
-                $potential_col_tasks = id(new ManiphestTaskQuery())
-                  ->setViewer($user)
-                  ->withAllProjects(array($column->getProjectPHID()))
-                  ->execute();
-                $potential_col_tasks = mpull(
-                  $potential_col_tasks,
-                  null,
-                  'getPHID');
-                $potential_task_phids = array_keys($potential_col_tasks);
-                if ($potential_task_phids) {
-                  $edge_type = PhabricatorEdgeConfig::TYPE_OBJECT_HAS_COLUMN;
-                  $edge_query = id(new PhabricatorEdgeQuery())
-                    ->withSourcePHIDs($potential_task_phids)
-                    ->withEdgeTypes(array($edge_type));
-                  $edges = $edge_query->execute();
-                  foreach ($potential_col_tasks as $task_phid => $curr_task) {
-                    $curr_column_phids = $edges[$task_phid][$edge_type];
-                    $curr_column_phid = head_key($curr_column_phids);
-                    if (!$curr_column_phid ||
-                        $curr_column_phid == $column_phid) {
-                      $column_tasks[] = $curr_task;
-                    }
-                  }
-                }
-              } else {
-                $column_task_phids = PhabricatorEdgeQuery::loadDestinationPHIDs(
-                  $column_phid,
-                  PhabricatorEdgeConfig::TYPE_COLUMN_HAS_OBJECT);
-                $column_tasks = id(new ManiphestTaskQuery())
-                  ->setViewer($user)
-                  ->withPHIDs($column_task_phids)
-                  ->execute();
+              if (!$column) {
+                return new Aphront404Response();
               }
 
-              $sort_map = mpull(
-                $column_tasks,
-                'getPrioritySortVector',
-                'getPHID');
+              $positions = id(new PhabricatorProjectColumnPositionQuery())
+                ->setViewer($user)
+                ->withColumns(array($column))
+                ->execute();
+              $task_phids = mpull($positions, 'getObjectPHID');
+
+              $column_tasks = id(new ManiphestTaskQuery())
+                ->setViewer($user)
+                ->withPHIDs($task_phids)
+                ->execute();
+
+              if ($order == PhabricatorProjectColumn::ORDER_NATURAL) {
+                // TODO: This is a little bit awkward, because PHP and JS use
+                // slightly different sort order parameters to achieve the same
+                // effect. It would be unify this a bit at some point.
+                $sort_map = array();
+                foreach ($positions as $position) {
+                  $sort_map[$position->getObjectPHID()] = array(
+                    -$position->getSequence(),
+                    $position->getID(),
+                  );
+                }
+              } else {
+                $sort_map = mpull(
+                  $column_tasks,
+                  'getPrioritySortVector',
+                  'getPHID');
+              }
 
               $data = array(
                 'sortMap' => $sort_map,
@@ -448,7 +445,10 @@ final class ManiphestTaskEditController extends ManiphestController {
             ->withIDs(array($template_id))
             ->executeOne();
           if ($template_task) {
-            $task->setCCPHIDs($template_task->getCCPHIDs());
+            $cc_phids = array_unique(array_merge(
+              $template_task->getCCPHIDs(),
+              array($user->getPHID())));
+            $task->setCCPHIDs($cc_phids);
             $task->attachProjectPHIDs($template_task->getProjectPHIDs());
             $task->setOwnerPHID($template_task->getOwnerPHID());
             $task->setPriority($template_task->getPriority());
@@ -552,6 +552,8 @@ final class ManiphestTaskEditController extends ManiphestController {
       ->setUser($user)
       ->addHiddenInput('template', $template_id)
       ->addHiddenInput('responseType', $response_type)
+      ->addHiddenInput('order', $order)
+      ->addHiddenInput('ungrippable', $request->getStr('ungrippable'))
       ->addHiddenInput('columnPHID', $request->getStr('columnPHID'));
 
     if ($parent_task) {
@@ -750,4 +752,5 @@ final class ManiphestTaskEditController extends ManiphestController {
         'pageObjects' => $page_objects,
       ));
   }
+
 }

@@ -27,12 +27,24 @@ final class ConpherenceThread extends ConpherenceDAO
       self::CONFIG_SERIALIZATION => array(
         'recentParticipantPHIDs' => self::SERIALIZATION_JSON,
       ),
+      self::CONFIG_COLUMN_SCHEMA => array(
+        'title' => 'text255?',
+        'messageCount' => 'uint64',
+        'mailKey' => 'text20',
+      ),
+      self::CONFIG_KEY_SCHEMA => array(
+        'key_phid' => null,
+        'phid' => array(
+          'columns' => array('phid'),
+          'unique' => true,
+        ),
+      ),
     ) + parent::getConfiguration();
   }
 
   public function generatePHID() {
     return PhabricatorPHID::generateNewPHID(
-      PhabricatorConpherencePHIDTypeThread::TYPECONST);
+      PhabricatorConpherenceThreadPHIDType::TYPECONST);
   }
 
   public function save() {

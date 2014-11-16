@@ -8,7 +8,7 @@ final class PhabricatorProjectSearchEngine
   }
 
   public function getApplicationClassName() {
-    return 'PhabricatorApplicationProject';
+    return 'PhabricatorProjectApplication';
   }
 
   public function getCustomFieldObject() {
@@ -24,6 +24,14 @@ final class PhabricatorProjectSearchEngine
 
     $saved->setParameter('status', $request->getStr('status'));
     $saved->setParameter('name', $request->getStr('name'));
+
+    $saved->setParameter(
+      'icons',
+      $this->readListFromRequest($request, 'icons'));
+
+    $saved->setParameter(
+      'colors',
+      $this->readListFromRequest($request, 'colors'));
 
     $this->readCustomFieldsFromRequest($request, $saved);
 
@@ -50,6 +58,16 @@ final class PhabricatorProjectSearchEngine
       $query->withDatasourceQuery($name);
     }
 
+    $icons = $saved->getParameter('icons');
+    if ($icons) {
+      $query->withIcons($icons);
+    }
+
+    $colors = $saved->getParameter('colors');
+    if ($colors) {
+      $query->withColors($colors);
+    }
+
     $this->applyCustomFieldsToQuery($query, $saved);
 
     return $query;
@@ -66,14 +84,45 @@ final class PhabricatorProjectSearchEngine
       ->execute();
 
     $status = $saved->getParameter('status');
-    $name = $saved->getParameter('name');
+    $name_match = $saved->getParameter('name');
+
+    $icons = array_fuse($saved->getParameter('icons', array()));
+    $colors = array_fuse($saved->getParameter('colors', array()));
+
+    $icon_control = id(new AphrontFormCheckboxControl())
+      ->setLabel(pht('Icons'));
+    foreach (PhabricatorProjectIcon::getIconMap() as $icon => $name) {
+      $image = id(new PHUIIconView())
+        ->setIconFont($icon);
+
+      $icon_control->addCheckbox(
+        'icons[]',
+        $icon,
+        array($image, ' ', $name),
+        isset($icons[$icon]));
+    }
+
+    $color_control = id(new AphrontFormCheckboxControl())
+      ->setLabel(pht('Colors'));
+    foreach (PhabricatorProjectIcon::getColorMap() as $color => $name) {
+      $tag = id(new PHUITagView())
+        ->setType(PHUITagView::TYPE_SHADE)
+        ->setShade($color)
+        ->setName($name);
+
+      $color_control->addCheckbox(
+        'colors[]',
+        $color,
+        $tag,
+        isset($colors[$color]));
+    }
 
     $form
       ->appendChild(
         id(new AphrontFormTextControl())
           ->setName('name')
           ->setLabel(pht('Name'))
-          ->setValue($name))
+          ->setValue($name_match))
       ->appendChild(
         id(new AphrontFormTokenizerControl())
           ->setDatasource(new PhabricatorPeopleDatasource())
@@ -85,7 +134,9 @@ final class PhabricatorProjectSearchEngine
           ->setLabel(pht('Status'))
           ->setName('status')
           ->setOptions($this->getStatusOptions())
-          ->setValue($status));
+          ->setValue($status))
+      ->appendChild($icon_control)
+      ->appendChild($color_control);
 
     $this->appendCustomFieldsToForm($form, $saved);
   }
@@ -108,7 +159,6 @@ final class PhabricatorProjectSearchEngine
   }
 
   public function buildSavedQueryFromBuiltin($query_key) {
-
     $query = $this->newSavedQuery();
     $query->setQueryKey($query_key);
 
@@ -143,6 +193,16 @@ final class PhabricatorProjectSearchEngine
     );
   }
 
+  private function getColorValues() {}
+
+  private function getIconValues() {}
+
+  protected function getRequiredHandlePHIDsForResultList(
+    array $projects,
+    PhabricatorSavedQuery $query) {
+    return mpull($projects, 'getPHID');
+  }
+
   protected function renderResultList(
     array $projects,
     PhabricatorSavedQuery $query,
@@ -159,21 +219,26 @@ final class PhabricatorProjectSearchEngine
       $workboards_url = phutil_tag(
         'a',
         array(
-          'href' => $workboards_uri
+          'href' => $workboards_uri,
         ),
-        pht('Workboards'));
+        pht('Workboard'));
 
       $members_url = phutil_tag(
         'a',
         array(
-          'href' => $members_uri
+          'href' => $members_uri,
         ),
         pht('Members'));
+
+      $tag_list = id(new PHUIHandleTagListView())
+        ->setSlim(true)
+        ->setHandles(array($handles[$project->getPHID()]));
 
       $item = id(new PHUIObjectItemView())
         ->setHeader($project->getName())
         ->setHref($this->getApplicationURI("view/{$id}/"))
         ->setImageURI($project->getProfileImageURI())
+        ->addAttribute($tag_list)
         ->addAttribute($workboards_url)
         ->addAttribute($members_url);
 

@@ -36,9 +36,6 @@ final class PhabricatorEdgeConfig extends PhabricatorEdgeConstants {
   const TYPE_OBJECT_HAS_FILE            = 25;
   const TYPE_FILE_HAS_OBJECT            = 26;
 
-  const TYPE_ACCOUNT_HAS_MEMBER         = 27;
-  const TYPE_MEMBER_HAS_ACCOUNT         = 28;
-
   const TYPE_PURCAHSE_HAS_CHARGE        = 29;
   const TYPE_CHARGE_HAS_PURCHASE        = 30;
 
@@ -56,9 +53,6 @@ final class PhabricatorEdgeConfig extends PhabricatorEdgeConstants {
 
   const TYPE_OBJECT_USES_CREDENTIAL     = 39;
   const TYPE_CREDENTIAL_USED_BY_OBJECT  = 40;
-
-  const TYPE_OBJECT_HAS_COLUMN          = 43;
-  const TYPE_COLUMN_HAS_OBJECT          = 44;
 
   const TYPE_DASHBOARD_HAS_PANEL        = 45;
   const TYPE_PANEL_HAS_DASHBOARD        = 46;
@@ -105,6 +99,13 @@ final class PhabricatorEdgeConfig extends PhabricatorEdgeConstants {
       range(1, 50),
       array(9000),
       range(80000, 80005));
+
+    $exclude[] = 27; // Was TYPE_ACCOUNT_HAS_MEMBER
+    $exclude[] = 28; // Was TYPE_MEMBER_HAS_ACCOUNT
+
+    $exclude[] = 43; // Was TYPE_OBJECT_HAS_COLUMN
+    $exclude[] = 44; // Was TYPE_COLUMN_HAS_OBJECT
+
     $consts = array_diff($consts, $exclude);
 
     $map = array();
@@ -163,9 +164,6 @@ final class PhabricatorEdgeConfig extends PhabricatorEdgeConstants {
       self::TYPE_OBJECT_HAS_FILE => self::TYPE_FILE_HAS_OBJECT,
       self::TYPE_FILE_HAS_OBJECT => self::TYPE_OBJECT_HAS_FILE,
 
-      self::TYPE_ACCOUNT_HAS_MEMBER => self::TYPE_MEMBER_HAS_ACCOUNT,
-      self::TYPE_MEMBER_HAS_ACCOUNT => self::TYPE_ACCOUNT_HAS_MEMBER,
-
       self::TYPE_DREV_HAS_COMMIT => self::TYPE_COMMIT_HAS_DREV,
       self::TYPE_COMMIT_HAS_DREV => self::TYPE_DREV_HAS_COMMIT,
 
@@ -189,9 +187,6 @@ final class PhabricatorEdgeConfig extends PhabricatorEdgeConstants {
 
       self::TYPE_OBJECT_USES_CREDENTIAL => self::TYPE_CREDENTIAL_USED_BY_OBJECT,
       self::TYPE_CREDENTIAL_USED_BY_OBJECT => self::TYPE_OBJECT_USES_CREDENTIAL,
-
-      self::TYPE_OBJECT_HAS_COLUMN => self::TYPE_COLUMN_HAS_OBJECT,
-      self::TYPE_COLUMN_HAS_OBJECT => self::TYPE_OBJECT_HAS_COLUMN,
 
       self::TYPE_PANEL_HAS_DASHBOARD => self::TYPE_DASHBOARD_HAS_PANEL,
       self::TYPE_DASHBOARD_HAS_PANEL => self::TYPE_PANEL_HAS_DASHBOARD,
@@ -229,9 +224,6 @@ final class PhabricatorEdgeConfig extends PhabricatorEdgeConstants {
 
     static $class_map = array(
       PhabricatorPHIDConstants::PHID_TYPE_TOBJ  => 'HarbormasterObject',
-      PhabricatorPHIDConstants::PHID_TYPE_ACNT  => 'PhortuneAccount',
-      PhabricatorPHIDConstants::PHID_TYPE_PRCH  => 'PhortunePurchase',
-      PhabricatorPHIDConstants::PHID_TYPE_CHRG  => 'PhortuneCharge',
       PhabricatorPHIDConstants::PHID_TYPE_XOBJ  => 'DoorkeeperExternalObject',
     );
 
@@ -289,10 +281,6 @@ final class PhabricatorEdgeConfig extends PhabricatorEdgeConstants {
         return pht('%s edited unsubcriber(s), added %d: %s; removed %d: %s.');
       case self::TYPE_OBJECT_HAS_FILE:
         return pht('%s edited file(s), added %d: %s; removed %d: %s.');
-      case self::TYPE_ACCOUNT_HAS_MEMBER:
-        return pht('%s edited member(s), added %d: %s; removed %d: %s.');
-      case self::TYPE_MEMBER_HAS_ACCOUNT:
-        return pht('%s edited account(s), added %d: %s; removed %d: %s.');
       case self::TYPE_PURCAHSE_HAS_CHARGE:
         return pht('%s edited charge(s), added %d: %s; removed %d: %s.');
       case self::TYPE_CHARGE_HAS_PURCHASE:
@@ -359,10 +347,6 @@ final class PhabricatorEdgeConfig extends PhabricatorEdgeConstants {
         return pht('%s added %d unsubcriber(s): %s.');
       case self::TYPE_OBJECT_HAS_FILE:
         return pht('%s added %d file(s): %s.');
-      case self::TYPE_ACCOUNT_HAS_MEMBER:
-        return pht('%s added %d member(s): %s.');
-      case self::TYPE_MEMBER_HAS_ACCOUNT:
-        return pht('%s added %d account(s): %s.');
       case self::TYPE_PURCAHSE_HAS_CHARGE:
         return pht('%s added %d charge(s): %s.');
       case self::TYPE_CHARGE_HAS_PURCHASE:
@@ -432,10 +416,6 @@ final class PhabricatorEdgeConfig extends PhabricatorEdgeConstants {
         return pht('%s removed %d unsubcriber(s): %s.');
       case self::TYPE_OBJECT_HAS_FILE:
         return pht('%s removed %d file(s): %s.');
-      case self::TYPE_ACCOUNT_HAS_MEMBER:
-        return pht('%s removed %d member(s): %s.');
-      case self::TYPE_MEMBER_HAS_ACCOUNT:
-        return pht('%s removed %d account(s): %s.');
       case self::TYPE_PURCAHSE_HAS_CHARGE:
         return pht('%s removed %d charge(s): %s.');
       case self::TYPE_CHARGE_HAS_PURCHASE:
@@ -501,10 +481,6 @@ final class PhabricatorEdgeConfig extends PhabricatorEdgeConstants {
         return pht('%s updated unsubcribers of %s.');
       case self::TYPE_OBJECT_HAS_FILE:
         return pht('%s updated files of %s.');
-      case self::TYPE_ACCOUNT_HAS_MEMBER:
-        return pht('%s updated members of %s.');
-      case self::TYPE_MEMBER_HAS_ACCOUNT:
-        return pht('%s updated accounts of %s.');
       case self::TYPE_PURCAHSE_HAS_CHARGE:
         return pht('%s updated charges of %s.');
       case self::TYPE_CHARGE_HAS_PURCHASE:

@@ -7,7 +7,8 @@ final class PonderAnswer extends PonderDAO
     PhabricatorPolicyInterface,
     PhabricatorFlaggableInterface,
     PhabricatorSubscribableInterface,
-    PhabricatorTokenReceiverInterface {
+    PhabricatorTokenReceiverInterface,
+    PhabricatorDestructibleInterface {
 
   const MARKUP_FIELD_CONTENT = 'markup:content';
 
@@ -66,12 +67,36 @@ final class PonderAnswer extends PonderDAO
   public function getConfiguration() {
     return array(
       self::CONFIG_AUX_PHID => true,
+      self::CONFIG_COLUMN_SCHEMA => array(
+        'voteCount' => 'sint32',
+        'content' => 'text',
+
+        // T6203/NULLABILITY
+        // This should always exist.
+        'contentSource' => 'text?',
+      ),
+      self::CONFIG_KEY_SCHEMA => array(
+        'key_phid' => null,
+        'phid' => array(
+          'columns' => array('phid'),
+          'unique' => true,
+        ),
+        'key_oneanswerperquestion' => array(
+          'columns' => array('questionID', 'authorPHID'),
+          'unique' => true,
+        ),
+        'questionID' => array(
+          'columns' => array('questionID'),
+        ),
+        'authorPHID' => array(
+          'columns' => array('authorPHID'),
+        ),
+      ),
     ) + parent::getConfiguration();
   }
 
   public function generatePHID() {
-    return PhabricatorPHID::generateNewPHID(
-      PonderPHIDTypeAnswer::TYPECONST);
+    return PhabricatorPHID::generateNewPHID(PonderAnswerPHIDType::TYPECONST);
   }
 
   public function setContentSource(PhabricatorContentSource $content_source) {
@@ -194,6 +219,18 @@ final class PonderAnswer extends PonderDAO
 
   public function shouldAllowSubscription($phid) {
     return true;
+  }
+
+
+/* -(  PhabricatorDestructibleInterface  )----------------------------------- */
+
+
+  public function destroyObjectPermanently(
+    PhabricatorDestructionEngine $engine) {
+
+    $this->openTransaction();
+      $this->delete();
+    $this->saveTransaction();
   }
 
 }

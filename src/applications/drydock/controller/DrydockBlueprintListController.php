@@ -14,7 +14,7 @@ final class DrydockBlueprintListController extends DrydockBlueprintController {
 
   public function processRequest() {
     $request = $this->getRequest();
-    $controller = id(new PhabricatorApplicationSearchController($request))
+    $controller = id(new PhabricatorApplicationSearchController())
       ->setQueryKey($this->queryKey)
       ->setSearchEngine(new DrydockBlueprintSearchEngine())
       ->setNavigation($this->buildSideNavView());
@@ -24,7 +24,7 @@ final class DrydockBlueprintListController extends DrydockBlueprintController {
 
   public function buildApplicationCrumbs() {
     $can_create = $this->hasApplicationCapability(
-      DrydockCapabilityCreateBlueprints::CAPABILITY);
+      DrydockCreateBlueprintsCapability::CAPABILITY);
 
     $crumbs = parent::buildApplicationCrumbs();
     $crumbs->addAction(

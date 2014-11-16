@@ -100,7 +100,6 @@ final class DiffusionCommitController extends DiffusionController {
       $engine = PhabricatorMarkupEngine::newDifferentialMarkupEngine();
       $engine->setConfig('viewer', $user);
 
-      require_celerity_resource('diffusion-commit-view-css');
       require_celerity_resource('phabricator-remarkup-css');
 
       $parents = $this->callConduitWithDiffusionRequest(
@@ -323,10 +322,9 @@ final class DiffusionCommitController extends DiffusionController {
         $visible_changesets = $changesets;
       } else {
         $visible_changesets = array();
-        $inlines = id(new PhabricatorAuditInlineComment())->loadAllWhere(
-          'commitPHID = %s AND (auditCommentID IS NOT NULL OR authorPHID = %s)',
-          $commit->getPHID(),
-          $user->getPHID());
+        $inlines = PhabricatorAuditInlineComment::loadDraftAndPublishedComments(
+          $user,
+          $commit->getPHID());
         $path_ids = mpull($inlines, null, 'getPathID');
         foreach ($changesets as $key => $changeset) {
           if (array_key_exists($changeset->getID(), $path_ids)) {
@@ -643,16 +641,23 @@ final class DiffusionCommitController extends DiffusionController {
   }
 
   private function buildComments(PhabricatorRepositoryCommit $commit) {
-    $user = $this->getRequest()->getUser();
-    $comments = id(new PhabricatorAuditComment())->loadAllWhere(
-      'targetPHID = %s ORDER BY dateCreated ASC',
-      $commit->getPHID());
+    $viewer = $this->getRequest()->getUser();
 
-    $inlines = id(new PhabricatorAuditInlineComment())->loadAllWhere(
-      'commitPHID = %s AND auditCommentID IS NOT NULL',
-      $commit->getPHID());
+    $xactions = id(new PhabricatorAuditTransactionQuery())
+      ->setViewer($viewer)
+      ->withObjectPHIDs(array($commit->getPHID()))
+      ->needComments(true)
+      ->execute();
 
-    $path_ids = mpull($inlines, 'getPathID');
+    $path_ids = array();
+    foreach ($xactions as $xaction) {
+      if ($xaction->hasComment()) {
+        $path_id = $xaction->getComment()->getPathID();
+        if ($path_id) {
+          $path_ids[] = $path_id;
+        }
+      }
+    }
 
     $path_map = array();
     if ($path_ids) {
@@ -662,35 +667,11 @@ final class DiffusionCommitController extends DiffusionController {
       $path_map = ipull($path_map, 'path', 'id');
     }
 
-    $engine = new PhabricatorMarkupEngine();
-    $engine->setViewer($user);
-
-    foreach ($comments as $comment) {
-      $engine->addObject(
-        $comment,
-        PhabricatorAuditComment::MARKUP_FIELD_BODY);
-    }
-
-    foreach ($inlines as $inline) {
-      $engine->addObject(
-        $inline,
-        PhabricatorInlineCommentInterface::MARKUP_FIELD_BODY);
-    }
-
-    $engine->process();
-
-    $view = new DiffusionCommentListView();
-    $view->setMarkupEngine($engine);
-    $view->setUser($user);
-    $view->setComments($comments);
-    $view->setInlineComments($inlines);
-    $view->setPathMap($path_map);
-
-    $phids = $view->getRequiredHandlePHIDs();
-    $handles = $this->loadViewerHandles($phids);
-    $view->setHandles($handles);
-
-    return $view;
+    return id(new PhabricatorAuditTransactionView())
+      ->setUser($viewer)
+      ->setObjectPHID($commit->getPHID())
+      ->setPathMap($path_map)
+      ->setTransactions($xactions);
   }
 
   private function renderAddCommentPanel(
@@ -815,7 +796,7 @@ final class DiffusionCommitController extends DiffusionController {
       'aphront-panel-preview aphront-panel-flush',
       array(
         phutil_tag('div', array('id' => 'audit-preview'), $loading),
-        phutil_tag('div', array('id' => 'inline-comment-preview'))
+        phutil_tag('div', array('id' => 'inline-comment-preview')),
       ));
 
     // TODO: This is pretty awkward, unify the CSS between Diffusion and
@@ -930,7 +911,8 @@ final class DiffusionCommitController extends DiffusionController {
         'diffusion.mergedcommitsquery',
         array(
           'commit' => $drequest->getCommit(),
-          'limit' => $limit + 1));
+          'limit' => $limit + 1,
+        ));
     } catch (ConduitException $ex) {
       if ($ex->getMessage() != 'ERR-UNSUPPORTED-VCS') {
         throw $ex;
@@ -999,7 +981,7 @@ final class DiffusionCommitController extends DiffusionController {
     require_celerity_resource('phabricator-object-selector-css');
     require_celerity_resource('javelin-behavior-phabricator-object-selector');
 
-    $maniphest = 'PhabricatorApplicationManiphest';
+    $maniphest = 'PhabricatorManiphestApplication';
     if (PhabricatorApplication::isClassInstalled($maniphest)) {
       $action = id(new PhabricatorActionView())
         ->setName(pht('Edit Maniphest Tasks'))
@@ -1045,7 +1027,8 @@ final class DiffusionCommitController extends DiffusionController {
       'diffusion.rawdiffquery',
       array(
         'commit' => $drequest->getCommit(),
-        'path' => $drequest->getPath()));
+        'path' => $drequest->getPath(),
+      ));
 
     $file = PhabricatorFile::buildFromFileDataOrHash(
       $raw_diff,
@@ -1056,12 +1039,10 @@ final class DiffusionCommitController extends DiffusionController {
       ));
 
     $unguarded = AphrontWriteGuard::beginScopedUnguardedWrites();
-      $file->attachToObject(
-        $this->getRequest()->getUser(),
-        $drequest->getRepository()->getPHID());
+      $file->attachToObject($drequest->getRepository()->getPHID());
     unset($unguarded);
 
-    return id(new AphrontRedirectResponse())->setURI($file->getBestURI());
+    return $file->getRedirectResponse();
   }
 
   private function renderAuditStatusView(array $audit_requests) {
@@ -1074,64 +1055,12 @@ final class DiffusionCommitController extends DiffusionController {
 
     $view = new PHUIStatusListView();
     foreach ($audit_requests as $request) {
+      $code = $request->getAuditStatus();
       $item = new PHUIStatusItemView();
-
-      switch ($request->getAuditStatus()) {
-        case PhabricatorAuditStatusConstants::AUDIT_NOT_REQUIRED:
-          $item->setIcon(
-            PHUIStatusItemView::ICON_OPEN,
-            'blue',
-            pht('Commented'));
-          break;
-        case PhabricatorAuditStatusConstants::AUDIT_REQUIRED:
-          $item->setIcon(
-            PHUIStatusItemView::ICON_WARNING,
-            'blue',
-            pht('Audit Required'));
-          break;
-        case PhabricatorAuditStatusConstants::CONCERNED:
-          $item->setIcon(
-            PHUIStatusItemView::ICON_REJECT,
-            'red',
-            pht('Concern Raised'));
-          break;
-        case PhabricatorAuditStatusConstants::ACCEPTED:
-          $item->setIcon(
-            PHUIStatusItemView::ICON_ACCEPT,
-            'green',
-            pht('Accepted'));
-          break;
-        case PhabricatorAuditStatusConstants::AUDIT_REQUESTED:
-          $item->setIcon(
-            PHUIStatusItemView::ICON_WARNING,
-            'dark',
-            pht('Audit Requested'));
-          break;
-        case PhabricatorAuditStatusConstants::RESIGNED:
-          $item->setIcon(
-            PHUIStatusItemView::ICON_OPEN,
-            'dark',
-            pht('Resigned'));
-          break;
-        case PhabricatorAuditStatusConstants::CLOSED:
-          $item->setIcon(
-            PHUIStatusItemView::ICON_ACCEPT,
-            'blue',
-            pht('Closed'));
-          break;
-        case PhabricatorAuditStatusConstants::CC:
-          $item->setIcon(
-            PHUIStatusItemView::ICON_INFO,
-            'dark',
-            pht('Subscribed'));
-          break;
-        default:
-          $item->setIcon(
-            PHUIStatusItemView::ICON_QUESTION,
-            'dark',
-            pht('%s?', $request->getAuditStatus()));
-          break;
-      }
+      $item->setIcon(
+        PhabricatorAuditStatusConstants::getStatusIcon($code),
+        PhabricatorAuditStatusConstants::getStatusColor($code),
+        PhabricatorAuditStatusConstants::getStatusName($code));
 
       $note = array();
       foreach ($request->getAuditReasons() as $reason) {
@@ -1175,6 +1104,5 @@ final class DiffusionCommitController extends DiffusionController {
 
     return $parser->processCorpus($corpus);
   }
-
 
 }

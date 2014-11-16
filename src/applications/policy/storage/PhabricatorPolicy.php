@@ -25,6 +25,16 @@ final class PhabricatorPolicy
       self::CONFIG_SERIALIZATION => array(
         'rules' => self::SERIALIZATION_JSON,
       ),
+      self::CONFIG_COLUMN_SCHEMA => array(
+        'defaultAction' => 'text32',
+      ),
+      self::CONFIG_KEY_SCHEMA => array(
+        'key_phid' => null,
+        'phid' => array(
+          'columns' => array('phid'),
+          'unique' => true,
+        ),
+      ),
     ) + parent::getConfiguration();
   }
 
@@ -63,11 +73,11 @@ final class PhabricatorPolicy
 
     $phid_type = phid_get_type($policy_identifier);
     switch ($phid_type) {
-      case PhabricatorProjectPHIDTypeProject::TYPECONST:
+      case PhabricatorProjectProjectPHIDType::TYPECONST:
         $policy->setType(PhabricatorPolicyType::TYPE_PROJECT);
         $policy->setName($handle->getName());
         break;
-      case PhabricatorPeoplePHIDTypeUser::TYPECONST:
+      case PhabricatorPeopleUserPHIDType::TYPECONST:
         $policy->setType(PhabricatorPolicyType::TYPE_USER);
         $policy->setName($handle->getFullName());
         break;
@@ -204,11 +214,11 @@ final class PhabricatorPolicy
           ->executeOne();
 
         $type = phid_get_type($policy);
-        if ($type == PhabricatorProjectPHIDTypeProject::TYPECONST) {
+        if ($type == PhabricatorProjectProjectPHIDType::TYPECONST) {
           return pht(
             'Members of the project "%s" can take this action.',
             $handle->getFullName());
-        } else if ($type == PhabricatorPeoplePHIDTypeUser::TYPECONST) {
+        } else if ($type == PhabricatorPeopleUserPHIDType::TYPECONST) {
           return pht(
             '%s can take this action.',
             $handle->getFullName());
@@ -235,7 +245,7 @@ final class PhabricatorPolicy
     }
   }
 
-  public function renderDescription($icon=false) {
+  public function renderDescription($icon = false) {
     $img = null;
     if ($icon) {
       $img = id(new PHUIIconView())

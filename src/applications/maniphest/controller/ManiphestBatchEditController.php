@@ -4,7 +4,7 @@ final class ManiphestBatchEditController extends ManiphestController {
 
   public function processRequest() {
     $this->requireApplicationCapability(
-      ManiphestCapabilityBulkEdit::CAPABILITY);
+      ManiphestBulkEditCapability::CAPABILITY);
 
     $request = $this->getRequest();
     $user = $request->getUser();
@@ -84,7 +84,7 @@ final class ManiphestBatchEditController extends ManiphestController {
           'cc'    => array(
             'src'           => $mailable_source->getDatasourceURI(),
             'placeholder'   => $mailable_source->getPlaceholderText(),
-          )
+          ),
         ),
         'input' => 'batch-form-actions',
         'priorityMap' => ManiphestTaskPriority::getTaskPriorityMap(),
@@ -118,7 +118,7 @@ final class ManiphestBatchEditController extends ManiphestController {
       phutil_tag('p', array(), pht('These tasks will be edited:')));
     $form->appendChild($list);
     $form->appendChild(
-      id(new AphrontFormInsetView())
+      id(new PHUIFormInsetView())
         ->setTitle('Actions')
         ->setRightButton(javelin_tag(
             'a',

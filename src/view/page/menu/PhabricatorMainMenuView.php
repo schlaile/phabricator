@@ -238,12 +238,11 @@ final class PhabricatorMainMenuView extends AphrontView {
   }
 
   private function renderPhabricatorLogo() {
-    $class = 'phabricator-main-menu-logo-image';
 
     return phutil_tag(
       'a',
       array(
-        'class' => 'phabricator-main-menu-logo',
+        'class' => 'phabricator-main-menu-brand',
         'href'  => '/',
       ),
       array(
@@ -256,7 +255,13 @@ final class PhabricatorMainMenuView extends AphrontView {
         phutil_tag(
           'span',
           array(
-            'class' => 'sprite-menu menu-logo-image '.$class,
+            'class' => 'sprite-menu phabricator-main-menu-eye',
+          ),
+          ''),
+          phutil_tag(
+          'span',
+          array(
+            'class' => 'sprite-menu phabricator-main-menu-logo',
           ),
           ''),
       ));
@@ -278,7 +283,7 @@ final class PhabricatorMainMenuView extends AphrontView {
 
     $message_tag = '';
     $message_notification_dropdown = '';
-    $conpherence = 'PhabricatorApplicationConpherence';
+    $conpherence = 'PhabricatorConpherenceApplication';
     if (PhabricatorApplication::isClassInstalledForViewer(
       $conpherence,
       $user)) {
@@ -314,7 +319,7 @@ final class PhabricatorMainMenuView extends AphrontView {
         'span',
         array(
           'id'    => $message_count_id,
-          'class' => 'phabricator-main-menu-message-count'
+          'class' => 'phabricator-main-menu-message-count',
         ),
         $message_count_number);
 
@@ -349,6 +354,8 @@ final class PhabricatorMainMenuView extends AphrontView {
           'dropdownID'  => $message_dropdown_id,
           'loadingText' => pht('Loading...'),
           'uri'         => '/conpherence/panel/',
+          'countType'   => 'messages',
+          'countNumber' => $message_count_number,
         ));
 
       $message_notification_dropdown = javelin_tag(
@@ -364,7 +371,7 @@ final class PhabricatorMainMenuView extends AphrontView {
 
     $bubble_tag = '';
     $notification_dropdown = '';
-    $notification_app = 'PhabricatorApplicationNotifications';
+    $notification_app = 'PhabricatorNotificationsApplication';
     if (PhabricatorApplication::isClassInstalledForViewer(
       $notification_app,
       $user)) {
@@ -396,7 +403,7 @@ final class PhabricatorMainMenuView extends AphrontView {
         'span',
         array(
           'id'    => $count_id,
-          'class' => 'phabricator-main-menu-alert-count'
+          'class' => 'phabricator-main-menu-alert-count',
         ),
         $count_number);
 
@@ -428,6 +435,8 @@ final class PhabricatorMainMenuView extends AphrontView {
           'dropdownID'  => $dropdown_id,
           'loadingText' => pht('Loading...'),
           'uri'         => '/notification/panel/',
+          'countType'   => 'notifications',
+          'countNumber' => $count_number,
         ));
 
       $notification_dropdown = javelin_tag(
@@ -443,7 +452,8 @@ final class PhabricatorMainMenuView extends AphrontView {
 
     $dropdowns = array(
       $notification_dropdown,
-      $message_notification_dropdown);
+      $message_notification_dropdown,
+    );
 
     $applications = PhabricatorApplication::getAllInstalledApplications();
     foreach ($applications as $application) {

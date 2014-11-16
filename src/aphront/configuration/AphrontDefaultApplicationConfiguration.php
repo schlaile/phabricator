@@ -8,37 +8,10 @@
 class AphrontDefaultApplicationConfiguration
   extends AphrontApplicationConfiguration {
 
-  public function __construct() {
-
-  }
+  public function __construct() {}
 
   public function getApplicationName() {
     return 'aphront-default';
-  }
-
-  public function getURIMap() {
-    return $this->getResourceURIMapRules() + array(
-      '/~/' => array(
-        '' => 'DarkConsoleController',
-        'data/(?P<key>[^/]+)/' => 'DarkConsoleDataController',
-      ),
-    );
-  }
-
-  protected function getResourceURIMapRules() {
-    $extensions = CelerityResourceController::getSupportedResourceTypes();
-    $extensions = array_keys($extensions);
-    $extensions = implode('|', $extensions);
-
-    return array(
-      '/res/' => array(
-        '(?:(?P<mtime>[0-9]+)T/)?'.
-        '(?P<library>[^/]+)/'.
-        '(?P<hash>[a-f0-9]{8})/'.
-        '(?P<path>.+\.(?:'.$extensions.'))'
-          => 'CelerityPhabricatorResourceController',
-      ),
-    );
   }
 
   /**
@@ -172,7 +145,6 @@ class AphrontDefaultApplicationConfiguration
     }
 
     if ($ex instanceof PhabricatorPolicyException) {
-
       if (!$user->isLoggedIn()) {
         // If the user isn't logged in, just give them a login form. This is
         // probably a generally more useful response than a policy dialog that
@@ -180,13 +152,14 @@ class AphrontDefaultApplicationConfiguration
         //
         // Possibly we should add a header here like "you need to login to see
         // the thing you are trying to look at".
-        $login_controller = new PhabricatorAuthStartController($request);
+        $login_controller = new PhabricatorAuthStartController();
+        $login_controller->setRequest($request);
 
-        $auth_app_class = 'PhabricatorApplicationAuth';
+        $auth_app_class = 'PhabricatorAuthApplication';
         $auth_app = PhabricatorApplication::getByClass($auth_app_class);
         $login_controller->setCurrentApplication($auth_app);
 
-        return $login_controller->processRequest();
+        return $login_controller->handleRequest($request);
       }
 
       $list = $ex->getMoreInfo();
@@ -247,14 +220,13 @@ class AphrontDefaultApplicationConfiguration
       return $response;
     }
 
-
     // Always log the unhandled exception.
     phlog($ex);
 
     $class    = get_class($ex);
     $message  = $ex->getMessage();
 
-    if ($ex instanceof AphrontQuerySchemaException) {
+    if ($ex instanceof AphrontSchemaQueryException) {
       $message .=
         "\n\n".
         "NOTE: This usually indicates that the MySQL schema has not been ".
@@ -301,15 +273,17 @@ class AphrontDefaultApplicationConfiguration
   }
 
   public function build404Controller() {
-    return array(new Phabricator404Controller($this->getRequest()), array());
+    return array(new Phabricator404Controller(), array());
   }
 
-  public function buildRedirectController($uri) {
+  public function buildRedirectController($uri, $external) {
     return array(
-      new PhabricatorRedirectController($this->getRequest()),
+      new PhabricatorRedirectController(),
       array(
         'uri' => $uri,
-      ));
+        'external' => $external,
+      ),
+    );
   }
 
 }

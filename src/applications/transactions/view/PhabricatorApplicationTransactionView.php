@@ -7,7 +7,6 @@ class PhabricatorApplicationTransactionView extends AphrontView {
 
   private $transactions;
   private $engine;
-  private $anchorOffset = 1;
   private $showEditActions = true;
   private $isPreview;
   private $objectPHID;
@@ -56,11 +55,6 @@ class PhabricatorApplicationTransactionView extends AphrontView {
     return $this->showEditActions;
   }
 
-  public function setAnchorOffset($anchor_offset) {
-    $this->anchorOffset = $anchor_offset;
-    return $this;
-  }
-
   public function setMarkupEngine(PhabricatorMarkupEngine $engine) {
     $this->engine = $engine;
     return $this;
@@ -79,8 +73,6 @@ class PhabricatorApplicationTransactionView extends AphrontView {
 
   public function buildEvents($with_hiding = false) {
     $user = $this->getUser();
-
-    $anchor = $this->anchorOffset;
 
     $xactions = $this->transactions;
 
@@ -130,9 +122,8 @@ class PhabricatorApplicationTransactionView extends AphrontView {
 
       $group_event = null;
       foreach ($group as $xaction) {
-        $event = $this->renderEvent($xaction, $group, $anchor);
+        $event = $this->renderEvent($xaction, $group);
         $event->setHideByDefault($hide_by_default);
-        $anchor++;
         if (!$group_event) {
           $group_event = $event;
         } else {
@@ -159,17 +150,7 @@ class PhabricatorApplicationTransactionView extends AphrontView {
     }
 
     if ($this->getShowEditActions()) {
-      $list_id = celerity_generate_unique_node_id();
-
-      $view->setID($list_id);
-
-      Javelin::initBehavior(
-        'phabricator-transaction-list',
-        array(
-          'listID'          => $list_id,
-          'objectPHID'      => $this->getObjectPHID(),
-          'nextAnchor'      => $this->anchorOffset + count($events),
-        ));
+      Javelin::initBehavior('phabricator-transaction-list');
     }
 
     return $view->render();
@@ -335,8 +316,7 @@ class PhabricatorApplicationTransactionView extends AphrontView {
 
   private function renderEvent(
     PhabricatorApplicationTransaction $xaction,
-    array $group,
-    $anchor) {
+    array $group) {
     $viewer = $this->getUser();
 
     $event = id(new PHUITimelineEventView())
@@ -380,7 +360,7 @@ class PhabricatorApplicationTransactionView extends AphrontView {
       $event
         ->setDateCreated($xaction->getDateCreated())
         ->setContentSource($xaction->getContentSource())
-        ->setAnchor($anchor);
+        ->setAnchor($xaction->getID());
     }
 
     $transaction_type = $xaction->getTransactionType();

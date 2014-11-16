@@ -13,7 +13,6 @@ final class ManiphestTaskDetailController extends ManiphestController {
   }
 
   public function processRequest() {
-
     $request = $this->getRequest();
     $user = $request->getUser();
 
@@ -37,12 +36,6 @@ final class ManiphestTaskDetailController extends ManiphestController {
         ->withIDs(array($workflow))
         ->executeOne();
     }
-
-    $transactions = id(new ManiphestTransactionQuery())
-      ->setViewer($user)
-      ->withObjectPHIDs(array($task->getPHID()))
-      ->needComments(true)
-      ->execute();
 
     $field_list = PhabricatorCustomField::getObjectFields(
       $task,
@@ -137,15 +130,11 @@ final class ManiphestTaskDetailController extends ManiphestController {
     $engine = new PhabricatorMarkupEngine();
     $engine->setViewer($user);
     $engine->addObject($task, ManiphestTask::MARKUP_FIELD_DESCRIPTION);
-    foreach ($transactions as $modern_xaction) {
-      if ($modern_xaction->getComment()) {
-        $engine->addObject(
-          $modern_xaction->getComment(),
-          PhabricatorApplicationTransactionComment::MARKUP_FIELD_COMMENT);
-      }
-    }
 
-    $engine->process();
+    $timeline = $this->buildTransactionTimeline(
+      $task,
+      new ManiphestTransactionQuery(),
+      $engine);
 
     $resolution_types = ManiphestTaskStatus::getTaskStatusMap();
 
@@ -162,13 +151,13 @@ final class ManiphestTaskDetailController extends ManiphestController {
 
     $requires = array(
       ManiphestTransaction::TYPE_OWNER =>
-        ManiphestCapabilityEditAssign::CAPABILITY,
+        ManiphestEditAssignCapability::CAPABILITY,
       ManiphestTransaction::TYPE_PRIORITY =>
-        ManiphestCapabilityEditPriority::CAPABILITY,
+        ManiphestEditPriorityCapability::CAPABILITY,
       ManiphestTransaction::TYPE_PROJECTS =>
-        ManiphestCapabilityEditProjects::CAPABILITY,
+        ManiphestEditProjectsCapability::CAPABILITY,
       ManiphestTransaction::TYPE_STATUS =>
-        ManiphestCapabilityEditStatus::CAPABILITY,
+        ManiphestEditStatusCapability::CAPABILITY,
     );
 
     foreach ($transaction_types as $type => $name) {
@@ -337,12 +326,6 @@ final class ManiphestTaskDetailController extends ManiphestController {
         phutil_tag_div(
           'aphront-panel-preview-loading-text',
           pht('Loading preview...'))));
-
-    $timeline = id(new PhabricatorApplicationTransactionView())
-      ->setUser($user)
-      ->setObjectPHID($task->getPHID())
-      ->setTransactions($transactions)
-      ->setMarkupEngine($engine);
 
     $object_name = 'T'.$task->getID();
     $actions = $this->buildActionView($task);
@@ -526,69 +509,10 @@ final class ManiphestTaskDetailController extends ManiphestController {
         phutil_tag(
           'a',
           array(
-            'href' => 'mailto:'.$source.'?subject='.$subject
+            'href' => 'mailto:'.$source.'?subject='.$subject,
           ),
           $source));
     }
-
-    $project_phids = $task->getProjectPHIDs();
-    if ($project_phids) {
-      require_celerity_resource('maniphest-task-summary-css');
-
-      // If we end up with real-world projects with many hundreds of columns, it
-      // might be better to just load all the edges, then load those columns and
-      // work backward that way, or denormalize this data more.
-
-      $columns = id(new PhabricatorProjectColumnQuery())
-        ->setViewer($viewer)
-        ->withProjectPHIDs($project_phids)
-        ->execute();
-      $columns = mpull($columns, null, 'getPHID');
-
-      $column_edge_type = PhabricatorEdgeConfig::TYPE_OBJECT_HAS_COLUMN;
-      $all_column_phids = array_keys($columns);
-
-      $column_edge_query = id(new PhabricatorEdgeQuery())
-        ->withSourcePHIDs(array($task->getPHID()))
-        ->withEdgeTypes(array($column_edge_type))
-        ->withDestinationPHIDs($all_column_phids);
-      $column_edge_query->execute();
-      $in_column_phids = array_fuse($column_edge_query->getDestinationPHIDs());
-
-      $column_groups = mgroup($columns, 'getProjectPHID');
-
-      $project_handles = array();
-      $project_annotations = array();
-      foreach ($project_phids as $project_phid) {
-        $handle = $this->getHandle($project_phid);
-        $project_handles[] = $handle;
-
-        $columns = idx($column_groups, $project_phid, array());
-        $column = head(array_intersect_key($columns, $in_column_phids));
-        if ($column) {
-          $column_name = pht('(%s)', $column->getDisplayName());
-          $column_link = phutil_tag(
-            'a',
-            array(
-              'href' => $handle->getURI().'board/',
-              'class' => 'maniphest-board-link',
-            ),
-            $column_name);
-
-          $project_annotations[$project_phid] = array(
-            ' ',
-            $column_link);
-        }
-      }
-
-      $project_rows = id(new PHUIHandleTagListView())
-        ->setHandles($project_handles)
-        ->setAnnotations($project_annotations);
-    } else {
-      $project_rows = phutil_tag('em', array(), pht('None'));
-    }
-
-    $view->addProperty(pht('Projects'), $project_rows);
 
     $edge_types = array(
       PhabricatorEdgeConfig::TYPE_TASK_DEPENDED_ON_BY_TASK
@@ -647,7 +571,7 @@ final class ManiphestTaskDetailController extends ManiphestController {
       $attached = array();
     }
 
-    $file_infos = idx($attached, PhabricatorFilePHIDTypeFile::TYPECONST);
+    $file_infos = idx($attached, PhabricatorFileFilePHIDType::TYPECONST);
     if ($file_infos) {
       $file_phids = array_keys($file_infos);
 
@@ -666,12 +590,12 @@ final class ManiphestTaskDetailController extends ManiphestController {
         $file_view->render());
     }
 
+    $view->invokeWillRenderEvent();
+
     $field_list->appendFieldsToPropertyList(
       $task,
       $viewer,
       $view);
-
-    $view->invokeWillRenderEvent();
 
     return $view;
   }

@@ -14,8 +14,7 @@ final class PhabricatorProjectListController
   }
 
   public function processRequest() {
-    $request = $this->getRequest();
-    $controller = id(new PhabricatorApplicationSearchController($request))
+    $controller = id(new PhabricatorApplicationSearchController())
       ->setQueryKey($this->queryKey)
       ->setSearchEngine(new PhabricatorProjectSearchEngine())
       ->setNavigation($this->buildSideNavView());
@@ -27,7 +26,7 @@ final class PhabricatorProjectListController
     $crumbs = parent::buildApplicationCrumbs();
 
     $can_create = $this->hasApplicationCapability(
-      ProjectCapabilityCreateProjects::CAPABILITY);
+      ProjectCreateProjectsCapability::CAPABILITY);
 
     $crumbs->addAction(
       id(new PHUIListItemView())

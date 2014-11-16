@@ -4,7 +4,9 @@
  * A collection of dashboard panels with a specific layout.
  */
 final class PhabricatorDashboard extends PhabricatorDashboardDAO
-  implements PhabricatorPolicyInterface {
+  implements
+    PhabricatorPolicyInterface,
+    PhabricatorDestructibleInterface {
 
   protected $name;
   protected $viewPolicy;
@@ -37,13 +39,17 @@ final class PhabricatorDashboard extends PhabricatorDashboardDAO
     return array(
       self::CONFIG_AUX_PHID => true,
       self::CONFIG_SERIALIZATION => array(
-        'layoutConfig' => self::SERIALIZATION_JSON),
+        'layoutConfig' => self::SERIALIZATION_JSON,
+      ),
+      self::CONFIG_COLUMN_SCHEMA => array(
+        'name' => 'text255',
+      ),
     ) + parent::getConfiguration();
   }
 
   public function generatePHID() {
     return PhabricatorPHID::generateNewPHID(
-      PhabricatorDashboardPHIDTypeDashboard::TYPECONST);
+      PhabricatorDashboardDashboardPHIDType::TYPECONST);
   }
 
   public function getLayoutConfigObject() {
@@ -103,5 +109,25 @@ final class PhabricatorDashboard extends PhabricatorDashboardDAO
   public function describeAutomaticCapability($capability) {
     return null;
   }
+
+
+/* -(  PhabricatorDestructibleInterface  )----------------------------------- */
+
+
+  public function destroyObjectPermanently(
+    PhabricatorDestructionEngine $engine) {
+
+    $this->openTransaction();
+      $installs = id(new PhabricatorDashboardInstall())->loadAllWhere(
+        'dashboardPHID = %s',
+        $this->getPHID());
+      foreach ($installs as $install) {
+        $install->delete();
+      }
+
+      $this->delete();
+    $this->saveTransaction();
+  }
+
 
 }

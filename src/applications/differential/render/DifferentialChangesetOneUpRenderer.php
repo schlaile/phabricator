@@ -7,6 +7,14 @@ final class DifferentialChangesetOneUpRenderer
     return true;
   }
 
+  protected function renderColgroup() {
+    return phutil_tag('colgroup', array(), array(
+      phutil_tag('col', array('class' => 'num')),
+      phutil_tag('col', array('class' => 'num')),
+      phutil_tag('col', array('class' => 'unified')),
+    ));
+  }
+
   public function renderTextChange(
     $range_start,
     $range_len,
@@ -67,11 +75,13 @@ final class DifferentialChangesetOneUpRenderer
     return null;
   }
 
-  public function renderFileChange($old_file = null,
-                                   $new_file = null,
-                                   $id = 0,
-                                   $vs = 0) {
-    throw new Exception('Not implemented!');
+  public function renderFileChange(
+    $old_file = null,
+    $new_file = null,
+    $id = 0,
+    $vs = 0) {
+
+    throw new PhutilMethodNotImplementedException();
   }
 
 }

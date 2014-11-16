@@ -13,6 +13,7 @@ final class HarbormasterBuildArtifact extends HarbormasterDAO
 
   const TYPE_FILE = 'file';
   const TYPE_HOST = 'host';
+  const TYPE_URI = 'uri';
 
   public static function initializeNewBuildArtifact(
     HarbormasterBuildTarget $build_target) {
@@ -24,6 +25,20 @@ final class HarbormasterBuildArtifact extends HarbormasterDAO
     return array(
       self::CONFIG_SERIALIZATION => array(
         'artifactData' => self::SERIALIZATION_JSON,
+      ),
+      self::CONFIG_COLUMN_SCHEMA => array(
+        'artifactType' => 'text32',
+        'artifactIndex' => 'bytes12',
+        'artifactKey' => 'text255',
+      ),
+      self::CONFIG_KEY_SCHEMA => array(
+        'key_artifact' => array(
+          'columns' => array('artifactType', 'artifactIndex'),
+          'unique' => true,
+        ),
+        'key_garbagecollect' => array(
+          'columns' => array('artifactType', 'dateCreated'),
+        ),
       ),
     ) + parent::getConfiguration();
   }
@@ -37,9 +52,9 @@ final class HarbormasterBuildArtifact extends HarbormasterDAO
     return $this->assertAttached($this->buildTarget);
   }
 
-  public function setArtifactKey($build_phid, $key) {
+  public function setArtifactKey($build_phid, $build_gen, $key) {
     $this->artifactIndex =
-      PhabricatorHash::digestForIndex($build_phid.$key);
+      PhabricatorHash::digestForIndex($build_phid.$build_gen.$key);
     $this->artifactKey = $key;
     return $this;
   }
@@ -68,6 +83,11 @@ final class HarbormasterBuildArtifact extends HarbormasterDAO
           ->setObjectName(pht('Drydock Lease'))
           ->setHeader($lease->getID())
           ->setHref('/drydock/lease/'.$lease->getID());
+      case self::TYPE_URI:
+        return id(new PHUIObjectItemView())
+          ->setObjectName($data['name'])
+          ->setHeader($data['uri'])
+          ->setHref($data['uri']);
       default:
         return null;
     }
@@ -117,6 +137,24 @@ final class HarbormasterBuildArtifact extends HarbormasterDAO
       throw new Exception('Associated file not found!');
     }
     return $file;
+  }
+
+  public function release() {
+    switch ($this->getArtifactType()) {
+      case self::TYPE_HOST:
+        $this->releaseDrydockLease();
+        break;
+    }
+  }
+
+  public function releaseDrydockLease() {
+    $lease = $this->loadDrydockLease();
+    $resource = $lease->getResource();
+    $blueprint = $resource->getBlueprint();
+
+    if ($lease->isActive()) {
+      $blueprint->releaseLease($resource, $lease);
+    }
   }
 
 

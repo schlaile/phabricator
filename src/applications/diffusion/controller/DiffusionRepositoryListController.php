@@ -14,7 +14,7 @@ final class DiffusionRepositoryListController extends DiffusionController {
 
   public function processRequest() {
     $request = $this->getRequest();
-    $controller = id(new PhabricatorApplicationSearchController($request))
+    $controller = id(new PhabricatorApplicationSearchController())
       ->setQueryKey($this->queryKey)
       ->setSearchEngine(new PhabricatorRepositorySearchEngine())
       ->setNavigation($this->buildSideNavView());
@@ -41,7 +41,7 @@ final class DiffusionRepositoryListController extends DiffusionController {
     $crumbs = parent::buildApplicationCrumbs();
 
     $can_create = $this->hasApplicationCapability(
-      DiffusionCapabilityCreateRepositories::CAPABILITY);
+      DiffusionCreateRepositoriesCapability::CAPABILITY);
 
     $crumbs->addAction(
       id(new PHUIListItemView())

@@ -47,6 +47,8 @@ final class PassphraseCredentialViewController extends PassphraseController {
     $actions = $this->buildActionView($credential, $type);
     $properties = $this->buildPropertyView($credential, $type, $actions);
 
+    $crumbs->setActionList($actions);
+
     $box = id(new PHUIObjectBoxView())
       ->setHeader($header)
       ->addPropertyList($properties);
@@ -93,6 +95,15 @@ final class PassphraseCredentialViewController extends PassphraseController {
       $credential_lock_icon = 'fa-unlock';
     }
 
+    $allow_conduit = $credential->getAllowConduit();
+    if ($allow_conduit) {
+      $credential_conduit_text = pht('Prevent Conduit Access');
+      $credential_conduit_icon = 'fa-ban';
+    } else {
+      $credential_conduit_text = pht('Allow Conduit Access');
+      $credential_conduit_icon = 'fa-wrench';
+    }
+
     $actions = id(new PhabricatorActionListView())
       ->setObjectURI('/K'.$id)
       ->setUser($viewer);
@@ -135,6 +146,13 @@ final class PassphraseCredentialViewController extends PassphraseController {
             ->setHref($this->getApplicationURI("public/{$id}/"))
             ->setWorkflow(true));
       }
+
+      $actions->addAction(
+        id(new PhabricatorActionView())
+          ->setName($credential_conduit_text)
+          ->setIcon($credential_conduit_icon)
+          ->setHref($this->getApplicationURI("conduit/{$id}/"))
+          ->setWorkflow(true));
 
       $actions->addAction(
         id(new PhabricatorActionView())

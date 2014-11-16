@@ -9,7 +9,7 @@ final class PholioMock extends PholioDAO
     PhabricatorFlaggableInterface,
     PhabricatorApplicationTransactionInterface,
     PhabricatorProjectInterface,
-    PhabricatorDestructableInterface {
+    PhabricatorDestructibleInterface {
 
   const MARKUP_FIELD_DESCRIPTION  = 'markup:description';
 
@@ -32,11 +32,11 @@ final class PholioMock extends PholioDAO
   public static function initializeNewMock(PhabricatorUser $actor) {
     $app = id(new PhabricatorApplicationQuery())
       ->setViewer($actor)
-      ->withClasses(array('PhabricatorApplicationPholio'))
+      ->withClasses(array('PhabricatorPholioApplication'))
       ->executeOne();
 
-    $view_policy = $app->getPolicy(PholioCapabilityDefaultView::CAPABILITY);
-    $edit_policy = $app->getPolicy(PholioCapabilityDefaultEdit::CAPABILITY);
+    $view_policy = $app->getPolicy(PholioDefaultViewCapability::CAPABILITY);
+    $edit_policy = $app->getPolicy(PholioDefaultEditCapability::CAPABILITY);
 
     return id(new PholioMock())
       ->setAuthorPHID($actor->getPHID())
@@ -52,6 +52,23 @@ final class PholioMock extends PholioDAO
   public function getConfiguration() {
     return array(
       self::CONFIG_AUX_PHID => true,
+      self::CONFIG_COLUMN_SCHEMA => array(
+        'name' => 'text128',
+        'description' => 'text',
+        'originalName' => 'text128',
+        'mailKey' => 'bytes20',
+        'status' => 'text12',
+      ),
+      self::CONFIG_KEY_SCHEMA => array(
+        'key_phid' => null,
+        'phid' => array(
+          'columns' => array('phid'),
+          'unique' => true,
+        ),
+        'authorPHID' => array(
+          'columns' => array('authorPHID'),
+        ),
+      ),
     ) + parent::getConfiguration();
   }
 
@@ -258,7 +275,7 @@ final class PholioMock extends PholioDAO
   }
 
 
-/* -(  PhabricatorDestructableInterface  )----------------------------------- */
+/* -(  PhabricatorDestructibleInterface  )----------------------------------- */
 
 
   public function destroyObjectPermanently(

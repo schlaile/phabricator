@@ -383,7 +383,8 @@ final class ManiphestReportController extends ManiphestController {
       $label,
       number_format($info['open']),
       number_format($info['close']),
-      $fmt);
+      $fmt,
+    );
   }
 
   public function renderOpenTasks() {
@@ -611,7 +612,7 @@ final class ManiphestReportController extends ManiphestController {
         'sigil' => 'has-tooltip',
         'meta'  => array(
           'tip'  => pht('Closed after %s', $edate),
-          'size' => 260
+          'size' => 260,
         ),
       ),
       pht('Recently Closed'));
@@ -671,9 +672,9 @@ final class ManiphestReportController extends ManiphestController {
       $open_status_list[] = json_encode((string)$constant);
     }
 
-    $tasks = queryfx_all(
+    $rows = queryfx_all(
       $conn_r,
-      'SELECT t.* FROM %T t JOIN %T x ON x.objectPHID = t.phid
+      'SELECT t.id FROM %T t JOIN %T x ON x.objectPHID = t.phid
         WHERE t.status NOT IN (%Ls)
         AND x.oldValue IN (null, %Ls)
         AND x.newValue NOT IN (%Ls)
@@ -687,7 +688,16 @@ final class ManiphestReportController extends ManiphestController {
       $window_epoch,
       $window_epoch);
 
-    return id(new ManiphestTask())->loadAllFromArray($tasks);
+    if (!$rows) {
+      return array();
+    }
+
+    $ids = ipull($rows, 'id');
+
+    return id(new ManiphestTaskQuery())
+      ->setViewer($this->getRequest()->getUser())
+      ->withIDs($ids)
+      ->execute();
   }
 
   /**

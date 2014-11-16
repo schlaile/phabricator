@@ -1,14 +1,13 @@
 <?php
 
-final class PholioMockSearchEngine
-  extends PhabricatorApplicationSearchEngine {
+final class PholioMockSearchEngine extends PhabricatorApplicationSearchEngine {
 
   public function getResultTypeDescription() {
     return pht('Pholio Mocks');
   }
 
   public function getApplicationClassName() {
-    return 'PhabricatorApplicationPholio';
+    return 'PhabricatorPholioApplication';
   }
 
   public function buildSavedQueryFromRequest(AphrontRequest $request) {
@@ -47,7 +46,8 @@ final class PholioMockSearchEngine
     $statuses = array(
       '' => pht('Any Status'),
       'closed' => pht('Closed'),
-      'open' => pht('Open'));
+      'open' => pht('Open'),
+    );
 
     $status = $saved_query->getParameter('statuses', array());
     $status = head($status);
@@ -85,7 +85,6 @@ final class PholioMockSearchEngine
   }
 
   public function buildSavedQueryFromBuiltin($query_key) {
-
     $query = $this->newSavedQuery();
     $query->setQueryKey($query_key);
 

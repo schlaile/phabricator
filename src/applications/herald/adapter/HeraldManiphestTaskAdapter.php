@@ -13,12 +13,11 @@ final class HeraldManiphestTaskAdapter extends HeraldAdapter {
   }
 
   public function getAdapterApplicationClass() {
-    return 'PhabricatorApplicationManiphest';
+    return 'PhabricatorManiphestApplication';
   }
 
   public function getAdapterContentDescription() {
-    return pht(
-      'React to tasks being created or updated.');
+    return pht('React to tasks being created or updated.');
   }
 
   public function getRepetitionOptions() {
@@ -90,6 +89,7 @@ final class HeraldManiphestTaskAdapter extends HeraldAdapter {
         self::FIELD_CONTENT_SOURCE,
         self::FIELD_PROJECTS,
         self::FIELD_TASK_PRIORITY,
+        self::FIELD_TASK_STATUS,
         self::FIELD_IS_NEW_OBJECT,
       ),
       parent::getFields());
@@ -141,9 +141,13 @@ final class HeraldManiphestTaskAdapter extends HeraldAdapter {
       case self::FIELD_CC:
         return $this->getTask()->getCCPHIDs();
       case self::FIELD_PROJECTS:
-        return $this->getTask()->getProjectPHIDs();
+        return PhabricatorEdgeQuery::loadDestinationPHIDs(
+          $this->getTask()->getPHID(),
+          PhabricatorProjectObjectHasProjectEdgeType::EDGECONST);
       case self::FIELD_TASK_PRIORITY:
         return $this->getTask()->getPriority();
+      case self::FIELD_TASK_STATUS:
+        return $this->getTask()->getStatus();
     }
 
     return parent::getHeraldField($field);
@@ -206,7 +210,9 @@ final class HeraldManiphestTaskAdapter extends HeraldAdapter {
         default:
           $custom_result = parent::handleCustomHeraldEffect($effect);
           if ($custom_result === null) {
-            throw new Exception("No rules to handle action '{$action}'.");
+            throw new Exception(pht(
+              "No rules to handle action '%s'.",
+              $action));
           }
 
           $result[] = $custom_result;

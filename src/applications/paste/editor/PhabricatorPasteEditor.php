@@ -5,6 +5,14 @@ final class PhabricatorPasteEditor
 
   private $pasteFile;
 
+  public function getEditorApplicationClass() {
+    return 'PhabricatorPasteApplication';
+  }
+
+  public function getEditorObjectsDescription() {
+    return pht('Pastes');
+  }
+
   public static function initializeFileForPaste(
     PhabricatorUser $actor,
     $name,
@@ -159,7 +167,7 @@ final class PhabricatorPasteEditor
 
     $body = parent::buildMailBody($object, $xactions);
 
-    $body->addTextSection(
+    $body->addLinkSection(
       pht('PASTE DETAIL'),
       PhabricatorEnv::getProductionURI('/P'.$object->getID()));
 

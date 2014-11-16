@@ -3,6 +3,15 @@
 final class PholioMockEditor extends PhabricatorApplicationTransactionEditor {
 
   private $newImages = array();
+
+  public function getEditorApplicationClass() {
+    return 'PhabricatorPholioApplication';
+  }
+
+  public function getEditorObjectsDescription() {
+    return pht('Pholio Mocks');
+  }
+
   private function setNewImages(array $new_images) {
     assert_instances_of($new_images, 'PholioImage');
     $this->newImages = $new_images;
@@ -400,7 +409,7 @@ final class PholioMockEditor extends PhabricatorApplicationTransactionEditor {
       }
     }
 
-    $body->addTextSection(
+    $body->addLinkSection(
       pht('MOCK DETAIL'),
       PhabricatorEnv::getProductionURI('/M'.$object->getID()));
 
@@ -409,6 +418,19 @@ final class PholioMockEditor extends PhabricatorApplicationTransactionEditor {
 
   protected function getMailSubjectPrefix() {
     return PhabricatorEnv::getEnvConfig('metamta.pholio.subject-prefix');
+  }
+
+  public function getMailTagsMap() {
+    return array(
+      MetaMTANotificationType::TYPE_PHOLIO_STATUS =>
+        pht("A mock's status changes."),
+      MetaMTANotificationType::TYPE_PHOLIO_COMMENT =>
+        pht('Someone comments on a mock.'),
+      MetaMTANotificationType::TYPE_PHOLIO_UPDATED =>
+        pht('Mock images or descriptions change.'),
+      MetaMTANotificationType::TYPE_PHOLIO_OTHER =>
+        pht('Other mock activity not listed above occurs.'),
+    );
   }
 
   protected function shouldPublishFeedStory(
@@ -440,18 +462,17 @@ final class PholioMockEditor extends PhabricatorApplicationTransactionEditor {
     HeraldAdapter $adapter,
     HeraldTranscript $transcript) {
 
-    // TODO: Convert this to be transaction-based.
+    $xactions = array();
 
     $cc_phids = $adapter->getCcPHIDs();
     if ($cc_phids) {
-      id(new PhabricatorSubscriptionsEditor())
-        ->setObject($object)
-        ->setActor($this->requireActor())
-        ->subscribeImplicit($cc_phids)
-        ->save();
+      $value = array_fuse($cc_phids);
+      $xactions[] = id(new PholioTransaction())
+        ->setTransactionType(PhabricatorTransactions::TYPE_SUBSCRIBERS)
+        ->setNewValue(array('+' => $value));
     }
 
-    return array();
+    return $xactions;
   }
 
   protected function sortTransactions(array $xactions) {

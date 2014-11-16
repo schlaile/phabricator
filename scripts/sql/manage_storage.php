@@ -64,11 +64,58 @@ try {
         'help'  => 'Do not actually change anything, just show what would be '.
                    'changed.',
       ),
+      array(
+        'name' => 'disable-utf8mb4',
+        'help' => pht(
+          'Disable utf8mb4, even if the database supports it. This is an '.
+          'advanced feature used for testing changes to Phabricator; you '.
+          'should not normally use this flag.'),
+      )
     ));
 } catch (PhutilArgumentUsageException $ex) {
   $args->printUsageException($ex);
   exit(77);
 }
+
+// First, test that the Phabricator configuration is set up correctly. After
+// we know this works we'll test any administrative credentials specifically.
+
+$test_api = new PhabricatorStorageManagementAPI();
+$test_api->setUser($default_user);
+$test_api->setHost($default_host);
+$test_api->setPort($default_port);
+$test_api->setPassword($conf->getPassword());
+$test_api->setNamespace($args->getArg('namespace'));
+
+try {
+  queryfx(
+    $test_api->getConn(null),
+    'SELECT 1');
+} catch (AphrontQueryException $ex) {
+  $message = phutil_console_format(
+    pht(
+      "**MySQL Credentials Not Configured**\n\n".
+      "Unable to connect to MySQL using the configured credentials. ".
+      "You must configure standard credentials before you can upgrade ".
+      "storage. Run these commands to set up credentials:\n".
+      "\n".
+      "  phabricator/ $ ./bin/config set mysql.host __host__\n".
+      "  phabricator/ $ ./bin/config set mysql.user __username__\n".
+      "  phabricator/ $ ./bin/config set mysql.pass __password__\n".
+      "\n".
+      "These standard credentials are separate from any administrative ".
+      "credentials provided to this command with __--user__ or ".
+      "__--password__, and must be configured correctly before you can ".
+      "proceed.\n".
+      "\n".
+      "**Raw MySQL Error**: %s\n",
+      $ex->getMessage()));
+
+  echo phutil_console_wrap($message);
+
+  exit(1);
+}
+
 
 if ($args->getArg('password') === null) {
   // This is already a PhutilOpaqueEnvelope.
@@ -86,16 +133,25 @@ $api->setHost($default_host);
 $api->setPort($default_port);
 $api->setPassword($password);
 $api->setNamespace($args->getArg('namespace'));
+$api->setDisableUTF8MB4($args->getArg('disable-utf8mb4'));
 
 try {
   queryfx(
     $api->getConn(null),
     'SELECT 1');
 } catch (AphrontQueryException $ex) {
-  echo phutil_console_format(
-    "**%s**: %s\n",
-    'Unable To Connect',
-    $ex->getMessage());
+  $message = phutil_console_format(
+    pht(
+      "**Bad Administrative Credentials**\n\n".
+      "Unable to connnect to MySQL using the administrative credentials ".
+      "provided with the __--user__ and __--password__ flags. Check that ".
+      "you have entered them correctly.\n".
+      "\n".
+      "**Raw MySQL Error**: %s\n",
+      $ex->getMessage()));
+
+  echo phutil_console_wrap($message);
+
   exit(1);
 }
 

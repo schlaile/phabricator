@@ -38,7 +38,7 @@ final class DiffusionRepositoryCreateController
       case 'import':
       case 'create':
         $this->requireApplicationCapability(
-          DiffusionCapabilityCreateRepositories::CAPABILITY);
+          DiffusionCreateRepositoriesCapability::CAPABILITY);
 
         $cancel_uri = $this->getApplicationURI('new/');
         break;
@@ -104,6 +104,8 @@ final class DiffusionRepositoryCreateController
         $type_local_path = PhabricatorRepositoryTransaction::TYPE_LOCAL_PATH;
         $type_remote_uri = PhabricatorRepositoryTransaction::TYPE_REMOTE_URI;
         $type_hosting = PhabricatorRepositoryTransaction::TYPE_HOSTING;
+        $type_http = PhabricatorRepositoryTransaction::TYPE_PROTOCOL_HTTP;
+        $type_ssh = PhabricatorRepositoryTransaction::TYPE_PROTOCOL_SSH;
         $type_credential = PhabricatorRepositoryTransaction::TYPE_CREDENTIAL;
         $type_view = PhabricatorTransactions::TYPE_VIEW_POLICY;
         $type_edit = PhabricatorTransactions::TYPE_EDIT_POLICY;
@@ -157,6 +159,26 @@ final class DiffusionRepositoryCreateController
           $xactions[] = id(clone $template)
             ->setTransactionType($type_hosting)
             ->setNewValue(true);
+          $vcs = $form->getPage('vcs')->getControl('vcs')->getValue();
+          if ($vcs != PhabricatorRepositoryType::REPOSITORY_TYPE_SVN) {
+            if (PhabricatorEnv::getEnvConfig('diffusion.allow-http-auth')) {
+              $v_http_mode = PhabricatorRepository::SERVE_READWRITE;
+            } else {
+              $v_http_mode = PhabricatorRepository::SERVE_OFF;
+            }
+            $xactions[] = id(clone $template)
+              ->setTransactionType($type_http)
+              ->setNewValue($v_http_mode);
+          }
+
+          if (PhabricatorEnv::getEnvConfig('diffusion.ssh-user')) {
+            $v_ssh_mode = PhabricatorRepository::SERVE_READWRITE;
+          } else {
+            $v_ssh_mode = PhabricatorRepository::SERVE_OFF;
+          }
+          $xactions[] = id(clone $template)
+            ->setTransactionType($type_ssh)
+            ->setNewValue($v_ssh_mode);
         }
 
         if ($is_auth) {
@@ -671,7 +693,7 @@ final class DiffusionRepositoryCreateController
 
     $push_policy = id(new AphrontFormPolicyControl())
       ->setUser($viewer)
-      ->setCapability(DiffusionCapabilityPush::CAPABILITY)
+      ->setCapability(DiffusionPushCapability::CAPABILITY)
       ->setPolicyObject($repository)
       ->setPolicies($policies)
       ->setName('pushPolicy');
@@ -848,6 +870,5 @@ final class DiffusionRepositoryCreateController
   private function getRepository() {
     return $this->repository;
   }
-
 
 }

@@ -145,12 +145,13 @@ final class DifferentialRevisionViewController extends DifferentialController {
       $warning->appendChild(hsprintf(
         '%s <strong>%s</strong>',
         pht(
-          'This diff is very large and affects %s files. Load each file '.
-            'individually.',
+          'This diff is very large and affects %s files. '.
+          'You may load each file individually or ',
           new PhutilNumber($count)),
         phutil_tag(
           'a',
           array(
+            'class' => 'button grey',
             'href' => $request_uri
               ->alter('large', 'true')
               ->setFragment('toc'),
@@ -179,7 +180,6 @@ final class DifferentialRevisionViewController extends DifferentialController {
           }
         }
       }
-
     } else {
       $warning = null;
       $visible_changesets = $changesets;
@@ -519,7 +519,7 @@ final class DifferentialRevisionViewController extends DifferentialController {
       ->setWorkflow(true)
       ->setDisabled(!$can_edit);
 
-    $maniphest = 'PhabricatorApplicationManiphest';
+    $maniphest = 'PhabricatorManiphestApplication';
     if (PhabricatorApplication::isClassInstalled($maniphest)) {
       $actions[] = id(new PhabricatorActionView())
         ->setIcon('fa-anchor')
@@ -539,7 +539,6 @@ final class DifferentialRevisionViewController extends DifferentialController {
   }
 
   private function getRevisionCommentActions(DifferentialRevision $revision) {
-
     $actions = array(
       DifferentialAction::ACTION_COMMENT => true,
     );
@@ -915,13 +914,10 @@ final class DifferentialRevisionViewController extends DifferentialController {
       ));
 
     $unguarded = AphrontWriteGuard::beginScopedUnguardedWrites();
-      $file->attachToObject(
-        $this->getRequest()->getUser(),
-        $revision->getPHID());
+      $file->attachToObject($revision->getPHID());
     unset($unguarded);
 
-    return id(new AphrontRedirectResponse())->setURI($file->getBestURI());
-
+    return $file->getRedirectResponse();
   }
 
   private function buildTransactions(
@@ -929,6 +925,7 @@ final class DifferentialRevisionViewController extends DifferentialController {
     DifferentialDiff $left_diff,
     DifferentialDiff $right_diff,
     array $changesets) {
+
     $viewer = $this->getRequest()->getUser();
 
     $xactions = id(new DifferentialTransactionQuery())

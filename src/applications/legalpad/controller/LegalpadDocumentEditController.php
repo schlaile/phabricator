@@ -16,7 +16,7 @@ final class LegalpadDocumentEditController extends LegalpadController {
       $is_create = true;
 
       $this->requireApplicationCapability(
-        LegalpadCapabilityCreateDocuments::CAPABILITY);
+        LegalpadCreateDocumentsCapability::CAPABILITY);
 
       $document = LegalpadDocument::initializeNewDocument($user);
       $body = id(new LegalpadDocumentBody())
@@ -218,7 +218,7 @@ final class LegalpadDocumentEditController extends LegalpadController {
       array(
         $crumbs,
         $form_box,
-        $preview
+        $preview,
       ),
       array(
         'title' => $title,

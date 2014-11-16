@@ -141,7 +141,7 @@ final class PhabricatorPolicyFilter {
 
         $policy = $this->getObjectPolicy($object, $capability);
         $type = phid_get_type($policy);
-        if ($type == PhabricatorProjectPHIDTypeProject::TYPECONST) {
+        if ($type == PhabricatorProjectProjectPHIDType::TYPECONST) {
           $need_projects[$policy] = $policy;
         }
 
@@ -266,13 +266,13 @@ final class PhabricatorPolicyFilter {
         break;
       default:
         $type = phid_get_type($policy);
-        if ($type == PhabricatorProjectPHIDTypeProject::TYPECONST) {
+        if ($type == PhabricatorProjectProjectPHIDType::TYPECONST) {
           if (!empty($this->userProjects[$viewer->getPHID()][$policy])) {
             return true;
           } else {
             $this->rejectObject($object, $policy, $capability);
           }
-        } else if ($type == PhabricatorPeoplePHIDTypeUser::TYPECONST) {
+        } else if ($type == PhabricatorPeopleUserPHIDType::TYPECONST) {
           if ($viewer->getPHID() == $policy) {
             return true;
           } else {
@@ -343,20 +343,15 @@ final class PhabricatorPolicyFilter {
       ->withPHIDs(array($phid))
       ->executeOne();
 
-    $object_name = pht(
-      '%s %s',
-      $handle->getTypeName(),
-      $handle->getObjectName());
-
     $is_serious = PhabricatorEnv::getEnvConfig('phabricator.serious-business');
     if ($is_serious) {
       $title = pht(
         'Access Denied: %s',
-        $object_name);
+        $handle->getObjectName());
     } else {
       $title = pht(
         'You Shall Not Pass: %s',
-        $object_name);
+        $handle->getObjectName());
     }
 
     $full_message = pht(

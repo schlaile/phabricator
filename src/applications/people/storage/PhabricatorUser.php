@@ -9,7 +9,8 @@ final class PhabricatorUser
     PhutilPerson,
     PhabricatorPolicyInterface,
     PhabricatorCustomFieldInterface,
-    PhabricatorDestructableInterface {
+    PhabricatorDestructibleInterface,
+    PhabricatorSSHPublicKeyInterface {
 
   const SESSION_TABLE = 'phabricator_session';
   const NAMETOKEN_TABLE = 'user_nametoken';
@@ -106,19 +107,57 @@ final class PhabricatorUser
    *              a normal session.
    */
   public function getIsStandardUser() {
-    $type_user = PhabricatorPeoplePHIDTypeUser::TYPECONST;
+    $type_user = PhabricatorPeopleUserPHIDType::TYPECONST;
     return $this->getPHID() && (phid_get_type($this->getPHID()) == $type_user);
   }
 
   public function getConfiguration() {
     return array(
       self::CONFIG_AUX_PHID => true,
+      self::CONFIG_COLUMN_SCHEMA => array(
+        'userName' => 'sort64',
+        'realName' => 'text128',
+        'sex' => 'text4?',
+        'translation' => 'text64?',
+        'passwordSalt' => 'text32?',
+        'passwordHash' => 'text128?',
+        'profileImagePHID' => 'phid?',
+        'consoleEnabled' => 'bool',
+        'consoleVisible' => 'bool',
+        'consoleTab' => 'text64',
+        'conduitCertificate' => 'text255',
+        'isSystemAgent' => 'bool',
+        'isDisabled' => 'bool',
+        'isAdmin' => 'bool',
+        'timezoneIdentifier' => 'text255',
+        'isEmailVerified' => 'uint32',
+        'isApproved' => 'uint32',
+        'accountSecret' => 'bytes64',
+        'isEnrolledInMultiFactor' => 'bool',
+      ),
+      self::CONFIG_KEY_SCHEMA => array(
+        'key_phid' => null,
+        'phid' => array(
+          'columns' => array('phid'),
+          'unique' => true,
+        ),
+        'userName' => array(
+          'columns' => array('userName'),
+          'unique' => true,
+        ),
+        'realName' => array(
+          'columns' => array('realName'),
+        ),
+        'key_approved' => array(
+          'columns' => array('isApproved'),
+        ),
+      ),
     ) + parent::getConfiguration();
   }
 
   public function generatePHID() {
     return PhabricatorPHID::generateNewPHID(
-      PhabricatorPeoplePHIDTypeUser::TYPECONST);
+      PhabricatorPeopleUserPHIDType::TYPECONST);
   }
 
   public function setPassword(PhutilOpaqueEnvelope $envelope) {
@@ -339,6 +378,10 @@ final class PhabricatorUser
       $vec = $this->getAlternateCSRFString();
     }
 
+    if ($this->hasSession()) {
+      $vec = $vec.$this->getSession()->getSessionKey();
+    }
+
     $time_block = floor($epoch / $frequency);
     $vec = $vec.$key.$time_block;
 
@@ -403,7 +446,8 @@ final class PhabricatorUser
         PhabricatorUserPreferences::PREFERENCE_TITLES => 'glyph',
         PhabricatorUserPreferences::PREFERENCE_EDITOR => '',
         PhabricatorUserPreferences::PREFERENCE_MONOSPACED => '',
-        PhabricatorUserPreferences::PREFERENCE_DARK_CONSOLE => 0);
+        PhabricatorUserPreferences::PREFERENCE_DARK_CONSOLE => 0,
+      );
 
       $preferences->setPreferences($default_dict);
     }
@@ -536,6 +580,7 @@ EOBODY;
 
     $mail = id(new PhabricatorMetaMTAMail())
       ->addTos(array($this->getPHID()))
+      ->setForceDelivery(true)
       ->setSubject('[Phabricator] Welcome to Phabricator')
       ->setBody($body)
       ->saveAndSend();
@@ -550,7 +595,7 @@ EOBODY;
     $new_username = $this->getUserName();
 
     $password_instructions = null;
-    if (PhabricatorAuthProviderPassword::getPasswordProvider()) {
+    if (PhabricatorPasswordAuthProvider::getPasswordProvider()) {
       $engine = new PhabricatorAuthSessionEngine();
       $uri = $engine->getOneTimeLoginURI(
         $this,
@@ -579,6 +624,7 @@ EOBODY;
 
     $mail = id(new PhabricatorMetaMTAMail())
       ->addTos(array($this->getPHID()))
+      ->setForceDelivery(true)
       ->setSubject('[Phabricator] Username Changed')
       ->setBody($body)
       ->saveAndSend();
@@ -821,7 +867,7 @@ EOBODY;
   }
 
 
-/* -(  PhabricatorDestructableInterface  )----------------------------------- */
+/* -(  PhabricatorDestructibleInterface  )----------------------------------- */
 
 
   public function destroyObjectPermanently(
@@ -851,8 +897,8 @@ EOBODY;
         $profile->delete();
       }
 
-      $keys = id(new PhabricatorUserSSHKey())->loadAllWhere(
-        'userPHID = %s',
+      $keys = id(new PhabricatorAuthSSHKey())->loadAllWhere(
+        'objectPHID = %s',
         $this->getPHID());
       foreach ($keys as $key) {
         $key->delete();
@@ -882,5 +928,19 @@ EOBODY;
     $this->saveTransaction();
   }
 
+
+/* -(  PhabricatorSSHPublicKeyInterface  )----------------------------------- */
+
+
+  public function getSSHPublicKeyManagementURI(PhabricatorUser $viewer) {
+    if ($viewer->getPHID() == $this->getPHID()) {
+      // If the viewer is managing their own keys, take them to the normal
+      // panel.
+      return '/settings/panel/ssh/';
+    } else {
+      // Otherwise, take them to the administrative panel for this user.
+      return '/settings/'.$this->getID().'/panel/ssh/';
+    }
+  }
 
 }

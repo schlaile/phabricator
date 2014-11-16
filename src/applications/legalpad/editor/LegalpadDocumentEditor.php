@@ -5,6 +5,14 @@ final class LegalpadDocumentEditor
 
   private $isContribution = false;
 
+  public function getEditorApplicationClass() {
+    return 'PhabricatorLegalpadApplication';
+  }
+
+  public function getEditorObjectsDescription() {
+    return pht('Legalpad Documents');
+  }
+
   private function setIsContribution($is_contribution) {
     $this->isContribution = $is_contribution;
   }
@@ -186,7 +194,7 @@ final class LegalpadDocumentEditor
 
     $body = parent::buildMailBody($object, $xactions);
 
-    $body->addTextSection(
+    $body->addLinkSection(
       pht('DOCUMENT DETAIL'),
       PhabricatorEnv::getProductionURI('/legalpad/view/'.$object->getID().'/'));
 

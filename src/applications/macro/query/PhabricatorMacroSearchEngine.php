@@ -8,7 +8,7 @@ final class PhabricatorMacroSearchEngine
   }
 
   public function getApplicationClassName() {
-    return 'PhabricatorApplicationMacro';
+    return 'PhabricatorMacroApplication';
   }
 
   public function buildSavedQueryFromRequest(AphrontRequest $request) {
@@ -29,6 +29,7 @@ final class PhabricatorMacroSearchEngine
 
   public function buildQueryFromSavedQuery(PhabricatorSavedQuery $saved) {
     $query = id(new PhabricatorMacroQuery())
+      ->needFiles(true)
       ->withIDs($saved->getParameter('ids', array()))
       ->withPHIDs($saved->getParameter('phids', array()))
       ->withAuthorPHIDs($saved->getParameter('authorPHIDs', array()));
@@ -141,7 +142,6 @@ final class PhabricatorMacroSearchEngine
   }
 
   public function buildSavedQueryFromBuiltin($query_key) {
-
     $query = $this->newSavedQuery();
     $query->setQueryKey($query_key);
 

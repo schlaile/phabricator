@@ -6,6 +6,7 @@ final class HarbormasterBuild extends HarbormasterDAO
   protected $buildablePHID;
   protected $buildPlanPHID;
   protected $buildStatus;
+  protected $buildGeneration;
 
   private $buildable = self::ATTACHABLE;
   private $buildPlan = self::ATTACHABLE;
@@ -47,6 +48,11 @@ final class HarbormasterBuild extends HarbormasterDAO
    */
   const STATUS_STOPPED = 'stopped';
 
+  /**
+   * The build has been deadlocked.
+   */
+  const STATUS_DEADLOCKED = 'deadlocked';
+
 
   /**
    * Get a human readable name for a build status constant.
@@ -69,7 +75,9 @@ final class HarbormasterBuild extends HarbormasterDAO
       case self::STATUS_ERROR:
         return pht('Unexpected Error');
       case self::STATUS_STOPPED:
-        return pht('Stopped');
+        return pht('Paused');
+      case self::STATUS_DEADLOCKED:
+        return pht('Deadlocked');
       default:
         return pht('Unknown');
     }
@@ -90,6 +98,8 @@ final class HarbormasterBuild extends HarbormasterDAO
         return PHUIStatusItemView::ICON_MINUS;
       case self::STATUS_STOPPED:
         return PHUIStatusItemView::ICON_MINUS;
+      case self::STATUS_DEADLOCKED:
+        return PHUIStatusItemView::ICON_WARNING;
       default:
         return PHUIStatusItemView::ICON_QUESTION;
     }
@@ -106,6 +116,7 @@ final class HarbormasterBuild extends HarbormasterDAO
         return 'green';
       case self::STATUS_FAILED:
       case self::STATUS_ERROR:
+      case self::STATUS_DEADLOCKED:
         return 'red';
       case self::STATUS_STOPPED:
         return 'dark';
@@ -116,7 +127,8 @@ final class HarbormasterBuild extends HarbormasterDAO
 
   public static function initializeNewBuild(PhabricatorUser $actor) {
     return id(new HarbormasterBuild())
-      ->setBuildStatus(self::STATUS_INACTIVE);
+      ->setBuildStatus(self::STATUS_INACTIVE)
+      ->setBuildGeneration(0);
   }
 
   public function delete() {
@@ -131,12 +143,27 @@ final class HarbormasterBuild extends HarbormasterDAO
   public function getConfiguration() {
     return array(
       self::CONFIG_AUX_PHID => true,
+      self::CONFIG_COLUMN_SCHEMA => array(
+        'buildStatus' => 'text32',
+        'buildGeneration' => 'uint32',
+      ),
+      self::CONFIG_KEY_SCHEMA => array(
+        'key_buildable' => array(
+          'columns' => array('buildablePHID'),
+        ),
+        'key_plan' => array(
+          'columns' => array('buildPlanPHID'),
+        ),
+        'key_status' => array(
+          'columns' => array('buildStatus'),
+        ),
+      ),
     ) + parent::getConfiguration();
   }
 
   public function generatePHID() {
     return PhabricatorPHID::generateNewPHID(
-      HarbormasterPHIDTypeBuild::TYPECONST);
+      HarbormasterBuildPHIDType::TYPECONST);
   }
 
   public function attachBuildable(HarbormasterBuildable $buildable) {
@@ -184,7 +211,9 @@ final class HarbormasterBuild extends HarbormasterDAO
     $log_source,
     $log_type) {
 
-    $log_source = phutil_utf8_shorten($log_source, 250);
+    $log_source = id(new PhutilUTF8StringTruncator())
+      ->setMaximumCodepoints(250)
+      ->truncateString($log_source);
 
     $log = HarbormasterBuildLog::initializeNewBuildLog($build_target)
       ->setLogSource($log_source)
@@ -201,7 +230,10 @@ final class HarbormasterBuild extends HarbormasterDAO
 
     $artifact =
       HarbormasterBuildArtifact::initializeNewBuildArtifact($build_target);
-    $artifact->setArtifactKey($this->getPHID(), $artifact_key);
+    $artifact->setArtifactKey(
+      $this->getPHID(),
+      $this->getBuildGeneration(),
+      $artifact_key);
     $artifact->setArtifactType($artifact_type);
     $artifact->save();
     return $artifact;
@@ -212,6 +244,7 @@ final class HarbormasterBuild extends HarbormasterDAO
       ->setViewer(PhabricatorUser::getOmnipotentUser())
       ->withArtifactKeys(
         $this->getPHID(),
+        $this->getBuildGeneration(),
         array($name))
       ->executeOne();
     if ($artifact === null) {

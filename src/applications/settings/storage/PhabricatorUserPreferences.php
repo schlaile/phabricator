@@ -12,8 +12,10 @@ final class PhabricatorUserPreferences extends PhabricatorUserDAO {
 
   const PREFERENCE_RE_PREFIX            = 're-prefix';
   const PREFERENCE_NO_SELF_MAIL         = 'self-mail';
+  const PREFERENCE_NO_MAIL              = 'no-mail';
   const PREFERENCE_MAILTAGS             = 'mailtags';
   const PREFERENCE_VARY_SUBJECT         = 'vary-subject';
+  const PREFERENCE_HTML_EMAILS          = 'html-emails';
 
   const PREFERENCE_SEARCHBAR_JUMP       = 'searchbar-jump';
   const PREFERENCE_SEARCH_SHORTCUT      = 'search-shortcut';
@@ -30,6 +32,11 @@ final class PhabricatorUserPreferences extends PhabricatorUserDAO {
 
   const PREFERENCE_CONPH_NOTIFICATIONS  = 'conph-notifications';
 
+  // These are in an unusual order for historic reasons.
+  const MAILTAG_PREFERENCE_NOTIFY       = 0;
+  const MAILTAG_PREFERENCE_EMAIL        = 1;
+  const MAILTAG_PREFERENCE_IGNORE       = 2;
+
   protected $userPHID;
   protected $preferences = array();
 
@@ -39,6 +46,12 @@ final class PhabricatorUserPreferences extends PhabricatorUserDAO {
         'preferences' => self::SERIALIZATION_JSON,
       ),
       self::CONFIG_TIMESTAMPS => false,
+      self::CONFIG_KEY_SCHEMA => array(
+        'userPHID' => array(
+          'columns' => array('userPHID'),
+          'unique' => true,
+        ),
+      ),
     ) + parent::getConfiguration();
   }
 

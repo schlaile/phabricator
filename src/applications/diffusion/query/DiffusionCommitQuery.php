@@ -9,6 +9,7 @@ final class DiffusionCommitQuery
   private $defaultRepository;
   private $identifiers;
   private $repositoryIDs;
+  private $repositoryPHIDs;
   private $identifierMap;
 
   private $needAuditRequests;
@@ -16,9 +17,12 @@ final class DiffusionCommitQuery
   private $auditorPHIDs;
   private $auditAwaitingUser;
   private $auditStatus;
+
   const AUDIT_STATUS_ANY       = 'audit-status-any';
   const AUDIT_STATUS_OPEN      = 'audit-status-open';
   const AUDIT_STATUS_CONCERN   = 'audit-status-concern';
+  const AUDIT_STATUS_ACCEPTED  = 'audit-status-accepted';
+  const AUDIT_STATUS_PARTIAL   = 'audit-status-partial';
 
   private $needCommitData;
 
@@ -59,6 +63,15 @@ final class DiffusionCommitQuery
   }
 
   /**
+   * Look up commits in a specific repository. Prefer
+   * @{method:withRepositoryIDs}; the underyling table is keyed by ID such
+   * that this method requires a separate initial query to map PHID to ID.
+   */
+  public function withRepositoryPHIDs(array $phids) {
+    $this->repositoryPHIDs = $phids;
+  }
+
+  /**
    * If a default repository is provided, ambiguous commit identifiers will
    * be assumed to belong to the default repository.
    *
@@ -88,15 +101,14 @@ final class DiffusionCommitQuery
   }
 
   /**
-   * Retuns true if we should join the audit table, either because we're
-   * interested in the information if it's available or because matching
-   * rows must always have it.
+   * Returns true if we should join the audit table, either because we're
+   * interested in the information if it's available or because matching rows
+   * must always have it.
    */
   private function shouldJoinAudits() {
     return $this->auditStatus ||
            $this->rowsMustHaveAudits();
   }
-
 
   /**
    * Return true if we should `JOIN` (vs `LEFT JOIN`) the audit table, because
@@ -194,7 +206,7 @@ final class DiffusionCommitQuery
             $result[$prefix.$suffix][] = $commit;
           }
         } else {
-          // This awkward contruction is so we can link the commits up in O(N)
+          // This awkward construction is so we can link the commits up in O(N)
           // time instead of O(N^2).
           for ($ii = $min_qualified; $ii <= strlen($suffix); $ii++) {
             $part = substr($suffix, 0, $ii);
@@ -225,7 +237,6 @@ final class DiffusionCommitQuery
   }
 
   protected function didFilterPage(array $commits) {
-
     if ($this->needCommitData) {
       $data = id(new PhabricatorRepositoryCommitData())->loadAllWhere(
         'commitID in (%Ld)',
@@ -263,6 +274,22 @@ final class DiffusionCommitQuery
 
   private function buildWhereClause(AphrontDatabaseConnection $conn_r) {
     $where = array();
+
+    if ($this->repositoryPHIDs !== null) {
+      $map_repositories = id (new PhabricatorRepositoryQuery())
+        ->setViewer($this->getViewer())
+        ->withPHIDs($this->repositoryPHIDs)
+        ->execute();
+
+      if (!$map_repositories) {
+        throw new PhabricatorEmptyQueryException();
+      }
+      $repository_ids = mpull($map_repositories, 'getID');
+      if ($this->repositoryIDs !== null) {
+        $repository_ids = array_merge($repository_ids, $this->repositoryIDs);
+      }
+      $this->withRepositoryIDs($repository_ids);
+    }
 
     if ($this->ids !== null) {
       $where[] = qsprintf(
@@ -412,6 +439,18 @@ final class DiffusionCommitQuery
     $status = $this->auditStatus;
     if ($status !== null) {
       switch ($status) {
+        case self::AUDIT_STATUS_PARTIAL:
+          $where[] = qsprintf(
+            $conn_r,
+            'commit.auditStatus = %d',
+            PhabricatorAuditCommitStatusConstants::PARTIALLY_AUDITED);
+          break;
+        case self::AUDIT_STATUS_ACCEPTED:
+          $where[] = qsprintf(
+            $conn_r,
+            'commit.auditStatus = %d',
+            PhabricatorAuditCommitStatusConstants::FULLY_AUDITED);
+          break;
         case self::AUDIT_STATUS_CONCERN:
           $where[] = qsprintf(
             $conn_r,
@@ -437,6 +476,8 @@ final class DiffusionCommitQuery
             self::AUDIT_STATUS_ANY,
             self::AUDIT_STATUS_OPEN,
             self::AUDIT_STATUS_CONCERN,
+            self::AUDIT_STATUS_ACCEPTED,
+            self::AUDIT_STATUS_PARTIAL,
           );
           throw new Exception(
             "Unknown audit status '{$status}'! Valid statuses are: ".
@@ -508,7 +549,7 @@ final class DiffusionCommitQuery
   }
 
   public function getQueryApplicationClass() {
-    return 'PhabricatorApplicationDiffusion';
+    return 'PhabricatorDiffusionApplication';
   }
 
 }

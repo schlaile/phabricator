@@ -104,7 +104,9 @@ final class PhabricatorConduitAPIController
         list($error_code, $error_info) = $auth_error;
       }
     } catch (Exception $ex) {
-      phlog($ex);
+      if (!($ex instanceof ConduitMethodNotFoundException)) {
+        phlog($ex);
+      }
       $result = null;
       $error_code = ($ex instanceof ConduitException
         ? 'ERR-CONDUIT-CALL'
@@ -277,7 +279,7 @@ final class PhabricatorConduitAPIController
     if (!$session_key) {
       return array(
         'ERR-INVALID-SESSION',
-        'Session key is not present.'
+        'Session key is not present.',
       );
     }
 

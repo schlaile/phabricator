@@ -6,10 +6,12 @@ final class ManiphestTask extends ManiphestDAO
     PhabricatorPolicyInterface,
     PhabricatorTokenReceiverInterface,
     PhabricatorFlaggableInterface,
+    PhabricatorMentionableInterface,
     PhrequentTrackableInterface,
     PhabricatorCustomFieldInterface,
-    PhabricatorDestructableInterface,
-    PhabricatorApplicationTransactionInterface {
+    PhabricatorDestructibleInterface,
+    PhabricatorApplicationTransactionInterface,
+    PhabricatorProjectInterface {
 
   const MARKUP_FIELD_DESCRIPTION = 'markup:desc';
 
@@ -42,11 +44,11 @@ final class ManiphestTask extends ManiphestDAO
   public static function initializeNewTask(PhabricatorUser $actor) {
     $app = id(new PhabricatorApplicationQuery())
       ->setViewer($actor)
-      ->withClasses(array('PhabricatorApplicationManiphest'))
+      ->withClasses(array('PhabricatorManiphestApplication'))
       ->executeOne();
 
-    $view_policy = $app->getPolicy(ManiphestCapabilityDefaultView::CAPABILITY);
-    $edit_policy = $app->getPolicy(ManiphestCapabilityDefaultEdit::CAPABILITY);
+    $view_policy = $app->getPolicy(ManiphestDefaultViewCapability::CAPABILITY);
+    $edit_policy = $app->getPolicy(ManiphestDefaultEditCapability::CAPABILITY);
 
     return id(new ManiphestTask())
       ->setStatus(ManiphestTaskStatus::getDefaultStatus())
@@ -64,6 +66,57 @@ final class ManiphestTask extends ManiphestDAO
         'ccPHIDs' => self::SERIALIZATION_JSON,
         'attached' => self::SERIALIZATION_JSON,
         'projectPHIDs' => self::SERIALIZATION_JSON,
+      ),
+      self::CONFIG_COLUMN_SCHEMA => array(
+        'ownerPHID' => 'phid?',
+        'status' => 'text12',
+        'priority' => 'uint32',
+        'title' => 'sort',
+        'originalTitle' => 'text',
+        'description' => 'text',
+        'mailKey' => 'bytes20',
+        'ownerOrdering' => 'text64?',
+        'originalEmailSource' => 'text255?',
+        'subpriority' => 'double',
+
+        // T6203/NULLABILITY
+        // This should not be nullable. It's going away soon anyway.
+        'ccPHIDs' => 'text?',
+
+      ),
+      self::CONFIG_KEY_SCHEMA => array(
+        'key_phid' => null,
+        'phid' => array(
+          'columns' => array('phid'),
+          'unique' => true,
+        ),
+        'priority' => array(
+          'columns' => array('priority', 'status'),
+        ),
+        'status' => array(
+          'columns' => array('status'),
+        ),
+        'ownerPHID' => array(
+          'columns' => array('ownerPHID', 'status'),
+        ),
+        'authorPHID' => array(
+          'columns' => array('authorPHID', 'status'),
+        ),
+        'ownerOrdering' => array(
+          'columns' => array('ownerOrdering'),
+        ),
+        'priority_2' => array(
+          'columns' => array('priority', 'subpriority'),
+        ),
+        'key_dateCreated' => array(
+          'columns' => array('dateCreated'),
+        ),
+        'key_dateModified' => array(
+          'columns' => array('dateModified'),
+        ),
+        'key_title' => array(
+          'columns' => array('title(64)'),
+        ),
       ),
     ) + parent::getConfiguration();
   }
@@ -85,7 +138,7 @@ final class ManiphestTask extends ManiphestDAO
   }
 
   public function generatePHID() {
-    return PhabricatorPHID::generateNewPHID(ManiphestPHIDTypeTask::TYPECONST);
+    return PhabricatorPHID::generateNewPHID(ManiphestTaskPHIDType::TYPECONST);
   }
 
   public function getCCPHIDs() {
@@ -159,6 +212,7 @@ final class ManiphestTask extends ManiphestDAO
     return array(
       $this->getPriority(),
       -$this->getSubpriority(),
+      $this->getID(),
     );
   }
 
@@ -231,7 +285,6 @@ final class ManiphestTask extends ManiphestDAO
   }
 
   public function hasAutomaticCapability($capability, PhabricatorUser $user) {
-
     // The owner of a task can always view and edit it.
     $owner_phid = $this->getOwnerPHID();
     if ($owner_phid) {
@@ -245,8 +298,7 @@ final class ManiphestTask extends ManiphestDAO
   }
 
   public function describeAutomaticCapability($capability) {
-    return pht(
-      'The owner of a task can always view and edit it.');
+    return pht('The owner of a task can always view and edit it.');
   }
 
 
@@ -285,7 +337,7 @@ final class ManiphestTask extends ManiphestDAO
   }
 
 
-/* -(  PhabricatorDestructableInterface  )----------------------------------- */
+/* -(  PhabricatorDestructibleInterface  )----------------------------------- */
 
 
   public function destroyObjectPermanently(
