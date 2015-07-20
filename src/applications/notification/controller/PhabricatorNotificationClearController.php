@@ -46,8 +46,7 @@ final class PhabricatorNotificationClearController
       $dialog->addSubmitButton(pht('Mark All Read'));
     } else {
       $dialog->setTitle(pht('No notifications to mark as read.'));
-      $dialog->appendChild(pht(
-        'You have no unread notifications.'));
+      $dialog->appendChild(pht('You have no unread notifications.'));
     }
 
     return id(new AphrontDialogResponse())->setDialog($dialog);

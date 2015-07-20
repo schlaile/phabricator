@@ -28,10 +28,9 @@ abstract class PhabricatorObjectRemarkupRule extends PhutilRemarkupRule {
   protected function loadHandles(array $objects) {
     $phids = mpull($objects, 'getPHID');
 
-    $handles = id(new PhabricatorHandleQuery($phids))
-      ->withPHIDs($phids)
-      ->setViewer($this->getEngine()->getConfig('viewer'))
-      ->execute();
+    $viewer = $this->getEngine()->getConfig('viewer');
+    $handles = $viewer->loadHandles($phids);
+    $handles = iterator_to_array($handles);
 
     $result = array();
     foreach ($objects as $id => $object) {
@@ -40,11 +39,26 @@ abstract class PhabricatorObjectRemarkupRule extends PhutilRemarkupRule {
     return $result;
   }
 
-  protected function getObjectHref($object, $handle, $id) {
-    return $handle->getURI();
+  protected function getObjectHref(
+    $object,
+    PhabricatorObjectHandle $handle,
+    $id) {
+
+    $uri = $handle->getURI();
+
+    if ($this->getEngine()->getConfig('uri.full')) {
+      $uri = PhabricatorEnv::getURI($uri);
+    }
+
+    return $uri;
   }
 
-  protected function renderObjectRef($object, $handle, $anchor, $id) {
+  protected function renderObjectRefForAnyMedia (
+    $object,
+    PhabricatorObjectHandle $handle,
+    $anchor,
+    $id) {
+
     $href = $this->getObjectHref($object, $handle, $id);
     $text = $this->getObjectNamePrefix().$id;
 
@@ -55,9 +69,29 @@ abstract class PhabricatorObjectRemarkupRule extends PhutilRemarkupRule {
 
     if ($this->getEngine()->isTextMode()) {
       return PhabricatorEnv::getProductionURI($href);
+    } else if ($this->getEngine()->isHTMLMailMode()) {
+      $href = PhabricatorEnv::getProductionURI($href);
+      return $this->renderObjectTagForMail($text, $href, $handle);
     }
 
-    $status_closed = PhabricatorObjectHandleStatus::STATUS_CLOSED;
+    return $this->renderObjectRef($object, $handle, $anchor, $id);
+
+  }
+
+  protected function renderObjectRef(
+    $object,
+    PhabricatorObjectHandle $handle,
+    $anchor,
+    $id) {
+
+    $href = $this->getObjectHref($object, $handle, $id);
+    $text = $this->getObjectNamePrefix().$id;
+    $status_closed = PhabricatorObjectHandle::STATUS_CLOSED;
+
+    if ($anchor) {
+      $href = $href.'#'.$anchor;
+      $text = $text.'#'.$anchor;
+    }
 
     $attr = array(
       'phid'    => $handle->getPHID(),
@@ -67,21 +101,63 @@ abstract class PhabricatorObjectRemarkupRule extends PhutilRemarkupRule {
     return $this->renderHovertag($text, $href, $attr);
   }
 
-  protected function renderObjectEmbed($object, $handle, $options) {
+  protected function renderObjectEmbedForAnyMedia(
+    $object,
+    PhabricatorObjectHandle $handle,
+    $options) {
+
     $name = $handle->getFullName();
     $href = $handle->getURI();
-    $status_closed = PhabricatorObjectHandleStatus::STATUS_CLOSED;
 
     if ($this->getEngine()->isTextMode()) {
       return $name.' <'.PhabricatorEnv::getProductionURI($href).'>';
+    } else if ($this->getEngine()->isHTMLMailMode()) {
+      $href = PhabricatorEnv::getProductionURI($href);
+      return $this->renderObjectTagForMail($name, $href, $handle);
     }
 
+    return $this->renderObjectEmbed($object, $handle, $options);
+  }
+
+  protected function renderObjectEmbed(
+    $object,
+    PhabricatorObjectHandle $handle,
+    $options) {
+
+    $name = $handle->getFullName();
+    $href = $handle->getURI();
+    $status_closed = PhabricatorObjectHandle::STATUS_CLOSED;
     $attr = array(
       'phid' => $handle->getPHID(),
       'closed'  => ($handle->getStatus() == $status_closed),
     );
 
     return $this->renderHovertag($name, $href, $attr);
+  }
+
+  protected function renderObjectTagForMail(
+    $text,
+    $href,
+    PhabricatorObjectHandle $handle) {
+
+    $status_closed = PhabricatorObjectHandle::STATUS_CLOSED;
+    $strikethrough = $handle->getStatus() == $status_closed ?
+      'text-decoration: line-through;' :
+      'text-decoration: none;';
+
+    return phutil_tag(
+      'a',
+      array(
+        'href' => $href,
+        'style' => 'background-color: #e7e7e7;
+          border-color: #e7e7e7;
+          border-radius: 3px;
+          padding: 0 4px;
+          font-weight: bold;
+          color: black;'
+          .$strikethrough,
+      ),
+      $text);
   }
 
   protected function renderHovertag($name, $href, array $attr = array()) {
@@ -113,7 +189,7 @@ abstract class PhabricatorObjectRemarkupRule extends PhutilRemarkupRule {
     $prefix = preg_quote($prefix);
     $id = $this->getObjectIDPattern();
 
-    return '(\B{'.$prefix.'('.$id.')((?:[^}\\\\]|\\\\.)*)}\B)u';
+    return '(\B{'.$prefix.'('.$id.')([,\s](?:[^}\\\\]|\\\\.)*)?}\B)u';
   }
 
   private function getObjectReferencePattern() {
@@ -190,7 +266,7 @@ abstract class PhabricatorObjectRemarkupRule extends PhutilRemarkupRule {
     return $results;
   }
 
-  public function markupObjectEmbed($matches) {
+  public function markupObjectEmbed(array $matches) {
     if (!$this->isFlatText($matches[0])) {
       return $matches[0];
     }
@@ -203,7 +279,7 @@ abstract class PhabricatorObjectRemarkupRule extends PhutilRemarkupRule {
     ));
   }
 
-  public function markupObjectReference($matches) {
+  public function markupObjectReference(array $matches) {
     if (!$this->isFlatText($matches[0])) {
       return $matches[0];
     }
@@ -282,7 +358,8 @@ abstract class PhabricatorObjectRemarkupRule extends PhutilRemarkupRule {
       $object = $objects[$spec['id']];
       switch ($spec['type']) {
         case 'ref':
-          $view = $this->renderObjectRef(
+
+          $view = $this->renderObjectRefForAnyMedia(
             $object,
             $handle,
             $spec['anchor'],
@@ -290,7 +367,10 @@ abstract class PhabricatorObjectRemarkupRule extends PhutilRemarkupRule {
           break;
         case 'embed':
           $spec['options'] = $this->assertFlatText($spec['options']);
-          $view = $this->renderObjectEmbed($object, $handle, $spec['options']);
+          $view = $this->renderObjectEmbedForAnyMedia(
+            $object,
+            $handle,
+            $spec['options']);
           break;
       }
       $engine->overwriteStoredText($spec['token'], $view);

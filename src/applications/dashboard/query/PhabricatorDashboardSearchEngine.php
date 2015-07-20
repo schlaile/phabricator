@@ -29,7 +29,7 @@ final class PhabricatorDashboardSearchEngine
     return '/dashboard/'.$path;
   }
 
-  public function getBuiltinQueryNames() {
+  protected function getBuiltinQueryNames() {
     return array(
       'all' => pht('All Dashboards'),
     );
@@ -104,7 +104,12 @@ final class PhabricatorDashboardSearchEngine
       $list->addItem($item);
     }
 
-    return $list;
+    $result = new PhabricatorApplicationSearchResultView();
+    $result->setObjectList($list);
+    $result->setNoDataString(pht('No dashboards found.'));
+
+    return $result;
+
   }
 
 }

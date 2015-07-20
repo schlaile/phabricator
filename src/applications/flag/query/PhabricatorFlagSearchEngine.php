@@ -71,7 +71,7 @@ final class PhabricatorFlagSearchEngine
     return '/flag/'.$path;
   }
 
-  public function getBuiltinQueryNames() {
+  protected function getBuiltinQueryNames() {
     $names = array(
       'all' => pht('Flagged'),
     );
@@ -149,7 +149,13 @@ final class PhabricatorFlagSearchEngine
 
       $item = id(new PHUIObjectItemView())
         ->addHeadIcon($flag_icon)
-        ->setHeader($flag->getHandle()->renderLink());
+        ->setHeader($flag->getHandle()->getFullName())
+        ->setHref($flag->getHandle()->getURI());
+
+      $status_open = PhabricatorObjectHandle::STATUS_OPEN;
+      if ($flag->getHandle()->getStatus() != $status_open) {
+        $item->setDisabled(true);
+      }
 
       $item->addAction(
         id(new PHUIListItemView())
@@ -174,7 +180,12 @@ final class PhabricatorFlagSearchEngine
       $list->addItem($item);
     }
 
-    return $list;
+    $result = new PhabricatorApplicationSearchResultView();
+    $result->setObjectList($list);
+    $result->setNoDataString(pht('No flags found.'));
+
+    return $result;
+
   }
 
 

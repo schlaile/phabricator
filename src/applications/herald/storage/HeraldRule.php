@@ -2,6 +2,7 @@
 
 final class HeraldRule extends HeraldDAO
   implements
+    PhabricatorApplicationTransactionInterface,
     PhabricatorFlaggableInterface,
     PhabricatorPolicyInterface,
     PhabricatorDestructibleInterface {
@@ -28,7 +29,7 @@ final class HeraldRule extends HeraldDAO
   private $actions;
   private $triggerObject = self::ATTACHABLE;
 
-  public function getConfiguration() {
+  protected function getConfiguration() {
     return array(
       self::CONFIG_AUX_PHID => true,
       self::CONFIG_COLUMN_SCHEMA => array(
@@ -114,26 +115,6 @@ final class HeraldRule extends HeraldDAO
     return $this->actions;
   }
 
-  public function loadEdits() {
-    if (!$this->getID()) {
-      return array();
-    }
-    $edits = id(new HeraldRuleEdit())->loadAllWhere(
-      'ruleID = %d ORDER BY dateCreated DESC',
-      $this->getID());
-
-    return $edits;
-  }
-
-  public function logEdit($editor_phid, $action) {
-    id(new HeraldRuleEdit())
-      ->setRuleID($this->getID())
-      ->setRuleName($this->getName())
-      ->setEditorPHID($editor_phid)
-      ->setAction($action)
-      ->save();
-  }
-
   public function saveConditions(array $conditions) {
     assert_instances_of($conditions, 'HeraldCondition');
     return $this->saveChildren(
@@ -152,7 +133,7 @@ final class HeraldRule extends HeraldDAO
     assert_instances_of($children, 'HeraldDAO');
 
     if (!$this->getID()) {
-      throw new Exception('Save rule before saving children.');
+      throw new PhutilInvalidStateException('save');
     }
 
     foreach ($children as $child) {
@@ -262,6 +243,33 @@ final class HeraldRule extends HeraldDAO
     }
 
     return sprintf('~%d%010d', $type_order, $this->getID());
+  }
+
+  public function getMonogram() {
+    return 'H'.$this->getID();
+  }
+
+
+/* -(  PhabricatorApplicationTransactionInterface  )------------------------- */
+
+
+  public function getApplicationTransactionEditor() {
+    return new HeraldRuleEditor();
+  }
+
+  public function getApplicationTransactionObject() {
+    return $this;
+  }
+
+  public function getApplicationTransactionTemplate() {
+    return new HeraldRuleTransaction();
+  }
+
+  public function willRenderTimeline(
+    PhabricatorApplicationTransactionView $timeline,
+    AphrontRequest $request) {
+
+    return $timeline;
   }
 
 

@@ -6,12 +6,22 @@
  * @task compose  Composition
  * @task render   Rendering
  */
-final class PhabricatorMetaMTAMailBody {
+final class PhabricatorMetaMTAMailBody extends Phobject {
 
   private $sections = array();
   private $htmlSections = array();
   private $attachments = array();
 
+  private $viewer;
+
+  public function getViewer() {
+    return $this->viewer;
+  }
+
+  public function setViewer($viewer) {
+    $this->viewer = $viewer;
+    return $this;
+  }
 
 /* -(  Composition  )-------------------------------------------------------- */
 
@@ -30,6 +40,39 @@ final class PhabricatorMetaMTAMailBody {
       $this->htmlSections[] = phutil_escape_html_newlines(
         phutil_tag('div', array(), $text));
     }
+    return $this;
+  }
+
+  public function addRemarkupSection($text) {
+    try {
+      $engine = PhabricatorMarkupEngine::newMarkupEngine(array());
+      $engine->setConfig('viewer', $this->getViewer());
+      $engine->setMode(PhutilRemarkupEngine::MODE_TEXT);
+      $styled_text = $engine->markupText($text);
+      $this->sections[] = $styled_text;
+    } catch (Exception $ex) {
+      phlog($ex);
+      $this->sections[] = $text;
+    }
+
+    try {
+      $mail_engine = PhabricatorMarkupEngine::newMarkupEngine(array());
+      $mail_engine->setConfig('viewer', $this->getViewer());
+      $mail_engine->setMode(PhutilRemarkupEngine::MODE_HTML_MAIL);
+      $mail_engine->setConfig(
+        'uri.base',
+        PhabricatorEnv::getProductionURI('/'));
+      $html = $mail_engine->markupText($text);
+      $this->htmlSections[] = $html;
+    } catch (Exception $ex) {
+      phlog($ex);
+      $this->htmlSections[] = phutil_escape_html_newlines(
+        phutil_tag(
+          'div',
+          array(),
+          $text));
+    }
+
     return $this;
   }
 
@@ -115,28 +158,6 @@ final class PhabricatorMetaMTAMailBody {
 
     return $this;
   }
-
-
-  /**
-   * Add a section with reply handler instructions.
-   *
-   * @param string Reply handler instructions.
-   * @return this
-   * @task compose
-   */
-  public function addReplySection($instructions) {
-    if (!PhabricatorEnv::getEnvConfig('metamta.reply.show-hints')) {
-      return $this;
-    }
-    if (!strlen($instructions)) {
-      return $this;
-    }
-
-    $this->addTextSection(pht('REPLY HANDLER ACTIONS'), $instructions);
-
-    return $this;
-  }
-
 
   /**
    * Add an attachment.

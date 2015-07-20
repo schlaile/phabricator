@@ -70,6 +70,7 @@ final class PhabricatorCountdownViewController
     $id = $countdown->getID();
 
     $view = id(new PhabricatorActionListView())
+      ->setObject($countdown)
       ->setUser($viewer);
 
     $can_edit = PhabricatorPolicyFilter::hasCapability(
@@ -100,10 +101,7 @@ final class PhabricatorCountdownViewController
     PhabricatorCountdown $countdown,
     PhabricatorActionListView $actions) {
 
-    $request = $this->getRequest();
-    $viewer = $request->getUser();
-
-    $this->loadHandles(array($countdown->getAuthorPHID()));
+    $viewer = $this->getViewer();
 
     $view = id(new PHUIPropertyListView())
       ->setUser($viewer)
@@ -111,7 +109,7 @@ final class PhabricatorCountdownViewController
 
     $view->addProperty(
       pht('Author'),
-      $this->getHandle($countdown->getAuthorPHID())->renderLink());
+      $viewer->renderHandle($countdown->getAuthorPHID()));
 
     return $view;
   }

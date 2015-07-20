@@ -6,8 +6,10 @@
 final class PhabricatorDashboardPanel
   extends PhabricatorDashboardDAO
   implements
+    PhabricatorApplicationTransactionInterface,
     PhabricatorPolicyInterface,
     PhabricatorCustomFieldInterface,
+    PhabricatorFlaggableInterface,
     PhabricatorDestructibleInterface {
 
   protected $name;
@@ -37,7 +39,7 @@ final class PhabricatorDashboardPanel
     return $dst;
   }
 
-  public function getConfiguration() {
+  protected function getConfiguration() {
     return array(
       self::CONFIG_AUX_PHID => true,
       self::CONFIG_SERIALIZATION => array(
@@ -86,6 +88,29 @@ final class PhabricatorDashboardPanel
           $this->getPanelType()));
     }
     return $impl;
+  }
+
+
+/* -(  PhabricatorApplicationTransactionInterface  )------------------------- */
+
+
+  public function getApplicationTransactionEditor() {
+    return new PhabricatorDashboardPanelTransactionEditor();
+  }
+
+  public function getApplicationTransactionObject() {
+    return $this;
+  }
+
+  public function getApplicationTransactionTemplate() {
+    return new PhabricatorDashboardPanelTransaction();
+  }
+
+  public function willRenderTimeline(
+    PhabricatorApplicationTransactionView $timeline,
+    AphrontRequest $request) {
+
+    return $timeline;
   }
 
 

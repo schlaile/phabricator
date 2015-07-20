@@ -19,13 +19,15 @@ final class PhabricatorAuthSSHKeyGenerateController
       $cancel_uri);
 
     if ($request->isFormPost()) {
+      $default_name = $key->getObject()->getSSHKeyDefaultName();
+
       $keys = PhabricatorSSHKeyGenerator::generateKeypair();
       list($public_key, $private_key) = $keys;
 
       $file = PhabricatorFile::buildFromFileDataOrHash(
         $private_key,
         array(
-          'name' => 'id_rsa_phabricator.key',
+          'name' => $default_name.'.key',
           'ttl' => time() + (60 * 10),
           'viewPolicy' => $viewer->getPHID(),
         ));
@@ -36,7 +38,7 @@ final class PhabricatorAuthSSHKeyGenerateController
       $body = $public_key->getBody();
 
       $key
-        ->setName('id_rsa_phabricator')
+        ->setName($default_name)
         ->setKeyType($type)
         ->setKeyBody($body)
         ->setKeyComment(pht('Generated'))
@@ -53,9 +55,9 @@ final class PhabricatorAuthSSHKeyGenerateController
         ->setSubmitURI($file->getDownloadURI())
         ->appendParagraph(
           pht(
-          'A keypair has been generated, and the public key has been '.
-          'added as a recognized key. Use the button below to download '.
-          'the private key.'))
+            'A keypair has been generated, and the public key has been '.
+            'added as a recognized key. Use the button below to download '.
+            'the private key.'))
         ->appendParagraph(
           pht(
             'After you download the private key, it will be destroyed. '.
@@ -75,8 +77,7 @@ final class PhabricatorAuthSSHKeyGenerateController
             'This workflow will generate a new SSH keypair, add the public '.
             'key, and let you download the private key.'))
         ->appendParagraph(
-          pht(
-            'Phabricator will not retain a copy of the private key.'))
+          pht('Phabricator will not retain a copy of the private key.'))
         ->addSubmitButton(pht('Generate New Keypair'))
         ->addCancelButton($cancel_uri);
     } catch (Exception $ex) {
