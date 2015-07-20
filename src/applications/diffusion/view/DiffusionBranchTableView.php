@@ -116,7 +116,7 @@ final class DiffusionBranchTableView extends DiffusionView {
         pht('History'),
         pht('Branch'),
         pht('Head'),
-        pht(''),
+        '',
         pht('Modified'),
         pht('Details'),
       ));

@@ -97,7 +97,7 @@ final class PhabricatorSettingsPanelSessions
         pht('HiSec'),
         pht('Created'),
         pht('Expires'),
-        pht(''),
+        '',
       ));
     $table->setColumnClasses(
       array(

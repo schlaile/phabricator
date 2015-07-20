@@ -67,7 +67,7 @@ final class PhabricatorSettingsPanelTokens
       array(
         pht('Type'),
         pht('Expires'),
-        pht(''),
+        '',
       ));
     $table->setColumnClasses(
       array(
