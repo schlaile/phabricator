@@ -8,7 +8,7 @@ final class HarbormasterBuildableSearchEngine
   }
 
   public function getApplicationClassName() {
-    return 'PhabricatorApplicationHarbormaster';
+    return 'PhabricatorHarbormasterApplication';
   }
 
   public function buildSavedQueryFromRequest(AphrontRequest $request) {
@@ -18,14 +18,14 @@ final class HarbormasterBuildableSearchEngine
       $request,
       'revisions',
       array(
-        DifferentialPHIDTypeRevision::TYPECONST,
+        DifferentialRevisionPHIDType::TYPECONST,
       ));
 
     $repositories = $this->readPHIDsFromRequest(
       $request,
       'repositories',
       array(
-        PhabricatorRepositoryPHIDTypeRepository::TYPECONST,
+        PhabricatorRepositoryRepositoryPHIDType::TYPECONST,
       ));
 
     $container_phids = array_merge($revisions, $repositories);
@@ -35,7 +35,7 @@ final class HarbormasterBuildableSearchEngine
       $request,
       'commits',
       array(
-        PhabricatorRepositoryPHIDTypeCommit::TYPECONST,
+        PhabricatorRepositoryCommitPHIDType::TYPECONST,
       ));
 
     $diffs = $this->readListFromRequest($request, 'diffs');
@@ -159,16 +159,13 @@ final class HarbormasterBuildableSearchEngine
     return '/harbormaster/'.$path;
   }
 
-  public function getBuiltinQueryNames() {
-    $names = array(
+  protected function getBuiltinQueryNames() {
+    return array(
       'all' => pht('All Buildables'),
     );
-
-    return $names;
   }
 
   public function buildSavedQueryFromBuiltin($query_key) {
-
     $query = $this->newSavedQuery();
     $query->setQueryKey($query_key);
 
@@ -209,7 +206,8 @@ final class HarbormasterBuildableSearchEngine
         $item->addIcon('fa-wrench grey', pht('Manual'));
       }
 
-      $item->setBarColor(HarbormasterBuildable::getBuildableStatusColor(
+      $item->setStatusIcon('fa-wrench '.
+        HarbormasterBuildable::getBuildableStatusColor(
         $buildable->getBuildableStatus()));
       $item->addByline(HarbormasterBuildable::getBuildableStatusName(
         $buildable->getBuildableStatus()));
@@ -218,6 +216,11 @@ final class HarbormasterBuildableSearchEngine
 
     }
 
-    return $list;
+    $result = new PhabricatorApplicationSearchResultView();
+    $result->setObjectList($list);
+    $result->setNoDataString(pht('No buildables found.'));
+
+    return $result;
   }
+
 }

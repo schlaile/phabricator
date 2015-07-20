@@ -2,6 +2,7 @@
 
 final class HarbormasterBuildable extends HarbormasterDAO
   implements
+    PhabricatorApplicationTransactionInterface,
     PhabricatorPolicyInterface,
     HarbormasterBuildableInterface {
 
@@ -58,7 +59,7 @@ final class HarbormasterBuildable extends HarbormasterDAO
         return 'bluegrey';
     }
   }
-  
+
   public static function initializeNewBuildable(PhabricatorUser $actor) {
     return id(new HarbormasterBuildable())
       ->setIsManualBuildable(0)
@@ -87,7 +88,7 @@ final class HarbormasterBuildable extends HarbormasterDAO
     if ($buildable) {
       return $buildable;
     }
-    $buildable = HarbormasterBuildable::initializeNewBuildable($actor)
+    $buildable = self::initializeNewBuildable($actor)
       ->setBuildablePHID($buildable_object_phid)
       ->setContainerPHID($container_object_phid);
     $buildable->save();
@@ -110,12 +111,12 @@ final class HarbormasterBuildable extends HarbormasterDAO
     // Skip all of this logic if the Harbormaster application
     // isn't currently installed.
 
-    $harbormaster_app = 'PhabricatorApplicationHarbormaster';
+    $harbormaster_app = 'PhabricatorHarbormasterApplication';
     if (!PhabricatorApplication::isClassInstalled($harbormaster_app)) {
       return;
     }
 
-    $buildable = HarbormasterBuildable::createOrLoadExisting(
+    $buildable = self::createOrLoadExisting(
       PhabricatorUser::getOmnipotentUser(),
       $phid,
       $container_phid);
@@ -140,27 +141,49 @@ final class HarbormasterBuildable extends HarbormasterDAO
     $build = HarbormasterBuild::initializeNewBuild($viewer)
       ->setBuildablePHID($this->getPHID())
       ->setBuildPlanPHID($plan->getPHID())
-      ->setBuildStatus(HarbormasterBuild::STATUS_PENDING)
-      ->save();
+      ->setBuildStatus(HarbormasterBuild::STATUS_PENDING);
+
+    $auto_key = $plan->getPlanAutoKey();
+    if ($auto_key) {
+      $build->setPlanAutoKey($auto_key);
+    }
+
+    $build->save();
 
     PhabricatorWorker::scheduleTask(
       'HarbormasterBuildWorker',
       array(
-        'buildID' => $build->getID()
+        'buildID' => $build->getID(),
       ));
 
     return $build;
   }
 
-  public function getConfiguration() {
+  protected function getConfiguration() {
     return array(
       self::CONFIG_AUX_PHID => true,
+      self::CONFIG_COLUMN_SCHEMA => array(
+        'containerPHID' => 'phid?',
+        'buildableStatus' => 'text32',
+        'isManualBuildable' => 'bool',
+      ),
+      self::CONFIG_KEY_SCHEMA => array(
+        'key_buildable' => array(
+          'columns' => array('buildablePHID'),
+        ),
+        'key_container' => array(
+          'columns' => array('containerPHID'),
+        ),
+        'key_manual' => array(
+          'columns' => array('isManualBuildable'),
+        ),
+      ),
     ) + parent::getConfiguration();
   }
 
   public function generatePHID() {
     return PhabricatorPHID::generateNewPHID(
-      HarbormasterPHIDTypeBuildable::TYPECONST);
+      HarbormasterBuildablePHIDType::TYPECONST);
   }
 
   public function attachBuildableObject($buildable_object) {
@@ -207,6 +230,29 @@ final class HarbormasterBuildable extends HarbormasterDAO
 
   public function getBuilds() {
     return $this->assertAttached($this->builds);
+  }
+
+
+/* -(  PhabricatorApplicationTransactionInterface  )------------------------- */
+
+
+  public function getApplicationTransactionEditor() {
+    return new HarbormasterBuildableTransactionEditor();
+  }
+
+  public function getApplicationTransactionObject() {
+    return $this;
+  }
+
+  public function getApplicationTransactionTemplate() {
+    return new HarbormasterBuildableTransaction();
+  }
+
+  public function willRenderTimeline(
+    PhabricatorApplicationTransactionView $timeline,
+    AphrontRequest $request) {
+
+    return $timeline;
   }
 
 

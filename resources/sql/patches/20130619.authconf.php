@@ -1,7 +1,7 @@
 <?php
 
 $config_map = array(
-  'PhabricatorAuthProviderLDAP'           => array(
+  'PhabricatorLDAPAuthProvider'           => array(
     'enabled' => 'ldap.auth-enabled',
     'registration' => true,
     'type' => 'ldap',
@@ -16,7 +16,7 @@ $config_map = array(
     'type' => 'disqus',
     'domain' => 'disqus.com',
   ),
-  'PhabricatorAuthProviderOAuthFacebook'  => array(
+  'PhabricatorFacebookAuthProvider'  => array(
     'enabled' => 'facebook.auth-enabled',
     'registration' => 'facebook.registration-enabled',
     'permanent' => 'facebook.auth-permanent',
@@ -43,7 +43,7 @@ $config_map = array(
     'type' => 'google',
     'domain' => 'google.com',
   ),
-  'PhabricatorAuthProviderPassword'       => array(
+  'PhabricatorPasswordAuthProvider'       => array(
     'enabled' => 'auth.password-auth-enabled',
     'enabled-default' => false,
     'registration' => false,
@@ -60,11 +60,11 @@ foreach ($config_map as $provider_class => $spec) {
     $enabled_default);
 
   if (!$enabled) {
-    echo pht("Skipping %s (not enabled).\n", $provider_class);
+    echo pht('Skipping %s (not enabled).', $provider_class)."\n";
     // This provider was not previously enabled, so we can skip migrating it.
     continue;
   } else {
-    echo pht("Migrating %s...\n", $provider_class);
+    echo pht('Migrating %s...', $provider_class)."\n";
   }
 
   $registration_key = idx($spec, 'registration');
@@ -105,42 +105,42 @@ foreach ($config_map as $provider_class => $spec) {
   }
 
   switch ($provider_class) {
-    case 'PhabricatorAuthProviderOAuthFacebook':
+    case 'PhabricatorFacebookAuthProvider':
       $config->setProperty(
-        PhabricatorAuthProviderOAuthFacebook::KEY_REQUIRE_SECURE,
+        PhabricatorFacebookAuthProvider::KEY_REQUIRE_SECURE,
         (int)PhabricatorEnv::getEnvConfigIfExists(
           'facebook.require-https-auth'));
       break;
-    case 'PhabricatorAuthProviderLDAP':
+    case 'PhabricatorLDAPAuthProvider':
 
       $ldap_map = array(
-        PhabricatorAuthProviderLDAP::KEY_HOSTNAME
+        PhabricatorLDAPAuthProvider::KEY_HOSTNAME
           => 'ldap.hostname',
-        PhabricatorAuthProviderLDAP::KEY_PORT
+        PhabricatorLDAPAuthProvider::KEY_PORT
           => 'ldap.port',
-        PhabricatorAuthProviderLDAP::KEY_DISTINGUISHED_NAME
+        PhabricatorLDAPAuthProvider::KEY_DISTINGUISHED_NAME
           => 'ldap.base_dn',
-        PhabricatorAuthProviderLDAP::KEY_SEARCH_ATTRIBUTES
+        PhabricatorLDAPAuthProvider::KEY_SEARCH_ATTRIBUTES
           => 'ldap.search_attribute',
-        PhabricatorAuthProviderLDAP::KEY_USERNAME_ATTRIBUTE
+        PhabricatorLDAPAuthProvider::KEY_USERNAME_ATTRIBUTE
           => 'ldap.username-attribute',
-        PhabricatorAuthProviderLDAP::KEY_REALNAME_ATTRIBUTES
+        PhabricatorLDAPAuthProvider::KEY_REALNAME_ATTRIBUTES
           => 'ldap.real_name_attributes',
-        PhabricatorAuthProviderLDAP::KEY_VERSION
+        PhabricatorLDAPAuthProvider::KEY_VERSION
           => 'ldap.version',
-        PhabricatorAuthProviderLDAP::KEY_REFERRALS
+        PhabricatorLDAPAuthProvider::KEY_REFERRALS
           => 'ldap.referrals',
-        PhabricatorAuthProviderLDAP::KEY_START_TLS
+        PhabricatorLDAPAuthProvider::KEY_START_TLS
           => 'ldap.start-tls',
-        PhabricatorAuthProviderLDAP::KEY_ANONYMOUS_USERNAME
+        PhabricatorLDAPAuthProvider::KEY_ANONYMOUS_USERNAME
           => 'ldap.anonymous-user-name',
-        PhabricatorAuthProviderLDAP::KEY_ANONYMOUS_PASSWORD
+        PhabricatorLDAPAuthProvider::KEY_ANONYMOUS_PASSWORD
           => 'ldap.anonymous-user-password',
         // Update the old "search first" setting to the newer but similar
         // "always search" setting.
-        PhabricatorAuthProviderLDAP::KEY_ALWAYS_SEARCH
+        PhabricatorLDAPAuthProvider::KEY_ALWAYS_SEARCH
           => 'ldap.search-first',
-        PhabricatorAuthProviderLDAP::KEY_ACTIVEDIRECTORY_DOMAIN
+        PhabricatorLDAPAuthProvider::KEY_ACTIVEDIRECTORY_DOMAIN
           => 'ldap.activedirectory_domain',
       );
 
@@ -161,4 +161,4 @@ foreach ($config_map as $provider_class => $spec) {
   $config->save();
 }
 
-echo "Done.\n";
+echo pht('Done.')."\n";

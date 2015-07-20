@@ -10,7 +10,6 @@ final class HeraldRuleController extends HeraldController {
   }
 
   public function processRequest() {
-
     $request = $this->getRequest();
     $user = $request->getUser();
 
@@ -83,7 +82,7 @@ final class HeraldRuleController extends HeraldController {
 
     if ($rule->isGlobalRule()) {
       $this->requireApplicationCapability(
-        HeraldCapabilityManageGlobalRules::CAPABILITY);
+        HeraldManageGlobalRulesCapability::CAPABILITY);
     }
 
     $adapter = HeraldAdapter::getAdapterForContentType($rule->getContentType());
@@ -170,7 +169,7 @@ final class HeraldRuleController extends HeraldController {
             phutil_tag('strong', array(), $content_type_name))))
       ->appendChild($trigger_object_control)
       ->appendChild(
-        id(new AphrontFormInsetView())
+        id(new PHUIFormInsetView())
           ->setTitle(pht('Conditions'))
           ->setRightButton(javelin_tag(
             'a',
@@ -178,7 +177,7 @@ final class HeraldRuleController extends HeraldController {
               'href' => '#',
               'class' => 'button green',
               'sigil' => 'create-condition',
-              'mustcapture' => true
+              'mustcapture' => true,
             ),
             pht('New Condition')))
           ->setDescription(
@@ -187,11 +186,11 @@ final class HeraldRuleController extends HeraldController {
             'table',
             array(
               'sigil' => 'rule-conditions',
-              'class' => 'herald-condition-table'
+              'class' => 'herald-condition-table',
             ),
             '')))
       ->appendChild(
-        id(new AphrontFormInsetView())
+        id(new PHUIFormInsetView())
           ->setTitle(pht('Action'))
           ->setRightButton(javelin_tag(
             'a',
@@ -259,11 +258,19 @@ final class HeraldRuleController extends HeraldController {
       $errors[] = pht('Rule must have a name.');
     }
 
-    $data = json_decode($request->getStr('rule'), true);
+    $data = null;
+    try {
+      $data = phutil_json_decode($request->getStr('rule'));
+    } catch (PhutilJSONParserException $ex) {
+      throw new PhutilProxyException(
+        pht('Failed to decode rule data.'),
+        $ex);
+    }
+
     if (!is_array($data) ||
         !$data['conditions'] ||
         !$data['actions']) {
-      throw new Exception('Failed to decode rule data.');
+      throw new Exception(pht('Failed to decode rule data.'));
     }
 
     $conditions = array();
@@ -313,7 +320,7 @@ final class HeraldRuleController extends HeraldController {
       try {
         $adapter->willSaveAction($rule, $obj);
       } catch (HeraldInvalidActionException $ex) {
-        $errors[] = $ex;
+        $errors[] = $ex->getMessage();
       }
 
       $actions[] = $obj;
@@ -323,21 +330,13 @@ final class HeraldRuleController extends HeraldController {
     $rule->attachActions($actions);
 
     if (!$errors) {
-      try {
+      $edit_action = $rule->getID() ? 'edit' : 'create';
 
-        $edit_action = $rule->getID() ? 'edit' : 'create';
-
-        $rule->openTransaction();
-          $rule->save();
-          $rule->saveConditions($conditions);
-          $rule->saveActions($actions);
-          $rule->logEdit($request->getUser()->getPHID(), $edit_action);
-        $rule->saveTransaction();
-
-      } catch (AphrontQueryDuplicateKeyException $ex) {
-        $e_name = pht('Not Unique');
-        $errors[] = pht('Rule name is not unique. Choose a unique name.');
-      }
+      $rule->openTransaction();
+        $rule->save();
+        $rule->saveConditions($conditions);
+        $rule->saveActions($actions);
+      $rule->saveTransaction();
     }
 
     return array($e_name, $errors);
@@ -355,27 +354,11 @@ final class HeraldRuleController extends HeraldController {
     if ($rule->getConditions()) {
       $serial_conditions = array();
       foreach ($rule->getConditions() as $condition) {
+        $value = $adapter->getEditorValueForCondition(
+          $this->getViewer(),
+          $condition,
+          $handles);
 
-        $value = $condition->getValue();
-        switch ($condition->getFieldName()) {
-          case HeraldAdapter::FIELD_TASK_PRIORITY:
-            $value_map = array();
-            $priority_map = ManiphestTaskPriority::getTaskPriorityMap();
-            foreach ($value as $priority) {
-              $value_map[$priority] = idx($priority_map, $priority);
-            }
-            $value = $value_map;
-            break;
-          default:
-            if (is_array($value)) {
-              $value_map = array();
-              foreach ($value as $k => $fbid) {
-                $value_map[$fbid] = $handles[$fbid]->getName();
-              }
-              $value = $value_map;
-            }
-            break;
-        }
         $serial_conditions[] = array(
           $condition->getFieldName(),
           $condition->getFieldCondition(),
@@ -387,10 +370,10 @@ final class HeraldRuleController extends HeraldController {
     $serial_actions = array(
       array('default', ''),
     );
+
     if ($rule->getActions()) {
       $serial_actions = array();
       foreach ($rule->getActions() as $action) {
-
         switch ($action->getAction()) {
           case HeraldAdapter::ACTION_FLAG:
           case HeraldAdapter::ACTION_BLOCK:
@@ -431,79 +414,121 @@ final class HeraldRuleController extends HeraldController {
     // names of, so that saving a rule without touching anything doesn't change
     // it.
     foreach ($rule->getConditions() as $condition) {
-      if (empty($field_map[$condition->getFieldName()])) {
-        $field_map[$condition->getFieldName()] = pht('<Unknown Field>');
+      $field_name = $condition->getFieldName();
+
+      if (empty($field_map[$field_name])) {
+        $field_map[$field_name] = pht('<Unknown Field "%s">', $field_name);
       }
     }
 
     $actions = $adapter->getActions($rule->getRuleType());
     $action_map = array_select_keys($all_actions, $actions);
 
+    // Populate any actions which exist in the rule but which we don't know the
+    // names of, so that saving a rule without touching anything doesn't change
+    // it.
+    foreach ($rule->getActions() as $action) {
+      $action_name = $action->getAction();
+
+      if (empty($action_map[$action_name])) {
+        $action_map[$action_name] = pht('<Unknown Action "%s">', $action_name);
+      }
+    }
+
+    $group_map = array();
+    foreach ($field_map as $field_key => $field_name) {
+      $group_key = $adapter->getFieldGroupKey($field_key);
+      $group_map[$group_key][$field_key] = $field_name;
+    }
+
+    $field_groups = HeraldFieldGroup::getAllFieldGroups();
+
+    $groups = array();
+    foreach ($group_map as $group_key => $options) {
+      asort($options);
+
+      $field_group = idx($field_groups, $group_key);
+      if ($field_group) {
+        $group_label = $field_group->getGroupLabel();
+        $group_order = $field_group->getSortKey();
+      } else {
+        $group_label = nonempty($group_key, pht('Other'));
+        $group_order = 'Z';
+      }
+
+      $groups[] = array(
+        'label' => $group_label,
+        'options' => $options,
+        'order' => $group_order,
+      );
+    }
+
+    $groups = array_values(isort($groups, 'order'));
+
     $config_info = array();
-    $config_info['fields'] = $field_map;
+    $config_info['fields'] = $groups;
     $config_info['conditions'] = $all_conditions;
     $config_info['actions'] = $action_map;
+    $config_info['valueMap'] = array();
 
-    foreach ($config_info['fields'] as $field => $name) {
-      $field_conditions = $adapter->getConditionsForField($field);
+    foreach ($field_map as $field => $name) {
+      try {
+        $field_conditions = $adapter->getConditionsForField($field);
+      } catch (Exception $ex) {
+        $field_conditions = array(HeraldAdapter::CONDITION_UNCONDITIONALLY);
+      }
       $config_info['conditionMap'][$field] = $field_conditions;
     }
 
-    foreach ($config_info['fields'] as $field => $fname) {
+    foreach ($field_map as $field => $fname) {
       foreach ($config_info['conditionMap'][$field] as $condition) {
-        $value_type = $adapter->getValueTypeForFieldAndCondition(
+        $value_key = $adapter->getValueTypeForFieldAndCondition(
           $field,
           $condition);
-        $config_info['values'][$field][$condition] = $value_type;
+
+        if ($value_key instanceof HeraldFieldValue) {
+          $value_key->setViewer($this->getViewer());
+
+          $spec = $value_key->getControlSpecificationDictionary();
+          $value_key = $value_key->getFieldValueKey();
+          $config_info['valueMap'][$value_key] = $spec;
+        }
+
+        $config_info['values'][$field][$condition] = $value_key;
       }
     }
 
     $config_info['rule_type'] = $rule->getRuleType();
 
     foreach ($config_info['actions'] as $action => $name) {
-      $config_info['targets'][$action] = $adapter->getValueTypeForAction(
-        $action,
-       $rule->getRuleType());
+      try {
+        $value_key = $adapter->getValueTypeForAction(
+          $action,
+         $rule->getRuleType());
+      } catch (Exception $ex) {
+        $value_key = new HeraldEmptyFieldValue();
+      }
+
+      if ($value_key instanceof HeraldFieldValue) {
+        $value_key->setViewer($this->getViewer());
+
+        $spec = $value_key->getControlSpecificationDictionary();
+        $value_key = $value_key->getFieldValueKey();
+        $config_info['valueMap'][$value_key] = $spec;
+      }
+
+      $config_info['targets'][$action] = $value_key;
     }
 
-    $changeflag_options =
-      PhabricatorRepositoryPushLog::getHeraldChangeFlagConditionOptions();
     Javelin::initBehavior(
       'herald-rule-editor',
       array(
         'root' => 'herald-rule-edit-form',
         'conditions' => (object)$serial_conditions,
         'actions' => (object)$serial_actions,
-        'select' => array(
-          HeraldAdapter::VALUE_CONTENT_SOURCE => array(
-            'options' => PhabricatorContentSource::getSourceNameMap(),
-            'default' => PhabricatorContentSource::SOURCE_WEB,
-          ),
-          HeraldAdapter::VALUE_FLAG_COLOR => array(
-            'options' => PhabricatorFlagColor::getColorNameMap(),
-            'default' => PhabricatorFlagColor::COLOR_BLUE,
-          ),
-          HeraldPreCommitRefAdapter::VALUE_REF_TYPE => array(
-            'options' => array(
-              PhabricatorRepositoryPushLog::REFTYPE_BRANCH
-                => pht('branch (git/hg)'),
-              PhabricatorRepositoryPushLog::REFTYPE_TAG
-                => pht('tag (git)'),
-              PhabricatorRepositoryPushLog::REFTYPE_BOOKMARK
-                => pht('bookmark (hg)'),
-            ),
-            'default' => PhabricatorRepositoryPushLog::REFTYPE_BRANCH,
-          ),
-          HeraldPreCommitRefAdapter::VALUE_REF_CHANGE => array(
-            'options' => $changeflag_options,
-            'default' => PhabricatorRepositoryPushLog::CHANGEFLAG_ADD,
-          ),
-        ),
-        'template' => $this->buildTokenizerTemplates($handles) + array(
+        'template' => $this->buildTokenizerTemplates() + array(
           'rules' => $all_rules,
         ),
-        'author' => array($rule->getAuthorPHID() =>
-                          $handles[$rule->getAuthorPHID()]->getName()),
         'info' => $config_info,
       ));
   }
@@ -584,34 +609,10 @@ final class HeraldRuleController extends HeraldController {
   }
 
 
-  protected function buildTokenizerTemplates(array $handles) {
+  protected function buildTokenizerTemplates() {
     $template = new AphrontTokenizerTemplateView();
     $template = $template->render();
-
-    $sources = array(
-      'repository' => new DiffusionRepositoryDatasource(),
-      'legaldocuments' => new LegalpadDocumentDatasource(),
-      'taskpriority' => new ManiphestTaskPriorityDatasource(),
-      'buildplan' => new HarbormasterBuildPlanDatasource(),
-      'arcanistprojects' => new DiffusionArcanistProjectDatasource(),
-      'package' => new PhabricatorOwnersPackageDatasource(),
-      'project' => new PhabricatorProjectDatasource(),
-      'user' => new PhabricatorPeopleDatasource(),
-      'email' => new PhabricatorMetaMTAMailableDatasource(),
-      'userorproject' => new PhabricatorProjectOrUserDatasource(),
-    );
-
-    foreach ($sources as $key => $source) {
-      $sources[$key] = array(
-        'uri' => $source->getDatasourceURI(),
-        'placeholder' => $source->getPlaceholderText(),
-      );
-    }
-
     return array(
-      'source' => $sources,
-      'username' => $this->getRequest()->getUser()->getUserName(),
-      'icons' => mpull($handles, 'getTypeIcon', 'getPHID'),
       'markup' => $template,
     );
   }
@@ -665,6 +666,5 @@ final class HeraldRuleController extends HeraldController {
 
     return $all_rules;
   }
-
 
 }

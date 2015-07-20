@@ -16,8 +16,8 @@ final class PhabricatorOAuthServerAuthorizationsSettingsPanel
   }
 
   public function isEnabled() {
-    $app_name = 'PhabricatorApplicationOAuthServer';
-    return PhabricatorApplication::isClassInstalled($app_name);
+    return PhabricatorApplication::isClassInstalled(
+      'PhabricatorOAuthServerApplication');
   }
 
   public function processRequest(AphrontRequest $request) {
@@ -26,7 +26,7 @@ final class PhabricatorOAuthServerAuthorizationsSettingsPanel
     // TODO: It would be nice to simply disable this panel, but we can't do
     // viewer-based checks for enabled panels right now.
 
-    $app_class = 'PhabricatorApplicationOAuthServer';
+    $app_class = 'PhabricatorOAuthServerApplication';
     $installed = PhabricatorApplication::isClassInstalledForViewer(
       $app_class,
       $viewer);
@@ -108,8 +108,7 @@ final class PhabricatorOAuthServerAuthorizationsSettingsPanel
 
     $table = new AphrontTableView($rows);
     $table->setNoDataString(
-      pht(
-        "You haven't authorized any OAuth applications."));
+      pht("You haven't authorized any OAuth applications."));
 
     $table->setRowClasses($rowc);
     $table->setHeaders(
@@ -135,7 +134,7 @@ final class PhabricatorOAuthServerAuthorizationsSettingsPanel
 
     $panel = id(new PHUIObjectBoxView())
       ->setHeader($header)
-      ->appendChild($table);
+      ->setTable($table);
 
     return $panel;
   }

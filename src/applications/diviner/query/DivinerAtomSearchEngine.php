@@ -1,24 +1,28 @@
 <?php
 
-final class DivinerAtomSearchEngine
-  extends PhabricatorApplicationSearchEngine {
+final class DivinerAtomSearchEngine extends PhabricatorApplicationSearchEngine {
 
   public function getResultTypeDescription() {
     return pht('Documentation Atoms');
   }
 
   public function getApplicationClassName() {
-    return 'PhabricatorApplicationDiviner';
+    return 'PhabricatorDivinerApplication';
   }
 
   public function buildSavedQueryFromRequest(AphrontRequest $request) {
     $saved = new PhabricatorSavedQuery();
 
     $saved->setParameter(
+      'bookPHIDs',
+      $this->readPHIDsFromRequest($request, 'bookPHIDs'));
+    $saved->setParameter(
+      'repositoryPHIDs',
+      $this->readPHIDsFromRequest($request, 'repositoryPHIDs'));
+    $saved->setParameter('name', $request->getStr('name'));
+    $saved->setParameter(
       'types',
       $this->readListFromRequest($request, 'types'));
-
-    $saved->setParameter('name', $request->getStr('name'));
 
     return $saved;
   }
@@ -26,14 +30,24 @@ final class DivinerAtomSearchEngine
   public function buildQueryFromSavedQuery(PhabricatorSavedQuery $saved) {
     $query = id(new DivinerAtomQuery());
 
-    $types = $saved->getParameter('types');
-    if ($types) {
-      $query->withTypes($types);
+    $books = $saved->getParameter('bookPHIDs');
+    if ($books) {
+      $query->withBookPHIDs($books);
+    }
+
+    $repository_phids = $saved->getParameter('repositoryPHIDs');
+    if ($repository_phids) {
+      $query->withRepositoryPHIDs($repository_phids);
     }
 
     $name = $saved->getParameter('name');
     if ($name) {
       $query->withNameContains($name);
+    }
+
+    $types = $saved->getParameter('types');
+    if ($types) {
+      $query->withTypes($types);
     }
 
     return $query;
@@ -42,6 +56,12 @@ final class DivinerAtomSearchEngine
   public function buildSearchForm(
     AphrontFormView $form,
     PhabricatorSavedQuery $saved) {
+
+    $form->appendChild(
+      id(new AphrontFormTextControl())
+        ->setLabel(pht('Name Contains'))
+        ->setName('name')
+        ->setValue($saved->getParameter('name')));
 
     $all_types = array();
     foreach (DivinerAtom::getAllTypes() as $type) {
@@ -60,31 +80,34 @@ final class DivinerAtomSearchEngine
         $name,
         isset($types[$type]));
     }
+    $form->appendChild($type_control);
 
-    $form
-      ->appendChild(
-        id(new AphrontFormTextControl())
-          ->setLabel(pht('Name Contains'))
-          ->setName('name')
-          ->setValue($saved->getParameter('name')))
-      ->appendChild($type_control);
+    $form->appendControl(
+      id(new AphrontFormTokenizerControl())
+        ->setDatasource(new DivinerBookDatasource())
+        ->setName('bookPHIDs')
+        ->setLabel(pht('Books'))
+        ->setValue($saved->getParameter('bookPHIDs')));
 
+    $form->appendControl(
+       id(new AphrontFormTokenizerControl())
+         ->setLabel(pht('Repositories'))
+         ->setName('repositoryPHIDs')
+         ->setDatasource(new DiffusionRepositoryDatasource())
+         ->setValue($saved->getParameter('repositoryPHIDs')));
   }
 
   protected function getURI($path) {
     return '/diviner/'.$path;
   }
 
-  public function getBuiltinQueryNames() {
-    $names = array(
+  protected function getBuiltinQueryNames() {
+    return array(
       'all' => pht('All'),
     );
-
-    return $names;
   }
 
   public function buildSavedQueryFromBuiltin($query_key) {
-
     $query = $this->newSavedQuery();
     $query->setQueryKey($query_key);
 
@@ -121,7 +144,11 @@ final class DivinerAtomSearchEngine
       $list->addItem($item);
     }
 
-    return $list;
+    $result = new PhabricatorApplicationSearchResultView();
+    $result->setObjectList($list);
+    $result->setNoDataString(pht('No books found.'));
+
+    return $result;
   }
 
 }

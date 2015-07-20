@@ -69,7 +69,7 @@ final class PhabricatorProjectColumnQuery
     return $page;
   }
 
-  private function buildWhereClause($conn_r) {
+  protected function buildWhereClause(AphrontDatabaseConnection $conn_r) {
     $where = array();
 
     if ($this->ids) {
@@ -106,7 +106,7 @@ final class PhabricatorProjectColumnQuery
   }
 
   public function getQueryApplicationClass() {
-    return 'PhabricatorApplicationProject';
+    return 'PhabricatorProjectApplication';
   }
 
 }

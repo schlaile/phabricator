@@ -6,6 +6,7 @@ final class PhabricatorDashboardPanelQuery
   private $ids;
   private $phids;
   private $archived;
+  private $panelTypes;
 
   public function withIDs(array $ids) {
     $this->ids = $ids;
@@ -19,6 +20,11 @@ final class PhabricatorDashboardPanelQuery
 
   public function withArchived($archived) {
     $this->archived = $archived;
+    return $this;
+  }
+
+  public function withPanelTypes(array $types) {
+    $this->panelTypes = $types;
     return $this;
   }
 
@@ -37,7 +43,7 @@ final class PhabricatorDashboardPanelQuery
     return $table->loadAllFromArray($data);
   }
 
-  protected function buildWhereClause($conn_r) {
+  protected function buildWhereClause(AphrontDatabaseConnection $conn_r) {
     $where = array();
 
     if ($this->ids !== null) {
@@ -61,13 +67,20 @@ final class PhabricatorDashboardPanelQuery
         (int)$this->archived);
     }
 
+    if ($this->panelTypes !== null) {
+      $where[] = qsprintf(
+        $conn_r,
+        'panelType IN (%Ls)',
+        $this->panelTypes);
+    }
+
     $where[] = $this->buildPagingClause($conn_r);
 
     return $this->formatWhereClause($where);
   }
 
   public function getQueryApplicationClass() {
-    return 'PhabricatorApplicationDashboard';
+    return 'PhabricatorDashboardApplication';
   }
 
 }

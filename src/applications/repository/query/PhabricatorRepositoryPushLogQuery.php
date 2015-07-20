@@ -61,7 +61,7 @@ final class PhabricatorRepositoryPushLogQuery
     return $table->loadAllFromArray($data);
   }
 
-  public function willFilterPage(array $logs) {
+  protected function willFilterPage(array $logs) {
     $event_phids = mpull($logs, 'getPushEventPHID');
     $events = id(new PhabricatorObjectQuery())
       ->setParentQuery($this)
@@ -82,8 +82,7 @@ final class PhabricatorRepositoryPushLogQuery
     return $logs;
   }
 
-
-  private function buildWhereClause(AphrontDatabaseConnection $conn_r) {
+  protected function buildWhereClause(AphrontDatabaseConnection $conn_r) {
     $where = array();
 
     if ($this->ids) {
@@ -140,9 +139,8 @@ final class PhabricatorRepositoryPushLogQuery
     return $this->formatWhereClause($where);
   }
 
-
   public function getQueryApplicationClass() {
-    return 'PhabricatorApplicationDiffusion';
+    return 'PhabricatorDiffusionApplication';
   }
 
 }

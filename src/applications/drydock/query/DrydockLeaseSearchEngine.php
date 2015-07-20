@@ -8,7 +8,7 @@ final class DrydockLeaseSearchEngine
   }
 
   public function getApplicationClassName() {
-    return 'PhabricatorApplicationDrydock';
+    return 'PhabricatorDrydockApplication';
   }
 
   public function buildSavedQueryFromRequest(AphrontRequest $request) {
@@ -57,13 +57,11 @@ final class DrydockLeaseSearchEngine
     return '/drydock/lease/'.$path;
   }
 
-  public function getBuiltinQueryNames() {
-    $names = array(
+  protected function getBuiltinQueryNames() {
+    return array(
       'active' => pht('Active Leases'),
       'all' => pht('All Leases'),
     );
-
-    return $names;
   }
 
   public function buildSavedQueryFromBuiltin($query_key) {
@@ -91,10 +89,12 @@ final class DrydockLeaseSearchEngine
     PhabricatorSavedQuery $saved,
     array $handles) {
 
-    return id(new DrydockLeaseListView())
+    $list = id(new DrydockLeaseListView())
       ->setUser($this->requireViewer())
-      ->setLeases($leases)
-      ->render();
+      ->setLeases($leases);
+
+    return id(new PhabricatorApplicationSearchResultView())
+      ->setContent($list);
   }
 
 }

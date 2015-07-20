@@ -10,7 +10,7 @@ final class PhabricatorConfigTransaction
   }
 
   public function getApplicationTransactionType() {
-    return PhabricatorConfigPHIDTypeConfig::TYPECONST;
+    return PhabricatorConfigConfigPHIDType::TYPECONST;
   }
 
   public function getApplicationTransactionCommentObject() {
@@ -48,6 +48,44 @@ final class PhabricatorConfigTransaction
           return pht(
             '%s edited this configuration entry.',
             $this->renderHandleLink($author_phid));
+        }
+        break;
+    }
+
+    return parent::getTitle();
+  }
+
+  public function getTitleForFeed() {
+    $author_phid = $this->getAuthorPHID();
+
+    $old = $this->getOldValue();
+    $new = $this->getNewValue();
+
+    switch ($this->getTransactionType()) {
+      case self::TYPE_EDIT:
+        $old_del = idx($old, 'deleted');
+        $new_del = idx($new, 'deleted');
+        if ($old_del && !$new_del) {
+          return pht(
+            '%s created %s.',
+            $this->renderHandleLink($author_phid),
+            $this->getObject()->getConfigKey());
+        } else if (!$old_del && $new_del) {
+          return pht(
+            '%s deleted %s.',
+            $this->renderHandleLink($author_phid),
+            $this->getObject()->getConfigKey());
+        } else if ($old_del && $new_del) {
+          // This is a bug.
+          return pht(
+            '%s deleted %s (again?).',
+            $this->renderHandleLink($author_phid),
+            $this->getObject()->getConfigKey());
+        } else {
+          return pht(
+            '%s edited %s.',
+            $this->renderHandleLink($author_phid),
+            $this->getObject()->getConfigKey());
         }
         break;
     }

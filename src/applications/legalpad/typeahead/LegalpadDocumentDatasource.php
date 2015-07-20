@@ -1,14 +1,22 @@
 <?php
 
-final class LegalpadDocumentDatasource
-  extends PhabricatorTypeaheadDatasource {
+final class LegalpadDocumentDatasource extends PhabricatorTypeaheadDatasource {
+
+  public function isBrowsable() {
+    // TODO: This should be made browsable.
+    return false;
+  }
+
+  public function getBrowseTitle() {
+    return pht('Browse Documents');
+  }
 
   public function getPlaceholderText() {
     return pht('Type a document name...');
   }
 
   public function getDatasourceApplicationClass() {
-    return 'PhabricatorApplicationLegalpad';
+    return 'PhabricatorLegalpadApplication';
   }
 
   public function loadResults() {

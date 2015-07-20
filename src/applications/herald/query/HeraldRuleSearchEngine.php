@@ -1,14 +1,13 @@
 <?php
 
-final class HeraldRuleSearchEngine
-  extends PhabricatorApplicationSearchEngine {
+final class HeraldRuleSearchEngine extends PhabricatorApplicationSearchEngine {
 
   public function getResultTypeDescription() {
     return pht('Herald Rules');
   }
 
   public function getApplicationClassName() {
-    return 'PhabricatorApplicationHerald';
+    return 'PhabricatorHeraldApplication';
   }
 
   public function buildSavedQueryFromRequest(AphrontRequest $request) {
@@ -59,22 +58,17 @@ final class HeraldRuleSearchEngine
     AphrontFormView $form,
     PhabricatorSavedQuery $saved_query) {
 
-    $phids = $saved_query->getParameter('authorPHIDs', array());
-    $author_handles = id(new PhabricatorHandleQuery())
-      ->setViewer($this->requireViewer())
-      ->withPHIDs($phids)
-      ->execute();
-
+    $author_phids = $saved_query->getParameter('authorPHIDs', array());
     $content_type = $saved_query->getParameter('contentType');
     $rule_type = $saved_query->getParameter('ruleType');
 
     $form
-      ->appendChild(
+      ->appendControl(
         id(new AphrontFormTokenizerControl())
           ->setDatasource(new PhabricatorPeopleDatasource())
           ->setName('authors')
           ->setLabel(pht('Authors'))
-          ->setValue($author_handles))
+          ->setValue($author_phids))
       ->appendChild(
         id(new AphrontFormSelectControl())
           ->setName('contentType')
@@ -104,7 +98,7 @@ final class HeraldRuleSearchEngine
     return '/herald/'.$path;
   }
 
-  public function getBuiltinQueryNames() {
+  protected function getBuiltinQueryNames() {
     $names = array();
 
     if ($this->requireViewer()->isLoggedIn()) {
@@ -118,7 +112,6 @@ final class HeraldRuleSearchEngine
   }
 
   public function buildSavedQueryFromBuiltin($query_key) {
-
     $query = $this->newSavedQuery();
     $query->setQueryKey($query_key);
 
@@ -163,6 +156,7 @@ final class HeraldRuleSearchEngine
   protected function getRequiredHandlePHIDsForResultList(
     array $rules,
     PhabricatorSavedQuery $query) {
+
     return mpull($rules, 'getAuthorPHID');
   }
 
@@ -192,6 +186,8 @@ final class HeraldRuleSearchEngine
           pht(
             'Authored by %s',
             $handles[$rule->getAuthorPHID()]->renderLink()));
+      } else if ($rule->isObjectRule()) {
+        $item->addIcon('fa-briefcase', pht('Object Rule'));
       } else {
         $item->addIcon('fa-globe', pht('Global Rule'));
       }
@@ -213,7 +209,12 @@ final class HeraldRuleSearchEngine
       $list->addItem($item);
     }
 
-    return $list;
+    $result = new PhabricatorApplicationSearchResultView();
+    $result->setObjectList($list);
+    $result->setNoDataString(pht('No rules found.'));
+
+    return $result;
+
   }
 
 }

@@ -8,37 +8,10 @@
 class AphrontDefaultApplicationConfiguration
   extends AphrontApplicationConfiguration {
 
-  public function __construct() {
-
-  }
+  public function __construct() {}
 
   public function getApplicationName() {
     return 'aphront-default';
-  }
-
-  public function getURIMap() {
-    return $this->getResourceURIMapRules() + array(
-      '/~/' => array(
-        '' => 'DarkConsoleController',
-        'data/(?P<key>[^/]+)/' => 'DarkConsoleDataController',
-      ),
-    );
-  }
-
-  protected function getResourceURIMapRules() {
-    $extensions = CelerityResourceController::getSupportedResourceTypes();
-    $extensions = array_keys($extensions);
-    $extensions = implode('|', $extensions);
-
-    return array(
-      '/res/' => array(
-        '(?:(?P<mtime>[0-9]+)T/)?'.
-        '(?P<library>[^/]+)/'.
-        '(?P<hash>[a-f0-9]{8})/'.
-        '(?P<path>.+\.(?:'.$extensions.'))'
-          => 'CelerityPhabricatorResourceController',
-      ),
-    );
   }
 
   /**
@@ -92,7 +65,7 @@ class AphrontDefaultApplicationConfiguration
     }
 
     // For non-workflow requests, return a Ajax response.
-    if ($request->isAjax() && !$request->isJavelinWorkflow()) {
+    if ($request->isAjax() && !$request->isWorkflow()) {
       // Log these; they don't get shown on the client and can be difficult
       // to debug.
       phlog($ex);
@@ -162,7 +135,9 @@ class AphrontDefaultApplicationConfiguration
         ->addCancelButton($ex->getCancelURI())
         ->addSubmitButton(pht('Enter High Security'));
 
-      foreach ($request->getPassthroughRequestParameters() as $key => $value) {
+      $request_parameters = $request->getPassthroughRequestParameters(
+        $respect_quicksand = true);
+      foreach ($request_parameters as $key => $value) {
         $dialog->addHiddenInput($key, $value);
       }
 
@@ -172,7 +147,6 @@ class AphrontDefaultApplicationConfiguration
     }
 
     if ($ex instanceof PhabricatorPolicyException) {
-
       if (!$user->isLoggedIn()) {
         // If the user isn't logged in, just give them a login form. This is
         // probably a generally more useful response than a policy dialog that
@@ -180,21 +154,14 @@ class AphrontDefaultApplicationConfiguration
         //
         // Possibly we should add a header here like "you need to login to see
         // the thing you are trying to look at".
-        $login_controller = new PhabricatorAuthStartController($request);
+        $login_controller = new PhabricatorAuthStartController();
+        $login_controller->setRequest($request);
 
-        $auth_app_class = 'PhabricatorApplicationAuth';
+        $auth_app_class = 'PhabricatorAuthApplication';
         $auth_app = PhabricatorApplication::getByClass($auth_app_class);
         $login_controller->setCurrentApplication($auth_app);
 
-        return $login_controller->processRequest();
-      }
-
-      $list = $ex->getMoreInfo();
-      foreach ($list as $key => $item) {
-        $list[$key] = phutil_tag('li', array(), $item);
-      }
-      if ($list) {
-        $list = phutil_tag('ul', array(), $list);
+        return $login_controller->handleRequest($request);
       }
 
       $content = array(
@@ -204,21 +171,33 @@ class AphrontDefaultApplicationConfiguration
             'class' => 'aphront-policy-rejection',
           ),
           $ex->getRejection()),
-        phutil_tag(
+      );
+
+      $list = null;
+      if ($ex->getCapabilityName()) {
+        $list = $ex->getMoreInfo();
+        foreach ($list as $key => $item) {
+          $list[$key] = $item;
+        }
+
+        $content[] = phutil_tag(
           'div',
           array(
             'class' => 'aphront-capability-details',
           ),
-          pht('Users with the "%s" capability:', $ex->getCapabilityName())),
-        $list,
-      );
+          pht('Users with the "%s" capability:', $ex->getCapabilityName()));
 
-      $dialog = new AphrontDialogView();
-      $dialog
+      }
+
+      $dialog = id(new AphrontDialogView())
         ->setTitle($ex->getTitle())
         ->setClass('aphront-access-dialog')
         ->setUser($user)
         ->appendChild($content);
+
+      if ($list) {
+        $dialog->appendList($list);
+      }
 
       if ($this->getRequest()->isAjax()) {
         $dialog->addCancelButton('/', pht('Close'));
@@ -232,7 +211,7 @@ class AphrontDefaultApplicationConfiguration
     }
 
     if ($ex instanceof AphrontUsageException) {
-      $error = new AphrontErrorView();
+      $error = new PHUIInfoView();
       $error->setTitle($ex->getTitle());
       $error->appendChild($ex->getMessage());
 
@@ -247,19 +226,17 @@ class AphrontDefaultApplicationConfiguration
       return $response;
     }
 
-
     // Always log the unhandled exception.
     phlog($ex);
 
     $class    = get_class($ex);
     $message  = $ex->getMessage();
 
-    if ($ex instanceof AphrontQuerySchemaException) {
-      $message .=
-        "\n\n".
+    if ($ex instanceof AphrontSchemaQueryException) {
+      $message .= "\n\n".pht(
         "NOTE: This usually indicates that the MySQL schema has not been ".
-        "properly upgraded. Run 'bin/storage upgrade' to ensure your ".
-        "schema is up to date.";
+        "properly upgraded. Run '%s' to ensure your schema is up to date.",
+        'bin/storage upgrade');
     }
 
     if (PhabricatorEnv::getEnvConfig('phabricator.developer-mode')) {
@@ -280,13 +257,13 @@ class AphrontDefaultApplicationConfiguration
 
     $dialog = new AphrontDialogView();
     $dialog
-      ->setTitle('Unhandled Exception ("'.$class.'")')
+      ->setTitle(pht('Unhandled Exception ("%s")', $class))
       ->setClass('aphront-exception-dialog')
       ->setUser($user)
       ->appendChild($content);
 
     if ($this->getRequest()->isAjax()) {
-      $dialog->addCancelButton('/', 'Close');
+      $dialog->addCancelButton('/', pht('Close'));
     }
 
     $response = new AphrontDialogResponse();
@@ -301,15 +278,17 @@ class AphrontDefaultApplicationConfiguration
   }
 
   public function build404Controller() {
-    return array(new Phabricator404Controller($this->getRequest()), array());
+    return array(new Phabricator404Controller(), array());
   }
 
-  public function buildRedirectController($uri) {
+  public function buildRedirectController($uri, $external) {
     return array(
-      new PhabricatorRedirectController($this->getRequest()),
+      new PhabricatorRedirectController(),
       array(
         'uri' => $uri,
-      ));
+        'external' => $external,
+      ),
+    );
   }
 
 }

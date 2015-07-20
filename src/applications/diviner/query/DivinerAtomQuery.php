@@ -1,7 +1,6 @@
 <?php
 
-final class DivinerAtomQuery
-  extends PhabricatorCursorPagedPolicyAwareQuery {
+final class DivinerAtomQuery extends PhabricatorCursorPagedPolicyAwareQuery {
 
   private $ids;
   private $phids;
@@ -10,15 +9,17 @@ final class DivinerAtomQuery
   private $types;
   private $contexts;
   private $indexes;
-  private $includeUndocumentable;
-  private $includeGhosts;
+  private $isDocumentable;
+  private $isGhost;
   private $nodeHashes;
   private $titles;
   private $nameContains;
+  private $repositoryPHIDs;
 
   private $needAtoms;
   private $needExtends;
   private $needChildren;
+  private $needRepositories;
 
   public function withIDs(array $ids) {
     $this->ids = $ids;
@@ -80,11 +81,10 @@ final class DivinerAtomQuery
     return $this;
   }
 
-
   /**
-   * Include "ghosts", which are symbols which used to exist but do not exist
-   * currently (for example, a function which existed in an older version of
-   * the codebase but was deleted).
+   * Include or exclude "ghosts", which are symbols which used to exist but do
+   * not exist currently (for example, a function which existed in an older
+   * version of the codebase but was deleted).
    *
    * These symbols had PHIDs assigned to them, and may have other sorts of
    * metadata that we don't want to lose (like comments or flags), so we don't
@@ -93,25 +93,31 @@ final class DivinerAtomQuery
    * have been generated incorrectly by accident. In these cases, we can
    * restore the original data.
    *
-   * However, most callers are not interested in these symbols, so they are
-   * excluded by default. You can use this method to include them in results.
-   *
-   * @param bool  True to include ghosts.
+   * @param bool
    * @return this
    */
-  public function withIncludeGhosts($include) {
-    $this->includeGhosts = $include;
+  public function withGhosts($ghosts) {
+    $this->isGhost = $ghosts;
     return $this;
   }
-
 
   public function needExtends($need) {
     $this->needExtends = $need;
     return $this;
   }
 
-  public function withIncludeUndocumentable($include) {
-    $this->includeUndocumentable = $include;
+  public function withIsDocumentable($documentable) {
+    $this->isDocumentable = $documentable;
+    return $this;
+  }
+
+  public function withRepositoryPHIDs(array $repository_phids) {
+    $this->repositoryPHIDs = $repository_phids;
+    return $this;
+  }
+
+  public function needRepositories($need_repositories) {
+    $this->needRepositories = $need_repositories;
     return $this;
   }
 
@@ -131,6 +137,8 @@ final class DivinerAtomQuery
   }
 
   protected function willFilterPage(array $atoms) {
+    assert_instances_of($atoms, 'DivinerLiveSymbol');
+
     $books = array_unique(mpull($atoms, 'getBookPHID'));
 
     $books = id(new DivinerBookQuery())
@@ -142,6 +150,7 @@ final class DivinerAtomQuery
     foreach ($atoms as $key => $atom) {
       $book = idx($books, $atom->getBookPHID());
       if (!$book) {
+        $this->didRejectResult($atom);
         unset($atoms[$key]);
         continue;
       }
@@ -156,10 +165,6 @@ final class DivinerAtomQuery
 
       foreach ($atoms as $key => $atom) {
         $data = idx($atom_data, $atom->getPHID());
-        if (!$data) {
-          unset($atoms[$key]);
-          continue;
-        }
         $atom->attachAtom($data);
       }
     }
@@ -167,14 +172,15 @@ final class DivinerAtomQuery
     // Load all of the symbols this symbol extends, recursively. Commonly,
     // this means all the ancestor classes and interfaces it extends and
     // implements.
-
     if ($this->needExtends) {
-
       // First, load all the matching symbols by name. This does 99% of the
       // work in most cases, assuming things are named at all reasonably.
-
       $names = array();
       foreach ($atoms as $atom) {
+        if (!$atom->getAtom()) {
+          continue;
+        }
+
         foreach ($atom->getAtom()->getExtends() as $xref) {
           $names[] = $xref->getName();
         }
@@ -184,6 +190,7 @@ final class DivinerAtomQuery
         $xatoms = id(new DivinerAtomQuery())
           ->setViewer($this->getViewer())
           ->withNames($names)
+          ->withGhosts(false)
           ->needExtends(true)
           ->needAtoms(true)
           ->needChildren($this->needChildren)
@@ -194,10 +201,17 @@ final class DivinerAtomQuery
       }
 
       foreach ($atoms as $atom) {
-        $alang = $atom->getAtom()->getLanguage();
-        $extends = array();
-        foreach ($atom->getAtom()->getExtends() as $xref) {
+        $atom_lang    = null;
+        $atom_extends = array();
 
+        if ($atom->getAtom()) {
+          $atom_lang    = $atom->getAtom()->getLanguage();
+          $atom_extends = $atom->getAtom()->getExtends();
+        }
+
+        $extends = array();
+
+        foreach ($atom_extends as $xref) {
           // If there are no symbols of the matching name and type, we can't
           // resolve this.
           if (empty($xatoms[$xref->getName()][$xref->getType()])) {
@@ -205,7 +219,7 @@ final class DivinerAtomQuery
           }
 
           // If we found matches in the same documentation book, prefer them
-          // over other matches. Otherwise, look at all the the matches.
+          // over other matches. Otherwise, look at all the matches.
           $matches = $xatoms[$xref->getName()][$xref->getType()];
           if (isset($matches[$atom->getBookPHID()])) {
             $maybe = $matches[$atom->getBookPHID()];
@@ -221,7 +235,7 @@ final class DivinerAtomQuery
           // classes can not implement JS classes.
           $same_lang = array();
           foreach ($maybe as $xatom) {
-            if ($xatom->getAtom()->getLanguage() == $alang) {
+            if ($xatom->getAtom()->getLanguage() == $atom_lang) {
               $same_lang[] = $xatom;
             }
           }
@@ -245,7 +259,6 @@ final class DivinerAtomQuery
       if ($child_hashes) {
         $children = id(new DivinerAtomQuery())
           ->setViewer($this->getViewer())
-          ->withIncludeUndocumentable(true)
           ->withNodeHashes($child_hashes)
           ->needAtoms($this->needAtoms)
           ->execute();
@@ -258,10 +271,35 @@ final class DivinerAtomQuery
       $this->attachAllChildren($atoms, $children, $this->needExtends);
     }
 
+    if ($this->needRepositories) {
+      $repositories = id(new PhabricatorRepositoryQuery())
+        ->setViewer($this->getViewer())
+        ->withPHIDs(mpull($atoms, 'getRepositoryPHID'))
+        ->execute();
+      $repositories = mpull($repositories, null, 'getPHID');
+
+      foreach ($atoms as $key => $atom) {
+        if ($atom->getRepositoryPHID() === null) {
+          $atom->attachRepository(null);
+          continue;
+        }
+
+        $repository = idx($repositories, $atom->getRepositoryPHID());
+
+        if (!$repository) {
+          $this->didRejectResult($atom);
+          unset($atom[$key]);
+          continue;
+        }
+
+        $atom->attachRepository($repository);
+      }
+    }
+
     return $atoms;
   }
 
-  private function buildWhereClause(AphrontDatabaseConnection $conn_r) {
+  protected function buildWhereClause(AphrontDatabaseConnection $conn_r) {
     $where = array();
 
     if ($this->ids) {
@@ -301,6 +339,7 @@ final class DivinerAtomQuery
 
     if ($this->titles) {
       $hashes = array();
+
       foreach ($this->titles as $title) {
         $slug = DivinerAtomRef::normalizeTitleString($title);
         $hash = PhabricatorHash::digestForIndex($slug);
@@ -316,6 +355,7 @@ final class DivinerAtomQuery
     if ($this->contexts) {
       $with_null = false;
       $contexts = $this->contexts;
+
       foreach ($contexts as $key => $value) {
         if ($value === null) {
           unset($contexts[$key]);
@@ -348,16 +388,19 @@ final class DivinerAtomQuery
         $this->indexes);
     }
 
-    if (!$this->includeUndocumentable) {
+    if ($this->isDocumentable !== null) {
       $where[] = qsprintf(
         $conn_r,
-        'isDocumentable = 1');
+        'isDocumentable = %d',
+        (int)$this->isDocumentable);
     }
 
-    if (!$this->includeGhosts) {
-      $where[] = qsprintf(
-        $conn_r,
-        'graphHash IS NOT NULL');
+    if ($this->isGhost !== null) {
+      if ($this->isGhost) {
+        $where[] = qsprintf($conn_r, 'graphHash IS NULL');
+      } else {
+        $where[] = qsprintf($conn_r, 'graphHash IS NOT NULL');
+      }
     }
 
     if ($this->nodeHashes) {
@@ -368,21 +411,26 @@ final class DivinerAtomQuery
     }
 
     if ($this->nameContains) {
-      // NOTE: This CONVERT() call makes queries case-insensitive, since the
-      // column has binary collation. Eventually, this should move into
+      // NOTE: This `CONVERT()` call makes queries case-insensitive, since
+      // the column has binary collation. Eventually, this should move into
       // fulltext.
-
       $where[] = qsprintf(
         $conn_r,
         'CONVERT(name USING utf8) LIKE %~',
         $this->nameContains);
     }
 
+    if ($this->repositoryPHIDs) {
+      $where[] = qsprintf(
+        $conn_r,
+        'repositoryPHID IN (%Ls)',
+        $this->repositoryPHIDs);
+    }
+
     $where[] = $this->buildPagingClause($conn_r);
 
     return $this->formatWhereClause($where);
   }
-
 
   /**
    * Walk a list of atoms and collect all the node hashes of the atoms'
@@ -399,9 +447,16 @@ final class DivinerAtomQuery
 
     $hashes = array();
     foreach ($symbols as $symbol) {
-      foreach ($symbol->getAtom()->getChildHashes() as $hash) {
+      $child_hashes = array();
+
+      if ($symbol->getAtom()) {
+        $child_hashes = $symbol->getAtom()->getChildHashes();
+      }
+
+      foreach ($child_hashes as $hash) {
         $hashes[$hash] = $hash;
       }
+
       if ($recurse_up) {
         $hashes += $this->getAllChildHashes($symbol->getExtends(), true);
       }
@@ -410,12 +465,11 @@ final class DivinerAtomQuery
     return $hashes;
   }
 
-
   /**
    * Attach child atoms to existing atoms. In recursive mode, also attach child
    * atoms to atoms that these atoms extend.
    *
-   * @param list<DivinerLiveSymbol> List of symbols to attach childeren to.
+   * @param list<DivinerLiveSymbol> List of symbols to attach children to.
    * @param map<string, DivinerLiveSymbol> Map of symbols, keyed by node hash.
    * @param bool True to attach children to extended atoms, as well.
    * @return void
@@ -429,13 +483,21 @@ final class DivinerAtomQuery
     assert_instances_of($children, 'DivinerLiveSymbol');
 
     foreach ($symbols as $symbol) {
+      $child_hashes = array();
       $symbol_children = array();
-      foreach ($symbol->getAtom()->getChildHashes() as $hash) {
+
+      if ($symbol->getAtom()) {
+        $child_hashes = $symbol->getAtom()->getChildHashes();
+      }
+
+      foreach ($child_hashes as $hash) {
         if (isset($children[$hash])) {
           $symbol_children[] = $children[$hash];
         }
       }
+
       $symbol->attachChildren($symbol_children);
+
       if ($recurse_up) {
         $this->attachAllChildren($symbol->getExtends(), $children, true);
       }
@@ -443,7 +505,7 @@ final class DivinerAtomQuery
   }
 
   public function getQueryApplicationClass() {
-    return 'PhabricatorApplicationDiviner';
+    return 'PhabricatorDivinerApplication';
   }
 
 }

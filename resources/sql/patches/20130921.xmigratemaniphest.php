@@ -14,7 +14,7 @@ foreach ($rows as $row) {
   $row_id = $row['id'];
   $task_id = $row['taskID'];
 
-  echo "Migrating row {$row_id} (T{$task_id})...\n";
+  echo pht('Migrating row %d (%s)...', $row_id, "T{$task_id}")."\n";
 
   $task_row = queryfx_one(
     $conn_w,
@@ -22,7 +22,7 @@ foreach ($rows as $row) {
     $task_table->getTableName(),
     $task_id);
   if (!$task_row) {
-    echo "Skipping, no such task.\n";
+    echo pht('Skipping, no such task.')."\n";
     continue;
   }
 
@@ -62,8 +62,8 @@ foreach ($rows as $row) {
   // a comment in addition to an action) we'll insert that below.
   if ($row['transactionType'] != 'comment') {
     $xaction_phid = PhabricatorPHID::generateNewPHID(
-      PhabricatorApplicationTransactionPHIDTypeTransaction::TYPECONST,
-      ManiphestPHIDTypeTask::TYPECONST);
+      PhabricatorApplicationTransactionTransactionPHIDType::TYPECONST,
+      ManiphestTaskPHIDType::TYPECONST);
 
     queryfx(
       $conn_w,
@@ -93,12 +93,12 @@ foreach ($rows as $row) {
   if ($has_comment) {
     $comment_phid = PhabricatorPHID::generateNewPHID(
       PhabricatorPHIDConstants::PHID_TYPE_XCMT,
-      ManiphestPHIDTypeTask::TYPECONST);
+      ManiphestTaskPHIDType::TYPECONST);
     $comment_version = 1;
 
     $comment_xaction_phid = PhabricatorPHID::generateNewPHID(
-      PhabricatorApplicationTransactionPHIDTypeTransaction::TYPECONST,
-      ManiphestPHIDTypeTask::TYPECONST);
+      PhabricatorApplicationTransactionTransactionPHIDType::TYPECONST,
+      ManiphestTaskPHIDType::TYPECONST);
 
     // Insert the comment data.
     queryfx(
@@ -145,4 +145,4 @@ foreach ($rows as $row) {
 }
 
 $conn_w->saveTransaction();
-echo "Done.\n";
+echo pht('Done.')."\n";

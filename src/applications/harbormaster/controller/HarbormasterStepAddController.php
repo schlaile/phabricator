@@ -1,25 +1,22 @@
 <?php
 
-final class HarbormasterStepAddController
-  extends HarbormasterController {
+final class HarbormasterStepAddController extends HarbormasterController {
 
-  private $id;
-
-  public function willProcessRequest(array $data) {
-    $this->id = $data['id'];
-  }
-
-  public function processRequest() {
-    $request = $this->getRequest();
-    $viewer = $request->getUser();
+  public function handleRequest(AphrontRequest $request) {
+    $viewer = $this->getViewer();
 
     $this->requireApplicationCapability(
-      HarbormasterCapabilityManagePlans::CAPABILITY);
+      HarbormasterManagePlansCapability::CAPABILITY);
 
     $plan = id(new HarbormasterBuildPlanQuery())
-        ->setViewer($viewer)
-        ->withIDs(array($this->id))
-        ->executeOne();
+      ->setViewer($viewer)
+      ->withIDs(array($request->getURIData('id')))
+      ->requireCapabilities(
+        array(
+          PhabricatorPolicyCapability::CAN_VIEW,
+          PhabricatorPolicyCapability::CAN_EDIT,
+        ))
+      ->executeOne();
     if (!$plan) {
       return new Aphront404Response();
     }
@@ -27,12 +24,18 @@ final class HarbormasterStepAddController
     $plan_id = $plan->getID();
     $cancel_uri = $this->getApplicationURI("plan/{$plan_id}/");
 
+    $all = HarbormasterBuildStepImplementation::getImplementations();
+    foreach ($all as $key => $impl) {
+      if ($impl->shouldRequireAutotargeting()) {
+        unset($all[$key]);
+      }
+    }
+
     $errors = array();
     if ($request->isFormPost()) {
       $class = $request->getStr('class');
-      if (!HarbormasterBuildStepImplementation::getImplementation($class)) {
-        $errors[] = pht(
-          'Choose the type of build step you want to add.');
+      if (empty($all[$class])) {
+        $errors[] = pht('Choose the type of build step you want to add.');
       }
       if (!$errors) {
         $new_uri = $this->getApplicationURI("step/new/{$plan_id}/{$class}/");
@@ -43,7 +46,6 @@ final class HarbormasterStepAddController
     $control = id(new AphrontFormRadioButtonControl())
       ->setName('class');
 
-    $all = HarbormasterBuildStepImplementation::getImplementations();
     foreach ($all as $class => $implementation) {
       $control->addButton(
         $class,
@@ -52,7 +54,7 @@ final class HarbormasterStepAddController
     }
 
     if ($errors) {
-      $errors = id(new AphrontErrorView())
+      $errors = id(new PHUIInfoView())
         ->setErrors($errors);
     }
 

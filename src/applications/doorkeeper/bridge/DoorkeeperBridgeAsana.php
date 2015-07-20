@@ -27,7 +27,7 @@ final class DoorkeeperBridgeAsana extends DoorkeeperBridge {
     $id_map = mpull($refs, 'getObjectID', 'getObjectKey');
     $viewer = $this->getViewer();
 
-    $provider = PhabricatorAuthProviderOAuthAsana::getAsanaProvider();
+    $provider = PhabricatorAsanaAuthProvider::getAsanaProvider();
     if (!$provider) {
       return;
     }
@@ -70,7 +70,7 @@ final class DoorkeeperBridgeAsana extends DoorkeeperBridge {
 
     $results = array();
     $failed = array();
-    foreach (Futures($futures) as $key => $future) {
+    foreach (new FutureIterator($futures) as $key => $future) {
       try {
         $results[$key] = $future->resolve();
       } catch (Exception $ex) {

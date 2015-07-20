@@ -13,13 +13,36 @@ abstract class ConduitAPIMethod
   const METHOD_STATUS_DEPRECATED  = 'deprecated';
 
   abstract public function getMethodDescription();
-  abstract public function defineParamTypes();
-  abstract public function defineReturnType();
-  abstract public function defineErrorTypes();
+  abstract protected function defineParamTypes();
+  abstract protected function defineReturnType();
+
+  protected function defineErrorTypes() {
+    return array();
+  }
+
   abstract protected function execute(ConduitAPIRequest $request);
 
-  public function __construct() {
 
+  public function __construct() {}
+
+  public function getParamTypes() {
+    $types = $this->defineParamTypes();
+
+    $query = $this->newQueryObject();
+    if ($query) {
+      $types['order'] = 'optional order';
+      $types += $this->getPagerParamTypes();
+    }
+
+    return $types;
+  }
+
+  public function getReturnType() {
+    return $this->defineReturnType();
+  }
+
+  public function getErrorTypes() {
+    return $this->defineErrorTypes();
   }
 
   /**
@@ -55,7 +78,7 @@ abstract class ConduitAPIMethod
   }
 
   public function getErrorDescription($error_code) {
-    return idx($this->defineErrorTypes(), $error_code, 'Unknown Error');
+    return idx($this->getErrorTypes(), $error_code, pht('Unknown Error'));
   }
 
   public function getRequiredScope() {
@@ -67,9 +90,7 @@ abstract class ConduitAPIMethod
     return $this->execute($request);
   }
 
-  public function getAPIMethodName() {
-    return self::getAPIMethodNameFromClassName(get_class($this));
-  }
+  abstract public function getAPIMethodName();
 
   /**
    * Return a key which sorts methods by application name, then method status,
@@ -79,9 +100,9 @@ abstract class ConduitAPIMethod
     $name = $this->getAPIMethodName();
 
     $map = array(
-      ConduitAPIMethod::METHOD_STATUS_STABLE      => 0,
-      ConduitAPIMethod::METHOD_STATUS_UNSTABLE    => 1,
-      ConduitAPIMethod::METHOD_STATUS_DEPRECATED  => 2,
+      self::METHOD_STATUS_STABLE      => 0,
+      self::METHOD_STATUS_UNSTABLE    => 1,
+      self::METHOD_STATUS_DEPRECATED  => 2,
     );
     $ord = idx($map, $this->getMethodStatus(), 0);
 
@@ -94,9 +115,40 @@ abstract class ConduitAPIMethod
     return head(explode('.', $this->getAPIMethodName(), 2));
   }
 
-  public static function getClassNameFromAPIMethodName($method_name) {
-    $method_fragment = str_replace('.', '_', $method_name);
-    return 'ConduitAPI_'.$method_fragment.'_Method';
+  public static function loadAllConduitMethods() {
+    static $method_map = null;
+
+    if ($method_map === null) {
+      $methods = id(new PhutilSymbolLoader())
+        ->setAncestorClass(__CLASS__)
+        ->loadObjects();
+
+      foreach ($methods as $method) {
+        $name = $method->getAPIMethodName();
+
+        if (empty($method_map[$name])) {
+          $method_map[$name] = $method;
+          continue;
+        }
+
+        $orig_class = get_class($method_map[$name]);
+        $this_class = get_class($method);
+        throw new Exception(
+          pht(
+            'Two Conduit API method classes (%s, %s) both have the same '.
+            'method name (%s). API methods must have unique method names.',
+            $orig_class,
+            $this_class,
+            $name));
+      }
+    }
+
+    return $method_map;
+  }
+
+  public static function getConduitMethod($method_name) {
+    $method_map = self::loadAllConduitMethods();
+    return idx($method_map, $method_name);
   }
 
   public function shouldRequireAuthentication() {
@@ -122,20 +174,6 @@ abstract class ConduitAPIMethod
     return null;
   }
 
-  public static function getAPIMethodNameFromClassName($class_name) {
-    $match = null;
-    $is_valid = preg_match(
-      '/^ConduitAPI_(.*)_Method$/',
-      $class_name,
-      $match);
-    if (!$is_valid) {
-      throw new Exception(
-        "Parameter '{$class_name}' is not a valid Conduit API method class.");
-    }
-    $method_fragment = $match[1];
-    return str_replace('_', '.', $method_fragment);
-  }
-
   protected function formatStringConstants($constants) {
     foreach ($constants as $key => $value) {
       $constants[$key] = '"'.$value.'"';
@@ -144,6 +182,35 @@ abstract class ConduitAPIMethod
     return 'string-constant<'.$constants.'>';
   }
 
+  public static function getParameterMetadataKey($key) {
+    if (strncmp($key, 'api.', 4) === 0) {
+      // All keys passed beginning with "api." are always metadata keys.
+      return substr($key, 4);
+    } else {
+      switch ($key) {
+        // These are real keys which always belong to request metadata.
+        case 'access_token':
+        case 'scope':
+        case 'output':
+
+        // This is not a real metadata key; it is included here only to
+        // prevent Conduit methods from defining it.
+        case '__conduit__':
+
+        // This is prevented globally as a blanket defense against OAuth
+        // redirection attacks. It is included here to stop Conduit methods
+        // from defining it.
+        case 'code':
+
+        // This is not a real metadata key, but the presence of this
+        // parameter triggers an alternate request decoding pathway.
+        case 'params':
+          return $key;
+      }
+    }
+
+    return null;
+  }
 
 /* -(  Paging Results  )----------------------------------------------------- */
 
@@ -153,9 +220,9 @@ abstract class ConduitAPIMethod
    */
   protected function getPagerParamTypes() {
     return array(
-      'before'            => 'optional string',
-      'after'             => 'optional string',
-      'limit'             => 'optional int (default = 100)',
+      'before' => 'optional string',
+      'after'  => 'optional string',
+      'limit'  => 'optional int (default = 100)',
     );
   }
 
@@ -202,6 +269,48 @@ abstract class ConduitAPIMethod
   }
 
 
+/* -(  Implementing Query Methods  )----------------------------------------- */
+
+
+  public function newQueryObject() {
+    return null;
+  }
+
+
+  protected function newQueryForRequest(ConduitAPIRequest $request) {
+    $query = $this->newQueryObject();
+
+    if (!$query) {
+      throw new Exception(
+        pht(
+          'You can not call newQueryFromRequest() in this method ("%s") '.
+          'because it does not implement newQueryObject().',
+          get_class($this)));
+    }
+
+    if (!($query instanceof PhabricatorCursorPagedPolicyAwareQuery)) {
+      throw new Exception(
+        pht(
+          'Call to method newQueryObject() did not return an object of class '.
+          '"%s".',
+          'PhabricatorCursorPagedPolicyAwareQuery'));
+    }
+
+    $query->setViewer($request->getUser());
+
+    $order = $request->getValue('order');
+    if ($order !== null) {
+      if (is_scalar($order)) {
+        $query->setOrder($order);
+      } else {
+        $query->setOrderVector($order);
+      }
+    }
+
+    return $query;
+  }
+
+
 /* -(  PhabricatorPolicyInterface  )----------------------------------------- */
 
 
@@ -229,7 +338,7 @@ abstract class ConduitAPIMethod
 
   public function hasAutomaticCapability($capability, PhabricatorUser $viewer) {
     if (!$this->shouldRequireAuthentication()) {
-      // Make unauthenticated methods univerally visible.
+      // Make unauthenticated methods universally visible.
       return true;
     }
 
@@ -240,5 +349,35 @@ abstract class ConduitAPIMethod
     return null;
   }
 
+  protected function hasApplicationCapability(
+    $capability,
+    PhabricatorUser $viewer) {
+
+    $application = $this->getApplication();
+
+    if (!$application) {
+      return false;
+    }
+
+    return PhabricatorPolicyFilter::hasCapability(
+      $viewer,
+      $application,
+      $capability);
+  }
+
+  protected function requireApplicationCapability(
+    $capability,
+    PhabricatorUser $viewer) {
+
+    $application = $this->getApplication();
+    if (!$application) {
+      return;
+    }
+
+    PhabricatorPolicyFilter::requireCapability(
+      $viewer,
+      $this->getApplication(),
+      $capability);
+  }
 
 }

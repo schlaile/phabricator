@@ -4,7 +4,7 @@ final class ConpherenceCreateThreadMailReceiver
   extends PhabricatorMailReceiver {
 
   public function isEnabled() {
-    $app_class = 'PhabricatorApplicationConpherence';
+    $app_class = 'PhabricatorConpherenceApplication';
     return PhabricatorApplication::isClassInstalled($app_class);
   }
 
@@ -53,7 +53,7 @@ final class ConpherenceCreateThreadMailReceiver
     $phids = mpull($users, 'getPHID');
 
     $conpherence = id(new ConpherenceReplyHandler())
-      ->setMailReceiver(ConpherenceThread::initializeNewThread($sender))
+      ->setMailReceiver(ConpherenceThread::initializeNewRoom($sender))
       ->setMailAddedParticipantPHIDs($phids)
       ->setActor($sender)
       ->setExcludeMailRecipientPHIDs($mail->loadExcludeMailRecipientPHIDs())

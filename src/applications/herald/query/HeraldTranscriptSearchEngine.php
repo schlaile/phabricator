@@ -8,7 +8,7 @@ final class HeraldTranscriptSearchEngine
   }
 
   public function getApplicationClassName() {
-    return 'PhabricatorApplicationHerald';
+    return 'PhabricatorHeraldApplication';
   }
 
   public function buildSavedQueryFromRequest(AphrontRequest $request) {
@@ -74,16 +74,13 @@ final class HeraldTranscriptSearchEngine
     return '/herald/transcript/'.$path;
   }
 
-  public function getBuiltinQueryNames() {
-    $names = array();
-
-    $names['all'] = pht('All');
-
-    return $names;
+  protected function getBuiltinQueryNames() {
+    return array(
+      'all' => pht('All'),
+    );
   }
 
   public function buildSavedQueryFromBuiltin($query_key) {
-
     $query = $this->newSavedQuery();
     $query->setQueryKey($query_key);
 
@@ -128,7 +125,7 @@ final class HeraldTranscriptSearchEngine
       }
       $item->addAttribute($handles[$xscript->getObjectPHID()]->renderLink());
       $item->addAttribute(
-        number_format((int)(1000 * $xscript->getDuration())).' ms');
+        pht('%s ms', new PhutilNumber((int)(1000 * $xscript->getDuration()))));
       $item->addIcon(
         'none',
         phabricator_datetime($xscript->getTime(), $viewer));
@@ -136,7 +133,11 @@ final class HeraldTranscriptSearchEngine
       $list->addItem($item);
     }
 
-    return $list;
+    $result = new PhabricatorApplicationSearchResultView();
+    $result->setObjectList($list);
+    $result->setNoDataString(pht('No transcripts found.'));
+
+    return $result;
   }
 
 }

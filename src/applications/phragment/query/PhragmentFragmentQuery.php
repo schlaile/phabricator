@@ -40,7 +40,7 @@ final class PhragmentFragmentQuery
     return $this;
   }
 
-  public function loadPage() {
+  protected function loadPage() {
     $table = new PhragmentFragment();
     $conn_r = $table->establishConnection('r');
 
@@ -55,7 +55,7 @@ final class PhragmentFragmentQuery
     return $table->loadAllFromArray($data);
   }
 
-  protected function buildWhereClause($conn_r) {
+  protected function buildWhereClause(AphrontDatabaseConnection $conn_r) {
     $where = array();
 
     if ($this->ids) {
@@ -125,6 +125,6 @@ final class PhragmentFragmentQuery
   }
 
   public function getQueryApplicationClass() {
-    return 'PhabricatorApplicationPhragment';
+    return 'PhabricatorPhragmentApplication';
   }
 }

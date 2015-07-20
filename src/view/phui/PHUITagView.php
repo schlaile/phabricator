@@ -17,6 +17,7 @@ final class PHUITagView extends AphrontTagView {
   const COLOR_BLACK         = 'black';
   const COLOR_GREY          = 'grey';
   const COLOR_WHITE         = 'white';
+  const COLOR_PINK          = 'pink';
   const COLOR_BLUEGREY      = 'bluegrey';
   const COLOR_CHECKERED     = 'checkered';
   const COLOR_DISABLED      = 'disabled';
@@ -141,9 +142,9 @@ final class PHUITagView extends AphrontTagView {
     return $attributes + array('class' => $classes);
   }
 
-  public function getTagContent() {
+  protected function getTagContent() {
     if (!$this->type) {
-      throw new Exception(pht('You must call setType() before render()!'));
+      throw new PhutilInvalidStateException('setType', 'render');
     }
 
     $color = null;
@@ -175,7 +176,7 @@ final class PHUITagView extends AphrontTagView {
       array(
         'class' => 'phui-tag-core '.$color,
       ),
-      array($dot, $this->name));
+      array($dot, $icon, $this->name));
 
     if ($this->closed) {
       $content = phutil_tag(
@@ -183,10 +184,10 @@ final class PHUITagView extends AphrontTagView {
         array(
           'class' => 'phui-tag-core-closed',
         ),
-        $content);
+        array($icon, $content));
     }
 
-    return array($icon, $content);
+    return $content;
   }
 
   public static function getTagTypes() {
@@ -229,6 +230,7 @@ final class PHUITagView extends AphrontTagView {
       self::COLOR_VIOLET => pht('Violet'),
       self::COLOR_GREEN => pht('Green'),
       self::COLOR_GREY => pht('Grey'),
+      self::COLOR_PINK => pht('Pink'),
       self::COLOR_CHECKERED => pht('Checkered'),
       self::COLOR_DISABLED => pht('Disabled'),
     );

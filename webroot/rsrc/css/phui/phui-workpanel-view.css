@@ -2,19 +2,47 @@
  * @provides phui-workpanel-view-css
  */
 
-.phui-workpanel-view .phui-action-header {
-  border: 1px solid #b3b5b6;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+.phui-workpanel-view .phui-header-shell {
+  padding: 16px 0 8px;
+  border-color: {$lightgreyborder};
+  width: 300px;
+  background-color: transparent;
 }
 
-.phui-workpanel-view .phui-action-header .phui-action-header-title {
-  padding: 8px 0;
+.phui-workpanel-view .phui-header-shell .phui-header-header {
+  font-size: {$biggerfontsize};
+  line-height: 18px;
+  color: {$darkbluetext};
+}
+
+.phui-workpanel-view .phui-header-shell .phui-header-subheader {
+  padding: 0 4px;
+  margin: 0;
+  display: inline-block;
+  color: {$lightgreytext};
 }
 
 .device-phone .phui-workboard-view {
   width: auto;
   margin: 0 8px;
+}
+
+.phui-workboard-view {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.phui-workboard-view .phui-object-item .phui-object-item-objname {
+  -webkit-touch-callout: text;
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
 }
 
 .phui-workboard-view .phui-object-item-link {
@@ -34,21 +62,17 @@
 }
 
 .phui-workpanel-view .phui-workpanel-body {
-  background: {$backdrop};
-  padding: 5px 5px 1px 5px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  box-shadow: inset 0 0px 5px rgba(0,0,0,.4);
+  padding-top: 8px;
 }
 
 .phui-workpanel-view .phui-workpanel-footer-action a {
-  color: #333;
+  color: {$darkbluetext};
   font-weight: bold;
 }
 
 .device-desktop .phui-workpanel-view .phui-workpanel-footer-action:hover {
- background-color: rgba(100,100,100,.1);
- border-radius: 3px;
+  background-color: rgba(100,100,100,.1);
+  border-radius: 3px;
 }
 
 .phui-workpanel-view .phui-list-item-icon {
@@ -62,7 +86,7 @@
   display: inline-block;
 }
 
-.aphront-multi-column-fixed .phui-workpanel-body {
+.aphront-multi-column-fixed .phui-workpanel-view {
   width: 300px;
 }
 
@@ -75,25 +99,31 @@
   width: auto;
 }
 
-.project-column-empty {
-  background: rgba(255,255,255,.4);
-  border-radius: 3px;
-  margin-bottom: 4px;
-  border: 1px dashed #fff;
+.project-panel-hidden {
+  opacity: 0.75;
 }
 
-.project-column-empty .drag-ghost {
+.project-panel-empty .phui-object-item-list-view {
+  background: {$sh-indigobackground};
+  border-radius: 3px;
+  margin-bottom: 4px;
+  border: 1px dashed {$sh-indigoborder};
+}
+
+.project-panel-empty .phui-object-item-list-view .drag-ghost {
   display: none;
 }
 
-.project-column-empty.drag-target-list {
+.project-panel-empty .phui-object-item-list-view.drag-target-list {
   background: rgba(255,255,255,.7);
 }
 
-.phui-workpanel-view .phui-workpanel-lightred .phui-action-header {
-  border-top: 1px solid {$redborder};
-  border-left: 1px solid {$redborder};
-  border-right: 1px solid {$redborder};
+.phui-workpanel-view.project-panel-over-limit .phui-header-header {
+  color: {$red};
+}
+
+.phui-workpanel-view.project-panel-over-limit .phui-header-shell {
+  border-color: {$red};
 }
 
 /* - Workpanel Cards -----------------------------------------------------------

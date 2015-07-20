@@ -22,7 +22,7 @@ final class SlowvoteEmbedView extends AphrontView {
 
   public function render() {
     if (!$this->poll) {
-      throw new Exception('Call setPoll() before render()!');
+      throw new PhutilInvalidStateException('setPoll');
     }
 
     $poll = $this->poll;
@@ -48,7 +48,8 @@ final class SlowvoteEmbedView extends AphrontView {
     require_celerity_resource('javelin-behavior-slowvote-embed');
 
     $config = array(
-      'pollID' => $poll->getID());
+      'pollID' => $poll->getID(),
+    );
     Javelin::initBehavior('slowvote-embed', $config);
 
     $user_choices = $poll->getViewerChoices($this->getUser());
@@ -63,27 +64,15 @@ final class SlowvoteEmbedView extends AphrontView {
     $link_to_slowvote = phutil_tag(
       'a',
       array(
-        'href' => '/V'.$poll->getID()
+        'href' => '/V'.$poll->getID(),
       ),
       $poll->getQuestion());
 
     if ($this->headless) {
       $header = null;
     } else {
-      $header = phutil_tag(
-        'div',
-        array(
-          'class' => 'slowvote-header',
-        ),
-        phutil_tag(
-          'div',
-          array(
-            'class' => 'slowvote-header-content',
-          ),
-          array(
-            'V'.$poll->getID(),
-            ' ',
-            $link_to_slowvote)));
+      $header = id(new PHUIHeaderView())
+        ->setHeader($link_to_slowvote);
 
       $description = null;
       if ($poll->getDescription()) {
@@ -102,7 +91,8 @@ final class SlowvoteEmbedView extends AphrontView {
 
       $header = array(
         $header,
-        $description);
+        $description,
+      );
     }
 
     $vis = $poll->getResponseVisibility();
@@ -165,16 +155,20 @@ final class SlowvoteEmbedView extends AphrontView {
         $submit,
       ));
 
-    return javelin_tag(
+    $embed = javelin_tag(
       'div',
       array(
         'class' => 'slowvote-embed',
         'sigil' => 'slowvote-embed',
         'meta' => array(
-          'pollID' => $poll->getID()
-        )
+          'pollID' => $poll->getID(),
+        ),
       ),
-      array($header, $body));
+      array($body));
+
+    return id(new PHUIObjectBoxView())
+      ->setHeader($header)
+      ->appendChild($embed);
   }
 
   private function renderLabel(PhabricatorSlowvoteOption $option, $selected) {
@@ -210,9 +204,9 @@ final class SlowvoteEmbedView extends AphrontView {
               ),
               array(
                 $this->renderControl($option, $selected),
+                $status,
               )),
           )),
-        $status,
         $voters,
       ));
   }

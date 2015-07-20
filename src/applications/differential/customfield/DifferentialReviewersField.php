@@ -62,15 +62,17 @@ final class DifferentialReviewersField
     $this->setValue($new_status);
   }
 
-  public function getRequiredHandlePHIDsForEdit() {
-    return mpull($this->getValue(), 'getReviewerPHID');
-  }
-
   public function renderEditControl(array $handles) {
+    $phids = array();
+    if ($this->getValue()) {
+      $phids = mpull($this->getValue(), 'getReviewerPHID');
+    }
+
     return id(new AphrontFormTokenizerControl())
+      ->setUser($this->getViewer())
       ->setName($this->getFieldKey())
       ->setDatasource(new PhabricatorProjectOrUserDatasource())
-      ->setValue($handles)
+      ->setValue($phids)
       ->setError($this->getFieldError())
       ->setLabel($this->getFieldName());
   }
@@ -81,7 +83,7 @@ final class DifferentialReviewersField
 
   public function getApplicationTransactionMetadata() {
     return array(
-      'edge:type' => PhabricatorEdgeConfig::TYPE_DREV_HAS_REVIEWER,
+      'edge:type' => DifferentialRevisionHasReviewerEdgeType::EDGECONST,
     );
   }
 
@@ -142,8 +144,8 @@ final class DifferentialReviewersField
     return $this->parseObjectList(
       $value,
       array(
-        PhabricatorPeoplePHIDTypeUser::TYPECONST,
-        PhabricatorProjectPHIDTypeProject::TYPECONST,
+        PhabricatorPeopleUserPHIDType::TYPECONST,
+        PhabricatorProjectProjectPHIDType::TYPECONST,
       ));
   }
 

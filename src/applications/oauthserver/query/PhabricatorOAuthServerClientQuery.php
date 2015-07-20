@@ -22,10 +22,9 @@ final class PhabricatorOAuthServerClientQuery
     return $this;
   }
 
-  public function loadPage() {
+  protected function loadPage() {
     $table  = new PhabricatorOAuthServerClient();
     $conn_r = $table->establishConnection('r');
-
 
     $data = queryfx_all(
       $conn_r,
@@ -38,7 +37,7 @@ final class PhabricatorOAuthServerClientQuery
     return $table->loadAllFromArray($data);
   }
 
-  private function buildWhereClause($conn_r) {
+  protected function buildWhereClause(AphrontDatabaseConnection $conn_r) {
     $where = array();
 
     if ($this->ids) {
@@ -68,7 +67,7 @@ final class PhabricatorOAuthServerClientQuery
   }
 
   public function getQueryApplicationClass() {
-    return 'PhabricatorApplicationOAuthServer';
+    return 'PhabricatorOAuthServerApplication';
   }
 
 }

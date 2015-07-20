@@ -1,9 +1,9 @@
 <?php
 
-final class PhabricatorGermanTranslation extends PhabricatorTranslation {
+final class PhabricatorGermanTranslation extends PhutilTranslation {
 
-  final public function getLanguage() {
-    return 'de';
+  public function getLocaleCode() {
+    return 'de_DE';
   }
 
   public function getName() {

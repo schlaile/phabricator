@@ -5,8 +5,12 @@ final class PhabricatorPaste extends PhabricatorPasteDAO
     PhabricatorSubscribableInterface,
     PhabricatorTokenReceiverInterface,
     PhabricatorFlaggableInterface,
+    PhabricatorMentionableInterface,
     PhabricatorPolicyInterface,
-    PhabricatorProjectInterface {
+    PhabricatorProjectInterface,
+    PhabricatorDestructibleInterface,
+    PhabricatorApplicationTransactionInterface,
+    PhabricatorSpacesInterface {
 
   protected $title;
   protected $authorPHID;
@@ -14,7 +18,9 @@ final class PhabricatorPaste extends PhabricatorPasteDAO
   protected $language;
   protected $parentPHID;
   protected $viewPolicy;
+  protected $editPolicy;
   protected $mailKey;
+  protected $spacePHID;
 
   private $content = self::ATTACHABLE;
   private $rawContent = self::ATTACHABLE;
@@ -22,30 +28,61 @@ final class PhabricatorPaste extends PhabricatorPasteDAO
   public static function initializeNewPaste(PhabricatorUser $actor) {
     $app = id(new PhabricatorApplicationQuery())
       ->setViewer($actor)
-      ->withClasses(array('PhabricatorApplicationPaste'))
+      ->withClasses(array('PhabricatorPasteApplication'))
       ->executeOne();
 
-    $view_policy = $app->getPolicy(PasteCapabilityDefaultView::CAPABILITY);
+    $view_policy = $app->getPolicy(PasteDefaultViewCapability::CAPABILITY);
+    $edit_policy = $app->getPolicy(PasteDefaultEditCapability::CAPABILITY);
 
     return id(new PhabricatorPaste())
       ->setTitle('')
       ->setAuthorPHID($actor->getPHID())
-      ->setViewPolicy($view_policy);
+      ->setViewPolicy($view_policy)
+      ->setEditPolicy($edit_policy)
+      ->setSpacePHID($actor->getDefaultSpacePHID());
   }
 
   public function getURI() {
-    return '/P'.$this->getID();
+    return '/'.$this->getMonogram();
   }
 
-  public function getConfiguration() {
+  public function getMonogram() {
+    return 'P'.$this->getID();
+  }
+
+  protected function getConfiguration() {
     return array(
       self::CONFIG_AUX_PHID => true,
+      self::CONFIG_COLUMN_SCHEMA => array(
+        'title' => 'text255',
+        'language' => 'text64',
+        'mailKey' => 'bytes20',
+        'parentPHID' => 'phid?',
+
+        // T6203/NULLABILITY
+        // Pastes should always have a view policy.
+        'viewPolicy' => 'policy?',
+      ),
+      self::CONFIG_KEY_SCHEMA => array(
+        'parentPHID' => array(
+          'columns' => array('parentPHID'),
+        ),
+        'authorPHID' => array(
+          'columns' => array('authorPHID'),
+        ),
+        'key_dateCreated' => array(
+          'columns' => array('dateCreated'),
+        ),
+        'key_language' => array(
+          'columns' => array('language'),
+        ),
+      ),
     ) + parent::getConfiguration();
   }
 
   public function generatePHID() {
     return PhabricatorPHID::generateNewPHID(
-      PhabricatorPastePHIDTypePaste::TYPECONST);
+      PhabricatorPastePastePHIDType::TYPECONST);
   }
 
   public function save() {
@@ -119,6 +156,8 @@ final class PhabricatorPaste extends PhabricatorPasteDAO
   public function getPolicy($capability) {
     if ($capability == PhabricatorPolicyCapability::CAN_VIEW) {
       return $this->viewPolicy;
+    } else if ($capability == PhabricatorPolicyCapability::CAN_EDIT) {
+      return $this->editPolicy;
     }
     return PhabricatorPolicies::POLICY_NOONE;
   }
@@ -131,5 +170,55 @@ final class PhabricatorPaste extends PhabricatorPasteDAO
     return pht('The author of a paste can always view and edit it.');
   }
 
+
+/* -(  PhabricatorDestructibleInterface  )----------------------------------- */
+
+
+  public function destroyObjectPermanently(
+    PhabricatorDestructionEngine $engine) {
+
+    if ($this->filePHID) {
+      $file = id(new PhabricatorFileQuery())
+        ->setViewer($engine->getViewer())
+        ->withPHIDs(array($this->filePHID))
+        ->executeOne();
+      if ($file) {
+        $engine->destroyObject($file);
+      }
+    }
+
+    $this->delete();
+  }
+
+
+/* -(  PhabricatorApplicationTransactionInterface  )------------------------- */
+
+
+  public function getApplicationTransactionEditor() {
+    return new PhabricatorPasteEditor();
+  }
+
+  public function getApplicationTransactionObject() {
+    return $this;
+  }
+
+  public function getApplicationTransactionTemplate() {
+    return new PhabricatorPasteTransaction();
+  }
+
+  public function willRenderTimeline(
+    PhabricatorApplicationTransactionView $timeline,
+    AphrontRequest $request) {
+
+    return $timeline;
+  }
+
+
+/* -(  PhabricatorSpacesInterface  )----------------------------------------- */
+
+
+  public function getSpacePHID() {
+    return $this->spacePHID;
+  }
 
 }

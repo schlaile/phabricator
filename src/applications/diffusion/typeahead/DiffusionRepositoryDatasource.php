@@ -3,23 +3,28 @@
 final class DiffusionRepositoryDatasource
   extends PhabricatorTypeaheadDatasource {
 
+  public function getBrowseTitle() {
+    return pht('Browse Repositories');
+  }
+
   public function getPlaceholderText() {
     return pht('Type a repository name...');
   }
 
   public function getDatasourceApplicationClass() {
-    return 'PhabricatorApplicationDiffusion';
+    return 'PhabricatorDiffusionApplication';
   }
 
   public function loadResults() {
     $viewer = $this->getViewer();
     $raw_query = $this->getRawQuery();
 
-    $results = array();
+    $query = id(new PhabricatorRepositoryQuery())
+      ->setOrder('name')
+      ->withDatasourceQuery($raw_query);
+    $repos = $this->executeQuery($query);
 
-    $repos = id(new PhabricatorRepositoryQuery())
-      ->setViewer($viewer)
-      ->execute();
+    $results = array();
     foreach ($repos as $repo) {
       $results[] = id(new PhabricatorTypeaheadResult())
         ->setName($repo->getMonogram().' '.$repo->getName())

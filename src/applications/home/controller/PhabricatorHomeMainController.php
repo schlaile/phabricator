@@ -1,21 +1,19 @@
 <?php
 
-final class PhabricatorHomeMainController
-  extends PhabricatorHomeController {
+final class PhabricatorHomeMainController extends PhabricatorHomeController {
 
-  private $only;
   private $minipanels = array();
 
   public function shouldAllowPublic() {
     return true;
   }
 
-  public function willProcessRequest(array $data) {
-    $this->only = idx($data, 'only');
+  public function isGlobalDragAndDropUploadEnabled() {
+    return true;
   }
 
-  public function processRequest() {
-    $user = $this->getRequest()->getUser();
+  public function handleRequest(AphrontRequest $request) {
+    $user = $request->getUser();
 
     $dashboard = PhabricatorDashboardInstall::getDashboard(
       $user,
@@ -25,7 +23,7 @@ final class PhabricatorHomeMainController
     if (!$dashboard) {
       $dashboard = PhabricatorDashboardInstall::getDashboard(
         $user,
-        PhabricatorApplicationHome::DASHBOARD_DEFAULT,
+        PhabricatorHomeApplication::DASHBOARD_DEFAULT,
         get_class($this->getCurrentApplication()));
     }
 
@@ -43,7 +41,7 @@ final class PhabricatorHomeMainController
       $content = $this->buildMainResponse($projects);
     }
 
-    if (!$this->only) {
+    if (!$request->getURIData('only')) {
       $nav = $this->buildNav();
       $nav->appendChild(
         array(
@@ -65,15 +63,15 @@ final class PhabricatorHomeMainController
     $viewer = $this->getRequest()->getUser();
 
     $has_maniphest = PhabricatorApplication::isClassInstalledForViewer(
-      'PhabricatorApplicationManiphest',
+      'PhabricatorManiphestApplication',
       $viewer);
 
     $has_audit = PhabricatorApplication::isClassInstalledForViewer(
-      'PhabricatorApplicationAudit',
+      'PhabricatorAuditApplication',
       $viewer);
 
     $has_differential = PhabricatorApplication::isClassInstalledForViewer(
-      'PhabricatorApplicationDifferential',
+      'PhabricatorDifferentialApplication',
       $viewer);
 
     if ($has_maniphest) {
@@ -106,16 +104,22 @@ final class PhabricatorHomeMainController
       $revision_panel = null;
     }
 
-    return array(
-      $welcome_panel,
-      $unbreak_panel,
-      $triage_panel,
-      $revision_panel,
-      $tasks_panel,
-      $audit_panel,
-      $commit_panel,
-      $this->minipanels,
-    );
+    $home = phutil_tag(
+      'div',
+      array(
+        'class' => 'homepage-panel',
+      ),
+      array(
+        $welcome_panel,
+        $unbreak_panel,
+        $triage_panel,
+        $revision_panel,
+        $tasks_panel,
+        $audit_panel,
+        $commit_panel,
+        $this->minipanels,
+      ));
+      return $home;
   }
 
   private function buildUnbreakNowPanel() {
@@ -131,25 +135,24 @@ final class PhabricatorHomeMainController
       ->setViewer($user)
       ->withStatuses(ManiphestTaskStatus::getOpenStatusConstants())
       ->withPriorities(array($unbreak_now))
+      ->needProjectPHIDs(true)
       ->setLimit(10);
 
     $tasks = $task_query->execute();
 
     if (!$tasks) {
       return $this->renderMiniPanel(
-	      pht('No "Unbreak Now!" Tasks'),
-	      pht('Nothing appears to be critically broken right now.'));
+        pht('No "Unbreak Now!" Tasks'),
+        pht('Nothing appears to be critically broken right now.'));
     }
 
     $href = urisprintf(
-      '/maniphest/?statuses=%s&priorities=%s#R',
-      implode(',', ManiphestTaskStatus::getOpenStatusConstants()),
+      '/maniphest/?statuses=open()&priorities=%s#R',
       $unbreak_now);
     $title = pht('Unbreak Now!');
-    $panel = new AphrontPanelView();
+    $panel = new PHUIObjectBoxView();
     $panel->setHeader($this->renderSectionHeader($title, $href));
-    $panel->appendChild($this->buildTaskListView($tasks));
-    $panel->setNoBackground();
+    $panel->setObjectList($this->buildTaskListView($tasks));
 
     return $panel;
   }
@@ -173,7 +176,11 @@ final class PhabricatorHomeMainController
         ->setViewer($user)
         ->withStatuses(ManiphestTaskStatus::getOpenStatusConstants())
         ->withPriorities(array($needs_triage))
-        ->withAnyProjects(mpull($projects, 'getPHID'))
+        ->withEdgeLogicPHIDs(
+          PhabricatorProjectObjectHasProjectEdgeType::EDGECONST,
+          PhabricatorQueryConstraint::OPERATOR_OR,
+          mpull($projects, 'getPHID'))
+        ->needProjectPHIDs(true)
         ->setLimit(10);
       $tasks = $task_query->execute();
     } else {
@@ -182,22 +189,18 @@ final class PhabricatorHomeMainController
 
     if (!$tasks) {
       return $this->renderMiniPanel(
-	      pht('No "Needs Triage" Tasks'),
-	      pht('No tasks in %s need triage.',
-		  new PhutilSafeHTML('<a href="/project/">' .
-				     pht("projects you are a member of") . '</a>')));
+        pht('No "Needs Triage" Tasks'),
+        pht('No tasks in projects you are a member of need triage.'));
     }
 
     $title = pht('Needs Triage');
     $href = urisprintf(
-      '/maniphest/?statuses=%s&priorities=%s&userProjects=%s#R',
-      implode(',', ManiphestTaskStatus::getOpenStatusConstants()),
+      '/maniphest/?statuses=open()&priorities=%s&projects=projects(%s)#R',
       $needs_triage,
       $user->getPHID());
-    $panel = new AphrontPanelView();
+    $panel = new PHUIObjectBoxView();
     $panel->setHeader($this->renderSectionHeader($title, $href));
-    $panel->appendChild($this->buildTaskListView($tasks));
-    $panel->setNoBackground();
+    $panel->setObjectList($this->buildTaskListView($tasks));
 
     return $panel;
   }
@@ -222,13 +225,13 @@ final class PhabricatorHomeMainController
 
     if (!$blocking && !$active) {
       return $this->renderMiniPanel(
-	      pht('No Waiting Revisions'),
-	      pht('No revisions are waiting on you.'));
+        pht('No Waiting Revisions'),
+        pht('No revisions are waiting on you.'));
     }
 
     $title = pht('Revisions Waiting on You');
     $href = '/differential';
-    $panel = new AphrontPanelView();
+    $panel = new PHUIObjectBoxView();
     $panel->setHeader($this->renderSectionHeader($title, $href));
 
     $revision_view = id(new DifferentialRevisionListView())
@@ -243,20 +246,18 @@ final class PhabricatorHomeMainController
     $revision_view->setHandles($handles);
 
     $list_view = $revision_view->render();
-    $list_view->setFlush(true);
 
-    $panel->appendChild($list_view);
-    $panel->setNoBackground();
+    $panel->setObjectList($list_view);
 
     return $panel;
   }
 
   private function buildWelcomePanel() {
-    $panel = new AphrontPanelView();
+    $panel = new PHUIObjectBoxView();
+    $panel->setHeaderText(pht('Welcome'));
     $panel->appendChild(
       phutil_safe_html(
         PhabricatorEnv::getEnvConfig('welcome.html')));
-    $panel->setNoBackground();
 
     return $panel;
   }
@@ -270,6 +271,7 @@ final class PhabricatorHomeMainController
       ->withStatuses(ManiphestTaskStatus::getOpenStatusConstants())
       ->setGroupBy(ManiphestTaskQuery::GROUP_PRIORITY)
       ->withOwners(array($user_phid))
+      ->needProjectPHIDs(true)
       ->setLimit(10);
 
     $tasks = $task_query->execute();
@@ -277,16 +279,15 @@ final class PhabricatorHomeMainController
 
     if (!$tasks) {
       return $this->renderMiniPanel(
-	      pht('No Assigned Tasks'),
-	      pht('You have no assigned tasks.'));
+        pht('No Assigned Tasks'),
+        pht('You have no assigned tasks.'));
     }
 
     $title = pht('Assigned Tasks');
-    $href = '/maniphest';
-    $panel = new AphrontPanelView();
+    $href = '/maniphest/query/assigned/';
+    $panel = new PHUIObjectBoxView();
     $panel->setHeader($this->renderSectionHeader($title, $href));
-    $panel->appendChild($this->buildTaskListView($tasks));
-    $panel->setNoBackground();
+    $panel->setObjectList($this->buildTaskListView($tasks));
 
     return $panel;
   }
@@ -310,17 +311,24 @@ final class PhabricatorHomeMainController
   }
 
   private function renderSectionHeader($title, $href) {
-    $header = phutil_tag(
+    $title = phutil_tag(
       'a',
       array(
         'href' => $href,
       ),
       $title);
+    $icon = id(new PHUIIconView())
+      ->setIconFont('fa-search')
+      ->setHref($href);
+    $header = id(new PHUIHeaderView())
+      ->setHeader($title)
+      ->addActionIcon($icon);
     return $header;
   }
 
   private function renderMiniPanel($title, $body) {
-    $panel = new AphrontMiniPanelView();
+    $panel = new PHUIInfoView();
+    $panel->setSeverity(PHUIInfoView::SEVERITY_NODATA);
     $panel->appendChild(
       phutil_tag(
         'p',
@@ -328,7 +336,7 @@ final class PhabricatorHomeMainController
         ),
         array(
           phutil_tag('strong', array(), $title.': '),
-          $body
+          $body,
         )));
     $this->minipanels[] = $panel;
   }
@@ -352,8 +360,8 @@ final class PhabricatorHomeMainController
 
     if (!$commits) {
       return $this->renderMinipanel(
-	      pht('No Audits'),
-	      pht('No commits are waiting for you to audit them.'));
+        pht('No Audits'),
+        pht('No commits are waiting for you to audit them.'));
     }
 
     $view = id(new PhabricatorAuditListView())
@@ -366,10 +374,9 @@ final class PhabricatorHomeMainController
 
     $title = pht('Audits');
     $href = '/audit/';
-    $panel = new AphrontPanelView();
+    $panel = new PHUIObjectBoxView();
     $panel->setHeader($this->renderSectionHeader($title, $href));
-    $panel->appendChild($view);
-    $panel->setNoBackground();
+    $panel->setObjectList($view);
 
     return $panel;
   }
@@ -392,8 +399,8 @@ final class PhabricatorHomeMainController
 
     if (!$commits) {
       return $this->renderMinipanel(
-	      pht('No Problem Commits'),
-	      pht('No one has raised concerns with your commits.'));
+        pht('No Problem Commits'),
+        pht('No one has raised concerns with your commits.'));
     }
 
     $view = id(new PhabricatorAuditListView())
@@ -406,10 +413,9 @@ final class PhabricatorHomeMainController
 
     $title = pht('Problem Commits');
     $href = '/audit/';
-    $panel = new AphrontPanelView();
+    $panel = new PHUIObjectBoxView();
     $panel->setHeader($this->renderSectionHeader($title, $href));
-    $panel->appendChild($view);
-    $panel->setNoBackground();
+    $panel->setObjectList($view);
 
     return $panel;
   }

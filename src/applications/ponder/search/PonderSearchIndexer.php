@@ -16,13 +16,13 @@ final class PonderSearchIndexer
       ->setDocumentModified($question->getDateModified());
 
     $doc->addField(
-      PhabricatorSearchField::FIELD_BODY,
+      PhabricatorSearchDocumentFieldType::FIELD_BODY,
       $question->getContent());
 
     $doc->addRelationship(
       PhabricatorSearchRelationship::RELATIONSHIP_AUTHOR,
       $question->getAuthorPHID(),
-      PhabricatorPeoplePHIDTypeUser::TYPECONST,
+      PhabricatorPeopleUserPHIDType::TYPECONST,
       $question->getDateCreated());
 
     $answers = id(new PonderAnswerQuery())
@@ -32,7 +32,7 @@ final class PonderSearchIndexer
     foreach ($answers as $answer) {
       if (strlen($answer->getContent())) {
         $doc->addField(
-          PhabricatorSearchField::FIELD_COMMENT,
+          PhabricatorSearchDocumentFieldType::FIELD_COMMENT,
           $answer->getContent());
       }
     }

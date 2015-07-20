@@ -1,14 +1,14 @@
 <?php
 
-echo "Migrating task dependencies to edges...\n";
+echo pht('Migrating task dependencies to edges...')."\n";
 $table = new ManiphestTask();
 $table->openTransaction();
 
 foreach (new LiskMigrationIterator($table) as $task) {
   $id = $task->getID();
-  echo "Task {$id}: ";
+  echo pht('Task %d: ', $id);
 
-  $deps = $task->getAttachedPHIDs(ManiphestPHIDTypeTask::TYPECONST);
+  $deps = $task->getAttachedPHIDs(ManiphestTaskPHIDType::TYPECONST);
   if (!$deps) {
     echo "-\n";
     continue;
@@ -18,12 +18,12 @@ foreach (new LiskMigrationIterator($table) as $task) {
   foreach ($deps as $dep) {
     $editor->addEdge(
       $task->getPHID(),
-      PhabricatorEdgeConfig::TYPE_TASK_DEPENDS_ON_TASK,
+      ManiphestTaskDependsOnTaskEdgeType::EDGECONST,
       $dep);
   }
   $editor->save();
-  echo "OKAY\n";
+  echo pht('OKAY')."\n";
 }
 
 $table->saveTransaction();
-echo "Done.\n";
+echo pht('Done.')."\n";

@@ -11,7 +11,7 @@ final class HeraldRuleTransaction
   }
 
   public function getApplicationTransactionType() {
-    return HeraldPHIDTypeRule::TYPECONST;
+    return HeraldRulePHIDType::TYPECONST;
   }
 
   public function getApplicationTransactionCommentObject() {
@@ -57,9 +57,9 @@ final class HeraldRuleTransaction
     switch ($this->getTransactionType()) {
       case self::TYPE_DISABLE:
         if ($new) {
-          return 'fa-pause';
+          return 'fa-ban';
         } else {
-          return 'fa-play';
+          return 'fa-check';
         }
     }
 

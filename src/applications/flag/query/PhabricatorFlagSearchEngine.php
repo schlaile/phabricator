@@ -8,7 +8,7 @@ final class PhabricatorFlagSearchEngine
   }
 
   public function getApplicationClassName() {
-    return 'PhabricatorApplicationFlags';
+    return 'PhabricatorFlagsApplication';
   }
 
   public function buildSavedQueryFromRequest(AphrontRequest $request) {
@@ -71,7 +71,7 @@ final class PhabricatorFlagSearchEngine
     return '/flag/'.$path;
   }
 
-  public function getBuiltinQueryNames() {
+  protected function getBuiltinQueryNames() {
     $names = array(
       'all' => pht('Flagged'),
     );
@@ -116,7 +116,8 @@ final class PhabricatorFlagSearchEngine
     // sort it alphabetically...
     asort($options);
     $default_option = array(
-      0 => pht('All Object Types'));
+      0 => pht('All Object Types'),
+    );
     // ...and stick the default option on front
     $options = array_merge($default_option, $options);
 
@@ -148,7 +149,13 @@ final class PhabricatorFlagSearchEngine
 
       $item = id(new PHUIObjectItemView())
         ->addHeadIcon($flag_icon)
-        ->setHeader($flag->getHandle()->renderLink());
+        ->setHeader($flag->getHandle()->getFullName())
+        ->setHref($flag->getHandle()->getURI());
+
+      $status_open = PhabricatorObjectHandle::STATUS_OPEN;
+      if ($flag->getHandle()->getStatus() != $status_open) {
+        $item->setDisabled(true);
+      }
 
       $item->addAction(
         id(new PHUIListItemView())
@@ -173,7 +180,12 @@ final class PhabricatorFlagSearchEngine
       $list->addItem($item);
     }
 
-    return $list;
+    $result = new PhabricatorApplicationSearchResultView();
+    $result->setObjectList($list);
+    $result->setNoDataString(pht('No flags found.'));
+
+    return $result;
+
   }
 
 

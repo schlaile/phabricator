@@ -8,7 +8,7 @@ final class PhabricatorCountdownSearchEngine
   }
 
   public function getApplicationClassName() {
-    return 'PhabricatorApplicationCountdown';
+    return 'PhabricatorCountdownApplication';
   }
 
   public function buildSavedQueryFromRequest(AphrontRequest $request) {
@@ -40,21 +40,17 @@ final class PhabricatorCountdownSearchEngine
   public function buildSearchForm(
     AphrontFormView $form,
     PhabricatorSavedQuery $saved_query) {
-    $phids = $saved_query->getParameter('authorPHIDs', array());
-    $author_handles = id(new PhabricatorHandleQuery())
-      ->setViewer($this->requireViewer())
-      ->withPHIDs($phids)
-      ->execute();
 
+    $author_phids = $saved_query->getParameter('authorPHIDs', array());
     $upcoming = $saved_query->getParameter('upcoming');
 
     $form
-      ->appendChild(
+      ->appendControl(
         id(new AphrontFormTokenizerControl())
           ->setDatasource(new PhabricatorPeopleDatasource())
           ->setName('authors')
           ->setLabel(pht('Authors'))
-          ->setValue($author_handles))
+          ->setValue($author_phids))
       ->appendChild(
         id(new AphrontFormCheckboxControl())
           ->addCheckbox(
@@ -62,14 +58,13 @@ final class PhabricatorCountdownSearchEngine
             1,
             pht('Show only countdowns that are still counting down.'),
             $upcoming));
-
   }
 
   protected function getURI($path) {
     return '/countdown/'.$path;
   }
 
-  public function getBuiltinQueryNames() {
+  protected function getBuiltinQueryNames() {
     $names = array(
       'upcoming' => pht('Upcoming'),
       'all' => pht('All'),
@@ -83,7 +78,6 @@ final class PhabricatorCountdownSearchEngine
   }
 
   public function buildSavedQueryFromBuiltin($query_key) {
-
     $query = $this->newSavedQuery();
     $query->setQueryKey($query_key);
 
@@ -101,10 +95,10 @@ final class PhabricatorCountdownSearchEngine
     return parent::buildSavedQueryFromBuiltin($query_key);
   }
 
-
   protected function getRequiredHandlePHIDsForResultList(
     array $countdowns,
     PhabricatorSavedQuery $query) {
+
     return mpull($countdowns, 'getAuthorPHID');
   }
 
@@ -112,6 +106,7 @@ final class PhabricatorCountdownSearchEngine
     array $countdowns,
     PhabricatorSavedQuery $query,
     array $handles) {
+
     assert_instances_of($countdowns, 'PhabricatorCountdown');
 
     $viewer = $this->requireViewer();
@@ -122,6 +117,8 @@ final class PhabricatorCountdownSearchEngine
       $id = $countdown->getID();
 
       $item = id(new PHUIObjectItemView())
+        ->setUser($viewer)
+        ->setObject($countdown)
         ->setObjectName("C{$id}")
         ->setHeader($countdown->getTitle())
         ->setHref($this->getApplicationURI("{$id}/"))
@@ -145,6 +142,11 @@ final class PhabricatorCountdownSearchEngine
       $list->addItem($item);
     }
 
-    return $list;
+    $result = new PhabricatorApplicationSearchResultView();
+    $result->setObjectList($list);
+    $result->setNoDataString(pht('No countdowns found.'));
+
+    return $result;
   }
+
 }

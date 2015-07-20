@@ -3,7 +3,7 @@
 final class PonderQuestionMailReceiver extends PhabricatorObjectMailReceiver {
 
   public function isEnabled() {
-    $app_class = 'PhabricatorApplicationPonder';
+    $app_class = 'PhabricatorPonderApplication';
     return PhabricatorApplication::isClassInstalled($app_class);
   }
 
@@ -20,13 +20,8 @@ final class PonderQuestionMailReceiver extends PhabricatorObjectMailReceiver {
       ->executeOne();
   }
 
-  protected function processReceivedObjectMail(
-    PhabricatorMetaMTAReceivedMail $mail,
-    PhabricatorLiskDAO $object,
-    PhabricatorUser $sender) {
-
-    // TODO: For now, we just drop this mail on the floor.
-
+  protected function getTransactionReplyHandler() {
+    return new PonderQuestionReplyHandler();
   }
 
 }

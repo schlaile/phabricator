@@ -42,8 +42,8 @@ final class HeraldTranscriptController extends HeraldController {
 
     $object_xscript = $xscript->getObjectTranscript();
     if (!$object_xscript) {
-      $notice = id(new AphrontErrorView())
-        ->setSeverity(AphrontErrorView::SEVERITY_NOTICE)
+      $notice = id(new PHUIInfoView())
+        ->setSeverity(PHUIInfoView::SEVERITY_NOTICE)
         ->setTitle(pht('Old Transcript'))
         ->appendChild(phutil_tag(
           'p',
@@ -75,11 +75,13 @@ final class HeraldTranscriptController extends HeraldController {
       $this->handles = $handles;
 
       if ($xscript->getDryRun()) {
-        $notice = new AphrontErrorView();
-        $notice->setSeverity(AphrontErrorView::SEVERITY_NOTICE);
+        $notice = new PHUIInfoView();
+        $notice->setSeverity(PHUIInfoView::SEVERITY_NOTICE);
         $notice->setTitle(pht('Dry Run'));
-        $notice->appendChild(pht('This was a dry run to test Herald '.
-          'rules, no actions were executed.'));
+        $notice->appendChild(
+          pht(
+            'This was a dry run to test Herald rules, '.
+            'no actions were executed.'));
         $nav->appendChild($notice);
       }
 
@@ -114,8 +116,11 @@ final class HeraldTranscriptController extends HeraldController {
   }
 
   protected function renderConditionTestValue($condition, $handles) {
+    // TODO: This is all a hacky mess and should be driven through FieldValue
+    // eventually.
+
     switch ($condition->getFieldName()) {
-      case HeraldAdapter::FIELD_RULE:
+      case HeraldAnotherRuleField::FIELDCONST:
         $value = array($condition->getTestValue());
         break;
       default:
@@ -126,14 +131,12 @@ final class HeraldTranscriptController extends HeraldController {
     if (!is_scalar($value) && $value !== null) {
       foreach ($value as $key => $phid) {
         $handle = idx($handles, $phid);
-        if ($handle) {
+        if ($handle && $handle->isComplete()) {
           $value[$key] = $handle->getName();
         } else {
-          // This shouldn't ever really happen as we are supposed to have
-          // grabbed handles for everything, but be super liberal in what
-          // we accept here since we expect all sorts of weird issues as we
-          // version the system.
-          $value[$key] = 'Unknown Object #'.$phid;
+          // This happens for things like task priorities, statuses, and
+          // custom fields.
+          $value[$key] = $phid;
         }
       }
       sort($value);
@@ -202,7 +205,7 @@ final class HeraldTranscriptController extends HeraldController {
     }
     foreach ($condition_xscripts as $condition_xscript) {
       switch ($condition_xscript->getFieldName()) {
-        case HeraldAdapter::FIELD_RULE:
+        case HeraldAnotherRuleField::FIELDCONST:
           $phids[] = $condition_xscript->getTestValue();
           break;
         default:
@@ -210,7 +213,8 @@ final class HeraldTranscriptController extends HeraldController {
           // TODO: Also total hacks.
           if (is_array($value)) {
             foreach ($value as $phid) {
-              if ($phid) { // TODO: Probably need to make sure this
+              if ($phid) {
+                // TODO: Probably need to make sure this
                 // "looks like" a PHID or decrease the level of hacks here;
                 // this used to be an is_numeric() check in Facebook land.
                 $phids[] = $phid;
@@ -297,7 +301,7 @@ final class HeraldTranscriptController extends HeraldController {
       $object_xscript = $xscript->getObjectTranscript();
       $handle = $handles[$object_xscript->getPHID()];
       if ($handle->getType() ==
-          PhabricatorRepositoryPHIDTypeCommit::TYPECONST) {
+          PhabricatorRepositoryCommitPHIDType::TYPECONST) {
         $commit = id(new DiffusionCommitQuery())
           ->setViewer($request->getUser())
           ->withPHIDs(array($handle->getPHID()))
@@ -319,8 +323,8 @@ final class HeraldTranscriptController extends HeraldController {
           } else {
             return $panel;
           }
-          $panel = id(new AphrontErrorView())
-            ->setSeverity(AphrontErrorView::SEVERITY_WARNING)
+          $panel = id(new PHUIInfoView())
+            ->setSeverity(PHUIInfoView::SEVERITY_WARNING)
             ->setTitle($title)
             ->appendChild($body);
         }
@@ -377,7 +381,10 @@ final class HeraldTranscriptController extends HeraldController {
         $item->setState(PHUIObjectItemView::STATE_FAIL);
       }
 
-      $rule = idx($action_names, $apply_xscript->getAction(), pht('Unknown'));
+      $rule = idx(
+        $action_names,
+        $apply_xscript->getAction(),
+        pht('Unknown Action "%s"', $apply_xscript->getAction()));
 
       $item->setHeader(pht('%s: %s', $rule, $target));
       $item->addAttribute($apply_xscript->getReason());

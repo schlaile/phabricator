@@ -37,10 +37,8 @@ abstract class DiffusionBrowseController extends DiffusionController {
         break;
     }
 
-
     $filter = new AphrontListFilterView();
     $filter->appendChild($forms);
-
 
     if ($collapsed) {
       $filter->setCollapsed(
@@ -49,6 +47,10 @@ abstract class DiffusionBrowseController extends DiffusionController {
         pht('Search for file names or content in this directory.'),
         '#');
     }
+
+    $filter = id(new PHUIBoxView())
+      ->addClass('mlt mlb')
+      ->appendChild($filter);
 
     return $filter;
   }
@@ -112,7 +114,7 @@ abstract class DiffusionBrowseController extends DiffusionController {
     // TODO: Ideally, this should live in Owners and be event-triggered, but
     // there's no reasonable object for it to react to right now.
 
-    $owners = 'PhabricatorApplicationOwners';
+    $owners = 'PhabricatorOwnersApplication';
     if (PhabricatorApplication::isClassInstalled($owners)) {
       $owners_uri = id(new PhutilURI('/owners/view/search/'))
         ->setQueryParams(
@@ -194,11 +196,14 @@ abstract class DiffusionBrowseController extends DiffusionController {
       return null;
     }
 
+    $recent = (PhabricatorTime::getNow() - phutil_units('30 days in seconds'));
+
     $revisions = id(new DifferentialRevisionQuery())
       ->setViewer($user)
       ->withPath($repository->getID(), $path_id)
       ->withStatus(DifferentialRevisionQuery::STATUS_OPEN)
-      ->setOrder(DifferentialRevisionQuery::ORDER_PATH_MODIFIED)
+      ->withUpdatedEpochBetween($recent, null)
+      ->setOrder(DifferentialRevisionQuery::ORDER_MODIFIED)
       ->setLimit(10)
       ->needRelationships(true)
       ->needFlags(true)
@@ -209,7 +214,13 @@ abstract class DiffusionBrowseController extends DiffusionController {
       return null;
     }
 
+    $header = id(new PHUIHeaderView())
+      ->setHeader(pht('Open Revisions'))
+      ->setSubheader(
+        pht('Recently updated open revisions affecting this file.'));
+
     $view = id(new DifferentialRevisionListView())
+      ->setHeader($header)
       ->setRevisions($revisions)
       ->setUser($user);
 
@@ -217,10 +228,7 @@ abstract class DiffusionBrowseController extends DiffusionController {
     $handles = $this->loadViewerHandles($phids);
     $view->setHandles($handles);
 
-    return id(new PHUIObjectBoxView())
-      ->setHeaderText(pht('Pending Differential Revisions'))
-      ->appendChild($view);
-
+    return $view;
   }
 
 }

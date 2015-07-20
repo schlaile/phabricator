@@ -3,11 +3,11 @@
 $table = new HeraldRule();
 $conn_w = $table->establishConnection('w');
 
-echo "Assigning PHIDs to Herald Rules...\n";
+echo pht('Assigning PHIDs to Herald Rules...')."\n";
 
 foreach (new LiskMigrationIterator(new HeraldRule()) as $rule) {
   $id = $rule->getID();
-  echo "Rule {$id}.\n";
+  echo pht('Rule %d.', $id)."\n";
 
   if ($rule->getPHID()) {
     continue;
@@ -17,8 +17,8 @@ foreach (new LiskMigrationIterator(new HeraldRule()) as $rule) {
     $conn_w,
     'UPDATE %T SET phid = %s WHERE id = %d',
     $table->getTableName(),
-    PhabricatorPHID::generateNewPHID(HeraldPHIDTypeRule::TYPECONST),
+    PhabricatorPHID::generateNewPHID(HeraldRulePHIDType::TYPECONST),
     $rule->getID());
 }
 
-echo "Done.\n";
+echo pht('Done.')."\n";

@@ -8,7 +8,7 @@ final class PhabricatorConduitSearchEngine
   }
 
   public function getApplicationClassName() {
-    return 'PhabricatorApplicationConduit';
+    return 'PhabricatorConduitApplication';
   }
 
   public function getPageSize(PhabricatorSavedQuery $saved) {
@@ -58,7 +58,7 @@ final class PhabricatorConduitSearchEngine
     $form
       ->appendChild(
         id(new AphrontFormTextControl())
-          ->setLabel('Name Contains')
+          ->setLabel(pht('Name Contains'))
           ->setName('nameContains')
           ->setValue($saved->getParameter('nameContains')));
 
@@ -66,12 +66,13 @@ final class PhabricatorConduitSearchEngine
     $form
       ->appendChild(
         id(new AphrontFormTextControl())
-          ->setLabel('Applications')
+          ->setLabel(pht('Applications'))
           ->setName('applicationNames')
           ->setValue(implode(', ', $names))
-          ->setCaption(pht(
-            'Example: %s',
-            phutil_tag('tt', array(), 'differential, paste'))));
+          ->setCaption(
+            pht(
+              'Example: %s',
+              phutil_tag('tt', array(), 'differential, paste'))));
 
     $is_stable = $saved->getParameter('isStable');
     $is_unstable = $saved->getParameter('isUnstable');
@@ -106,25 +107,20 @@ final class PhabricatorConduitSearchEngine
                 'Show old methods which will be deleted in a future '.
                 'version of Phabricator.')),
             $is_deprecated));
-
-
   }
 
   protected function getURI($path) {
     return '/conduit/'.$path;
   }
 
-  public function getBuiltinQueryNames() {
-    $names = array(
+  protected function getBuiltinQueryNames() {
+    return array(
       'modern' => pht('Modern Methods'),
       'all'    => pht('All Methods'),
     );
-
-    return $names;
   }
 
   public function buildSavedQueryFromBuiltin($query_key) {
-
     $query = $this->newSavedQuery();
     $query->setQueryKey($query_key);
 
@@ -163,6 +159,7 @@ final class PhabricatorConduitSearchEngine
           $out[] = $list;
         }
         $list = id(new PHUIObjectItemListView());
+        $list->setHeader($app);
 
         $app_object = $method->getApplication();
         if ($app_object) {
@@ -183,12 +180,12 @@ final class PhabricatorConduitSearchEngine
         case ConduitAPIMethod::METHOD_STATUS_STABLE:
           break;
         case ConduitAPIMethod::METHOD_STATUS_UNSTABLE:
-          $item->addIcon('warning-grey', pht('Unstable'));
-          $item->setBarColor('yellow');
+          $item->addIcon('fa-warning', pht('Unstable'));
+          $item->setStatusIcon('fa-warning yellow');
           break;
         case ConduitAPIMethod::METHOD_STATUS_DEPRECATED:
-          $item->addIcon('warning', pht('Deprecated'));
-          $item->setBarColor('red');
+          $item->addIcon('fa-warning', pht('Deprecated'));
+          $item->setStatusIcon('fa-warning red');
           break;
       }
 
@@ -199,7 +196,10 @@ final class PhabricatorConduitSearchEngine
       $out[] = $list;
     }
 
-    return $out;
+    $result = new PhabricatorApplicationSearchResultView();
+    $result->setContent($out);
+
+    return $result;
   }
 
 }

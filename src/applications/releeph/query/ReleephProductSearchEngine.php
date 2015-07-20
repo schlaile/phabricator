@@ -8,7 +8,7 @@ final class ReleephProductSearchEngine
   }
 
   public function getApplicationClassName() {
-    return 'PhabricatorApplicationReleeph';
+    return 'PhabricatorReleephApplication';
   }
 
   public function buildSavedQueryFromRequest(AphrontRequest $request) {
@@ -21,8 +21,7 @@ final class ReleephProductSearchEngine
 
   public function buildQueryFromSavedQuery(PhabricatorSavedQuery $saved) {
     $query = id(new ReleephProductQuery())
-      ->setOrder(ReleephProductQuery::ORDER_NAME)
-      ->needArcanistProjects(true);
+      ->setOrder(ReleephProductQuery::ORDER_NAME);
 
     $active = $saved->getParameter('active');
     $value = idx($this->getActiveValues(), $active);
@@ -43,24 +42,20 @@ final class ReleephProductSearchEngine
         ->setLabel(pht('Show Products'))
         ->setValue($saved_query->getParameter('active'))
         ->setOptions($this->getActiveOptions()));
-
   }
 
   protected function getURI($path) {
     return '/releeph/project/'.$path;
   }
 
-  public function getBuiltinQueryNames() {
-    $names = array(
+  protected function getBuiltinQueryNames() {
+    return array(
       'active' => pht('Active'),
       'all' => pht('All'),
     );
-
-    return $names;
   }
 
   public function buildSavedQueryFromBuiltin($query_key) {
-
     $query = $this->newSavedQuery();
     $query->setQueryKey($query_key);
 
@@ -78,7 +73,7 @@ final class ReleephProductSearchEngine
   private function getActiveOptions() {
     return array(
       'all'       => pht('Active and Inactive Products'),
-      'active'    => pht('Active Prodcuts'),
+      'active'    => pht('Active Products'),
       'inactive'  => pht('Inactive Products'),
     );
   }
@@ -123,16 +118,13 @@ final class ReleephProductSearchEngine
           ),
           'r'.$repo->getCallsign()));
 
-      $arc = $product->getArcanistProject();
-      if ($arc) {
-        $item->addAttribute($arc->getName());
-      }
-
       $list->addItem($item);
     }
 
-    return $list;
-  }
+    $result = new PhabricatorApplicationSearchResultView();
+    $result->setObjectList($list);
 
+    return $result;
+  }
 
 }

@@ -18,7 +18,7 @@ final class PhabricatorTokenReceiverQuery
     return ipull($rows, 'objectPHID');
   }
 
-  public function willFilterPage(array $phids) {
+  protected function willFilterPage(array $phids) {
     $objects = id(new PhabricatorObjectQuery())
       ->setViewer($this->getViewer())
       ->withPHIDs($phids)
@@ -35,7 +35,7 @@ final class PhabricatorTokenReceiverQuery
   }
 
   public function getQueryApplicationClass() {
-    return 'PhabricatorApplicationTokens';
+    return 'PhabricatorTokensApplication';
   }
 
 }

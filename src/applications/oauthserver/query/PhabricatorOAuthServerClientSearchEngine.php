@@ -8,7 +8,7 @@ final class PhabricatorOAuthServerClientSearchEngine
   }
 
   public function getApplicationClassName() {
-    return 'PhabricatorApplicationOAuthServer';
+    return 'PhabricatorOAuthServerApplication';
   }
 
   public function buildSavedQueryFromRequest(AphrontRequest $request) {
@@ -36,27 +36,22 @@ final class PhabricatorOAuthServerClientSearchEngine
     AphrontFormView $form,
     PhabricatorSavedQuery $saved_query) {
 
-    $phids = $saved_query->getParameter('creatorPHIDs', array());
-    $creator_handles = id(new PhabricatorHandleQuery())
-      ->setViewer($this->requireViewer())
-      ->withPHIDs($phids)
-      ->execute();
+    $creator_phids = $saved_query->getParameter('creatorPHIDs', array());
 
     $form
-      ->appendChild(
+      ->appendControl(
         id(new AphrontFormTokenizerControl())
           ->setDatasource(new PhabricatorPeopleDatasource())
           ->setName('creators')
           ->setLabel(pht('Creators'))
-          ->setValue($creator_handles));
-
+          ->setValue($creator_phids));
   }
 
   protected function getURI($path) {
     return '/oauthserver/'.$path;
   }
 
-  public function getBuiltinQueryNames() {
+  protected function getBuiltinQueryNames() {
     $names = array();
 
     if ($this->requireViewer()->isLoggedIn()) {
@@ -83,7 +78,6 @@ final class PhabricatorOAuthServerClientSearchEngine
 
     return parent::buildSavedQueryFromBuiltin($query_key);
   }
-
 
   protected function getRequiredHandlePHIDsForResultList(
     array $clients,
@@ -114,7 +108,11 @@ final class PhabricatorOAuthServerClientSearchEngine
       $list->addItem($item);
     }
 
-    return $list;
+    $result = new PhabricatorApplicationSearchResultView();
+    $result->setObjectList($list);
+    $result->setNoDataString(pht('No clients found.'));
+
+    return $result;
   }
 
 }

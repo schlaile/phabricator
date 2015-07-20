@@ -8,7 +8,7 @@ final class PhabricatorAppSearchEngine
   }
 
   public function getApplicationClassName() {
-    return 'PhabricatorApplicationApplications';
+    return 'PhabricatorApplicationsApplication';
   }
 
   public function getPageSize(PhabricatorSavedQuery $saved) {
@@ -24,14 +24,17 @@ final class PhabricatorAppSearchEngine
       'installed',
       $this->readBoolFromRequest($request, 'installed'));
     $saved->setParameter(
-      'beta',
-      $this->readBoolFromRequest($request, 'beta'));
+      'prototypes',
+      $this->readBoolFromRequest($request, 'prototypes'));
     $saved->setParameter(
       'firstParty',
       $this->readBoolFromRequest($request, 'firstParty'));
     $saved->setParameter(
       'launchable',
       $this->readBoolFromRequest($request, 'launchable'));
+    $saved->setParameter(
+      'appemails',
+      $this->readBoolFromRequest($request, 'appemails'));
 
     return $saved;
   }
@@ -51,9 +54,16 @@ final class PhabricatorAppSearchEngine
       $query->withInstalled($installed);
     }
 
-    $beta = $saved->getParameter('beta');
-    if ($beta !== null) {
-      $query->withBeta($beta);
+    $prototypes = $saved->getParameter('prototypes');
+
+    if ($prototypes === null) {
+      // NOTE: This is the old name of the 'prototypes' option, see T6084.
+      $prototypes = $saved->getParameter('beta');
+      $saved->setParameter('prototypes', $prototypes);
+    }
+
+    if ($prototypes !== null) {
+      $query->withPrototypes($prototypes);
     }
 
     $first_party = $saved->getParameter('firstParty');
@@ -64,6 +74,11 @@ final class PhabricatorAppSearchEngine
     $launchable = $saved->getParameter('launchable');
     if ($launchable !== null) {
       $query->withLaunchable($launchable);
+    }
+
+    $appemails = $saved->getParameter('appemails');
+    if ($appemails !== null) {
+      $query->withApplicationEmailSupport($appemails);
     }
 
     return $query;
@@ -92,13 +107,13 @@ final class PhabricatorAppSearchEngine
             )))
       ->appendChild(
         id(new AphrontFormSelectControl())
-          ->setLabel(pht('Beta'))
-          ->setName('beta')
-          ->setValue($this->getBoolFromQuery($saved, 'beta'))
+          ->setLabel(pht('Prototypes'))
+          ->setName('prototypes')
+          ->setValue($this->getBoolFromQuery($saved, 'prototypes'))
           ->setOptions(
             array(
               '' => pht('Show All Applications'),
-              'true' => pht('Show Beta Applications'),
+              'true' => pht('Show Prototype Applications'),
               'false' => pht('Show Released Applications'),
             )))
       ->appendChild(
@@ -122,25 +137,32 @@ final class PhabricatorAppSearchEngine
               '' => pht('Show All Applications'),
               'true' => pht('Show Launchable Applications'),
               'false' => pht('Show Non-Launchable Applications'),
+            )))
+      ->appendChild(
+        id(new AphrontFormSelectControl())
+          ->setLabel(pht('Application Emails'))
+          ->setName('appemails')
+          ->setValue($this->getBoolFromQuery($saved, 'appemails'))
+          ->setOptions(
+            array(
+              '' => pht('Show All Applications'),
+              'true' => pht('Show Applications w/ App Email Support'),
+              'false' => pht('Show Applications w/o App Email Support'),
             )));
-
   }
 
   protected function getURI($path) {
     return '/applications/'.$path;
   }
 
-  public function getBuiltinQueryNames() {
-    $names = array(
+  protected function getBuiltinQueryNames() {
+    return array(
       'launcher' => pht('Launcher'),
       'all' => pht('All Applications'),
     );
-
-    return $names;
   }
 
   public function buildSavedQueryFromBuiltin($query_key) {
-
     $query = $this->newSavedQuery();
     $query->setQueryKey($query_key);
 
@@ -179,16 +201,15 @@ final class PhabricatorAppSearchEngine
         $results[] = phutil_tag(
           'h1',
           array(
-            'class' => 'launcher-header',
+            'class' => 'phui-object-item-list-header',
           ),
           idx($group_names, $group, $group));
       }
 
       $list = new PHUIObjectItemListView();
-      $list->addClass('phui-object-item-launcher-list');
 
       foreach ($applications as $application) {
-        $icon = $application->getIconName();
+        $icon = $application->getFontIcon();
         if (!$icon) {
           $icon = 'application';
         }
@@ -200,8 +221,7 @@ final class PhabricatorAppSearchEngine
         $icon_view = javelin_tag(
           'span',
           array(
-            'class' => 'phui-icon-view '.
-                       'sprite-apps-large apps-'.$icon.'-dark-large',
+            'class' => 'phui-icon-view phui-font-fa '.$icon,
             'aural' => false,
           ),
           '');
@@ -225,7 +245,7 @@ final class PhabricatorAppSearchEngine
               ->setIcon('fa-cog')
               ->setHref('/applications/view/'.get_class($application).'/'));
 
-        if ($application->getBaseURI()) {
+        if ($application->getBaseURI() && $application->isInstalled()) {
           $item->setHref($application->getBaseURI());
         }
 
@@ -233,8 +253,8 @@ final class PhabricatorAppSearchEngine
           $item->addIcon('fa-times', pht('Uninstalled'));
         }
 
-        if ($application->isBeta()) {
-          $item->addIcon('fa-star-half-o grey', pht('Beta'));
+        if ($application->isPrototype()) {
+          $item->addIcon('fa-bomb grey', pht('Prototype'));
         }
 
         if (!$application->isFirstParty()) {
@@ -247,7 +267,10 @@ final class PhabricatorAppSearchEngine
       $results[] = $list;
     }
 
-    return $results;
+    $result = new PhabricatorApplicationSearchResultView();
+    $result->setContent($results);
+
+    return $result;
   }
 
 }

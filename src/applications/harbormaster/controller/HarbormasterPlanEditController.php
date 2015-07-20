@@ -1,25 +1,23 @@
 <?php
 
-final class HarbormasterPlanEditController
-  extends HarbormasterPlanController {
+final class HarbormasterPlanEditController extends HarbormasterPlanController {
 
-  private $id;
-
-  public function willProcessRequest(array $data) {
-    $this->id = idx($data, 'id');
-  }
-
-  public function processRequest() {
-    $request = $this->getRequest();
-    $viewer = $request->getUser();
+  public function handleRequest(AphrontRequest $request) {
+    $viewer = $this->getViewer();
 
     $this->requireApplicationCapability(
-      HarbormasterCapabilityManagePlans::CAPABILITY);
+      HarbormasterManagePlansCapability::CAPABILITY);
 
-    if ($this->id) {
+    $id = $request->getURIData('id');
+    if ($id) {
       $plan = id(new HarbormasterBuildPlanQuery())
         ->setViewer($viewer)
-        ->withIDs(array($this->id))
+        ->withIDs(array($id))
+        ->requireCapabilities(
+          array(
+            PhabricatorPolicyCapability::CAN_VIEW,
+            PhabricatorPolicyCapability::CAN_EDIT,
+          ))
         ->executeOne();
       if (!$plan) {
         return new Aphront404Response();
@@ -44,6 +42,7 @@ final class HarbormasterPlanEditController
 
       $editor = id(new HarbormasterBuildPlanEditor())
         ->setActor($viewer)
+        ->setContinueOnNoEffect(true)
         ->setContentSourceFromRequest($request);
 
       try {
@@ -76,7 +75,7 @@ final class HarbormasterPlanEditController
       ->setUser($viewer)
       ->appendChild(
         id(new AphrontFormTextControl())
-          ->setLabel('Plan Name')
+          ->setLabel(pht('Plan Name'))
           ->setName('name')
           ->setError($e_name)
           ->setValue($v_name));

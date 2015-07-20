@@ -20,7 +20,7 @@ final class DrydockResourceViewController extends DrydockResourceController {
       return new Aphront404Response();
     }
 
-    $title = 'Resource '.$resource->getID().' '.$resource->getName();
+    $title = pht('Resource %s %s', $resource->getID(), $resource->getName());
 
     $header = id(new PHUIHeaderView())
       ->setHeader($title);
@@ -42,7 +42,7 @@ final class DrydockResourceViewController extends DrydockResourceController {
       ->render();
     $lease_list->setNoDataString(pht('This resource has no leases.'));
 
-    $pager = new AphrontPagerView();
+    $pager = new PHUIPagerView();
     $pager->setURI(new PhutilURI($resource_uri), 'offset');
     $pager->setOffset($request->getInt('offset'));
 
@@ -58,7 +58,6 @@ final class DrydockResourceViewController extends DrydockResourceController {
     $log_table->appendChild($pager);
 
     $crumbs = $this->buildApplicationCrumbs();
-    $crumbs->setActionList($actions);
     $crumbs->addTextCrumb(pht('Resource %d', $resource->getID()));
 
     $object_box = id(new PHUIObjectBoxView())

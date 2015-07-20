@@ -40,11 +40,9 @@ final class PhabricatorConduitMethodQuery
     return $this;
   }
 
-  public function loadPage() {
+  protected function loadPage() {
     $methods = $this->getAllMethods();
-
     $methods = $this->filterMethods($methods);
-
     return $methods;
   }
 
@@ -71,9 +69,9 @@ final class PhabricatorConduitMethodQuery
     }
 
     $status = array(
-      ConduitAPIMethod::METHOD_STATUS_STABLE => $this->isStable,
+      ConduitAPIMethod::METHOD_STATUS_STABLE     => $this->isStable,
       ConduitAPIMethod::METHOD_STATUS_DEPRECATED => $this->isDeprecated,
-      ConduitAPIMethod::METHOD_STATUS_UNSTABLE => $this->isUnstable,
+      ConduitAPIMethod::METHOD_STATUS_UNSTABLE   => $this->isUnstable,
     );
 
     // Only apply status filters if any of them are set.
@@ -122,7 +120,7 @@ final class PhabricatorConduitMethodQuery
   }
 
   public function getQueryApplicationClass() {
-    return 'PhabricatorApplicationConduit';
+    return 'PhabricatorConduitApplication';
   }
 
 }

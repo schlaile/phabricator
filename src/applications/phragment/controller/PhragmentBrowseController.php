@@ -29,7 +29,7 @@ final class PhragmentBrowseController extends PhragmentController {
 
     $crumbs = $this->buildApplicationCrumbsWithPath($parents);
     if ($this->hasApplicationCapability(
-      PhragmentCapabilityCanCreate::CAPABILITY)) {
+      PhragmentCanCreateCapability::CAPABILITY)) {
       $crumbs->addAction(
         id(new PHUIListItemView())
           ->setName(pht('Create Fragment'))
@@ -78,7 +78,7 @@ final class PhragmentBrowseController extends PhragmentController {
           $item->addAttribute(pht('Deleted'));
         }
       } else {
-        $item->addAttribute('Directory');
+        $item->addAttribute(pht('Directory'));
       }
       $list->addItem($item);
     }
@@ -88,7 +88,8 @@ final class PhragmentBrowseController extends PhragmentController {
         $crumbs,
         $this->renderConfigurationWarningIfRequired(),
         $current_box,
-        $list),
+        $list,
+      ),
       array(
         'title' => pht('Browse Fragments'),
       ));

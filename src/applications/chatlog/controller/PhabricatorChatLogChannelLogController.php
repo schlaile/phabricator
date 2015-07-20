@@ -29,9 +29,9 @@ final class PhabricatorChatLogChannelLogController
       ->withChannelIDs(array($this->channelID));
 
     $channel = id(new PhabricatorChatLogChannelQuery())
-              ->setViewer($user)
-              ->withIDs(array($this->channelID))
-              ->executeOne();
+      ->setViewer($user)
+      ->withIDs(array($this->channelID))
+      ->executeOne();
 
     if (!$channel) {
       return new Aphront404Response();
@@ -108,7 +108,9 @@ final class PhabricatorChatLogChannelLogController
     $out = array();
     foreach ($blocks as $block) {
       $author = $block['author'];
-      $author = phutil_utf8_shorten($author, 18);
+      $author = id(new PhutilUTF8StringTruncator())
+        ->setMaximumGlyphs(18)
+        ->truncateString($author);
       $author = phutil_tag('td', array('class' => 'author'), $author);
 
       $href = $uri->alter('at', $block['id']);
@@ -118,7 +120,7 @@ final class PhabricatorChatLogChannelLogController
         'a',
           array(
             'href' => $href,
-            'class' => 'timestamp'
+            'class' => 'timestamp',
           ),
         $timestamp);
 
@@ -127,11 +129,12 @@ final class PhabricatorChatLogChannelLogController
       $message = phutil_tag(
         'td',
           array(
-            'class' => 'message'
+            'class' => 'message',
           ),
           array(
             $timestamp,
-            $message));
+            $message,
+          ));
 
       $out[] = phutil_tag(
         'tr',
@@ -140,7 +143,8 @@ final class PhabricatorChatLogChannelLogController
         ),
         array(
           $author,
-          $message));
+          $message,
+        ));
     }
 
     $links = array();
@@ -175,11 +179,6 @@ final class PhabricatorChatLogChannelLogController
         pht('Older')." \xE2\x80\xBA");
     }
 
-    $pager_top = phutil_tag(
-      'div',
-      array('class' => 'phabricator-chat-log-pager-top'),
-      $links);
-
     $pager_bottom = phutil_tag(
       'div',
       array('class' => 'phabricator-chat-log-pager-bottom'),
@@ -202,61 +201,63 @@ final class PhabricatorChatLogChannelLogController
         id(new AphrontFormSubmitControl())
           ->setValue(pht('Jump')));
 
-    $filter = new AphrontListFilterView();
-    $filter->appendChild($form);
-
     $table = phutil_tag(
       'table',
         array(
-          'class' => 'phabricator-chat-log'
+          'class' => 'phabricator-chat-log',
         ),
       $out);
 
     $log = phutil_tag(
       'div',
         array(
-          'class' => 'phabricator-chat-log-panel'
+          'class' => 'phabricator-chat-log-panel',
         ),
         $table);
 
-    $jump_link = phutil_tag(
-      'a',
-        array(
-          'href' => '#latest'
-        ),
-        pht('Jump to Bottom')." \xE2\x96\xBE");
-
-    $jump = phutil_tag(
-      'div',
-        array(
-          'class' => 'phabricator-chat-log-jump'
-        ),
-        $jump_link);
+    $jump_link = id(new PHUIButtonView())
+      ->setTag('a')
+      ->setHref('#latest')
+      ->setText(pht('Jump to Bottom'))
+      ->setIconFont('fa-arrow-circle-down');
 
     $jump_target = phutil_tag(
       'div',
         array(
-          'id' => 'latest'
+          'id' => 'latest',
         ));
 
     $content = phutil_tag(
       'div',
         array(
-          'class' => 'phabricator-chat-log-wrap'
+          'class' => 'phabricator-chat-log-wrap',
         ),
         array(
-          $jump,
-          $pager_top,
           $log,
           $jump_target,
           $pager_bottom,
         ));
 
+    $header = id(new PHUIHeaderView())
+      ->setHeader($channel->getChannelName())
+      ->setSubHeader($channel->getServiceName())
+      ->addActionLink($jump_link);
+
+    $box = id(new PHUIObjectBoxView())
+      ->setHeader($header)
+      ->setCollapsed(true)
+      ->appendChild($content);
+
+    $box->setShowHide(
+      pht('Search Dates'),
+      pht('Hide Dates'),
+      $form,
+      '#');
+
     return $this->buildApplicationPage(
       array(
         $crumbs,
-        $filter,
-        $content,
+        $box,
       ),
       array(
         'title' => pht('Channel Log'),

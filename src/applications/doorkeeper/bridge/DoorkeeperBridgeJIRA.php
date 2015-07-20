@@ -22,7 +22,7 @@ final class DoorkeeperBridgeJIRA extends DoorkeeperBridge {
     $id_map = mpull($refs, 'getObjectID', 'getObjectKey');
     $viewer = $this->getViewer();
 
-    $provider = PhabricatorAuthProviderOAuth1JIRA::getJIRAProvider();
+    $provider = PhabricatorJIRAAuthProvider::getJIRAProvider();
     if (!$provider) {
       return;
     }
@@ -57,7 +57,7 @@ final class DoorkeeperBridgeJIRA extends DoorkeeperBridge {
 
     $results = array();
     $failed = array();
-    foreach (Futures($futures) as $key => $future) {
+    foreach (new FutureIterator($futures) as $key => $future) {
       try {
         $results[$key] = $future->resolveJSON();
       } catch (Exception $ex) {

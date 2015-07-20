@@ -13,14 +13,14 @@ foreach ($chunk_iter as $chunk) {
 
   foreach ($chunk as $diff) {
     $id = $diff->getID();
-    echo "Migrating diff ID {$id}...\n";
+    echo pht('Migrating diff ID %d...', $id)."\n";
 
     $phid = $diff->getPHID();
     if (strlen($phid)) {
       continue;
     }
 
-    $type_diff = DifferentialPHIDTypeDiff::TYPECONST;
+    $type_diff = DifferentialDiffPHIDType::TYPECONST;
     $new_phid = PhabricatorPHID::generateNewPHID($type_diff);
 
     $sql[] = qsprintf(
@@ -44,4 +44,4 @@ foreach ($chunk_iter as $chunk) {
   }
 }
 
-echo "Done.\n";
+echo pht('Done.')."\n";

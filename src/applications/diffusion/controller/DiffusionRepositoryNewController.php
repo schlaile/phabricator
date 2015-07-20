@@ -1,14 +1,12 @@
 <?php
 
-final class DiffusionRepositoryNewController
-  extends DiffusionController {
+final class DiffusionRepositoryNewController extends DiffusionController {
 
-  public function processRequest() {
-    $request = $this->getRequest();
+  protected function processDiffusionRequest(AphrontRequest $request) {
     $viewer = $request->getUser();
 
     $this->requireApplicationCapability(
-      DiffusionCapabilityCreateRepositories::CAPABILITY);
+      DiffusionCreateRepositoriesCapability::CAPABILITY);
 
     if ($request->isFormPost()) {
       if ($request->getStr('type')) {
@@ -48,19 +46,18 @@ final class DiffusionRepositoryNewController
             array(
               pht(
                 'Create a new, empty repository which Phabricator will host. '.
-                'For instructions on configuring repository hosting, see %s. '.
-                'This feature is new and in beta!',
+                'For instructions on configuring repository hosting, see %s.',
                 $doc_link),
             ))
           ->addButton(
             'import',
             pht('Import an Existing External Repository'),
             pht(
-              'Import a repository hosted somewhere else, like GitHub, '.
-              'Bitbucket, or your organization\'s existing servers. '.
-              'Phabricator will read changes from the repository but will '.
-              'not host or manage it. The authoritative master version of '.
-              'the repository will stay where it is now.')))
+              "Import a repository hosted somewhere else, like GitHub, ".
+              "Bitbucket, or your organization's existing servers. ".
+              "Phabricator will read changes from the repository but will ".
+              "not host or manage it. The authoritative master version of ".
+              "the repository will stay where it is now.")))
       ->appendChild(
         id(new AphrontFormSubmitControl())
           ->setValue(pht('Continue'))

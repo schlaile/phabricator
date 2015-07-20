@@ -37,15 +37,12 @@ final class DifferentialSubscribersField
     $this->setValue($request->getArr($this->getFieldKey()));
   }
 
-  public function getRequiredHandlePHIDsForEdit() {
-    return $this->getValue();
-  }
-
   public function renderEditControl(array $handles) {
     return id(new AphrontFormTokenizerControl())
+      ->setUser($this->getViewer())
       ->setName($this->getFieldKey())
       ->setDatasource(new PhabricatorMetaMTAMailableDatasource())
-      ->setValue($handles)
+      ->setValue($this->getValue())
       ->setError($this->getFieldError())
       ->setLabel($this->getFieldName());
   }
@@ -79,9 +76,8 @@ final class DifferentialSubscribersField
     return $this->parseObjectList(
       $value,
       array(
-        PhabricatorPeoplePHIDTypeUser::TYPECONST,
-        PhabricatorProjectPHIDTypeProject::TYPECONST,
-        PhabricatorMailingListPHIDTypeList::TYPECONST,
+        PhabricatorPeopleUserPHIDType::TYPECONST,
+        PhabricatorProjectProjectPHIDType::TYPECONST,
       ));
   }
 

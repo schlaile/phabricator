@@ -95,7 +95,7 @@ final class DiffusionHistoryTableView extends DiffusionView {
     }
 
     $show_builds = PhabricatorApplication::isClassInstalledForViewer(
-      'PhabricatorApplicationHarbormaster',
+      'PhabricatorHarbormasterApplication',
       $this->getUser());
 
     $rows = array();
@@ -149,7 +149,7 @@ final class DiffusionHistoryTableView extends DiffusionView {
         $summary = AphrontTableView::renderSingleDisplayLine(
           $history->getSummary());
       } else {
-        $summary = phutil_tag('em', array(), "Importing\xE2\x80\xA6");
+        $summary = phutil_tag('em', array(), pht("Importing\xE2\x80\xA6"));
       }
 
       $build = null;
@@ -171,7 +171,8 @@ final class DiffusionHistoryTableView extends DiffusionView {
             'span',
             array(
               'sigil' => 'has-tooltip',
-              'meta' => array('tip' => $name)),
+              'meta' => array('tip' => $name),
+            ),
             $icon_view);
 
           Javelin::initBehavior('phabricator-tooltips');
@@ -254,13 +255,12 @@ final class DiffusionHistoryTableView extends DiffusionView {
    *  |o
    *  o
    *
-   * ...which form an ASCII representation of the graph we eventaully want to
+   * ...which form an ASCII representation of the graph we eventually want to
    * draw.
    *
    * NOTE: The actual implementation is black magic.
    */
   private function renderGraph() {
-
     // This keeps our accumulated information about each line of the
     // merge/branch graph.
     $graph = array();

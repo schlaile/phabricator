@@ -8,40 +8,44 @@
  *   $result = $call->execute();
  *
  */
-final class ConduitCall {
+final class ConduitCall extends Phobject {
 
   private $method;
+  private $handler;
   private $request;
   private $user;
-  private $servers;
-  private $forceLocal;
 
   public function __construct($method, array $params) {
-    $this->method     = $method;
-    $this->handler    = $this->buildMethodHandler($method);
-    $this->servers    = PhabricatorEnv::getEnvConfig('conduit.servers');
-    $this->forceLocal = false;
+    $this->method = $method;
+    $this->handler = $this->buildMethodHandler($method);
 
-    $invalid_params = array_diff_key(
-      $params,
-      $this->handler->defineParamTypes());
-    if ($invalid_params) {
-      throw new ConduitException(
-        "Method '{$method}' doesn't define these parameters: '".
-        implode("', '", array_keys($invalid_params))."'.");
-    }
+    $param_types = $this->handler->getParamTypes();
 
-    if ($this->servers) {
-      $current_host = AphrontRequest::getHTTPHeader('HOST');
-      foreach ($this->servers as $server) {
-        if ($current_host === id(new PhutilURI($server))->getDomain()) {
-          $this->forceLocal = true;
-          break;
-        }
+    foreach ($param_types as $key => $spec) {
+      if (ConduitAPIMethod::getParameterMetadataKey($key) !== null) {
+        throw new ConduitException(
+          pht(
+            'API Method "%s" defines a disallowed parameter, "%s". This '.
+            'parameter name is reserved.',
+            $method,
+            $key));
       }
     }
 
+    $invalid_params = array_diff_key($params, $param_types);
+    if ($invalid_params) {
+      throw new ConduitException(
+        pht(
+          'API Method "%s" does not define these parameters: %s.',
+          $method,
+          "'".implode("', '", array_keys($invalid_params))."'"));
+    }
+
     $this->request = new ConduitAPIRequest($params);
+  }
+
+  public function getAPIRequest() {
+    return $this->request;
   }
 
   public function setUser(PhabricatorUser $user) {
@@ -51,15 +55,6 @@ final class ConduitCall {
 
   public function getUser() {
     return $this->user;
-  }
-
-  public function setForceLocal($force_local) {
-    $this->forceLocal = $force_local;
-    return $this;
-  }
-
-  public function shouldForceLocal() {
-    return $this->forceLocal;
   }
 
   public function shouldRequireAuthentication() {
@@ -137,76 +132,27 @@ final class ConduitCall {
       }
     }
 
-    if (!$this->shouldForceLocal() && $this->servers) {
-      $server = $this->pickRandomServer($this->servers);
-      $client = new ConduitClient($server);
-      $params = $this->request->getAllParameters();
-
-      $params['__conduit__']['isProxied'] = true;
-
-      if ($this->handler->shouldRequireAuthentication()) {
-        $client->callMethodSynchronous(
-        'conduit.connect',
-        array(
-             'client'            => 'PhabricatorConduit',
-             'clientVersion'     => '1.0',
-             'user'              => $this->getUser()->getUserName(),
-             'certificate'       => $this->getUser()->getConduitCertificate(),
-             '__conduit__'       => $params['__conduit__'],
-        ));
-      }
-
-      return $client->callMethodSynchronous(
-        $this->method,
-        $params);
-    } else {
-      return $this->handler->executeMethod($this->request);
-    }
+    return $this->handler->executeMethod($this->request);
   }
 
-  protected function pickRandomServer($servers) {
-    return $servers[array_rand($servers)];
-  }
+  protected function buildMethodHandler($method_name) {
+    $method = ConduitAPIMethod::getConduitMethod($method_name);
 
-  protected function buildMethodHandler($method) {
-    $method_class = ConduitAPIMethod::getClassNameFromAPIMethodName($method);
-
-    // Test if the method exists.
-    $ok = false;
-    try {
-      $ok = class_exists($method_class);
-    } catch (Exception $ex) {
-      // Discard, we provide a more specific exception below.
-    }
-    if (!$ok) {
-      throw new ConduitException(
-        "Conduit method '{$method}' does not exist.");
-    }
-
-    $class_info = new ReflectionClass($method_class);
-    if ($class_info->isAbstract()) {
-      throw new ConduitException(
-        "Method '{$method}' is not valid; the implementation is an abstract ".
-        "base class.");
-    }
-
-    $method = newv($method_class, array());
-
-    if (!($method instanceof ConduitAPIMethod)) {
-      throw new ConduitException(
-        "Method '{$method_class}' is not valid; the implementation must be ".
-        "a subclass of ConduitAPIMethod.");
+    if (!$method) {
+      throw new ConduitMethodDoesNotExistException($method_name);
     }
 
     $application = $method->getApplication();
     if ($application && !$application->isInstalled()) {
       $app_name = $application->getName();
-      throw new ConduitException(
-        "Method '{$method_class}' belongs to application '{$app_name}', ".
-        "which is not installed.");
+      throw new ConduitApplicationNotInstalledException($method, $app_name);
     }
 
     return $method;
+  }
+
+  public function getMethodImplementation() {
+    return $this->handler;
   }
 
 

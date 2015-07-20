@@ -1,7 +1,6 @@
 <?php
 
-final class PhabricatorMacroAudioController
-  extends PhabricatorMacroController {
+final class PhabricatorMacroAudioController extends PhabricatorMacroController {
 
   private $id;
 
@@ -10,9 +9,8 @@ final class PhabricatorMacroAudioController
   }
 
   public function processRequest() {
-
     $this->requireApplicationCapability(
-      PhabricatorMacroCapabilityManage::CAPABILITY);
+      PhabricatorMacroManageCapability::CAPABILITY);
 
     $request = $this->getRequest();
     $viewer = $request->getUser();
@@ -42,7 +40,7 @@ final class PhabricatorMacroAudioController
       if ($request->getBool('behaviorForm')) {
         $xactions[] = id(new PhabricatorMacroTransaction())
           ->setTransactionType(
-            PhabricatorMacroTransactionType::TYPE_AUDIO_BEHAVIOR)
+            PhabricatorMacroTransaction::TYPE_AUDIO_BEHAVIOR)
           ->setNewValue($request->getStr('audioBehavior'));
       } else {
         $file = null;
@@ -62,7 +60,7 @@ final class PhabricatorMacroAudioController
             $e_file = pht('Invalid');
           } else {
             $xactions[] = id(new PhabricatorMacroTransaction())
-              ->setTransactionType(PhabricatorMacroTransactionType::TYPE_AUDIO)
+              ->setTransactionType(PhabricatorMacroTransaction::TYPE_AUDIO)
               ->setNewValue($file->getPHID());
           }
         } else {
@@ -157,4 +155,5 @@ final class PhabricatorMacroAudioController
         'title' => $title,
       ));
   }
+
 }

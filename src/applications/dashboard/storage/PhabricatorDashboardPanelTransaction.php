@@ -11,7 +11,7 @@ final class PhabricatorDashboardPanelTransaction
   }
 
   public function getApplicationTransactionType() {
-    return PhabricatorDashboardPHIDTypePanel::TYPECONST;
+    return PhabricatorDashboardPanelPHIDType::TYPECONST;
   }
 
   public function getTitle() {
@@ -52,7 +52,7 @@ final class PhabricatorDashboardPanelTransaction
     return parent::getTitle();
   }
 
-  public function getTitleForFeed(PhabricatorFeedStory $story) {
+  public function getTitleForFeed() {
     $author_phid = $this->getAuthorPHID();
     $object_phid = $this->getObjectPHID();
 
@@ -92,7 +92,7 @@ final class PhabricatorDashboardPanelTransaction
         }
     }
 
-    return parent::getTitleForFeed($story);
+    return parent::getTitleForFeed();
   }
 
   public function getColor() {

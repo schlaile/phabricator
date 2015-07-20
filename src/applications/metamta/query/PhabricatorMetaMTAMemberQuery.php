@@ -36,7 +36,7 @@ final class PhabricatorMetaMTAMemberQuery extends PhabricatorQuery {
     $results = array();
     foreach ($type_map as $type => $phids) {
       switch ($type) {
-        case PhabricatorProjectPHIDTypeProject::TYPECONST:
+        case PhabricatorProjectProjectPHIDType::TYPECONST:
           // NOTE: We're loading the projects here in order to respect policies.
 
           $projects = id(new PhabricatorProjectQuery())
@@ -59,11 +59,25 @@ final class PhabricatorMetaMTAMemberQuery extends PhabricatorQuery {
           }
           break;
         default:
+          // For other types, just map the PHID to itself without modification.
+          // This allows callers to do less work.
+          foreach ($phids as $phid) {
+            $results[$phid] = array($phid);
+          }
           break;
       }
     }
 
     return $results;
+  }
+
+
+  /**
+   * Execute the query, merging results into a single list of unique member
+   * PHIDs.
+   */
+  public function executeExpansion() {
+    return array_unique(array_mergev($this->execute()));
   }
 
 }

@@ -56,6 +56,7 @@ final class DifferentialDiffTableOfContentsView extends AphrontView {
 
     $this->requireResource('differential-core-view-css');
     $this->requireResource('differential-table-of-contents-css');
+    $this->requireResource('phui-text-css');
 
     $rows = array();
 
@@ -130,13 +131,17 @@ final class DifferentialDiffTableOfContentsView extends AphrontView {
       $char = DifferentialChangeType::getSummaryCharacterForChangeType($type);
       $chartitle = DifferentialChangeType::getFullNameForChangeType($type);
       $desc = DifferentialChangeType::getShortNameForFileType($ftype);
+      $color = DifferentialChangeType::getSummaryColorForChangeType($type);
       if ($desc) {
         $desc = '('.$desc.')';
       }
       $pchar =
         ($changeset->getOldProperties() === $changeset->getNewProperties())
           ? ''
-          : phutil_tag('span', array('title' => pht('Properties Changed')), 'M');
+          : phutil_tag(
+            'span',
+            array('title' => pht('Properties Changed')),
+            'M');
 
       $fname = $changeset->getFilename();
       $cov  = $this->renderCoverage($coverage, $fname);
@@ -157,7 +162,7 @@ final class DifferentialDiffTableOfContentsView extends AphrontView {
         $meta = phutil_tag(
           'div',
           array(
-            'class' => 'differential-toc-meta'
+            'class' => 'differential-toc-meta',
           ),
           $meta);
       }
@@ -167,13 +172,15 @@ final class DifferentialDiffTableOfContentsView extends AphrontView {
           $changeset->getAbsoluteRepositoryPath($this->repository, $this->diff);
       }
 
+      $char = phutil_tag('span', array('class' => 'phui-text-'.$color), $char);
+
       $rows[] = array(
         $char,
         $pchar,
         $desc,
         array($link, $lines, $meta),
         $cov,
-        $mcov
+        $mcov,
       );
     }
 
@@ -207,11 +214,11 @@ final class DifferentialDiffTableOfContentsView extends AphrontView {
     $buttons = phutil_tag(
       'div',
       array(
-        'class' => 'differential-toc-buttons grouped'
+        'class' => 'differential-toc-buttons grouped',
       ),
       array(
         $editor_link,
-        $reveal_link
+        $reveal_link,
       ));
 
     $table = id(new AphrontTableView($rows));
@@ -243,13 +250,13 @@ final class DifferentialDiffTableOfContentsView extends AphrontView {
         false,
       ));
     $anchor = id(new PhabricatorAnchorView())
-        ->setAnchorName('toc')
-        ->setNavigationMarker(true);
+      ->setAnchorName('toc')
+      ->setNavigationMarker(true);
 
     return id(new PHUIObjectBoxView())
       ->setHeaderText(pht('Table of Contents'))
+      ->setTable($table)
       ->appendChild($anchor)
-      ->appendChild($table)
       ->appendChild($buttons);
   }
 

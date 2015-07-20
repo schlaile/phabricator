@@ -6,14 +6,13 @@ final class DiffusionBranchTableController extends DiffusionController {
     return true;
   }
 
-  public function processRequest() {
+  protected function processDiffusionRequest(AphrontRequest $request) {
     $drequest = $this->getDiffusionRequest();
-    $request = $this->getRequest();
     $viewer = $request->getUser();
 
     $repository = $drequest->getRepository();
 
-    $pager = new AphrontPagerView();
+    $pager = new PHUIPagerView();
     $pager->setURI($request->getRequestURI(), 'offset');
     $pager->setOffset($request->getInt('offset'));
 
@@ -22,7 +21,7 @@ final class DiffusionBranchTableController extends DiffusionController {
       'diffusion.branchquery',
       array(
         'offset' => $pager->getOffset(),
-        'limit' => $pager->getPageSize() + 1
+        'limit' => $pager->getPageSize() + 1,
       ));
     $branches = $pager->sliceResults($branches);
 
@@ -46,10 +45,9 @@ final class DiffusionBranchTableController extends DiffusionController {
         ->setCommits($commits)
         ->setDiffusionRequest($drequest);
 
-      $panel = id(new AphrontPanelView())
-        ->setNoBackground(true)
-        ->appendChild($view)
-        ->appendChild($pager);
+      $panel = id(new PHUIObjectBoxView())
+        ->setHeaderText(pht('Branches'))
+        ->setTable($view);
 
       $content = $panel;
     }
@@ -63,13 +61,13 @@ final class DiffusionBranchTableController extends DiffusionController {
       array(
         $crumbs,
         $content,
+        $pager,
       ),
       array(
         'title' => array(
           pht('Branches'),
           'r'.$repository->getCallsign(),
         ),
-        'device' => false,
       ));
   }
 
