@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Phabricator\n"
 "POT-Creation-Date: 2014-05-18 07:31+0200\n"
-"PO-Revision-Date: 2015-07-21 12:57+0100\n"
+"PO-Revision-Date: 2015-07-21 13:13+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: German <peter@schlaile.de>\n"
 "Language: \n"
@@ -29339,11 +29339,11 @@ msgstr ""
 
 #: view/phui/calendar/PHUICalendarListView.php:49
 msgid "All Day"
-msgstr ""
+msgstr "Ganzer Tag"
 
 #: view/phui/calendar/PHUICalendarListView.php:120
 msgid "Clear sailing ahead."
-msgstr ""
+msgstr "Bereit für gute Taten."
 
 #, php-format
 msgid "%s, Until: %s"
@@ -52173,7 +52173,7 @@ msgstr ""
 
 #: applications/search/controller/PhabricatorApplicationSearchController.php:196
 msgid "Edit Query"
-msgstr ""
+msgstr "Abfrage ändern"
 
 #: applications/search/controller/PhabricatorApplicationSearchController.php:226
 #, php-format
@@ -52186,7 +52186,7 @@ msgstr ""
 
 #: applications/search/controller/PhabricatorSearchAttachController.php:208
 msgid "assigned"
-msgstr ""
+msgstr "zugewiesen"
 
 #: applications/search/controller/PhabricatorSearchAttachController.php:215
 msgid "Mocks"
@@ -52205,20 +52205,20 @@ msgstr ""
 #: applications/search/controller/PhabricatorSearchAttachController.php:225
 #, php-format
 msgid "Save %s"
-msgstr ""
+msgstr "%s speichern"
 
 #: applications/search/controller/PhabricatorSearchAttachController.php:229
 msgid "Merge Duplicate Tasks"
-msgstr ""
+msgstr "Aufgaben-Doubletten zusammenführen"
 
 #: applications/search/controller/PhabricatorSearchAttachController.php:230
 msgid "Tasks To Merge"
-msgstr ""
+msgstr "Zusammenzuführende Aufgaben"
 
 #: applications/search/controller/PhabricatorSearchAttachController.php:231
 #, php-format
 msgid "Merge %s"
-msgstr ""
+msgstr "%s zusammenführen"
 
 #: applications/search/controller/PhabricatorSearchAttachController.php:233
 msgid "These tasks will be merged into the current task and then closed. The current task will grow stronger."
@@ -56082,24 +56082,24 @@ msgstr ""
 
 #: view/phui/calendar/PHUICalendarDayView.php:315
 msgid "Tomorrow"
-msgstr ""
+msgstr "Morgen"
 
 #: view/phui/calendar/PHUICalendarDayView.php:348
 msgid "Previous Day"
-msgstr ""
+msgstr "Ein Tag zurück"
 
 #: view/phui/calendar/PHUICalendarDayView.php:357
 msgid "Next Day"
-msgstr ""
+msgstr "Nächster Tag"
 
 #: view/phui/calendar/PHUICalendarListView.php:161
 msgid "All day"
-msgstr ""
+msgstr "Ganzer Tag"
 
 #: view/phui/calendar/PHUICalendarListView.php:164
 #, php-format
 msgid "All day, %s - %s"
-msgstr ""
+msgstr "Ganzer Tag, %s - %s"
 
 #: view/phui/calendar/PHUICalendarMonthView.php:460
 msgid "Part of the month is out of range"
