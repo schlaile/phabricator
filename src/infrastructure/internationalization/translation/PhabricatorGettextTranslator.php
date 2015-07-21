@@ -8,6 +8,7 @@ extends PhutilCustomTranslator {
     bindtextdomain("phabricator", $root);
     bind_textdomain_codeset("phabricator", 'UTF-8');
     setlocale(LC_MESSAGES, $lang);
+    setlocale(LC_TIME, $lang);
   }
 
   final public function translate($text) {

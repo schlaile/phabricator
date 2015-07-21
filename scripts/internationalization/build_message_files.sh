@@ -14,7 +14,7 @@ RESDIR=$ROOT/resources/internationalization
 
 filelist=$RESDIR/filelist
 
-find . -name "*.php" > $filelist
+find . -name "*.php" | sort > $filelist
 
 for i in $RESDIR/po/*.po ; do
     xgettext --no-location --from-code=utf-8 -L php -k -kpht -j -f $filelist -o $i
