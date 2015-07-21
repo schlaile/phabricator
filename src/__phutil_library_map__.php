@@ -5880,7 +5880,7 @@ phutil_register_library_map(array(
     'PhabricatorGarbageCollector' => 'Phobject',
     'PhabricatorGarbageCollectorConfigOptions' => 'PhabricatorApplicationConfigOptions',
     'PhabricatorGarbageCollectorDaemon' => 'PhabricatorDaemon',
-    'PhabricatorGermanTranslation' => 'PhabricatorBaseEnglishTranslation',
+    'PhabricatorGermanTranslation' => 'PhutilTranslation',
     'PhabricatorGestureUIExample' => 'PhabricatorUIExample',
     'PhabricatorGettextTranslator' => 'PhutilCustomTranslator',
     'PhabricatorGitGraphStream' => 'PhabricatorRepositoryGraphStream',

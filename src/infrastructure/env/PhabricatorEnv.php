@@ -150,6 +150,7 @@ final class PhabricatorEnv extends Phobject {
       $locale = PhutilLocale::loadLocale($locale_code);
       $translations = PhutilTranslation::getTranslationMapForLocale(
         $locale_code);
+      $translator = PhutilTranslation::getTranslatorForLocale($locale_code);
 
       $override = self::getEnvConfig('translation.override');
       if (!is_array($override)) {
@@ -159,7 +160,7 @@ final class PhabricatorEnv extends Phobject {
       PhutilTranslator::getInstance()
         ->setLocale($locale)
         ->setTranslations($override + $translations)
-	->setCustomTranslator($translation->getTranslator());
+	->setCustomTranslator($translator);
 
       self::$localeCode = $locale_code;
     } catch (Exception $ex) {
