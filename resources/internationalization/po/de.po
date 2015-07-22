@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Phabricator\n"
 "POT-Creation-Date: 2014-05-18 07:31+0200\n"
-"PO-Revision-Date: 2015-07-21 13:13+0100\n"
+"PO-Revision-Date: 2015-07-22 18:53+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: German <peter@schlaile.de>\n"
 "Language: \n"
@@ -4388,7 +4388,7 @@ msgstr ""
 
 #: applications/uiexample/examples/PhabricatorStatusUIExample.php:82
 msgid "All Icons"
-msgstr ""
+msgstr "Alle Symbole"
 
 #: applications/flag/query/PhabricatorFlagSearchEngine.php:98
 #: applications/project/controller/PhabricatorProjectEditDetailsController.php:221
@@ -4467,7 +4467,7 @@ msgid "Smith"
 msgstr ""
 
 msgid "Action Icons!"
-msgstr ""
+msgstr "Aktions-Symbole!"
 
 #: applications/uiexample/examples/PHUIIconExample.php:154
 msgid "People!"
@@ -25830,7 +25830,7 @@ msgid "Search for file names or content in this directory."
 msgstr ""
 
 msgid "Type a user, project, or package name..."
-msgstr ""
+msgstr "Benutzer, Projekt oder Paket eintippen..."
 
 #: applications/diffusion/controller/DiffusionRepositoryEditBasicController.php:110
 #: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:280
@@ -29331,7 +29331,7 @@ msgid "Select and reorder project fields."
 msgstr ""
 
 msgid "Type a user, project, or mailing list..."
-msgstr ""
+msgstr "Benutzer, Projekt oder Mailing-Liste eintippen..."
 
 #: applications/macro/typeahead/PhabricatorMacroDatasource.php:6
 msgid "Type a macro name..."
@@ -30171,7 +30171,7 @@ msgstr ""
 
 #: applications/metamta/typeahead/PhabricatorMetaMTAMailableDatasource.php:11
 msgid "Type a user, project, or mailing list name..."
-msgstr ""
+msgstr "Benutzer, Projekt oder Mailing-Liste eintippen..."
 
 #: applications/countdown/application/PhabricatorCountdownApplication.php:18
 msgid "Countdown to Events"
@@ -31450,7 +31450,7 @@ msgstr ""
 
 #: applications/diffusion/typeahead/DiffusionAuditorDatasource.php:11
 msgid "Type a user, project or package name..."
-msgstr ""
+msgstr "Benutzer Projekt oder Paket eintippen..."
 
 msgid "Call withPaths() before execute()!"
 msgstr ""
@@ -31982,7 +31982,7 @@ msgid ""
 msgstr ""
 
 msgid "Login and Registration"
-msgstr ""
+msgstr "Anmeldung und Registrierung"
 
 #, php-format
 msgid ""
@@ -32143,7 +32143,7 @@ msgstr "Aktuelle Version"
 
 #: applications/config/option/PhabricatorSMSConfigOptions.php:7
 msgid "SMS"
-msgstr ""
+msgstr "SMS"
 
 #: applications/config/option/PhabricatorSMSConfigOptions.php:11
 msgid "Configure SMS."
@@ -32163,7 +32163,7 @@ msgstr ""
 #: applications/config/option/PhabricatorSMSConfigOptions.php:49
 #: applications/config/option/PhabricatorSMSConfigOptions.php:56
 msgid "30 characters"
-msgstr ""
+msgstr "30 Zeichen"
 
 #: applications/config/option/PhabricatorSMSConfigOptions.php:54
 msgid "Authorization token from Twilio service."
@@ -32849,12 +32849,12 @@ msgstr ""
 #: applications/project/controller/PhabricatorProjectProfileController.php:151
 #: applications/project/controller/PhabricatorProjectWatchController.php:77
 msgid "Watch Project"
-msgstr ""
+msgstr "Projekt beobachten"
 
 #: applications/project/controller/PhabricatorProjectProfileController.php:158
 #: applications/project/controller/PhabricatorProjectWatchController.php:84
 msgid "Unwatch Project"
-msgstr ""
+msgstr "Projekt nicht mehr beobachten"
 
 #: applications/project/controller/PhabricatorProjectProfileController.php:184
 msgid "Hashtags"
@@ -32862,41 +32862,41 @@ msgstr ""
 
 #: applications/project/controller/PhabricatorProjectProfileController.php:195
 msgid "Watchers"
-msgstr ""
+msgstr "Beobachter"
 
 #: applications/project/controller/PhabricatorProjectBoardViewController.php:648
 #: applications/project/controller/PhabricatorProjectColumnDetailController.php:104
 msgid "Edit Column"
-msgstr ""
+msgstr "Spalte ändern"
 
 #: applications/conpherence/view/ConpherenceDurableColumnView.php:406
 #: applications/project/controller/PhabricatorProjectBoardViewController.php:660
 #: applications/project/controller/PhabricatorProjectColumnHideController.php:86
 msgid "Hide Column"
-msgstr ""
+msgstr "Spalte verstecken"
 
 #: applications/project/controller/PhabricatorProjectBoardViewController.php:667
 #: applications/project/controller/PhabricatorProjectColumnHideController.php:84
 msgid "Show Column"
-msgstr ""
+msgstr "Spalte zeigen"
 
 #: applications/calendar/controller/PhabricatorCalendarEventEditIconController.php:61
 #: applications/project/controller/PhabricatorProjectEditIconController.php:65
 #, php-format
 msgid "Choose \"%s\" Icon"
-msgstr ""
+msgstr "\"%s\"-Symbol wählen"
 
 #: applications/project/controller/PhabricatorProjectEditIconController.php:102
 msgid "Choose Project Icon"
-msgstr ""
+msgstr "Projekt-Symbol wählen"
 
 #: applications/project/controller/PhabricatorProjectBoardReorderController.php:139
 #: applications/project/controller/PhabricatorProjectBoardViewController.php:550
 msgid "Reorder Columns"
-msgstr ""
+msgstr "Spalten neu anordnen"
 
 msgid "This column can not be moved:"
-msgstr ""
+msgstr "Diese Spalte kann nicht verschoben werden:"
 
 msgid "Drag and drop these columns to reorder them:"
 msgstr ""
@@ -32911,26 +32911,26 @@ msgstr ""
 
 #: applications/project/controller/PhabricatorProjectColumnHideController.php:91
 msgid "Are you sure you want to show this column?"
-msgstr ""
+msgstr "Bist Du sicher, dass Du diese Spalte zeigen möchtest?"
 
 #: applications/project/controller/PhabricatorProjectColumnHideController.php:94
 msgid "Are you sure you want to hide this column? It will no longer appear on the workboard."
-msgstr ""
+msgstr "Bist Du sicher, dass Du diese Spalte verstecken möchtest? Sie wird dann nicht mehr auf dem Workboard angezeigt."
 
 #: applications/project/controller/PhabricatorProjectBoardViewController.php:111
 #: applications/project/controller/PhabricatorProjectBoardViewController.php:152
 msgid "Advanced Filter"
-msgstr ""
+msgstr "Erweiterte Filter"
 
 #: applications/project/controller/PhabricatorProjectBoardViewController.php:115
 #: applications/project/controller/PhabricatorProjectBoardViewController.php:155
 msgid "Apply Filter"
-msgstr ""
+msgstr "Filter anwenden"
 
 #: applications/project/controller/PhabricatorProjectBoardViewController.php:460
 #: applications/search/controller/PhabricatorSearchAttachController.php:268
 msgid "Assigned to Me"
-msgstr ""
+msgstr "Mir zugewiesen"
 
 #: applications/project/controller/PhabricatorProjectBoardViewController.php:464
 msgid "Custom Filter"
@@ -32964,7 +32964,7 @@ msgstr ""
 #: applications/calendar/controller/PhabricatorCalendarEventEditController.php:514
 #: applications/project/controller/PhabricatorProjectEditDetailsController.php:216
 msgid "Choose Icon..."
-msgstr ""
+msgstr "Symbol Auswählen..."
 
 #: applications/project/controller/PhabricatorProjectEditDetailsController.php:229
 msgid "Primary Hashtag"

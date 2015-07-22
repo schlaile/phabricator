@@ -16,7 +16,7 @@ final class PhabricatorGermanTranslation extends PhutilTranslation {
   }
 
   final public function getTranslator() {
-    return new PhabricatorGettextTranslator("de_DE");
+    return new PhabricatorGettextTranslator($this->getLocaleCode());
   }
 
 }
