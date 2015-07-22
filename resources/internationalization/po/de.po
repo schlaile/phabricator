@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Phabricator\n"
 "POT-Creation-Date: 2014-05-18 07:31+0200\n"
-"PO-Revision-Date: 2015-07-22 18:53+0100\n"
+"PO-Revision-Date: 2015-07-22 19:15+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: German <peter@schlaile.de>\n"
 "Language: \n"
@@ -404,11 +404,11 @@ msgstr "Teilnehmer dürfen sein"
 
 #: applications/policy/query/PhabricatorPolicyQuery.php:180
 msgid "Unknown Policy"
-msgstr "Unbekannte Policy"
+msgstr "Unbekannte Rechte"
 
 #: view/form/control/AphrontFormPolicyControl.php:174
 msgid "Custom Policy..."
-msgstr "Benutzerdefinierte Policy..."
+msgstr "Benutzerdefinierte Rechte..."
 
 msgid "Call setPolicyObject() before rendering!"
 msgstr ""
@@ -1979,7 +1979,7 @@ msgid "Maniphest Task(s)"
 msgstr "Maniphest Aufgabe(n)"
 
 msgid "NOTE: These policy features are not yet fully supported."
-msgstr "Hinweis: Diese Policy Funktionen sind noch nicht vollwertig unterstützt."
+msgstr "Hinweis: Diese Rechte-Funktionalität ist noch nicht vollwertig unterstützt."
 
 #: applications/differential/customfield/DifferentialBlameRevisionField.php:15
 msgid "Blame Revision"
@@ -2781,7 +2781,7 @@ msgstr "Dateiinhalt zeigen"
 #: applications/slowvote/capability/PhabricatorSlowvoteDefaultViewCapability.php:9
 #: applications/spaces/capability/PhabricatorSpacesCapabilityDefaultView.php:9
 msgid "Default View Policy"
-msgstr "Vorgabe Policy für die Anzeige"
+msgstr "Vorgabe Rechte für die Anzeige"
 
 #: applications/differential/query/DifferentialRevisionSearchEngine.php:145
 msgid "Responsible Users"
@@ -3327,7 +3327,7 @@ msgstr "%d Review(s) warten auf andere"
 
 #: applications/differential/application/PhabricatorDifferentialApplication.php:188
 msgid "Default view policy for newly created revisions."
-msgstr "Vorgabe Policy für die Sichtung von neu erzeugten Versionen."
+msgstr "Vorgaberechte für die Sichtung von neu erzeugten Versionen."
 
 #: applications/differential/application/PhabricatorDifferentialApplication.php:10
 #: applications/differential/config/PhabricatorDifferentialConfigOptions.php:7
@@ -6554,7 +6554,7 @@ msgstr "Kommentiert"
 
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:1036
 msgid "Changed Policy"
-msgstr "Policy ändern"
+msgstr "Veränderte Rechte"
 
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:1038
 msgid "Changed Subscribers"
@@ -7342,7 +7342,7 @@ msgstr ""
 
 #, php-format
 msgid "Unknown sender: %s"
-msgstr ""
+msgstr "Unbekannter Absender: %s"
 
 #: applications/metamta/application/PhabricatorMetaMTAApplication.php:22
 msgid "Yo dawg, we heard you like MTAs."
@@ -7510,7 +7510,7 @@ msgstr ""
 #: applications/phid/PhabricatorObjectHandle.php:135
 #, php-format
 msgid "Unknown Object (%s)"
-msgstr ""
+msgstr "Unbekanntes Objekt (%s)"
 
 #: applications/base/controller/PhabricatorController.php:326
 msgid "Bacon Ice Cream for Breakfast"
@@ -9695,7 +9695,7 @@ msgstr ""
 #: applications/herald/adapter/HeraldAdapter.php:610
 #, php-format
 msgid "Unknown condition \"%s\"!"
-msgstr ""
+msgstr "Unbekannte Bedingung \"%s\"!"
 
 #: applications/herald/adapter/HeraldAdapter.php:651
 #: applications/herald/adapter/HeraldAdapter.php:669
@@ -10285,7 +10285,7 @@ msgstr ""
 #: applications/policy/storage/PhabricatorPolicy.php:256
 #, php-format
 msgid "This object has an unknown or invalid policy setting (\"%s\")."
-msgstr ""
+msgstr "Dieses Objekt hat eine unbekannte oder ungültige Sichtbarkeitskonfiguration (\"%s\")."
 
 #: applications/policy/storage/PhabricatorPolicy.php:265
 #: applications/releeph/conduit/work/ReleephWorkGetBranchCommitMessageConduitAPIMethod.php:78
@@ -46793,7 +46793,7 @@ msgstr ""
 
 #: applications/home/controller/PhabricatorHomeController.php:77
 msgid "Customize Menu..."
-msgstr ""
+msgstr "Menüpunkte anpassen..."
 
 #: applications/home/controller/PhabricatorHomeMainController.php:193
 msgid "No tasks in projects you are a member of need triage."
@@ -46837,7 +46837,7 @@ msgstr ""
 
 #: applications/legalpad/controller/LegalpadDocumentEditController.php:224
 msgid "Save Document"
-msgstr ""
+msgstr "Dokument speichern"
 
 #: applications/legalpad/controller/LegalpadDocumentSignController.php:662
 #, php-format
@@ -46900,7 +46900,7 @@ msgstr ""
 #: applications/legalpad/query/LegalpadDocumentSearchEngine.php:214
 #: applications/phriction/query/PhrictionSearchEngine.php:183
 msgid "No documents found."
-msgstr ""
+msgstr "Keine Dokumente gefunden."
 
 #: applications/legalpad/storage/LegalpadDocumentBody.php:59
 #, php-format
@@ -52577,7 +52577,7 @@ msgstr ""
 
 #: applications/spaces/application/PhabricatorSpacesApplication.php:14
 msgid "Policy Namespaces"
-msgstr ""
+msgstr "Namensräume für Berechtigungen"
 
 #: applications/spaces/application/PhabricatorSpacesApplication.php:26
 msgid "Control access to groups of objects."
