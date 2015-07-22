@@ -2081,7 +2081,6 @@ phutil_register_library_map(array(
     'PhabricatorGarbageCollector' => 'infrastructure/daemon/garbagecollector/PhabricatorGarbageCollector.php',
     'PhabricatorGarbageCollectorConfigOptions' => 'applications/config/option/PhabricatorGarbageCollectorConfigOptions.php',
     'PhabricatorGermanTranslation' => 'infrastructure/internationalization/translation/PhabricatorGermanTranslation.php',
-    'PhabricatorGarbageCollectorDaemon' => 'infrastructure/daemon/garbagecollector/PhabricatorGarbageCollectorDaemon.php',
     'PhabricatorGestureUIExample' => 'applications/uiexample/examples/PhabricatorGestureUIExample.php',
     'PhabricatorGettextTranslator' => 'infrastructure/internationalization/translation/PhabricatorGettextTranslator.php',
     'PhabricatorGitGraphStream' => 'applications/repository/daemon/PhabricatorGitGraphStream.php',
