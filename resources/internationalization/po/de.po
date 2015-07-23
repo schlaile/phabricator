@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Phabricator\n"
 "POT-Creation-Date: 2014-05-18 07:31+0200\n"
-"PO-Revision-Date: 2015-07-22 19:15+0100\n"
+"PO-Revision-Date: 2015-07-23 17:06+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: German <peter@schlaile.de>\n"
 "Language: \n"
@@ -9821,7 +9821,7 @@ msgstr "Zugewiesene Aufgaben"
 
 #: applications/herald/adapter/HeraldAdapter.php:1189
 msgid "Added projects."
-msgstr ""
+msgstr "Projekte hinzugefügt."
 
 #: applications/diffusion/herald/DiffusionCommitPackageAuditHeraldField.php:9
 msgid "Affected packages that need audit"
@@ -12216,7 +12216,7 @@ msgstr ""
 #: applications/people/controller/PhabricatorPeopleLdapController.php:102
 #, php-format
 msgid "Successfully added %s"
-msgstr ""
+msgstr "Erfolgreich %s hinzugefügt."
 
 #: applications/people/controller/PhabricatorPeopleLdapController.php:106
 #, php-format
@@ -13282,39 +13282,39 @@ msgstr "%s hat die Bildbeschreibung (%s) geändert."
 #: applications/pholio/storage/PholioTransaction.php:223
 #, php-format
 msgid "%s updated an image's (%s) sequence."
-msgstr ""
+msgstr "%s hat die Bildreihenfolge von %s geändert."
 
 #: applications/fund/storage/FundInitiativeTransaction.php:161
 #: applications/phame/storage/PhameBlogTransaction.php:114
 #: applications/pholio/storage/PholioTransaction.php:258
 #, php-format
 msgid "%s updated the description for %s."
-msgstr ""
+msgstr "%s hat die Beschreibung von %s verändert."
 
 #: applications/pholio/storage/PholioTransaction.php:270
 #, php-format
 msgid "%s added an inline comment to %s."
-msgstr ""
+msgstr "%s hat einen Inline-Kommentar zu %s hinzugefügt."
 
 #: applications/pholio/storage/PholioTransaction.php:277
 #, php-format
 msgid "%s updated images of %s."
-msgstr ""
+msgstr "%s hat die Bilder von %s geändert."
 
 #: applications/pholio/storage/PholioTransaction.php:283
 #, php-format
 msgid "%s updated the image names of %s."
-msgstr ""
+msgstr "%s hat die Bildnamen von %s geändert."
 
 #: applications/pholio/storage/PholioTransaction.php:289
 #, php-format
 msgid "%s updated image descriptions of %s."
-msgstr ""
+msgstr "%s hat die Bildbeschreibungen von %s geändert."
 
 #: applications/pholio/storage/PholioTransaction.php:295
 #, php-format
 msgid "%s updated image sequence of %s."
-msgstr ""
+msgstr "%s hat die Bildreihenfolge von %s geändert."
 
 #: applications/pholio/storage/PholioTransaction.php:387
 msgid "The image title was not updated."
@@ -13530,17 +13530,17 @@ msgstr "%s hat %d Dateien entfernt."
 #: applications/conpherence/storage/ConpherenceTransaction.php:97
 #, php-format
 msgid "%s edited participant(s), added %d: %s; removed %d: %s."
-msgstr ""
+msgstr "%s hat Teilnehmer verändert, %d hinzugefügt: %s; %d entfernt: %s."
 
 #: applications/conpherence/storage/ConpherenceTransaction.php:105
 #, php-format
 msgid "%s added %d participant(s): %s."
-msgstr ""
+msgstr "%s hat %d Teilnehmer hinzugefügt: %s."
 
 #: applications/conpherence/storage/ConpherenceTransaction.php:111
 #, php-format
 msgid "%s removed %d participant(s): %s."
-msgstr ""
+msgstr "%s hat %d Teilnehmer entfernt: %s."
 
 msgid "Conpherence Thread"
 msgstr "Conpherence Thread"
@@ -15179,7 +15179,7 @@ msgstr ""
 
 #, php-format
 msgid "%s added CCs: %s."
-msgstr ""
+msgstr "%s hat Leute ins CC gesetzt: %s."
 
 #: applications/audit/storage/PhabricatorAuditTransaction.php:222
 #, php-format
@@ -22362,7 +22362,7 @@ msgstr ""
 #: applications/differential/storage/DifferentialTransaction.php:217
 #, php-format
 msgid "%s added inline comments."
-msgstr ""
+msgstr "%s hat Inline-Kommentare hinzugefügt."
 
 #: applications/differential/storage/DifferentialTransaction.php:228
 #, php-format
@@ -22392,7 +22392,7 @@ msgstr ""
 #: applications/differential/storage/DifferentialTransaction.php:324
 #, php-format
 msgid "%s added inline comments to %s."
-msgstr ""
+msgstr "%s hat Inline-Kommentare zu %s hinzugefügt."
 
 #: applications/differential/storage/DifferentialTransaction.php:329
 #, php-format
@@ -29436,22 +29436,22 @@ msgstr ""
 #: infrastructure/customfield/standard/PhabricatorStandardCustomFieldPHIDs.php:131
 #, php-format
 msgid "%s updated %s, added %d: %s."
-msgstr ""
+msgstr "%s hat %s geändert, %d hinzugefügt: %s."
 
 #: infrastructure/customfield/standard/PhabricatorStandardCustomFieldPHIDs.php:138
 #, php-format
 msgid "%s updated %s, removed %d: %s."
-msgstr ""
+msgstr "%s hat %s geändert, %d entfernt: %s."
 
 #: infrastructure/customfield/standard/PhabricatorStandardCustomFieldPHIDs.php:145
 #, php-format
 msgid "%s updated %s, added %d: %s; removed %d: %s."
-msgstr ""
+msgstr "%s hat %s geändert, %d hinzugefügt: %s; %d entfernt: %s."
 
 #: infrastructure/customfield/standard/PhabricatorStandardCustomFieldCredential.php:117
 #, php-format
 msgid "%s removed %s as %s."
-msgstr ""
+msgstr "%s hat %s als %s entfernt."
 
 #: applications/celerity/management/CelerityManagementMapWorkflow.php:10
 msgid "Rebuild static resource maps."
@@ -29803,7 +29803,7 @@ msgstr ""
 
 #, php-format
 msgid "%s edited project(s), added %d: %s; removed %d: %s."
-msgstr ""
+msgstr "%s hat Projekte geändert, %d hinzugefügt: %s; %d entfernt: %s."
 
 #, php-format
 msgid "%s edited voting user(s), added %d: %s; removed %d: %s."
@@ -29899,7 +29899,7 @@ msgstr ""
 
 #, php-format
 msgid "%s added %d project(s): %s."
-msgstr ""
+msgstr "%s hat %d Projekte hinzugefügt: %s."
 
 #, php-format
 msgid "%s added %d voting user(s): %s."
@@ -29919,7 +29919,7 @@ msgstr ""
 
 #, php-format
 msgid "%s added %d file(s): %s."
-msgstr ""
+msgstr "%s hat %d Dateien hinzugefügt: %s."
 
 #, php-format
 msgid "%s added %d account(s): %s."
@@ -29995,7 +29995,7 @@ msgstr ""
 
 #, php-format
 msgid "%s removed %d project(s): %s."
-msgstr ""
+msgstr "%s hat %d Projekte entfernt: %s."
 
 #, php-format
 msgid "%s removed %d voting user(s): %s."
@@ -30103,7 +30103,7 @@ msgstr ""
 
 #, php-format
 msgid "%s updated files of %s."
-msgstr ""
+msgstr "%s hat Dateien von %s geändert."
 
 #, php-format
 msgid "%s updated accounts of %s."
@@ -30139,7 +30139,7 @@ msgstr ""
 
 #, php-format
 msgid "%s updated objects of %s."
-msgstr ""
+msgstr "%s hat Objekte von %s geändert."
 
 #: applications/fact/application/PhabricatorFactApplication.php:6
 msgid "Chart and Analyze Data"
@@ -47205,7 +47205,7 @@ msgstr ""
 
 #: applications/maniphest/controller/ManiphestTaskDetailController.php:114
 msgid "New task created. Create another?"
-msgstr ""
+msgstr "Neue Aufgabe wurde angelegt. Eine weitere anlegen?"
 
 #: applications/maniphest/controller/ManiphestTransactionSaveController.php:71
 #, php-format
@@ -47215,7 +47215,7 @@ msgstr ""
 #: applications/maniphest/edge/ManiphestTaskDependedOnByTaskEdgeType.php:20
 #, php-format
 msgid "%s added %s blocked task(s): %s."
-msgstr ""
+msgstr "%s hat %s blockierende Aufgaben hinzugefügt: %s."
 
 #: applications/maniphest/edge/ManiphestTaskDependedOnByTaskEdgeType.php:32
 #, php-format
@@ -53087,7 +53087,7 @@ msgstr ""
 
 #: applications/transactions/editor/PhabricatorApplicationTransactionEditor.php:2574
 msgid "EMAIL PREFERENCES"
-msgstr ""
+msgstr "EMAIL EINSTELLUNGEN"
 
 #: applications/transactions/editor/PhabricatorApplicationTransactionEditor.php:2778
 msgid "No herald adapter specified."
