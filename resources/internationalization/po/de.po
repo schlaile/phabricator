@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Phabricator\n"
 "POT-Creation-Date: 2014-05-18 07:31+0200\n"
-"PO-Revision-Date: 2015-07-24 12:28+0100\n"
+"PO-Revision-Date: 2015-07-24 12:58+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: German <peter@schlaile.de>\n"
 "Language: \n"
@@ -42334,42 +42334,42 @@ msgstr ""
 
 #: applications/conpherence/ConpherenceTransactionRenderer.php:158
 msgid "Show Newer Messages"
-msgstr ""
+msgstr "Zu den neueren Nachrichten"
 
 #: applications/conpherence/constants/ConpherenceWidgetConfigConstants.php:57
 #: applications/conpherence/view/ConpherenceDurableColumnView.php:392
 msgid "Edit Room"
-msgstr ""
+msgstr "Chat ändern"
 
 #: applications/conpherence/controller/ConpherenceController.php:19
 #: applications/conpherence/controller/ConpherenceController.php:52
 #: applications/conpherence/controller/ConpherenceController.php:60
 #: applications/conpherence/controller/ConpherenceNewRoomController.php:8
 msgid "New Room"
-msgstr ""
+msgstr "Neuer Chat"
 
 #: applications/conpherence/controller/ConpherenceController.php:66
 msgid "Room"
-msgstr ""
+msgstr "Chat"
 
 #: applications/conpherence/controller/ConpherenceNewRoomController.php:85
 #: applications/conpherence/controller/ConpherenceRoomListController.php:36
 msgid "Create Room"
-msgstr ""
+msgstr "Neuer Chat"
 
 #: applications/conpherence/controller/ConpherenceNewRoomController.php:101
 msgid "Other Participants"
-msgstr ""
+msgstr "Andere Teilnehmer"
 
 #: applications/conpherence/controller/ConpherenceNewRoomController.php:124
 msgid "First Message"
-msgstr ""
+msgstr "Erste Nachricht"
 
 #: applications/conpherence/controller/ConpherenceNotificationPanelController.php:86
 #: applications/conpherence/query/ConpherenceThreadSearchEngine.php:7
 #: applications/conpherence/view/ConpherenceThreadListView.php:108
 msgid "Rooms"
-msgstr ""
+msgstr "Chats"
 
 #: applications/conpherence/controller/ConpherenceUpdateController.php:209
 #, php-format
@@ -42378,31 +42378,31 @@ msgstr ""
 
 #: applications/conpherence/controller/ConpherenceUpdateController.php:329
 msgid "Are you sure you want to leave this room?"
-msgstr ""
+msgstr "Bist Du sicher, daß Du diesen Chat verlassen möchtest?"
 
 #: applications/conpherence/controller/ConpherenceUpdateController.php:338
 msgid " The room will be inaccessible forever and ever."
-msgstr ""
+msgstr "Der Chat wird dann für alle Zeiten (auch das Jenseits) unerreichbar bleiben."
 
 #: applications/conpherence/controller/ConpherenceUpdateController.php:341
 msgid " Someone else in the room can add you back later."
-msgstr ""
+msgstr "Ein anderer Teilnehmer in dem Chat kann Dich später wieder hinzufügen."
 
 #: applications/conpherence/controller/ConpherenceUpdateController.php:352
 msgid "Leave Room"
-msgstr ""
+msgstr "Chat verlassen"
 
 #: applications/conpherence/controller/ConpherenceUpdateController.php:369
 msgid "Update Room"
-msgstr ""
+msgstr "Chat ändern"
 
 #: applications/conpherence/controller/ConpherenceUpdateController.php:395
 msgid "Crop Image"
-msgstr ""
+msgstr "Bild beschneiden"
 
 #: applications/conpherence/controller/ConpherenceViewController.php:172
 msgid "Login to Participate"
-msgstr ""
+msgstr "Anmelden um teilzunehmen"
 
 #: applications/conpherence/controller/ConpherenceWidgetController.php:160
 msgid "Notification settings are available after joining the room."
@@ -42418,24 +42418,24 @@ msgstr ""
 
 #: applications/conpherence/editor/ConpherenceEditor.php:13
 msgid "Conpherence Rooms"
-msgstr ""
+msgstr "Chat-Räume"
 
 #: applications/conpherence/editor/ConpherenceEditor.php:586
 msgid "EMAIL PREFERENCES FOR THIS ROOM"
-msgstr ""
+msgstr "EMAIL EINSTELLUNGEN FÜR DIESEN CHAT"
 
 #: applications/conpherence/editor/ConpherenceEditor.php:651
 msgid "Room title is required."
-msgstr ""
+msgstr "Ein Chat-Titel wird benötigt."
 
 #: applications/conpherence/editor/ConpherenceEditor.php:699
 #, php-format
 msgid "New room participant \"%s\" is not a valid user."
-msgstr ""
+msgstr "Der neue Chat-Teilnehmer \"%s\" ist kein gültiger Benutzer."
 
 #: applications/conpherence/policyrule/ConpherenceThreadMembersPolicyRule.php:11
 msgid "Room Participants"
-msgstr ""
+msgstr "Chat Teilnehmer"
 
 #: applications/conpherence/policyrule/ConpherenceThreadMembersPolicyRule.php:15
 msgid "Participants in this room can take this action."
@@ -42443,29 +42443,29 @@ msgstr ""
 
 #: applications/conpherence/policyrule/ConpherenceThreadMembersPolicyRule.php:19
 msgid "room participants"
-msgstr ""
+msgstr "Chat Teilnehmer"
 
 #: applications/conpherence/query/ConpherenceThreadSearchEngine.php:62
 msgid "Joined Rooms"
-msgstr ""
+msgstr "Verbundene Chats"
 
 #: applications/conpherence/query/ConpherenceThreadSearchEngine.php:65
 msgid "All Rooms"
-msgstr ""
+msgstr "Alle Chats"
 
 #: applications/conpherence/query/ConpherenceThreadSearchEngine.php:161
 #, php-format
 msgid "Messages: %d"
-msgstr ""
+msgstr "%d Nachrichten"
 
 #: applications/conpherence/query/ConpherenceThreadSearchEngine.php:167
 #, php-format
 msgid "Last updated %s"
-msgstr ""
+msgstr "Zuletzt Aktualisiert am %s"
 
 #: applications/conpherence/query/ConpherenceThreadSearchEngine.php:209
 msgid "No threads found."
-msgstr ""
+msgstr "Keine Gesprächsbeiträge gefunden."
 
 #: applications/conpherence/search/ConpherenceThreadIndexer.php:17
 #, php-format
@@ -42474,7 +42474,7 @@ msgstr ""
 
 #: applications/conpherence/storage/ConpherenceThread.php:200
 msgid "Private Room"
-msgstr ""
+msgstr "Privater Chat"
 
 #: applications/conpherence/storage/ConpherenceThread.php:398
 msgid "Participants in a room can always view it."
@@ -42533,19 +42533,19 @@ msgstr ""
 #: applications/conpherence/view/ConpherenceLayoutView.php:148
 #: applications/conpherence/view/ConpherenceThreadListView.php:128
 msgid "Create a Room"
-msgstr ""
+msgstr "Einen Chat erzeugen"
 
 #: applications/conpherence/view/ConpherenceDurableColumnView.php:471
 msgid "Send a message..."
-msgstr ""
+msgstr "Eine Nachricht senden..."
 
 #: applications/conpherence/view/ConpherenceFormDragAndDropUploadControl.php:37
 msgid "Drag and drop an image here to upload it."
-msgstr ""
+msgstr "Hier ein Bild draufziehen, um es hochzuladen."
 
 #: applications/conpherence/view/ConpherenceThreadListView.php:121
 msgid "Join a Room"
-msgstr ""
+msgstr "An einem Chat teilnehmen"
 
 #: applications/conpherence/view/ConpherenceThreadListView.php:167
 #: applications/conpherence/view/ConpherenceThreadListView.php:194
@@ -42554,16 +42554,16 @@ msgstr ""
 
 #: applications/conpherence/view/ConpherenceThreadListView.php:216
 msgid "No Rooms"
-msgstr ""
+msgstr "Keine Chats"
 
 #: applications/console/plugin/DarkConsoleErrorLogPlugin.php:88
 msgid "No errors."
-msgstr ""
+msgstr "Keine Fehler"
 
 #: applications/console/plugin/DarkConsoleEventPlugin.php:6
 #: applications/daemon/controller/PhabricatorDaemonLogViewController.php:83
 msgid "Events"
-msgstr ""
+msgstr "Termine"
 
 #: applications/console/plugin/DarkConsoleEventPlugin.php:10
 msgid "Information about Phabricator events and event listeners."
