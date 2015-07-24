@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Phabricator\n"
 "POT-Creation-Date: 2014-05-18 07:31+0200\n"
-"PO-Revision-Date: 2015-07-24 12:58+0100\n"
+"PO-Revision-Date: 2015-07-24 19:21+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: German <peter@schlaile.de>\n"
 "Language: \n"
@@ -30417,7 +30417,7 @@ msgstr ""
 
 #: applications/pholio/application/PhabricatorPholioApplication.php:14
 msgid "Review Mocks and Design"
-msgstr ""
+msgstr "Designentwürfe und Mock Ups ansehen"
 
 #: applications/pholio/view/PholioMockThumbGridView.php:80
 msgid "Current Revision"
@@ -31763,7 +31763,7 @@ msgstr ""
 
 #: applications/audit/application/PhabricatorAuditApplication.php:18
 msgid "Browse and Audit Commits"
-msgstr ""
+msgstr "Commits ansehen und überprüfen"
 
 #: applications/audit/view/PhabricatorAuditListView.php:69
 #: applications/audit/view/PhabricatorAuditListView.php:74
@@ -32204,7 +32204,7 @@ msgstr ""
 
 #: applications/feed/application/PhabricatorFeedApplication.php:14
 msgid "Review Recent Activity"
-msgstr "Letzte Aktivitäten Ansehen"
+msgstr "Letzte Aktivitäten ansehen"
 
 #: applications/feed/query/PhabricatorFeedSearchEngine.php:7
 msgid "Feed Stories"
@@ -37937,11 +37937,11 @@ msgstr ""
 
 #: aphront/response/Aphront404Response.php:16
 msgid "Focus"
-msgstr ""
+msgstr "Konzentrieren"
 
 #: aphront/response/Aphront404Response.php:19
 msgid "Do not dwell in the past, do not dream of the future, concentrate the mind on the present moment."
-msgstr ""
+msgstr "Verweile nicht in der Vergangenheit, träume nicht von der Zukunft, konzentriere Dich auf den Moment."
 
 #: aphront/response/Aphront403Response.php:22
 msgid "You do not have privileges to access the requested page."
@@ -37950,7 +37950,7 @@ msgstr ""
 #: aphront/response/Aphront403Response.php:30
 #: aphront/response/Aphront403Response.php:35
 msgid "403 Forbidden"
-msgstr ""
+msgstr "403 Zugriff verweigert"
 
 #: aphront/response/Aphront403Response.php:31
 msgid "Peace Out"
@@ -38205,11 +38205,11 @@ msgstr ""
 #: applications/almanac/management/AlmanacManagementLockWorkflow.php:32
 #, php-format
 msgid "Service \"%s\" is already locked!"
-msgstr ""
+msgstr "Dienst \"%s\" ist bereits gesperrt!"
 
 #: applications/almanac/management/AlmanacManagementLockWorkflow.php:42
 msgid "LOCKED"
-msgstr ""
+msgstr "GESPERRT"
 
 #: applications/almanac/management/AlmanacManagementLockWorkflow.php:43
 #, php-format
@@ -40380,7 +40380,7 @@ msgstr ""
 #: applications/calendar/storage/__tests__/PhabricatorCalendarHolidayTestCase.php:35
 #, php-format
 msgid "%d business days since '%s'"
-msgstr ""
+msgstr "%s Werktage seit '%s'"
 
 #: applications/calendar/view/AphrontCalendarEventView.php:119
 msgid "Events are only rendered indirectly."
@@ -40418,15 +40418,15 @@ msgstr ""
 
 #: applications/celerity/postprocessor/CelerityDefaultPostprocessor.php:13
 msgid "Use Default Colors"
-msgstr ""
+msgstr "Standard-Farbpalette"
 
 #: applications/celerity/postprocessor/CelerityHighContrastPostprocessor.php:11
 msgid "Use High Contrast Colors"
-msgstr ""
+msgstr "Farben mit hohem Kontrast"
 
 #: applications/celerity/postprocessor/CelerityLargeFontPostprocessor.php:11
 msgid "Use Larger Font Size"
-msgstr ""
+msgstr "Große Schrift"
 
 #: applications/chatlog/conduit/ChatLogQueryConduitAPIMethod.php:14
 msgid "Retrieve chatter."
@@ -42297,7 +42297,7 @@ msgstr ""
 
 #: applications/conpherence/application/PhabricatorConpherenceApplication.php:14
 msgid "Chat with Others"
-msgstr ""
+msgstr "Mit anderen Benutzern chatten"
 
 #: applications/conpherence/application/PhabricatorConpherenceApplication.php:61
 #: applications/conpherence/phid/PhabricatorConpherenceThreadPHIDType.php:8
@@ -45565,7 +45565,7 @@ msgstr ""
 
 #: applications/files/application/PhabricatorFilesApplication.php:14
 msgid "Store and Share Files"
-msgstr ""
+msgstr "Dateien ablegen und teilen"
 
 #: applications/files/application/PhabricatorFilesApplication.php:49
 #, php-format
@@ -56040,7 +56040,7 @@ msgstr ""
 
 #: view/layout/AphrontMoreView.php:30
 msgid "Show More"
-msgstr ""
+msgstr "Mehr anzeigen"
 
 #: view/layout/AphrontMultiColumnView.php:70
 msgid "No more than 7 columns per view."
@@ -56053,19 +56053,19 @@ msgstr ""
 
 #: view/page/menu/PhabricatorMainMenuSearchView.php:121
 msgid "Search All Documents"
-msgstr ""
+msgstr "Suche in allen Dokumenten"
 
 #: view/page/menu/PhabricatorMainMenuSearchView.php:137
 msgid "Search Current Application"
-msgstr ""
+msgstr "Suche in aktueller Applikation"
 
 #: view/page/menu/PhabricatorMainMenuSearchView.php:165
 msgid "More Options"
-msgstr ""
+msgstr "Weitere Optionen"
 
 #: view/page/menu/PhabricatorMainMenuSearchView.php:176
 msgid "User Guide: Search"
-msgstr ""
+msgstr "Suche in der Anleitung"
 
 #: view/page/PhabricatorStandardPageView.php:162
 #, php-format
@@ -56078,7 +56078,7 @@ msgstr ""
 
 #: view/phui/calendar/PHUICalendarDayView.php:240
 msgid "Day is out of query range"
-msgstr ""
+msgstr "Der Tag liegt außerhalb des Abfragebereichs."
 
 #: view/phui/calendar/PHUICalendarDayView.php:315
 msgid "Tomorrow"
@@ -56153,11 +56153,11 @@ msgstr ""
 
 #: view/phui/PHUITimelineView.php:130
 msgid "Older changes are hidden. "
-msgstr ""
+msgstr "Ältere Änderungen werden nicht angezeigt."
 
 #: view/phui/PHUITimelineView.php:139
 msgid "Show older changes."
-msgstr ""
+msgstr "Ältere Änderungen zeigen."
 
 #: view/__tests__/PhabricatorLocalTimeTestCase.php:15
 msgid "Datetime formatting"
