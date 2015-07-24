@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Phabricator\n"
 "POT-Creation-Date: 2014-05-18 07:31+0200\n"
-"PO-Revision-Date: 2015-07-24 11:17+0100\n"
+"PO-Revision-Date: 2015-07-24 12:28+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: German <peter@schlaile.de>\n"
 "Language: \n"
@@ -23322,17 +23322,17 @@ msgstr ""
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:736
 #, php-format
 msgid "%s updated a token."
-msgstr ""
+msgstr "%s hat eine Trophäe geändert."
 
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:740
 #, php-format
 msgid "%s rescinded a token."
-msgstr ""
+msgstr "%s hat eine Trophäe zurückgezogen."
 
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:744
 #, php-format
 msgid "%s awarded a token."
-msgstr ""
+msgstr "%s hat eine Trophäe verliehen."
 
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:758
 #, php-format
@@ -39754,15 +39754,15 @@ msgstr ""
 #: applications/calendar/controller/PhabricatorCalendarEventCancelController.php:98
 #: applications/calendar/controller/PhabricatorCalendarEventViewController.php:232
 msgid "Reinstate Event"
-msgstr ""
+msgstr "Termin wieder aktivieren"
 
 #: applications/calendar/controller/PhabricatorCalendarEventCancelController.php:96
 msgid "Reinstate this event?"
-msgstr ""
+msgstr "Den Termin wirklich wieder aktivieren?"
 
 #: applications/calendar/controller/PhabricatorCalendarEventCancelController.php:97
 msgid "Don't Reinstate Event"
-msgstr ""
+msgstr "Termin nicht wieder aktivieren"
 
 #: applications/calendar/controller/PhabricatorCalendarEventCancelController.php:102
 #: applications/calendar/controller/PhabricatorCalendarEventCancelController.php:106
@@ -40140,7 +40140,7 @@ msgstr "%s hat diesen Termin erzeugt."
 #: applications/calendar/storage/PhabricatorCalendarEventTransaction.php:125
 #, php-format
 msgid "%s changed the name of this event from %s to %s."
-msgstr ""
+msgstr "%s hat den Namen des Termins von %s auf %s geändert."
 
 #: applications/calendar/storage/PhabricatorCalendarEventTransaction.php:133
 #, php-format
@@ -40170,7 +40170,7 @@ msgstr "%s hat diesen Termin von einem Ganztagestermin zurückgeändert."
 #: applications/calendar/storage/PhabricatorCalendarEventTransaction.php:160
 #, php-format
 msgid "%s set this event's icon to %s."
-msgstr ""
+msgstr "%s hat das Symbol dieses Termins auf %s geändert."
 
 #: applications/calendar/storage/PhabricatorCalendarEventTransaction.php:167
 #, php-format
@@ -40200,7 +40200,7 @@ msgstr "%s hat die Teilnahme an diesem Termin abgesagt."
 #: applications/calendar/storage/PhabricatorCalendarEventTransaction.php:204
 #, php-format
 msgid "%s has changed their status for this event."
-msgstr ""
+msgstr "%s hat die eigene Auffassung zu diesem Termin nochmal überdacht."
 
 #: applications/calendar/storage/PhabricatorCalendarEventTransaction.php:235
 #, php-format
@@ -40291,7 +40291,7 @@ msgstr "%s hat %s aus einem Ganztagestermin erstellt."
 #: applications/project/storage/PhabricatorProjectTransaction.php:305
 #, php-format
 msgid "%s set the icon for %s to %s."
-msgstr ""
+msgstr "%s hat das Symbol für %s auf %s gesetzt."
 
 #: applications/calendar/storage/PhabricatorCalendarEventTransaction.php:367
 #, php-format
@@ -40301,7 +40301,7 @@ msgstr "%s hat %s abgesagt."
 #: applications/calendar/storage/PhabricatorCalendarEventTransaction.php:372
 #, php-format
 msgid "%s reinstated %s."
-msgstr ""
+msgstr "%s hat %s reaktiviert."
 
 #: applications/calendar/storage/PhabricatorCalendarEventTransaction.php:390
 #, php-format
@@ -40321,7 +40321,7 @@ msgstr "%s hat die Teilnahme an %s abgesagt."
 #: applications/calendar/storage/PhabricatorCalendarEventTransaction.php:409
 #, php-format
 msgid "%s has changed their status of %s."
-msgstr ""
+msgstr "%s hat den eigenen Status bezüglich %s geändert."
 
 #: applications/calendar/storage/PhabricatorCalendarEventTransaction.php:441
 #, php-format
