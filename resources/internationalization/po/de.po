@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Phabricator\n"
 "POT-Creation-Date: 2014-05-18 07:31+0200\n"
-"PO-Revision-Date: 2015-07-24 19:21+0100\n"
+"PO-Revision-Date: 2015-07-25 21:46+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: German <peter@schlaile.de>\n"
 "Language: \n"
@@ -8154,7 +8154,7 @@ msgstr "Nur Aufgaben zeigen, die keinem Projekt zugeordnet sind."
 
 #: applications/search/query/PhabricatorSearchApplicationSearchEngine.php:166
 msgid "In Any Project"
-msgstr "In irgendeinem Projekt"
+msgstr "In einem der Projekte"
 
 msgid "Not In Projects"
 msgstr ""
@@ -11071,7 +11071,7 @@ msgstr ""
 #: applications/repository/management/PhabricatorRepositoryManagementImportingWorkflow.php:69
 #: applications/search/query/PhabricatorSearchApplicationSearchEngine.php:154
 msgid "Owners"
-msgstr ""
+msgstr "Besitzer"
 
 #: applications/owners/controller/PhabricatorOwnersDetailController.php:174
 #: applications/owners/controller/PhabricatorOwnersEditController.php:150
@@ -11205,7 +11205,7 @@ msgstr ""
 
 #: applications/owners/config/PhabricatorOwnersConfigOptions.php:11
 msgid "Configure Owners."
-msgstr ""
+msgstr "Besitzer konfigurieren."
 
 msgid "Reply handler for owners mail."
 msgstr ""
@@ -15828,7 +15828,7 @@ msgstr ""
 
 #: applications/diffusion/controller/DiffusionBrowseController.php:128
 msgid "Find Owners"
-msgstr ""
+msgstr "Besitzer finden"
 
 #: applications/diffusion/controller/DiffusionBrowseController.php:178
 msgid "Tag Content"
@@ -20609,11 +20609,11 @@ msgstr ""
 
 #: applications/nuance/storage/NuanceItem.php:128
 msgid "Owners of an item can always view it."
-msgstr ""
+msgstr "Besitzer eines Objekts dürfen dieses immer sehen."
 
 #: applications/nuance/storage/NuanceItem.php:130
 msgid "Owners of an item can always edit it."
-msgstr ""
+msgstr "Besitzer eines Objekts dürfen dieses immer ändern."
 
 #: applications/nuance/capability/NuanceSourceDefaultViewCapability.php:9
 msgid "Default Source View Policy"
@@ -22278,7 +22278,7 @@ msgstr "Dokumenten-Status"
 
 #: applications/search/query/PhabricatorSearchApplicationSearchEngine.php:124
 msgid "Document Types"
-msgstr ""
+msgstr "Dokumentenart"
 
 msgid "Show only unowned documents."
 msgstr ""
@@ -26239,7 +26239,7 @@ msgstr ""
 
 #: applications/auth/storage/PhabricatorAuthSession.php:106
 msgid "A session is visible only to its owner."
-msgstr ""
+msgstr "Eine Sitzung ist nur für deren Besitzer sichtbar."
 
 #, php-format
 msgid "Two auth factors (with classes \"%s\" and \"%s\") both provide implementations with the same key (\"%s\"). Each factor must have a unique key."
@@ -27635,7 +27635,7 @@ msgid "signers of legalpad documents"
 msgstr ""
 
 msgid "Type a document title..."
-msgstr ""
+msgstr "Einen Dokumententitel eintippen..."
 
 #, php-format
 msgid "Email addresses should be in the form 'user@domain.com'. The maximum length of an email address is %d character(s)."
@@ -29335,7 +29335,7 @@ msgstr "Benutzer, Projekt oder Mailing-Liste eintippen..."
 
 #: applications/macro/typeahead/PhabricatorMacroDatasource.php:6
 msgid "Type a macro name..."
-msgstr ""
+msgstr "Einen Makro-Namen eintippen..."
 
 #: view/phui/calendar/PHUICalendarListView.php:49
 msgid "All Day"
@@ -31385,7 +31385,7 @@ msgid "Command Center"
 msgstr ""
 
 msgid "Type a user name or \"none\"..."
-msgstr ""
+msgstr "Einen Benutzernamen oder \"none\" eintippen..."
 
 #: applications/people/typeahead/PhabricatorPeopleNoOwnerDatasource.php:13
 msgid "Type \"none\"..."
@@ -31443,7 +31443,7 @@ msgstr ""
 
 #: applications/diffusion/typeahead/DiffusionSymbolDatasource.php:17
 msgid "Type a symbol name..."
-msgstr ""
+msgstr "Einen Symbolnamen eintippen..."
 
 msgid "Type an arcanist project name..."
 msgstr ""
@@ -32337,7 +32337,7 @@ msgstr ""
 
 #: applications/legalpad/typeahead/LegalpadDocumentDatasource.php:15
 msgid "Type a document name..."
-msgstr ""
+msgstr "Den Namen eines Dokumentes eintippen..."
 
 #: applications/legalpad/editor/LegalpadDocumentEditor.php:13
 #: applications/legalpad/query/LegalpadDocumentSearchEngine.php:7
@@ -32642,7 +32642,7 @@ msgid "Drydock Logs"
 msgstr ""
 
 msgid "Type a mailing list name..."
-msgstr ""
+msgstr "Einen Mailing-Listen-Namen eintippen..."
 
 #: applications/people/query/PhabricatorPeopleSearchEngine.php:51
 msgid "Mailing Lists"
@@ -36204,7 +36204,7 @@ msgstr ""
 
 #: applications/maniphest/typeahead/ManiphestTaskStatusDatasource.php:11
 msgid "Type a task status name..."
-msgstr ""
+msgstr "Einen Aufgabenstatus eintippen..."
 
 msgid "Choose a default priority for newly created tasks. You can review and adjust available priorities by using the {{maniphest.priorities}} configuration option. The default value (`90`) corresponds to the default \"Needs Triage\" priority."
 msgstr ""
@@ -47043,7 +47043,7 @@ msgstr ""
 
 #: applications/maniphest/command/ManiphestAssignEmailCommand.php:15
 msgid "Assign a task to a specific user."
-msgstr ""
+msgstr "Weise eine Aufgabe einem bestimmten Benutzer zu."
 
 #: applications/maniphest/command/ManiphestAssignEmailCommand.php:20
 #, php-format
@@ -47055,15 +47055,15 @@ msgstr ""
 
 #: applications/maniphest/command/ManiphestClaimEmailCommand.php:11
 msgid "Assign yourself as the owner of a task."
-msgstr ""
+msgstr "Reiße eine Aufgabe an Dich."
 
 #: applications/maniphest/command/ManiphestCloseEmailCommand.php:11
 msgid "Close a task."
-msgstr ""
+msgstr "Eine Aufgabe abschließen."
 
 #: applications/maniphest/command/ManiphestPriorityEmailCommand.php:15
 msgid "Change the priority of a task."
-msgstr ""
+msgstr "Ändere die Priorität einer Aufgabe."
 
 #: applications/maniphest/command/ManiphestPriorityEmailCommand.php:32
 #, php-format
@@ -47077,7 +47077,7 @@ msgstr ""
 
 #: applications/maniphest/command/ManiphestStatusEmailCommand.php:15
 msgid "Change the status of a task."
-msgstr ""
+msgstr "Ändere den Status einer Aufgabe."
 
 #: applications/maniphest/command/ManiphestStatusEmailCommand.php:32
 #, php-format
@@ -47104,7 +47104,7 @@ msgstr ""
 
 #: applications/maniphest/conduit/ManiphestCreateTaskConduitAPIMethod.php:11
 msgid "Create a new Maniphest task."
-msgstr ""
+msgstr "Erstelle eine neue Maniphest-Aufgabe."
 
 #: applications/maniphest/conduit/ManiphestGetTaskTransactionsConduitAPIMethod.php:11
 msgid "Retrieve Maniphest task transactions."
@@ -47179,7 +47179,7 @@ msgstr ""
 
 #: applications/maniphest/controller/ManiphestBatchEditController.php:31
 msgid "No tasks are selected."
-msgstr ""
+msgstr "Keine Aufgaben ausgewählt."
 
 #: applications/maniphest/controller/ManiphestBatchEditController.php:48
 msgid "You don't have permission to edit any of the selected tasks."
@@ -47187,7 +47187,7 @@ msgstr ""
 
 #: applications/maniphest/controller/ManiphestBatchEditController.php:199
 msgid "Selected Tasks"
-msgstr ""
+msgstr "Ausgewählte Aufgaben"
 
 #: applications/maniphest/controller/ManiphestExportController.php:33
 #, php-format
@@ -47201,7 +47201,7 @@ msgstr ""
 #: applications/maniphest/controller/ManiphestReportController.php:174
 #, php-format
 msgid "Week of %s"
-msgstr ""
+msgstr "Woche vom %s"
 
 #: applications/maniphest/controller/ManiphestTaskDetailController.php:114
 msgid "New task created. Create another?"
@@ -47220,7 +47220,7 @@ msgstr "%s hat %s blockierende Aufgaben hinzugefügt: %s."
 #: applications/maniphest/edge/ManiphestTaskDependedOnByTaskEdgeType.php:32
 #, php-format
 msgid "%s removed %s blocked task(s): %s."
-msgstr ""
+msgstr "%s hat %s blockierende Aufgaben entfernt: %s."
 
 #: applications/maniphest/edge/ManiphestTaskDependedOnByTaskEdgeType.php:47
 #, php-format
@@ -47456,7 +47456,7 @@ msgstr ""
 
 #: applications/maniphest/typeahead/ManiphestAssigneeDatasource.php:11
 msgid "Type a username or \"none\"..."
-msgstr ""
+msgstr "Einen Benutzernamen oder \"none\" eintippen..."
 
 #: applications/maniphest/typeahead/ManiphestTaskClosedStatusDatasource.php:9
 msgid "Browse Any Closed Status"
@@ -47511,7 +47511,7 @@ msgstr ""
 
 #: applications/maniphest/typeahead/ManiphestTaskStatusFunctionDatasource.php:11
 msgid "Type a task status name or function..."
-msgstr ""
+msgstr "Einen Aufgabenstatus oder eine Funktion eintippen..."
 
 #: applications/maniphest/view/ManiphestTaskListView.php:48
 msgid "No tasks."
@@ -48053,7 +48053,7 @@ msgstr ""
 
 #: applications/metamta/typeahead/PhabricatorMetaMTAMailableFunctionDatasource.php:11
 msgid "Type a username, project, mailing list, or function..."
-msgstr ""
+msgstr "Benutzername, Projekt, Mailing-Liste oder Funktion eintippen..."
 
 #: applications/meta/query/PhabricatorAppSearchEngine.php:149
 msgid "Show Applications w/ App Email Support"
@@ -49167,7 +49167,7 @@ msgstr ""
 #: applications/people/typeahead/PhabricatorPeopleOwnerDatasource.php:11
 #: applications/people/typeahead/PhabricatorPeopleUserFunctionDatasource.php:11
 msgid "Type a username or function..."
-msgstr ""
+msgstr "Benutzernamen oder Funktion eintippen..."
 
 #: applications/people/typeahead/PhabricatorViewerDatasource.php:7
 msgid "Browse Viewer"
@@ -50780,7 +50780,7 @@ msgstr ""
 
 #: applications/project/typeahead/PhabricatorProjectLogicalDatasource.php:11
 msgid "Type a project name or function..."
-msgstr ""
+msgstr "Projektnamen oder Funktion eintippen..."
 
 #: applications/project/typeahead/PhabricatorProjectLogicalOrNotDatasource.php:11
 msgid "Type any(<project>) or not(<project>)..."
@@ -52286,7 +52286,7 @@ msgstr ""
 
 #: applications/search/engine/PhabricatorMySQLSearchEngine.php:22
 msgid "Document has no PHID!"
-msgstr ""
+msgstr "Das Dokument hat keine PHID!"
 
 #: applications/search/field/PhabricatorSearchDateField.php:30
 #, php-format
@@ -52305,11 +52305,11 @@ msgstr ""
 
 #: applications/search/management/PhabricatorSearchManagementIndexWorkflow.php:9
 msgid "Build or rebuild search indexes."
-msgstr ""
+msgstr "Erstelle (erneut) die Suchindices."
 
 #: applications/search/management/PhabricatorSearchManagementIndexWorkflow.php:18
 msgid "Reindex all documents."
-msgstr ""
+msgstr "Reindexiere alle Dokumente."
 
 #: applications/search/management/PhabricatorSearchManagementIndexWorkflow.php:23
 msgid "PHID type to reindex, like \"TASK\" or \"DREV\"."
@@ -52331,7 +52331,7 @@ msgstr ""
 
 #: applications/search/management/PhabricatorSearchManagementIndexWorkflow.php:68
 msgid "Nothing to index!"
-msgstr ""
+msgstr "Habe nichts zum Indexieren!"
 
 #: applications/search/management/PhabricatorSearchManagementIndexWorkflow.php:82
 #, php-format
@@ -52345,29 +52345,29 @@ msgstr ""
 
 #: applications/search/management/PhabricatorSearchManagementInitWorkflow.php:9
 msgid "Initialize or repair an index."
-msgstr ""
+msgstr "Einen Index initialisieren oder reparieren."
 
 #: applications/search/management/PhabricatorSearchManagementInitWorkflow.php:22
 msgid "Index does not exist, creating..."
-msgstr ""
+msgstr "Index existiert nicht, erstelle einen..."
 
 #: applications/search/management/PhabricatorSearchManagementInitWorkflow.php:26
 #: applications/search/management/PhabricatorSearchManagementInitWorkflow.php:35
 msgid "done."
-msgstr ""
+msgstr "erledigt."
 
 #: applications/search/management/PhabricatorSearchManagementInitWorkflow.php:31
 msgid "Index exists but is incorrect, fixing..."
-msgstr ""
+msgstr "Index existiert, ist aber kaputt, korrigiere..."
 
 #: applications/search/management/PhabricatorSearchManagementInitWorkflow.php:43
 #, php-format
 msgid "Index maintenance complete. Run `%s` to reindex documents"
-msgstr ""
+msgstr "Index-Wartung abgeschlossen. Starte `%s` um die Dokumente zu reindexieren"
 
 #: applications/search/management/PhabricatorSearchManagementInitWorkflow.php:48
 msgid "Nothing to do."
-msgstr ""
+msgstr "Hier gibt es nichts zu tun."
 
 #: applications/search/typeahead/PhabricatorSearchDatasource.php:7
 msgid "Browse Results"
@@ -52379,7 +52379,7 @@ msgstr ""
 
 #: applications/search/typeahead/PhabricatorSearchDocumentTypeDatasource.php:11
 msgid "Select a document type..."
-msgstr ""
+msgstr "Wähle eine Dokumentenart..."
 
 #: applications/settings/panel/PhabricatorAccountSettingsPanel.php:77
 #, php-format
@@ -54330,7 +54330,7 @@ msgstr ""
 
 #: infrastructure/customfield/datasource/PhabricatorStandardSelectCustomFieldDatasource.php:11
 msgid "Type a field value..."
-msgstr ""
+msgstr "Feldwert eintippen..."
 
 #: infrastructure/customfield/datasource/PhabricatorStandardSelectCustomFieldDatasource.php:25
 #, php-format
