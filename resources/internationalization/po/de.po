@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Phabricator\n"
 "POT-Creation-Date: 2014-05-18 07:31+0200\n"
-"PO-Revision-Date: 2015-07-27 15:12+0100\n"
+"PO-Revision-Date: 2015-07-27 19:26+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: German <peter@schlaile.de>\n"
 "Language: \n"
@@ -52258,7 +52258,7 @@ msgstr ""
 #: applications/spaces/editor/PhabricatorSpacesNamespaceEditor.php:11
 #: applications/spaces/query/PhabricatorSpacesNamespaceSearchEngine.php:11
 msgid "Spaces"
-msgstr ""
+msgstr "Zonen"
 
 #: applications/search/engine/PhabricatorApplicationSearchEngine.php:286
 #, php-format
@@ -52585,23 +52585,23 @@ msgstr ""
 
 #: applications/spaces/application/PhabricatorSpacesApplication.php:40
 msgid "Spaces User Guide"
-msgstr ""
+msgstr "Benutzerhandbuch für Zonen"
 
 #: applications/spaces/application/PhabricatorSpacesApplication.php:71
 msgid "Default view policy for newly created spaces."
-msgstr ""
+msgstr "Standard Sichtbarkeits-Richtlinie für neu erzeugte Zonen."
 
 #: applications/spaces/application/PhabricatorSpacesApplication.php:76
 msgid "Default edit policy for newly created spaces."
-msgstr ""
+msgstr "Standard Editier-Richtline für neu erzeugte Zonen."
 
 #: applications/spaces/capability/PhabricatorSpacesCapabilityCreateSpaces.php:9
 msgid "Can Create Spaces"
-msgstr ""
+msgstr "Darf Zonen erzeugen"
 
 #: applications/spaces/capability/PhabricatorSpacesCapabilityCreateSpaces.php:13
 msgid "You do not have permission to create spaces."
-msgstr ""
+msgstr "Du hast keine Berechtigung, um Zonen zu erzeugen."
 
 #: applications/spaces/controller/PhabricatorSpacesArchiveController.php:46
 #, php-format
@@ -52619,37 +52619,37 @@ msgstr ""
 #: applications/spaces/controller/PhabricatorSpacesArchiveController.php:53
 #: applications/spaces/controller/PhabricatorSpacesViewController.php:134
 msgid "Archive Space"
-msgstr ""
+msgstr "Zone archivieren"
 
 #: applications/spaces/controller/PhabricatorSpacesArchiveController.php:55
 #, php-format
 msgid "Activate Space: %s"
-msgstr ""
+msgstr "Zone %s aktivieren"
 
 #: applications/spaces/controller/PhabricatorSpacesArchiveController.php:57
 msgid "If you activate this space, you will be able to create objects inside it again."
-msgstr ""
+msgstr "Wenn Du diese Zone aktivierst, kannst Du wieder Objekte darin erzeugen."
 
 #: applications/spaces/controller/PhabricatorSpacesArchiveController.php:60
 msgid "Existing objects will no longer be hidden from query results."
-msgstr ""
+msgstr "Bestehende Objekte werden zukünftig nicht mehr in Suchergebnissen unterdrückt."
 
 #: applications/spaces/controller/PhabricatorSpacesArchiveController.php:61
 #: applications/spaces/controller/PhabricatorSpacesViewController.php:126
 msgid "Activate Space"
-msgstr ""
+msgstr "Zone aktivieren"
 
 #: applications/spaces/controller/PhabricatorSpacesEditController.php:30
 #: applications/spaces/controller/PhabricatorSpacesViewController.php:115
 msgid "Edit Space"
-msgstr ""
+msgstr "Zone ändern"
 
 #: applications/spaces/controller/PhabricatorSpacesEditController.php:41
 #: applications/spaces/controller/PhabricatorSpacesEditController.php:42
 #: applications/spaces/controller/PhabricatorSpacesEditController.php:43
 #: applications/spaces/controller/PhabricatorSpacesListController.php:43
 msgid "Create Space"
-msgstr ""
+msgstr "Zone erzeugen"
 
 #: applications/spaces/controller/PhabricatorSpacesEditController.php:126
 msgid "NOTE: You are creating the **default space**. All existing objects will be put into this space. You must create a default space before you can create other spaces."
@@ -52657,7 +52657,7 @@ msgstr ""
 
 #: applications/spaces/controller/PhabricatorSpacesNoAccessController.php:10
 msgid "No Access to Spaces"
-msgstr ""
+msgstr "Keine Berechtigung für Zonen"
 
 #: applications/spaces/controller/PhabricatorSpacesNoAccessController.php:11
 msgid "Drift Aimlessly"
@@ -52665,7 +52665,7 @@ msgstr ""
 
 #: applications/spaces/controller/PhabricatorSpacesNoAccessController.php:17
 msgid "This install uses spaces to organize objects, but your account does not have access to any spaces."
-msgstr ""
+msgstr "Diese Installation nutzt Zonen, um Objekte zu organisieren, Dein Konto hat jedoch keinen Zugriff auf irgendeine Zone."
 
 #: applications/spaces/controller/PhabricatorSpacesNoAccessController.php:21
 msgid "Ask someone to give you access to a space so you can view and create objects."
@@ -52690,7 +52690,7 @@ msgstr ""
 #: applications/spaces/__tests__/PhabricatorSpacesTestCase.php:80
 #: applications/spaces/__tests__/PhabricatorSpacesTestCase.php:113
 msgid "Default Space"
-msgstr ""
+msgstr "Vorgabezone"
 
 #: applications/spaces/editor/PhabricatorSpacesNamespaceEditor.php:7
 msgid "PhabricatorSpacesApplication"
@@ -52698,66 +52698,66 @@ msgstr ""
 
 #: applications/spaces/editor/PhabricatorSpacesNamespaceEditor.php:140
 msgid "Spaces must have a name."
-msgstr ""
+msgstr "Zonen müssen einen Namen haben"
 
 #: applications/spaces/editor/PhabricatorSpacesNamespaceEditor.php:154
 msgid "Only the first space created can be the default space, and it must remain the default space evermore."
-msgstr ""
+msgstr "Nur die erste erzeugte Zone kann die Vorgabezone sein, und sie muß es auch für immer bleiben."
 
 #: applications/spaces/query/PhabricatorSpacesNamespaceQuery.php:199
 #, php-format
 msgid "Space %s: %s"
-msgstr ""
+msgstr "Zone %s: %s"
 
 #: applications/spaces/query/PhabricatorSpacesNamespaceSearchEngine.php:25
 msgid "Show Only Active Spaces"
-msgstr ""
+msgstr "Nur aktive Zonen zeigen"
 
 #: applications/spaces/query/PhabricatorSpacesNamespaceSearchEngine.php:26
 msgid "Hide Active Spaces"
-msgstr ""
+msgstr "Aktive Zonen verstecken"
 
 #: applications/spaces/query/PhabricatorSpacesNamespaceSearchEngine.php:46
 msgid "Active Spaces"
-msgstr ""
+msgstr "Aktive Zonen"
 
 #: applications/spaces/query/PhabricatorSpacesNamespaceSearchEngine.php:47
 msgid "All Spaces"
-msgstr ""
+msgstr "Alle Zonen"
 
 #: applications/spaces/query/PhabricatorSpacesNamespaceSearchEngine.php:96
 msgid "No spaces found."
-msgstr ""
+msgstr "Keine Zonen gefunden."
 
 #: applications/spaces/storage/PhabricatorSpacesNamespaceTransaction.php:65
 #, php-format
 msgid "%s created this space."
-msgstr ""
+msgstr "%s hat diese Zone erzeugt."
 
 #: applications/spaces/storage/PhabricatorSpacesNamespaceTransaction.php:69
 #, php-format
 msgid "%s renamed this space from \"%s\" to \"%s\"."
-msgstr ""
+msgstr "%s hat diese Zone von \"%s\" nach \"%s\" umbenannt."
 
 #: applications/spaces/storage/PhabricatorSpacesNamespaceTransaction.php:76
 #, php-format
 msgid "%s updated the description for this space."
-msgstr ""
+msgstr "%s hat die Beschreibung dieser Zone geändert."
 
 #: applications/spaces/storage/PhabricatorSpacesNamespaceTransaction.php:80
 #, php-format
 msgid "%s made this the default space."
-msgstr ""
+msgstr "%s hat diese Zone zur Vorgabezone gemacht."
 
 #: applications/spaces/storage/PhabricatorSpacesNamespaceTransaction.php:85
 #, php-format
 msgid "%s archived this space."
-msgstr ""
+msgstr "%s hat diese Zone archiviert."
 
 #: applications/spaces/storage/PhabricatorSpacesNamespaceTransaction.php:89
 #, php-format
 msgid "%s activated this space."
-msgstr ""
+msgstr "%s hat diese Zone aktiviert."
 
 #: applications/spaces/__tests__/PhabricatorSpacesTestCase.php:18
 msgid "Test Space"
@@ -52774,15 +52774,15 @@ msgstr ""
 
 #: applications/spaces/typeahead/PhabricatorSpacesNamespaceDatasource.php:7
 msgid "Browse Spaces"
-msgstr ""
+msgstr "Zonen durchsuchen"
 
 #: applications/spaces/typeahead/PhabricatorSpacesNamespaceDatasource.php:11
 msgid "Type a space name..."
-msgstr ""
+msgstr "Einen Zonennamen eintippen..."
 
 #: applications/subscriptions/command/PhabricatorSubscriptionsSubscribeEmailCommand.php:15
 msgid "Add users or projects as subscribers."
-msgstr ""
+msgstr "Benutzer oder Projekte als Mitleser hinzufügen."
 
 #: applications/subscriptions/command/PhabricatorSubscriptionsSubscribeEmailCommand.php:20
 #, php-format
@@ -52878,17 +52878,17 @@ msgstr ""
 #: applications/transactions/edges/PhabricatorObjectHasFileEdgeType.php:21
 #, php-format
 msgid "%s added %s file(s): %s."
-msgstr ""
+msgstr "%s hat %s Dateien hinzugefügt: %s."
 
 #: applications/transactions/edges/PhabricatorObjectHasFileEdgeType.php:33
 #, php-format
 msgid "%s removed %s file(s): %s."
-msgstr ""
+msgstr "%s hat %s Dateien entfernt: %s."
 
 #: applications/transactions/edges/PhabricatorObjectHasFileEdgeType.php:48
 #, php-format
 msgid "%s edited file(s), added %s: %s; removed %s: %s."
-msgstr ""
+msgstr "%s hat Dateien geändert, %s hinzugefügt: %s; %s entfernt: %s."
 
 #: applications/transactions/edges/PhabricatorObjectHasFileEdgeType.php:63
 #, php-format
