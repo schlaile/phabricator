@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Phabricator\n"
 "POT-Creation-Date: 2014-05-18 07:31+0200\n"
-"PO-Revision-Date: 2015-07-27 12:58+0100\n"
+"PO-Revision-Date: 2015-07-27 15:12+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: German <peter@schlaile.de>\n"
 "Language: \n"
@@ -10803,7 +10803,7 @@ msgstr "Projektdetails"
 
 #: applications/phriction/controller/PhrictionDocumentController.php:253
 msgid "Last Author"
-msgstr "Letzter Auto"
+msgstr "Letzter Autor"
 
 #: view/phui/calendar/PHUICalendarDayView.php:313
 #: view/phui/PHUIHeaderView.php:127
@@ -30524,7 +30524,7 @@ msgstr ""
 
 #: applications/phriction/storage/PhrictionDocument.php:177
 msgid "To view a wiki document, you must also be able to view all of its parents."
-msgstr ""
+msgstr "Um ein Wikidokument ansehen zu dürfen, müssen auch alle Dokumente darüber im Baum für Dich sichtbar sein."
 
 #: applications/phriction/conduit/PhrictionCreateConduitAPIMethod.php:29
 #: applications/phriction/conduit/PhrictionEditConduitAPIMethod.php:40
