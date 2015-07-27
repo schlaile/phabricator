@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Phabricator\n"
 "POT-Creation-Date: 2014-05-18 07:31+0200\n"
-"PO-Revision-Date: 2015-07-27 19:26+0100\n"
+"PO-Revision-Date: 2015-07-27 22:31+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: German <peter@schlaile.de>\n"
 "Language: \n"
@@ -46797,7 +46797,7 @@ msgstr "Menüpunkte anpassen..."
 
 #: applications/home/controller/PhabricatorHomeMainController.php:193
 msgid "No tasks in projects you are a member of need triage."
-msgstr ""
+msgstr "Keine Aufgaben aus Projekten, in denen Du Teilnehmer bist, müssen priorisiert werden."
 
 #: applications/legalpad/application/PhabricatorLegalpadApplication.php:38
 msgid "Legalpad User Guide"
@@ -47013,15 +47013,15 @@ msgstr ""
 #: applications/maniphest/application/PhabricatorManiphestApplication.php:121
 #, php-format
 msgid "Send email to these addresses to create tasks. %s"
-msgstr ""
+msgstr "Schicke eine Email an diese Adressen, um Aufgaben zu erzeugen: %s"
 
 #: applications/maniphest/application/PhabricatorManiphestApplication.php:154
 msgid "Email Commands: Tasks"
-msgstr ""
+msgstr "Email Kommandos für Aufgaben"
 
 #: applications/maniphest/application/PhabricatorManiphestApplication.php:155
 msgid "Interacting with Maniphest Tasks"
-msgstr ""
+msgstr "Interaktion mit Maniphest Aufgaben"
 
 #: applications/maniphest/application/PhabricatorManiphestApplication.php:158
 msgid "This page documents the commands you can use to interact with tasks in Maniphest. These commands work when creating new tasks via email and when replying to existing tasks."
@@ -47225,32 +47225,32 @@ msgstr "%s hat %s blockierende Aufgaben entfernt: %s."
 #: applications/maniphest/edge/ManiphestTaskDependedOnByTaskEdgeType.php:47
 #, php-format
 msgid "%s edited blocked task(s), added %s: %s; removed %s: %s."
-msgstr ""
+msgstr "%s hat blockierende Aufgaben geändert, %s hinzugefügt: %s; %s entfernt: %s."
 
 #: applications/maniphest/edge/ManiphestTaskDependedOnByTaskEdgeType.php:62
 #, php-format
 msgid "%s added %s blocked task(s) for %s: %s."
-msgstr ""
+msgstr "%s hat %s blockierende Aufgaben zu %s hinzugefügt: %s."
 
 #: applications/maniphest/edge/ManiphestTaskDependedOnByTaskEdgeType.php:76
 #, php-format
 msgid "%s removed %s blocked task(s) for %s: %s."
-msgstr ""
+msgstr "%s hat %s blockierende Aufgaben von %s entfernt: %s."
 
 #: applications/maniphest/edge/ManiphestTaskDependedOnByTaskEdgeType.php:93
 #, php-format
 msgid "%s edited blocked task(s) for %s, added %s: %s; removed %s: %s."
-msgstr ""
+msgstr "%s hat blockierende Aufgaben von %s geändert, %s hinzugefügt: %s; %s entfernt: %s."
 
 #: applications/maniphest/edge/ManiphestTaskDependsOnTaskEdgeType.php:25
 #, php-format
 msgid "%s added %s blocking task(s): %s."
-msgstr ""
+msgstr "%s hat %s blockierende Aufgaben hinzugefügt: %s."
 
 #: applications/maniphest/edge/ManiphestTaskDependsOnTaskEdgeType.php:37
 #, php-format
 msgid "%s removed %s blocking task(s): %s."
-msgstr ""
+msgstr "%s hat %s blockierende Aufgaben entfernt: %s."
 
 #: applications/maniphest/edge/ManiphestTaskDependsOnTaskEdgeType.php:52
 #, php-format
