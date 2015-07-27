@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Phabricator\n"
 "POT-Creation-Date: 2014-05-18 07:31+0200\n"
-"PO-Revision-Date: 2015-07-25 21:46+0100\n"
+"PO-Revision-Date: 2015-07-27 12:58+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: German <peter@schlaile.de>\n"
 "Language: \n"
@@ -10143,7 +10143,7 @@ msgstr "Zulest geändert: %s"
 
 #, php-format
 msgid "Updated by: %s"
-msgstr ""
+msgstr "Geändert durch: %s"
 
 #, php-format
 msgid "Versions: %d"
@@ -11557,7 +11557,7 @@ msgstr ""
 #: applications/macro/storage/PhabricatorMacroTransaction.php:169
 #, php-format
 msgid "%s updated the image for %s."
-msgstr ""
+msgstr "%s hat das Bild für %s geändert."
 
 #: applications/macro/storage/PhabricatorMacroTransaction.php:177
 #, php-format
@@ -20442,7 +20442,7 @@ msgstr ""
 
 #, php-format
 msgid "Last updated %s."
-msgstr ""
+msgstr "Wurde %s zuletzt geändert."
 
 #: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:1077
 msgid "Waiting For Update"
@@ -21212,7 +21212,7 @@ msgstr ""
 
 #: applications/diffusion/panel/DiffusionSetPasswordSettingsPanel.php:267
 msgid "Password Updated"
-msgstr ""
+msgstr "Passwort wurde geändert"
 
 #: applications/diffusion/panel/DiffusionSetPasswordSettingsPanel.php:268
 msgid "Your VCS password has been updated."
@@ -23675,21 +23675,21 @@ msgstr ""
 #: applications/settings/panel/PhabricatorAccountSettingsPanel.php:46
 #, php-format
 msgid "%s updated their profile"
-msgstr ""
+msgstr "%s hat ihr Profil geändert"
 
 #: applications/settings/panel/PhabricatorAccountSettingsPanel.php:47
 #, php-format
 msgid "%s updated her profile"
-msgstr ""
+msgstr "%s hat ihr Profil geändert"
 
 #: applications/settings/panel/PhabricatorAccountSettingsPanel.php:48
 #, php-format
 msgid "%s updated his profile"
-msgstr ""
+msgstr "%s hat sein Profil geändert"
 
 #: applications/settings/panel/PhabricatorAccountSettingsPanel.php:89
 msgid "**Choose the pronoun you prefer:**"
-msgstr ""
+msgstr "**Wähle Deine Anrede:**"
 
 #: applications/settings/panel/PhabricatorAccountSettingsPanel.php:93
 msgid "Pronoun"
@@ -26772,7 +26772,7 @@ msgstr ""
 #: applications/phragment/controller/PhragmentBrowseController.php:69
 #, php-format
 msgid "Last Updated %s"
-msgstr ""
+msgstr "Zuletzt %s geändert"
 
 #: applications/phragment/controller/PhragmentBrowseController.php:74
 #, php-format
@@ -35766,7 +35766,7 @@ msgstr ""
 #: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:1068
 #, php-format
 msgid "Last updated %s (%s ago)."
-msgstr ""
+msgstr "Zuletzt %s geändert (%s her)."
 
 #: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:1141
 msgid "This repository will be updated soon!"
@@ -38623,7 +38623,7 @@ msgstr ""
 
 #: applications/audit/constants/PhabricatorAuditActionConstants.php:36
 msgid "commented on"
-msgstr ""
+msgstr "kommentierte"
 
 #: applications/audit/constants/PhabricatorAuditActionConstants.php:37
 msgid "raised a concern with"
@@ -38631,7 +38631,7 @@ msgstr ""
 
 #: applications/audit/constants/PhabricatorAuditActionConstants.php:38
 msgid "accepted"
-msgstr ""
+msgstr "akzeptiert"
 
 #: applications/audit/constants/PhabricatorAuditActionConstants.php:39
 msgid "resigned from"
@@ -38639,7 +38639,7 @@ msgstr ""
 
 #: applications/audit/constants/PhabricatorAuditActionConstants.php:40
 msgid "closed"
-msgstr ""
+msgstr "geschlossen"
 
 #: applications/audit/constants/PhabricatorAuditActionConstants.php:41
 msgid "added CCs to"
@@ -38651,12 +38651,12 @@ msgstr ""
 
 #: applications/audit/constants/PhabricatorAuditActionConstants.php:44
 msgid "updated"
-msgstr ""
+msgstr "geändert"
 
 #: applications/audit/editor/PhabricatorAuditEditor.php:32
 #, php-format
 msgid "Added by %s."
-msgstr ""
+msgstr "Wurde von %s hinzugefügt."
 
 #: applications/audit/editor/PhabricatorAuditEditor.php:439
 msgid "Requested by Author"
@@ -56027,7 +56027,7 @@ msgstr ""
 #: view/form/PHUIPagedFormView.php:47
 #, php-format
 msgid "No page '%s' exists!"
-msgstr ""
+msgstr "Seite '%s' existiert nicht!"
 
 #: view/form/PHUIPagedFormView.php:90
 #, php-format
@@ -56111,23 +56111,23 @@ msgstr ""
 
 #: view/phui/PHUIBadgeView.php:62
 msgid "Poor"
-msgstr ""
+msgstr "Bescheiden"
 
 #: view/phui/PHUIBadgeView.php:66
 msgid "Uncommon"
-msgstr ""
+msgstr "Ungewöhnlich"
 
 #: view/phui/PHUIBadgeView.php:68
 msgid "Rare"
-msgstr ""
+msgstr "Selten"
 
 #: view/phui/PHUIBadgeView.php:70
 msgid "Epic"
-msgstr ""
+msgstr "Episch"
 
 #: view/phui/PHUIBadgeView.php:72
 msgid "Legendary"
-msgstr ""
+msgstr "Legendär"
 
 #: view/phui/PHUIBadgeView.php:74
 msgid "Heirloom"
@@ -56136,7 +56136,7 @@ msgstr ""
 #: view/phui/PHUIHeaderView.php:134
 #, php-format
 msgid "Updated %s"
-msgstr ""
+msgstr "%s geändert"
 
 #: view/phui/PHUIHeaderView.php:282
 msgid "Incorrect Property Passed"
@@ -56165,15 +56165,15 @@ msgstr ""
 
 #: view/__tests__/PhabricatorLocalTimeTestCase.php:19
 msgid "Date formatting"
-msgstr ""
+msgstr "Datumsformatierung"
 
 #: view/__tests__/PhabricatorLocalTimeTestCase.php:23
 msgid "Time formatting"
-msgstr ""
+msgstr "Zeitformatierung"
 
 #: view/__tests__/PhabricatorLocalTimeTestCase.php:28
 msgid "Localization"
-msgstr ""
+msgstr "Lokalisierung"
 
 #: view/__tests__/PhabricatorLocalTimeTestCase.php:33
 msgid "Missing epoch should fail gracefully"
@@ -56185,7 +56185,7 @@ msgstr ""
 
 #: view/widget/AphrontStackTraceView.php:96
 msgid "Library"
-msgstr ""
+msgstr "Bibliothek"
 
 #: view/widget/AphrontStackTraceView.php:98
 msgid "Where"
