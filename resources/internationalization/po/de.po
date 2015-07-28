@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Phabricator\n"
 "POT-Creation-Date: 2014-05-18 07:31+0200\n"
-"PO-Revision-Date: 2015-07-27 22:31+0100\n"
+"PO-Revision-Date: 2015-07-28 16:07+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: German <peter@schlaile.de>\n"
 "Language: \n"
@@ -10241,20 +10241,20 @@ msgstr "Administratoren"
 #: applications/legalpad/storage/LegalpadDocument.php:138
 #: applications/policy/query/PhabricatorPolicyQuery.php:178
 msgid "No One"
-msgstr ""
+msgstr "Niemand"
 
 #: applications/policy/query/PhabricatorPolicyQuery.php:187
 msgid "Public"
-msgstr ""
+msgstr "Öffentlich"
 
 #: applications/policy/controller/PhabricatorPolicyEditController.php:237
 #: applications/policy/storage/PhabricatorPolicy.php:131
 msgid "Custom Policy"
-msgstr ""
+msgstr "Benutzerdefinierte Richtlinie"
 
 #: applications/policy/storage/PhabricatorPolicy.php:228
 msgid "This object is public."
-msgstr ""
+msgstr "Dieses Objekt ist öffentlich."
 
 #: applications/policy/storage/PhabricatorPolicy.php:230
 msgid "Logged in users can take this action."
@@ -10291,22 +10291,22 @@ msgstr "Dieses Objekt hat eine unbekannte oder ungültige Sichtbarkeitskonfigura
 #: applications/releeph/conduit/work/ReleephWorkGetBranchCommitMessageConduitAPIMethod.php:78
 #, php-format
 msgid "Project: %s"
-msgstr ""
+msgstr "Projekt: %s"
 
 #: applications/policy/storage/PhabricatorPolicy.php:267
 #, php-format
 msgid "Other: %s"
-msgstr ""
+msgstr "Andere: %s"
 
 #: applications/policy/storage/PhabricatorPolicy.php:302
 #, php-format
 msgid "%s (Project)"
-msgstr ""
+msgstr "%s (Projekt)"
 
 #: applications/policy/storage/PhabricatorPolicy.php:307
 #, php-format
 msgid "%s (You do not have permission to view policy details.)"
-msgstr ""
+msgstr "%s (Du hast keine Berechtigung, die Richtlinien-Details zu sehen.)"
 
 #: applications/files/controller/PhabricatorFileComposeController.php:218
 #: applications/policy/application/PhabricatorPolicyApplication.php:6
@@ -10314,7 +10314,7 @@ msgstr ""
 #: applications/policy/phid/PhabricatorPolicyPHIDTypePolicy.php:8
 #: applications/project/icon/PhabricatorProjectIcon.php:18
 msgid "Policy"
-msgstr ""
+msgstr "Richtlinie"
 
 #: applications/policy/filter/PhabricatorPolicyFilter.php:571
 #, php-format
@@ -10340,7 +10340,7 @@ msgstr ""
 #: applications/policy/filter/PhabricatorPolicyFilter.php:768
 #, php-format
 msgid "Access Denied: %s"
-msgstr ""
+msgstr "Zugriff verweigert: %s"
 
 #: applications/policy/filter/PhabricatorPolicyFilter.php:772
 #, php-format
@@ -10354,7 +10354,7 @@ msgstr ""
 
 #: applications/policy/constants/PhabricatorPolicyType.php:27
 msgid "Basic Policies"
-msgstr ""
+msgstr "Basis-Richtlinien"
 
 #: applications/policy/constants/PhabricatorPolicyType.php:33
 msgid "Advanced"
@@ -10372,11 +10372,11 @@ msgstr ""
 #: applications/config/option/PhabricatorCoreConfigOptions.php:226
 #: applications/policy/controller/PhabricatorPolicyEditController.php:36
 msgid "Allow"
-msgstr ""
+msgstr "Erlauben"
 
 #: applications/policy/controller/PhabricatorPolicyEditController.php:37
 msgid "Deny"
-msgstr ""
+msgstr "Ablehnen"
 
 #: applications/policy/controller/PhabricatorPolicyEditController.php:128
 msgid "None of these policy rules have any effect."
@@ -10384,19 +10384,19 @@ msgstr ""
 
 #: applications/policy/controller/PhabricatorPolicyEditController.php:187
 msgid "Rules"
-msgstr ""
+msgstr "Regeln"
 
 #: applications/policy/controller/PhabricatorPolicyEditController.php:197
 msgid "New Rule"
-msgstr ""
+msgstr "Neue Regel"
 
 #: applications/policy/controller/PhabricatorPolicyEditController.php:198
 msgid "These rules are processed in order."
-msgstr ""
+msgstr "Diese Regeln werden der Reihe nach abgearbeitet."
 
 #: applications/policy/controller/PhabricatorPolicyEditController.php:208
 msgid "If No Rules Match"
-msgstr ""
+msgstr "Wenn keine der Regeln zutrifft"
 
 #: applications/policy/controller/PhabricatorPolicyEditController.php:210
 #, php-format
@@ -10405,11 +10405,11 @@ msgstr ""
 
 #: applications/differential/customfield/DifferentialEditPolicyField.php:11
 msgid "Edit Policy"
-msgstr ""
+msgstr "Richtlinie ändern"
 
 #: applications/policy/controller/PhabricatorPolicyEditController.php:250
 msgid "Save Policy"
-msgstr ""
+msgstr "Richtlinie speichern"
 
 #: aphront/configuration/AphrontDefaultApplicationConfiguration.php:188
 #, php-format
@@ -10419,7 +10419,7 @@ msgstr ""
 #: applications/policy/controller/PhabricatorPolicyExplainController.php:72
 #, php-format
 msgid "Policy Details: %s"
-msgstr ""
+msgstr "Richtlinien-Details: %s"
 
 #: applications/auth/controller/PhabricatorAuthSSHKeyGenerateController.php:66
 #: applications/auth/controller/PhabricatorEmailLoginController.php:119
@@ -10435,7 +10435,7 @@ msgstr ""
 #: infrastructure/diff/view/PHUIDiffInlineCommentDetailView.php:340
 #: infrastructure/diff/view/PHUIDiffInlineCommentDetailView.php:345
 msgid "Done"
-msgstr ""
+msgstr "Erledigt"
 
 #: applications/policy/management/PhabricatorPolicyManagementUnlockWorkflow.php:30
 msgid "Specify the name of an object to unlock."
