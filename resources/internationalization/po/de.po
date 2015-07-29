@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Phabricator\n"
 "POT-Creation-Date: 2014-05-18 07:31+0200\n"
-"PO-Revision-Date: 2015-07-28 16:07+0100\n"
+"PO-Revision-Date: 2015-07-29 11:21+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: German <peter@schlaile.de>\n"
 "Language: \n"
@@ -32735,7 +32735,7 @@ msgstr "Aufgaben gruppieren"
 
 #: applications/project/editor/PhabricatorProjectTransactionEditor.php:278
 msgid "Project name can not be used due to hashtag collision."
-msgstr ""
+msgstr "Dieser Projektname ist wegen einer Hashtag-Kollision nicht verwendbar."
 
 #: applications/project/editor/PhabricatorProjectTransactionEditor.php:308
 #, php-format
@@ -32744,7 +32744,7 @@ msgstr ""
 
 #, php-format
 msgid "%d project hashtag(s) are already used: %s"
-msgstr ""
+msgstr "%d Projekt-Hashtag(s) werden bereits verwendet: %s."
 
 msgid "Trying to remove slug owned by another project!"
 msgstr ""
@@ -32818,33 +32818,33 @@ msgstr "Unbekanntes Icon"
 #: applications/project/edge/PhabricatorProjectObjectHasProjectEdgeType.php:24
 #, php-format
 msgid "%s added %s project(s): %s."
-msgstr ""
+msgstr "%s hat %s Projekt(e) hinzugefügt: %s."
 
 #: applications/project/edge/PhabricatorProjectMemberOfProjectEdgeType.php:34
 #: applications/project/edge/PhabricatorProjectObjectHasProjectEdgeType.php:36
 #, php-format
 msgid "%s removed %s project(s): %s."
-msgstr ""
+msgstr "%s hat %s Projekt(e) hinzugefügt: %s."
 
 #: applications/project/edge/PhabricatorProjectObjectHasProjectEdgeType.php:51
 #, php-format
 msgid "%s edited %s project(s), added %s: %s; removed %s: %s."
-msgstr ""
+msgstr "%s hat %s Projekte geändert: %s hinzugefügt: %s; %s removed: %s."
 
 #: applications/project/edge/PhabricatorProjectObjectHasProjectEdgeType.php:67
 #, php-format
 msgid "%s added %s project(s) to %s: %s."
-msgstr ""
+msgstr "%s hat %s Projekt(e) zu %s hinzugefügt: %s."
 
 #: applications/project/edge/PhabricatorProjectObjectHasProjectEdgeType.php:81
 #, php-format
 msgid "%s removed %s project(s) from %s: %s."
-msgstr ""
+msgstr "%s hat %s Projekt(e) von %s entfernt: %s."
 
 #: applications/project/edge/PhabricatorProjectObjectHasProjectEdgeType.php:98
 #, php-format
 msgid "%s edited %s project(s) for %s, added %s: %s; removed %s: %s."
-msgstr ""
+msgstr "%s hat %s Projekt(e) von %s geändert, %s hinzugefügt: %s; %s entfernt: %s."
 
 #: applications/project/controller/PhabricatorProjectProfileController.php:151
 #: applications/project/controller/PhabricatorProjectWatchController.php:77
