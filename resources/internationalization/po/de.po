@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Phabricator\n"
 "POT-Creation-Date: 2014-05-18 07:31+0200\n"
-"PO-Revision-Date: 2015-08-05 17:07+0100\n"
+"PO-Revision-Date: 2015-08-05 17:35+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: German <peter@schlaile.de>\n"
 "Language: \n"
@@ -24704,7 +24704,7 @@ msgstr ""
 #: applications/repository/daemon/PhabricatorRepositoryPullLocalDaemon.php:415
 #, php-format
 msgid "Sleeping for %s more second(s)..."
-msgstr ""
+msgstr "Warte weitere %s Sekunden..."
 
 #: applications/repository/daemon/PhabricatorRepositoryPullLocalDaemon.php:426
 msgid "Awakened from sleep by pending updates!"
@@ -24718,21 +24718,21 @@ msgstr ""
 #: applications/repository/worker/PhabricatorRepositoryCommitParserWorker.php:24
 #, php-format
 msgid "Commit \"%s\" does not exist."
-msgstr ""
+msgstr "Änderung \"%s\" existiert nicht."
 
 #: applications/differential/storage/DifferentialTransaction.php:266
 #, php-format
 msgid "Closed by commit %s (authored by %s, committed by %s)."
-msgstr ""
+msgstr "Wurde durch Änderung %s (Autor war %s, eingepflegt von %s) geschlossen."
 
 #: applications/differential/storage/DifferentialTransaction.php:272
 #, php-format
 msgid "Closed by commit %s (authored by %s)."
-msgstr ""
+msgstr "Wurde durch Änderung %s (Autor war %s) geschlossen."
 
 #, php-format
 msgid "Closed by commit %s."
-msgstr ""
+msgstr "Wurde durch Änderung %s geschlossen."
 
 #: applications/repository/worker/__tests__/PhabricatorChangeParserTestCase.php:1079
 msgid "Natural SVN root should work properly."
@@ -43339,7 +43339,7 @@ msgstr ""
 
 #: applications/differential/controller/DifferentialRevisionViewController.php:154
 msgid "Very Large Diff"
-msgstr ""
+msgstr "Sehr Große Änderung"
 
 #: applications/differential/controller/DifferentialRevisionViewController.php:333
 #, php-format
@@ -43895,12 +43895,12 @@ msgstr ""
 #: applications/differential/storage/DifferentialTransaction.php:391
 #, php-format
 msgid "%s closed %s by committing %s (authored by %s)."
-msgstr ""
+msgstr "%s hat %s geschlossen, in dem %s (Autor ist %s) eingepflegt wurde."
 
 #: applications/differential/storage/DifferentialTransaction.php:398
 #, php-format
 msgid "%s closed %s by committing %s."
-msgstr ""
+msgstr "%s hat %s geschlossen, in dem %s eingepflegt wurde."
 
 #: applications/differential/storage/__tests__/DifferentialAdjustmentMapTestCase.php:286
 #: applications/differential/storage/__tests__/DifferentialHunkTestCase.php:335
@@ -43946,7 +43946,7 @@ msgstr ""
 #: applications/differential/view/DifferentialRevisionUpdateHistoryView.php:221
 #: applications/passphrase/query/PassphraseCredentialSearchEngine.php:24
 msgid "Show All"
-msgstr ""
+msgstr "Alles Zeigen"
 
 #: applications/diffusion/application/PhabricatorDiffusionApplication.php:28
 msgid "Diffusion User Guide"
