@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Phabricator\n"
 "POT-Creation-Date: 2014-05-18 07:31+0200\n"
-"PO-Revision-Date: 2015-07-29 11:21+0100\n"
+"PO-Revision-Date: 2015-08-05 17:07+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: German <peter@schlaile.de>\n"
 "Language: \n"
@@ -8579,11 +8579,11 @@ msgstr ""
 
 #: applications/maniphest/controller/ManiphestReportController.php:235
 msgid "Period"
-msgstr ""
+msgstr "Periode"
 
 #: applications/maniphest/controller/ManiphestReportController.php:236
 msgid "Opened"
-msgstr ""
+msgstr "Geöffnet"
 
 #: applications/diffusion/controller/DiffusionChangeController.php:42
 #: applications/diffusion/controller/DiffusionChangeController.php:99
@@ -8592,7 +8592,7 @@ msgstr ""
 #: applications/maniphest/controller/ManiphestReportController.php:238
 #: applications/repository/management/PhabricatorRepositoryManagementImportingWorkflow.php:66
 msgid "Change"
-msgstr ""
+msgstr "Änderung"
 
 msgid "NOTE: This table reflects tasks <em>currently</em> in the project. If a task was opened in the past but added to the project recently, it is counted on the day it was opened, not the day it was categorized. If a task was part of this project in the past but no longer is, it is not counted at all."
 msgstr ""
@@ -11085,11 +11085,11 @@ msgstr ""
 #: applications/owners/controller/PhabricatorOwnersDetailController.php:278
 #: applications/owners/controller/PhabricatorOwnersPathsController.php:115
 msgid "Paths"
-msgstr ""
+msgstr "Pfade"
 
 #: applications/owners/controller/PhabricatorOwnersPathsController.php:125
 msgid "Add New Path"
-msgstr ""
+msgstr "Neuer Pfad"
 
 #: applications/owners/controller/PhabricatorOwnersPathsController.php:128
 msgid "Specify the files and directories which comprise this package."
@@ -11173,7 +11173,7 @@ msgstr ""
 #: applications/phriction/herald/PhrictionDocumentPathHeraldField.php:9
 #: applications/repository/management/PhabricatorRepositoryManagementListPathsWorkflow.php:33
 msgid "Path"
-msgstr ""
+msgstr "Pfad"
 
 msgid "Search for Packages"
 msgstr ""
@@ -27616,13 +27616,13 @@ msgstr ""
 #: applications/audit/storage/PhabricatorAuditTransaction.php:307
 #, php-format
 msgid "%s committed %s (authored by %s)."
-msgstr ""
+msgstr "%s hat %s eingepflegt (Autor ist %s)."
 
 #: applications/audit/storage/PhabricatorAuditTransaction.php:179
 #: applications/audit/storage/PhabricatorAuditTransaction.php:313
 #, php-format
 msgid "%s committed %s."
-msgstr ""
+msgstr "%s hat %s eingepflegt."
 
 msgid ""
 "If you set this to a list of http URIs, when a feed story is published a task will be created for each uri that posts the story data to the uri. Daemons automagically retry failures 100 times, waiting $fail_count * 60s between each subsequent failure. Be sure to keep the daemon console (/daemon/) open while developing and testing your end points. You may need torestart your daemons to start sending http requests.\n"
@@ -31780,7 +31780,7 @@ msgstr ""
 
 #: applications/audit/query/PhabricatorCommitSearchEngine.php:128
 msgid "Authored Commits"
-msgstr ""
+msgstr "Meine Quellcode-Änderungen"
 
 #: applications/maniphest/storage/ManiphestTransaction.php:296
 msgid "Block"
@@ -34285,7 +34285,7 @@ msgstr ""
 
 #: applications/files/controller/PhabricatorFileInfoController.php:159
 msgid "Edit File"
-msgstr ""
+msgstr "Datei ändern"
 
 #: applications/files/controller/PhabricatorFileInfoController.php:238
 msgid "Viewable Image"
@@ -35978,7 +35978,7 @@ msgstr ""
 
 #: applications/audit/storage/PhabricatorAuditTransaction.php:103
 msgid "Committed"
-msgstr ""
+msgstr "Eingepflegt von"
 
 #: applications/audit/storage/PhabricatorAuditTransaction.php:193
 #, php-format
@@ -45640,12 +45640,12 @@ msgstr ""
 
 #: applications/files/conduit/FileDownloadConduitAPIMethod.php:10
 msgid "Download a file from the server."
-msgstr ""
+msgstr "Eine Datei vom Server herunterladen."
 
 #: applications/files/conduit/FileDownloadConduitAPIMethod.php:25
 #: applications/files/conduit/FileInfoConduitAPIMethod.php:26
 msgid "No such file exists."
-msgstr ""
+msgstr "Eine solche Datei existiert nicht."
 
 #: applications/files/conduit/FileInfoConduitAPIMethod.php:10
 msgid "Get information about a file."
@@ -45665,7 +45665,7 @@ msgstr ""
 
 #: applications/files/conduit/FileUploadConduitAPIMethod.php:10
 msgid "Upload a file to the server."
-msgstr ""
+msgstr "Eine Datei auf den Server hochladen."
 
 #: applications/files/conduit/FileUploadHashConduitAPIMethod.php:11
 msgid "Upload a file to the server using content hash."
@@ -45700,20 +45700,20 @@ msgstr ""
 
 #: applications/files/controller/PhabricatorFileComposeController.php:19
 msgid "Easter Bunny"
-msgstr ""
+msgstr "Osterhase"
 
 #: applications/files/controller/PhabricatorFileDataController.php:215
 #: applications/files/controller/PhabricatorFileInfoController.php:61
 msgid "Partial Upload"
-msgstr ""
+msgstr "Teil-Upload"
 
 #: applications/files/controller/PhabricatorFileDataController.php:218
 msgid "This file has only been partially uploaded. It must be uploaded completely before you can download it."
-msgstr ""
+msgstr "Diese Datei wurde nur teilweise hochgeladen. Sie muß komplett hochgeladen werden, bevor Du sie runterladen kannst."
 
 #: applications/files/controller/PhabricatorFileDeleteController.php:40
 msgid "Really delete file?"
-msgstr ""
+msgstr "Diese Datei wirklich löschen?"
 
 #: applications/files/controller/PhabricatorFileDeleteController.php:44
 #, php-format
@@ -45722,11 +45722,11 @@ msgstr ""
 
 #: applications/files/controller/PhabricatorFileDropUploadController.php:117
 msgid "Failed to load file."
-msgstr ""
+msgstr "Konnte Datei nicht laden."
 
 #: applications/files/controller/PhabricatorFileInfoController.php:175
 msgid "View Transforms"
-msgstr ""
+msgstr "Umgerechnete Dateien zeigen"
 
 #: applications/files/controller/PhabricatorFileInfoController.php:330
 msgid "Chunks"
@@ -45774,7 +45774,7 @@ msgstr ""
 
 #: applications/files/editor/PhabricatorFileEditor.php:131
 msgid "File name is required."
-msgstr ""
+msgstr "Benötige einen Dateinamen."
 
 #: applications/files/engine/PhabricatorChunkedFileStorageEngine.php:43
 msgid "This file data is incomplete!"
