@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Phabricator\n"
 "POT-Creation-Date: 2014-05-18 07:31+0200\n"
-"PO-Revision-Date: 2015-08-05 17:35+0100\n"
+"PO-Revision-Date: 2015-08-05 18:48+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: German <peter@schlaile.de>\n"
 "Language: \n"
@@ -36139,17 +36139,17 @@ msgstr ""
 #: applications/maniphest/storage/ManiphestTransaction.php:581
 #, php-format
 msgid "%s closed this task as a duplicate of %s."
-msgstr ""
+msgstr "%s hat diese Aufgabe geschlossen, da ein Duplikat von %s."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:588
 #, php-format
 msgid "%s merged %d task(s): %s."
-msgstr ""
+msgstr "%s hat %d Aufgabe(n) zusammengeführt: %s."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:715
 #, php-format
 msgid "%s reopened %s, a task blocking %s, as \"%s\"."
-msgstr ""
+msgstr "%s hat %s wieder eröffnet, eine Aufgabe, die %s blockiert. Neuer Status: \"%s\"."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:722
 #, php-format
@@ -36164,12 +36164,12 @@ msgstr ""
 #: applications/maniphest/storage/ManiphestTransaction.php:835
 #, php-format
 msgid "%s merged task %s into %s."
-msgstr ""
+msgstr "%s hat %s mit %s zusammengeführt."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:842
 #, php-format
 msgid "%s merged %d task(s) %s into %s."
-msgstr ""
+msgstr "%s hat %d Aufgabe(n) %s in die Aufgabe %s zusammengeführt."
 
 msgid "Expected 'projectPHID' in column transaction."
 msgstr ""
@@ -47364,7 +47364,7 @@ msgstr ""
 
 #: applications/maniphest/query/ManiphestTaskSearchEngine.php:77
 msgid "Blocked"
-msgstr ""
+msgstr "Blockiert"
 
 #: applications/maniphest/query/ManiphestTaskSearchEngine.php:81
 msgid "Show Only Task Blocked By Other Tasks"
@@ -47377,57 +47377,57 @@ msgstr ""
 #: applications/maniphest/storage/ManiphestTransaction.php:410
 #, php-format
 msgid "%s closed this task as a duplicate by committing %s."
-msgstr ""
+msgstr "%s hat diese Aufgabe als ein Duplikat geschlossen, in dem %s eingepflegt wurde."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:421
 #, php-format
 msgid "%s closed this task as \"%s\" by committing %s."
-msgstr ""
+msgstr "%s hat diese Aufgabe als \"%s\" geschlossen, in dem %s eingepflegt wurde."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:435
 #, php-format
 msgid "%s reopened this task as \"%s\" by committing %s."
-msgstr ""
+msgstr "%s hat diese Aufgabe als \"%s\" wieder geöffnet, in dem %s eingepflegt wurde."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:448
 #, php-format
 msgid "%s changed the task status from \"%s\" to \"%s\" by committing %s."
-msgstr ""
+msgstr "%s hat den Status der Aufgabe von \"%s\" auf \"%s\" geändert, in dem %s eingepflegt wurde."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:549
 #, php-format
 msgid "%s attached %d file(s): %s."
-msgstr ""
+msgstr "%s hat %d Datei(en) angehängt: %s."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:555
 #, php-format
 msgid "%s detached %d file(s): %s."
-msgstr ""
+msgstr "%s hat die Verknüpfung von %d Datei(en) gelöst: %s."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:561
 #, php-format
 msgid "%s changed file(s), attached %d: %s; detached %d: %s."
-msgstr ""
+msgstr "%s hat Dateien geändert, %d angehängt: %s; %d entfernt: %s."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:642
 #, php-format
 msgid "%s closed %s as a duplicate by committing %s."
-msgstr ""
+msgstr "%s hat %s als ein Duplicat geschlossen in dem %s eingepflegt wurde."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:655
 #, php-format
 msgid "%s closed %s as \"%s\" by committing %s."
-msgstr ""
+msgstr "%s hat %s als \"%s\" geschlossen, in dem %s eingepflegt wurde."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:671
 #, php-format
 msgid "%s reopened %s as \"%s\" by committing %s."
-msgstr ""
+msgstr "%s hat %s als \"%s\" wieder geöffnet, in dem %s eingepflegt wurde."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:686
 #, php-format
 msgid "%s changed the status of %s from \"%s\" to \"%s\" by committing %s."
-msgstr ""
+msgstr "%s hat den Status von %s von \"%s\" auf \"%s\" geändert, in dem %s eingepflegt wurde."
 
 #: applications/maniphest/__tests__/ManiphestTaskTestCase.php:14
 msgid "Task 1"
