@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Phabricator\n"
 "POT-Creation-Date: 2014-05-18 07:31+0200\n"
-"PO-Revision-Date: 2015-08-05 18:48+0100\n"
+"PO-Revision-Date: 2015-08-08 10:31+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: German <peter@schlaile.de>\n"
 "Language: \n"
@@ -34917,7 +34917,7 @@ msgstr ""
 
 #: applications/phortune/controller/PhortuneMerchantViewController.php:180
 msgid "View Orders"
-msgstr ""
+msgstr "Aufträge zeigen"
 
 #: applications/phortune/controller/PhortuneMerchantViewController.php:220
 msgid "This merchant has no payment providers."
@@ -34930,11 +34930,11 @@ msgstr ""
 #: applications/phortune/controller/PhortuneMerchantViewController.php:284
 #: applications/phortune/controller/PhortuneProviderEditController.php:270
 msgid "Add Payment Provider"
-msgstr ""
+msgstr "Neuer Zahlungsdienstleister"
 
 #: applications/phortune/controller/PhortuneMerchantViewController.php:290
 msgid "Payment Providers"
-msgstr ""
+msgstr "Zahlungsdienstleister"
 
 #: applications/phortune/controller/PhortuneMerchantEditController.php:45
 #, php-format
@@ -34985,35 +34985,35 @@ msgstr ""
 
 #: applications/phortune/controller/PhortuneCartViewController.php:132
 msgid "Order Detail"
-msgstr ""
+msgstr "Auftragsdetails"
 
 #: applications/phortune/controller/PhortuneCartViewController.php:193
 #, php-format
 msgid "Cart %d"
-msgstr ""
+msgstr "Warenkorb %d"
 
 #: applications/phortune/controller/PhortuneCartViewController.php:231
 msgid "Order Name"
-msgstr ""
+msgstr "Auftragsname"
 
 #: applications/phortune/controller/PhortuneCartCancelController.php:196
 #: applications/phortune/controller/PhortuneCartViewController.php:280
 msgid "Cancel Order"
-msgstr ""
+msgstr "Auftrag stornieren"
 
 #: applications/phortune/controller/PhortunePaymentMethodDisableController.php:47
 msgid "Disable Payment Method?"
-msgstr ""
+msgstr "Zahlungsart deaktivieren?"
 
 #: applications/phortune/controller/PhortunePaymentMethodDisableController.php:48
 #: applications/phortune/controller/PhortunePaymentMethodDisableController.php:61
 msgid "Disable Payment Method"
-msgstr ""
+msgstr "Zahlungsart deaktivieren"
 
 #: applications/phortune/controller/PhortunePaymentMethodDisableController.php:51
 #, php-format
 msgid "Disable the payment method \"%s\"?"
-msgstr ""
+msgstr "Die Zahlungsart \"%s\" deaktivieren?"
 
 #: applications/phortune/controller/PhortunePaymentMethodDisableController.php:58
 msgid "You will no longer be able to make payments using this payment method. Disabled payment methods can not be reactivated."
@@ -35022,7 +35022,7 @@ msgstr ""
 #: applications/phortune/controller/PhortunePaymentMethodEditController.php:67
 #: applications/phortune/controller/PhortunePaymentMethodEditController.php:81
 msgid "Edit Payment Method"
-msgstr ""
+msgstr "Zahlungsart ändern"
 
 #: applications/phortune/controller/PhortuneProviderDisableController.php:58
 msgid "If you disable this payment provider, users will no longer be able to use it to make new payments."
@@ -35041,7 +35041,7 @@ msgstr ""
 #: applications/phortune/controller/PhortuneAccountListController.php:24
 #: applications/phortune/controller/PhortuneAccountListController.php:27
 msgid "Accounts"
-msgstr ""
+msgstr "Konten"
 
 #: applications/phortune/controller/PhortuneAccountListController.php:33
 msgid "You are not a member of any payment accounts. Payment accounts are used to make purchases."
@@ -35049,7 +35049,7 @@ msgstr ""
 
 #: applications/phortune/controller/PhortuneAccountListController.php:47
 msgid "Payment Accounts"
-msgstr ""
+msgstr "Zahlungskonten"
 
 #: applications/phortune/controller/PhortuneAccountListController.php:65
 msgid "You do not control any merchant accounts. Merchant accounts are used to receive payments."
@@ -35057,24 +35057,24 @@ msgstr ""
 
 #: applications/phortune/controller/PhortuneAccountListController.php:79
 msgid "Merchant Accounts"
-msgstr ""
+msgstr "Händlerkonto"
 
 #: applications/phortune/controller/PhortuneAccountListController.php:87
 msgid "View All Merchants"
-msgstr ""
+msgstr "Alle Händler zeigen"
 
 #: applications/phortune/controller/PhortuneProviderEditController.php:79
 msgid "Create Payment Provider"
-msgstr ""
+msgstr "Neuer Zahlungsdienstleister"
 
 #: applications/phortune/controller/PhortuneProviderEditController.php:80
 msgid "Create Provider"
-msgstr ""
+msgstr "Neuer Dienstleister"
 
 #: applications/phortune/controller/PhortuneProviderEditController.php:83
 #, php-format
 msgid "Edit Payment Provider %d %s"
-msgstr ""
+msgstr "Zahlungsdienstleister %d %s ändern"
 
 #: applications/phortune/controller/PhortuneProviderEditController.php:120
 msgid "Unable to connect to payment provider:"
@@ -35087,7 +35087,7 @@ msgstr ""
 #: applications/phortune/controller/PhortuneProviderEditController.php:191
 #, php-format
 msgid "Edit Provider %d"
-msgstr ""
+msgstr "Zahlungsdienstleister %d ändern"
 
 #: applications/phortune/controller/PhortuneProviderEditController.php:222
 msgid "You must select a valid provider type."
@@ -35104,7 +35104,7 @@ msgstr ""
 #: applications/phortune/controller/PhortuneCartListController.php:104
 #: applications/phortune/controller/PhortuneCartListController.php:115
 msgid "Orders"
-msgstr ""
+msgstr "Aufträge"
 
 #: applications/phortune/controller/PhortuneCartCancelController.php:60
 msgid "Unable to Refund Order"
@@ -35120,35 +35120,35 @@ msgstr ""
 
 #: applications/phortune/controller/PhortuneCartCancelController.php:177
 msgid "Refund Order?"
-msgstr ""
+msgstr "Auftrag rückabwickeln?"
 
 #: applications/phortune/controller/PhortuneCartCancelController.php:178
 msgid "Really refund this order?"
-msgstr ""
+msgstr "Wirklich diesen Auftrag rückabwickeln?"
 
 #: applications/phortune/controller/PhortuneCartCancelController.php:194
 msgid "Cancel Order?"
-msgstr ""
+msgstr "Auftrag stornieren?"
 
 #: applications/phortune/controller/PhortuneCartCancelController.php:195
 msgid "Really cancel this order? Any payment will be refunded."
-msgstr ""
+msgstr "Wirklich diesen Auftrag stornieren? Etwaige Zahlungen werden rückerstattet."
 
 #: applications/phortune/controller/PhortuneCartCancelController.php:200
 msgid "Do Not Cancel Order"
-msgstr ""
+msgstr "Auftrag nicht stornieren"
 
 #: applications/phortune/controller/PhortuneAccountEditController.php:89
 msgid "Create Payment Account"
-msgstr ""
+msgstr "Neues Zahlungskonto "
 
 #: applications/phortune/controller/PhortuneAccountViewController.php:250
 msgid "Recent Orders"
-msgstr ""
+msgstr "Neueste Aufträge"
 
 #: applications/phortune/controller/PhortuneAccountViewController.php:258
 msgid "View All Orders"
-msgstr ""
+msgstr "Alle Aufträge zeigen"
 
 #: applications/phortune/controller/PhortuneAccountViewController.php:294
 msgid "Recent Charges"
@@ -49789,7 +49789,7 @@ msgstr ""
 
 #: applications/phortune/query/PhortuneCartSearchEngine.php:136
 msgid "Order History"
-msgstr ""
+msgstr "Bestellhistorie"
 
 #: applications/phortune/query/PhortuneCartSearchEngine.php:137
 msgid "Unpaid Invoices"
