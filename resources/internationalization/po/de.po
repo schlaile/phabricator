@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Phabricator\n"
 "POT-Creation-Date: 2014-05-18 07:31+0200\n"
-"PO-Revision-Date: 2015-08-08 10:31+0100\n"
+"PO-Revision-Date: 2015-08-09 21:14+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: German <peter@schlaile.de>\n"
 "Language: \n"
@@ -19241,7 +19241,7 @@ msgstr ""
 
 #: applications/files/controller/PhabricatorFileComposeController.php:153
 msgid "Louder is Better"
-msgstr ""
+msgstr "Wir können nur laut"
 
 #: applications/files/controller/PhabricatorFileComposeController.php:154
 msgid "Unique Snowflake"
@@ -19261,7 +19261,7 @@ msgstr ""
 
 #: applications/files/controller/PhabricatorFileComposeController.php:158
 msgid "Healthy Vegetable Juice"
-msgstr ""
+msgstr "Gesundes Gebräu"
 
 #: applications/files/controller/PhabricatorFileComposeController.php:159
 msgid "Imminent Success"
@@ -19321,7 +19321,7 @@ msgstr ""
 
 #: applications/files/controller/PhabricatorFileComposeController.php:173
 msgid "Actual Physical Film"
-msgstr ""
+msgstr "Handfestes Celluloid"
 
 #: applications/files/controller/PhabricatorFileComposeController.php:174
 msgid "You Can't Eat Soup"
@@ -19329,7 +19329,7 @@ msgstr ""
 
 #: applications/files/controller/PhabricatorFileComposeController.php:175
 msgid "Serious Business"
-msgstr ""
+msgstr "Total Ernsthafte Geschichte(tm)"
 
 #: applications/files/controller/PhabricatorFileComposeController.php:176
 msgid "Haunted"
@@ -19337,7 +19337,7 @@ msgstr ""
 
 #: applications/files/controller/PhabricatorFileComposeController.php:177
 msgid "Surprise!"
-msgstr ""
+msgstr "Überraschung!"
 
 #: applications/files/controller/PhabricatorFileComposeController.php:178
 msgid "Scanner Sweep"
@@ -19345,11 +19345,11 @@ msgstr ""
 
 #: applications/files/controller/PhabricatorFileComposeController.php:179
 msgid "Business Meeting"
-msgstr ""
+msgstr "Geschäftstermin"
 
 #: applications/files/controller/PhabricatorFileComposeController.php:180
 msgid "Undergoing a Major Surgery"
-msgstr ""
+msgstr "Operation am Offenen Herzen"
 
 #: applications/files/controller/PhabricatorFileComposeController.php:181
 msgid "Jupiter"
@@ -19357,7 +19357,7 @@ msgstr ""
 
 #: applications/files/controller/PhabricatorFileComposeController.php:182
 msgid "Extremely Secret"
-msgstr ""
+msgstr "Verschlusssache nur für den Dienstgebrauch"
 
 #: applications/files/controller/PhabricatorFileComposeController.php:183
 msgid "Oragami"
@@ -19380,7 +19380,7 @@ msgstr ""
 
 #: applications/files/controller/PhabricatorFileComposeController.php:188
 msgid "Actual Physical Newspaper"
-msgstr ""
+msgstr "Zeitung - also, das echte Ding aus Papier"
 
 #: applications/files/controller/PhabricatorFileComposeController.php:189
 msgid "It's Good to be King"
@@ -19392,19 +19392,19 @@ msgstr ""
 
 #: applications/files/controller/PhabricatorFileComposeController.php:191
 msgid "Actual Physical Pie"
-msgstr ""
+msgstr "Ein echter Kuchen"
 
 #: applications/files/controller/PhabricatorFileComposeController.php:192
 msgid "Healthy Bone Juice"
-msgstr ""
+msgstr "Gesundes aus dem Giftschrank"
 
 #: applications/files/controller/PhabricatorFileComposeController.php:193
 msgid "Put a Bird On It"
-msgstr ""
+msgstr "Zeig Ihnen den Vogel"
 
 #: applications/files/controller/PhabricatorFileComposeController.php:194
 msgid "Radiant Beauty"
-msgstr ""
+msgstr "Gesundes Grünes Leuchten"
 
 #: applications/files/controller/PhabricatorFileComposeController.php:195
 msgid "Oink Oink"
@@ -19412,7 +19412,7 @@ msgstr "Oink Oink"
 
 #: applications/files/controller/PhabricatorFileComposeController.php:196
 msgid "Sleuthing"
-msgstr ""
+msgstr "Detektivarbeit"
 
 #: applications/files/controller/PhabricatorFileComposeController.php:197
 msgid "Royal Crest"
@@ -19432,27 +19432,27 @@ msgstr ""
 
 #: applications/files/controller/PhabricatorFileComposeController.php:201
 msgid "Stack of Pancakes"
-msgstr ""
+msgstr "Ein Stapel Pfannkuchen"
 
 #: applications/files/controller/PhabricatorFileComposeController.php:202
 msgid "Cellular Telephone For Giants"
-msgstr ""
+msgstr "Ein Mobiltelefon für die ganz Großen"
 
 #: applications/files/controller/PhabricatorFileComposeController.php:203
 msgid "Pretty Clearly an Airplane"
-msgstr ""
+msgstr "Sieht fast wie ein Flugzeug aus"
 
 #: applications/files/controller/PhabricatorFileComposeController.php:204
 msgid "Bird Stencil"
-msgstr ""
+msgstr "Ein Vogel - ausgeschnitten"
 
 #: applications/files/controller/PhabricatorFileComposeController.php:205
 msgid "No Caution Required, Everything Looks Safe"
-msgstr ""
+msgstr "Gehen Sie weiter, es gibt hier nichts zu sehen"
 
 #: applications/files/controller/PhabricatorFileComposeController.php:206
 msgid "Friendly Walrus"
-msgstr ""
+msgstr "Freundliches Walross"
 
 #: applications/files/controller/PhabricatorFileComposeController.php:289
 msgid "Compose Image"
@@ -19515,27 +19515,27 @@ msgstr "Höhe"
 #: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:164
 #: applications/files/controller/PhabricatorFileInfoController.php:257
 msgid "Storage"
-msgstr ""
+msgstr "Speicherort"
 
 #: applications/files/controller/PhabricatorFileInfoController.php:260
 msgid "Engine"
-msgstr ""
+msgstr "System"
 
 #: applications/files/controller/PhabricatorFileInfoController.php:264
 msgid "Format"
-msgstr ""
+msgstr "Format"
 
 #: applications/files/controller/PhabricatorFileInfoController.php:268
 msgid "Handle"
-msgstr ""
+msgstr "Handle"
 
 #: applications/files/controller/PhabricatorFileInfoController.php:278
 msgid "Attached To"
-msgstr ""
+msgstr "Verknüpft mit"
 
 #: applications/files/controller/PhabricatorFileUploadController.php:21
 msgid "You must select a file to upload."
-msgstr ""
+msgstr "Du mußt eine Datei zum Hochladen auswählen."
 
 #: applications/files/controller/PhabricatorFileUploadController.php:46
 msgid "Drag and Drop:"
@@ -19543,7 +19543,7 @@ msgstr "Drag und Drop:"
 
 #: applications/files/controller/PhabricatorFileUploadController.php:48
 msgid "You can also upload files by dragging and dropping them from your desktop onto this page or the Phabricator home page."
-msgstr ""
+msgstr "Du kannst Dateien auch direkt vom Desktop auf diese Seite oder die Phabricator-Hauptseite ziehen, um sie hochzuladen."
 
 msgid "Optional file display name."
 msgstr ""
@@ -43785,86 +43785,86 @@ msgstr ""
 
 #: applications/differential/render/DifferentialChangesetHTMLRenderer.php:33
 msgid "This file was added."
-msgstr ""
+msgstr "Diese Datei wurde hinzugefügt."
 
 #: applications/differential/render/DifferentialChangesetHTMLRenderer.php:36
 msgid "This image was added."
-msgstr ""
+msgstr "Dieses Bild wurde hinzugefügt."
 
 #: applications/differential/render/DifferentialChangesetHTMLRenderer.php:39
 msgid "This directory was added."
-msgstr ""
+msgstr "Dieses Verzeichnis wurde hinzugefügt."
 
 #: applications/differential/render/DifferentialChangesetHTMLRenderer.php:42
 msgid "This binary file was added."
-msgstr ""
+msgstr "Diese Binärdatei wurde hinzugefügt."
 
 #: applications/differential/render/DifferentialChangesetHTMLRenderer.php:45
 msgid "This symlink was added."
-msgstr ""
+msgstr "Dieser Symlink wurde hinzugefügt."
 
 #: applications/differential/render/DifferentialChangesetHTMLRenderer.php:48
 msgid "This submodule was added."
-msgstr ""
+msgstr "Dieses Untermodul wurde hinzugefügt."
 
 #: applications/differential/render/DifferentialChangesetHTMLRenderer.php:56
 msgid "This file was deleted."
-msgstr ""
+msgstr "Diese Datei wurde gelöscht."
 
 #: applications/differential/render/DifferentialChangesetHTMLRenderer.php:59
 msgid "This image was deleted."
-msgstr ""
+msgstr "Dieses Bild wurde gelöscht."
 
 #: applications/differential/render/DifferentialChangesetHTMLRenderer.php:62
 msgid "This directory was deleted."
-msgstr ""
+msgstr "Dieses Verzeichnis wurde gelöscht."
 
 #: applications/differential/render/DifferentialChangesetHTMLRenderer.php:65
 msgid "This binary file was deleted."
-msgstr ""
+msgstr "Diese Binärdatei wurde gelöscht."
 
 #: applications/differential/render/DifferentialChangesetHTMLRenderer.php:68
 msgid "This symlink was deleted."
-msgstr ""
+msgstr "Dieser Symlink wurde gelöscht."
 
 #: applications/differential/render/DifferentialChangesetHTMLRenderer.php:71
 msgid "This submodule was deleted."
-msgstr ""
+msgstr "Dieses Untermodul wurde gelöscht."
 
 #: applications/differential/render/DifferentialChangesetHTMLRenderer.php:275
 #, php-format
 msgid "This file is larger than %s, so syntax highlighting is disabled by default."
-msgstr ""
+msgstr "Diese Datei ist größer als %s, daher wurde Syntax-Highlighting standardmäßig deaktiviert."
 
 #: applications/differential/render/DifferentialChangesetHTMLRenderer.php:375
 #, php-format
 msgid "Invalid '%s' parameter '%s'!"
-msgstr ""
+msgstr "Ungültiger '%s' Parameter '%s'!"
 
 #: applications/differential/render/DifferentialChangesetHTMLRenderer.php:501
 #, php-format
 msgid "Show First %d Line(s)"
-msgstr ""
+msgstr "Zeige die ersten %d Zeilen"
 
 #: applications/differential/render/DifferentialChangesetHTMLRenderer.php:503
 #, php-format
 msgid "▲ Show %d Line(s)"
-msgstr ""
+msgstr "▲ Zeige %d Zeilen"
 
 #: applications/differential/render/DifferentialChangesetHTMLRenderer.php:515
 #, php-format
 msgid "Show All %d Line(s)"
-msgstr ""
+msgstr "Zeige alle %d Zeilen"
 
 #: applications/differential/render/DifferentialChangesetHTMLRenderer.php:520
 #, php-format
 msgid "Show Last %d Line(s)"
-msgstr ""
+msgstr "Zeige die letzten %d Zeilen"
 
 #: applications/differential/render/DifferentialChangesetHTMLRenderer.php:522
 #, php-format
 msgid "Show %d Line(s)"
-msgstr ""
+msgstr "Zeige %d Zeilen"
 
 #: applications/differential/render/DifferentialChangesetRenderer.php:602
 #, php-format
@@ -44065,16 +44065,16 @@ msgstr ""
 #: applications/diffusion/controller/DiffusionBrowseFileController.php:90
 #, php-format
 msgid "This file is larger than %s byte(s), and too large to display in the web UI."
-msgstr ""
+msgstr "Diese Datei ist größer als %s Bytes und zu groß, um sie über das Webinterface anzuzeigen."
 
 #: applications/diffusion/controller/DiffusionCommitController.php:244
 #, php-format
 msgid "Changes (%s)"
-msgstr ""
+msgstr "Änderungen (%s)"
 
 #: applications/diffusion/controller/DiffusionCommitController.php:259
 msgid "Very Large Commit"
-msgstr ""
+msgstr "Sehr große Änderung"
 
 #: applications/diffusion/controller/DiffusionCommitController.php:286
 msgid "Unknown VCS."
@@ -44086,12 +44086,12 @@ msgstr ""
 
 #: applications/diffusion/controller/DiffusionCommitController.php:624
 msgid "Reverted By"
-msgstr ""
+msgstr "Zurückgerollt von"
 
 #: applications/diffusion/controller/DiffusionCommitController.php:907
 #, php-format
 msgid "This commit merges a very large number of changes. Only the first %s are shown."
-msgstr ""
+msgstr "Diese Änderung beinhaltet eine große Anzahl an Objekten. Die ersten %s werden zunächst gezeigt."
 
 #: applications/diffusion/controller/DiffusionCommitEditController.php:75
 msgid "Yes, Forced Via bin/repository CLI Tool."
@@ -44113,7 +44113,7 @@ msgstr ""
 #: applications/diffusion/controller/DiffusionInlineCommentController.php:69
 #, php-format
 msgid "Failed to load comment \"%d\"."
-msgstr ""
+msgstr "Konnte Kommentar \"%s\" leider nicht laden."
 
 #: applications/diffusion/controller/DiffusionInlineCommentController.php:77
 msgid "Failed to load commit."
