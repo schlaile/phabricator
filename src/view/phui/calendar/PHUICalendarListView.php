@@ -178,7 +178,7 @@ final class PHUICalendarListView extends AphrontTagView {
           $end->getValueAsFormat('M j, Y, '.$time_pref));
       }
     }
-    return $tip;
+    return $tip . ", " . $event->getDescription();
   }
 
   public function getIsViewerInvitedOnList() {
