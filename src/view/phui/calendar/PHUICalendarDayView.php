@@ -314,7 +314,7 @@ final class PHUICalendarDayView extends AphrontView {
       } else if ($box_start_time == $tomorrow_time) {
         $title = pht('Tomorrow');
       } else {
-        $title = $box_start_time->format('l');
+	$title = pht($box_start_time->format('l'));
       }
 
       $sidebar_day_boxes[] = array(
