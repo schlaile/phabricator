@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-17 12:58+0200\n"
-"PO-Revision-Date: 2015-08-18 13:43+0100\n"
+"PO-Revision-Date: 2015-08-18 14:11+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: GERMAN <peter@schlaile.de>\n"
 "Language: \n"
@@ -11669,7 +11669,7 @@ msgstr ""
 
 #: applications/macro/controller/PhabricatorMacroEditController.php:202
 msgid "Selected File"
-msgstr ""
+msgstr "Ausgewählte Datei"
 
 #: applications/macro/controller/PhabricatorMacroEditController.php:205
 msgid "Change File"
@@ -19908,15 +19908,15 @@ msgstr "Neuere ›"
 
 #: applications/maniphest/view/ManiphestTaskResultListView.php:220
 msgid "Batch Edit Selected »"
-msgstr ""
+msgstr "Alle ausgewählten Aufgaben ändern »"
 
 #: applications/phriction/controller/PhrictionDiffController.php:155
 msgid "« Previous Change"
-msgstr ""
+msgstr "« Vorige Änderung"
 
 #: applications/phriction/controller/PhrictionDiffController.php:174
 msgid "Next Change »"
-msgstr ""
+msgstr "Nächste Änderung »"
 
 #: applications/diffusion/controller/DiffusionCommitTagsController.php:54
 msgid "More Tags…"
@@ -30986,19 +30986,19 @@ msgstr "Zeige Dashboard"
 
 #: applications/dashboard/controller/PhabricatorDashboardAddPanelController.php:45
 msgid "Select a panel to add."
-msgstr ""
+msgstr "Hinzuzufügendes Panel auswählen"
 
 #: applications/dashboard/controller/PhabricatorDashboardAddPanelController.php:68
 msgid "No Panels Exist Yet"
-msgstr ""
+msgstr "Es gibt noch keine Panele."
 
 #: applications/dashboard/controller/PhabricatorDashboardAddPanelController.php:71
 msgid "You have not created any dashboard panels yet, so you can not add an existing panel."
-msgstr ""
+msgstr "Du hast bis jetzt noch keine Dashboard Panele erzeugt, daher kannst Du auch keine existierenden Panels hinzufügen."
 
 #: applications/dashboard/controller/PhabricatorDashboardAddPanelController.php:74
 msgid "Instead, add a new panel."
-msgstr ""
+msgstr "Füge stattdessen ein neues Panel hinzu."
 
 #: applications/dashboard/controller/PhabricatorDashboardAddPanelController.php:90
 msgid "Choose a panel to add to this dashboard:"
@@ -31037,7 +31037,7 @@ msgstr ""
 
 #: applications/dashboard/paneltype/PhabricatorDashboardTabsPanelType.php:11
 msgid "Tab Panel"
-msgstr ""
+msgstr "Reiter-Panel"
 
 #: applications/dashboard/paneltype/PhabricatorDashboardTabsPanelType.php:15
 msgid "Use tabs to switch between several other panels."
@@ -31045,11 +31045,11 @@ msgstr ""
 
 #: applications/dashboard/paneltype/PhabricatorDashboardTabsPanelType.php:21
 msgid "Tabs"
-msgstr ""
+msgstr "Reiter"
 
 #: applications/dashboard/paneltype/PhabricatorDashboardTabsPanelType.php:60
 msgid "Nameless Tab"
-msgstr ""
+msgstr "Namenloser Reiter"
 
 #: applications/dashboard/paneltype/PhabricatorDashboardTabsPanelType.php:97
 msgid "(Invalid Panel)"
@@ -50778,7 +50778,7 @@ msgstr ""
 #: applications/project/typeahead/PhabricatorProjectLogicalDatasource.php:7
 #: applications/project/typeahead/PhabricatorProjectLogicalOrNotDatasource.php:7
 msgid "Browse Projects"
-msgstr ""
+msgstr "In Projekten suchen"
 
 #: applications/project/typeahead/PhabricatorProjectLogicalDatasource.php:11
 msgid "Type a project name or function..."
@@ -50790,13 +50790,13 @@ msgstr ""
 
 #: applications/project/typeahead/PhabricatorProjectLogicalOrNotDatasource.php:27
 msgid "In Any: ..."
-msgstr ""
+msgstr "In einem von: ..."
 
 #: applications/project/typeahead/PhabricatorProjectLogicalOrNotDatasource.php:28
 #: applications/project/typeahead/PhabricatorProjectLogicalOrNotDatasource.php:55
 #: applications/project/typeahead/PhabricatorProjectMembersDatasource.php:28
 msgid "project"
-msgstr ""
+msgstr "Projekt"
 
 #: applications/project/typeahead/PhabricatorProjectLogicalOrNotDatasource.php:29
 msgid "Find results in any of several projects."
@@ -50846,21 +50846,21 @@ msgstr ""
 #: applications/project/typeahead/PhabricatorProjectLogicalOrNotDatasource.php:153
 #, php-format
 msgid "In Any: %s"
-msgstr ""
+msgstr "In einem von: %s"
 
 #: applications/project/typeahead/PhabricatorProjectLogicalOrNotDatasource.php:101
 #: applications/project/typeahead/PhabricatorProjectLogicalOrNotDatasource.php:157
 #, php-format
 msgid "Not In: %s"
-msgstr ""
+msgstr "Nicht in: %s"
 
 #: applications/project/typeahead/PhabricatorProjectLogicalOrNotDatasource.php:141
 msgid "In Any: Invalid Project"
-msgstr ""
+msgstr "In einem von: ungültiges Projekt"
 
 #: applications/project/typeahead/PhabricatorProjectLogicalOrNotDatasource.php:143
 msgid "Not In: Invalid Project"
-msgstr ""
+msgstr "Nicht in: ungültiges Projekt"
 
 #: applications/project/typeahead/PhabricatorProjectLogicalUserDatasource.php:7
 msgid "Browse User Projects"
@@ -50872,7 +50872,7 @@ msgstr ""
 
 #: applications/project/typeahead/PhabricatorProjectLogicalUserDatasource.php:27
 msgid "Projects: ..."
-msgstr ""
+msgstr "Projekte: ..."
 
 #: applications/project/typeahead/PhabricatorProjectLogicalUserDatasource.php:28
 msgid "username"
@@ -50912,7 +50912,7 @@ msgstr ""
 #: applications/project/typeahead/PhabricatorProjectLogicalViewerDatasource.php:21
 #: applications/project/typeahead/PhabricatorProjectLogicalViewerDatasource.php:90
 msgid "Current Viewer's Projects"
-msgstr ""
+msgstr "Projekte des aktuellen Benutzers"
 
 #: applications/project/typeahead/PhabricatorProjectLogicalViewerDatasource.php:23
 msgid "Find results in any of the current viewer's projects."
@@ -50929,7 +50929,7 @@ msgstr ""
 
 #: applications/project/typeahead/PhabricatorProjectMembersDatasource.php:7
 msgid "Browse Members"
-msgstr ""
+msgstr "Teilnehmer durchsuchen"
 
 #: applications/project/typeahead/PhabricatorProjectMembersDatasource.php:11
 msgid "Type members(<project>)..."
@@ -50937,7 +50937,7 @@ msgstr ""
 
 #: applications/project/typeahead/PhabricatorProjectMembersDatasource.php:27
 msgid "Members: ..."
-msgstr ""
+msgstr "Teilnehmer: ..."
 
 #: applications/project/typeahead/PhabricatorProjectMembersDatasource.php:29
 msgid "Find results for members of a project."
@@ -50954,11 +50954,11 @@ msgstr ""
 #: applications/project/typeahead/PhabricatorProjectMembersDatasource.php:94
 #, php-format
 msgid "Members: %s"
-msgstr ""
+msgstr "Teilnehmer: %s"
 
 #: applications/project/typeahead/PhabricatorProjectMembersDatasource.php:88
 msgid "Members: Invalid Project"
-msgstr ""
+msgstr "Teilnehmer: ungültiges Projekt"
 
 #: applications/project/typeahead/PhabricatorProjectNoProjectsDatasource.php:7
 msgid "Browse Not In Any Projects"
@@ -50971,7 +50971,7 @@ msgstr ""
 #: applications/project/typeahead/PhabricatorProjectNoProjectsDatasource.php:21
 #: applications/project/typeahead/PhabricatorProjectNoProjectsDatasource.php:63
 msgid "Not In Any Projects"
-msgstr ""
+msgstr "Ist überhaupt keinem Projekt zugeordnet"
 
 #: applications/project/typeahead/PhabricatorProjectNoProjectsDatasource.php:22
 msgid "Find results which are not in any projects."
@@ -53252,15 +53252,15 @@ msgstr ""
 
 #: applications/typeahead/controller/PhabricatorTypeaheadModularDatasourceController.php:119
 msgid "More Results"
-msgstr ""
+msgstr "Weitere Ergebnisse"
 
 #: applications/typeahead/controller/PhabricatorTypeaheadModularDatasourceController.php:128
 msgid "You reach the edge of the abyss."
-msgstr ""
+msgstr "Du hast den Rand des Abgrunds erreicht."
 
 #: applications/typeahead/controller/PhabricatorTypeaheadModularDatasourceController.php:159
 msgid "Select"
-msgstr ""
+msgstr "Auswählen"
 
 #: applications/typeahead/controller/PhabricatorTypeaheadModularDatasourceController.php:235
 msgid "Reference: Advanced Functions"
