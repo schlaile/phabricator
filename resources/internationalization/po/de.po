@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-17 12:58+0200\n"
-"PO-Revision-Date: 2015-08-18 14:11+0100\n"
+"PO-Revision-Date: 2015-08-20 22:42+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: GERMAN <peter@schlaile.de>\n"
 "Language: \n"
@@ -22084,11 +22084,11 @@ msgstr ""
 
 #: applications/metamta/storage/PhabricatorMetaMTAMail.php:678
 msgid "This is an error email, but one or more recipients have exceeded the error email rate limit. Declining to deliver message."
-msgstr ""
+msgstr "Dies ist eine Fehlernachricht, aber einer oder mehrere Empfänger haben bereits viel zu viele Fehlermeldungen erhalten. Daher wird diese Nachricht nicht ausgeliefert."
 
 #: applications/metamta/storage/PhabricatorMetaMTAMail.php:749
 msgid "Mail adapter encountered an unexpected, unspecified failure."
-msgstr ""
+msgstr "Der Mail adapter ist aus unbekannten, nicht näher spezifierten Gründen abgeschmiert."
 
 msgid "Call loadRecipientExpansions() before expandRecipients()!"
 msgstr ""
@@ -22107,6 +22107,9 @@ msgid ""
 "\n"
 "(No concrete, enabled subclass of PhabricatorMailReceiver can accept this mail.)"
 msgstr ""
+"Phabricator kann diese Email nicht verarbeiten, da keine der Applikationen weiß, wie sie damit umgehen soll. Bitte prüfe, ob Du die Email an die richtige Adresse geschickt hast.\n"
+"\n"
+"(Keine konkrete, aktivierte Klasse, die von PhabricatorMailReceiver erbt, kann diese Email verarbeiten.)"
 
 #: applications/metamta/storage/PhabricatorMetaMTAReceivedMail.php:299
 #, php-format
@@ -22115,16 +22118,19 @@ msgid ""
 "\n"
 "Accepting receivers: %s."
 msgstr ""
+"Phabricator kann diese Email nicht verarbeiten, da mehr als eine Applikation sie gerne verarbeiten würde, was zu undefiniertem Verhalten führen würde. Emails dürfen immer nur durch exakt eine Applikation verarbeitet werden.\n"
+"\n"
+"Aktuell würden die Mail gerne folgende Applikationen verarbeiten: %s."
 
 #: applications/metamta/storage/PhabricatorMetaMTAReceivedMail.php:321
 #: applications/metamta/storage/PhabricatorMetaMTAReceivedMail.php:324
 #, php-format
 msgid "Error Processing Mail (%s)"
-msgstr ""
+msgstr "Fehler beim Verarbeiten Deiner Mail (%s)"
 
 #: applications/metamta/PhabricatorMetaMTAWorker.php:18
 msgid "Unable to load message!"
-msgstr ""
+msgstr "Kann die Nachricht nicht laden!"
 
 #: applications/metamta/controller/PhabricatorMetaMTAMailgunReceiveController.php:72
 msgid "Got it! Thanks, Mailgun!\n"
@@ -22136,11 +22142,11 @@ msgstr ""
 
 #: applications/metamta/replyhandler/PhabricatorMailReplyHandler.php:88
 msgid "Your message does not contain any body text or attachments, so Phabricator can not do anything useful with it. Make sure comment text appears at the top of your message: quoted replies, inline text, and signatures are discarded and ignored."
-msgstr ""
+msgstr "Deine Nachricht enthält keinen Inhalt oder Anhänge, daher kann Phabricator leider nicht so viel sinnvolles damit anfangen. Bitte stelle dabei sicher, dass Deine Nachricht am Beginn der Nachricht beginnt: zitierte Antworten, Inline Text und Signaturen werden automatisch verworfen und ignoriert."
 
 #: applications/metamta/constants/MetaMTAReceivedMailStatus.php:23
 msgid "Duplicate Message"
-msgstr ""
+msgstr "Doppelte Nachricht"
 
 #: applications/metamta/constants/MetaMTAReceivedMailStatus.php:24
 msgid "Phabricator Mail"
@@ -22148,19 +22154,19 @@ msgstr ""
 
 #: applications/metamta/constants/MetaMTAReceivedMailStatus.php:25
 msgid "No Receivers"
-msgstr ""
+msgstr "Keine Empfänger"
 
 #: applications/metamta/constants/MetaMTAReceivedMailStatus.php:26
 msgid "Multiple Receivers"
-msgstr ""
+msgstr "Mehrere Empfänger"
 
 #: applications/metamta/constants/MetaMTAReceivedMailStatus.php:27
 msgid "Unknown Sender"
-msgstr ""
+msgstr "Unbekannter Absender"
 
 #: applications/metamta/constants/MetaMTAReceivedMailStatus.php:28
 msgid "Disabled Sender"
-msgstr ""
+msgstr "Deaktivierter Absender"
 
 #: applications/metamta/constants/MetaMTAReceivedMailStatus.php:29
 msgid "No Public Mail"
@@ -22168,32 +22174,32 @@ msgstr ""
 
 #: applications/metamta/constants/MetaMTAReceivedMailStatus.php:30
 msgid "User Mismatch"
-msgstr ""
+msgstr "Benutzer passt nicht"
 
 #: applications/metamta/constants/MetaMTAReceivedMailStatus.php:31
 msgid "Policy Error"
-msgstr ""
+msgstr "Richtlinienverstoß"
 
 #: applications/metamta/constants/MetaMTAReceivedMailStatus.php:32
 msgid "No Such Object"
-msgstr ""
+msgstr "Objekt existiert nicht"
 
 #: applications/metamta/constants/MetaMTAReceivedMailStatus.php:33
 msgid "Bad Address"
-msgstr ""
+msgstr "Ungültige Adresse"
 
 #: aphront/response/AphrontUnhandledExceptionResponse.php:30
 #: applications/metamta/constants/MetaMTAReceivedMailStatus.php:34
 msgid "Unhandled Exception"
-msgstr ""
+msgstr "Unerwarteter Fehler"
 
 #: applications/metamta/constants/MetaMTAReceivedMailStatus.php:35
 msgid "Empty Mail"
-msgstr ""
+msgstr "Leere Email"
 
 #: applications/metamta/constants/MetaMTAReceivedMailStatus.php:36
 msgid "Ignored Empty Mail"
-msgstr ""
+msgstr "Leere Email ignoriert"
 
 #: applications/metamta/constants/MetaMTAReceivedMailStatus.php:39
 msgid "Processing Exception"
@@ -22202,22 +22208,22 @@ msgstr ""
 #: applications/metamta/receiver/PhabricatorMailReceiver.php:63
 #, php-format
 msgid "Your account (%s) is disabled, so you can not interact with Phabricator over email."
-msgstr ""
+msgstr "Dein Konto (%s) ist deaktiviert, folglich kannst Du mit Phabricator auch nicht per Email interagieren."
 
 #: applications/metamta/receiver/PhabricatorMailReceiver.php:69
 #, php-format
 msgid "Your account (%s) has not been approved yet. You can not interact with Phabricator over email until your account is approved."
-msgstr ""
+msgstr "Dein Konto (%s) wurde bis jetzt noch nicht bestätigt. Du kannst mit Phabricator nicht per Email interagieren so lange Dein Konto noch nicht bestätigt wurde."
 
 #: applications/metamta/receiver/PhabricatorMailReceiver.php:75
 #, php-format
 msgid "You have not verified the email address for your account (%s). You must verify your email address before you can interact with Phabricator over email."
-msgstr ""
+msgstr "Du hast Deine Email-Adresse in Deinem Konto (%s) noch nicht bestätigt. Du mußt Deine Email-Adresse zunächst bestätigen, bevor Du mit Phabricator per Email kommunizieren kannst."
 
 #: applications/metamta/receiver/PhabricatorMailReceiver.php:107
 #, php-format
 msgid "This email was sent from \"%s\", but that address is not recognized by Phabricator and does not correspond to any known user account."
-msgstr ""
+msgstr "Die Email wurde von \"%s\" gesendet, aber diese Adresse ist Phabricator nicht bekannt und passt zu keinem bekannten Benutzerkonto."
 
 #: applications/metamta/receiver/PhabricatorMailReceiver.php:125
 #, php-format
@@ -22287,7 +22293,7 @@ msgstr ""
 
 #: applications/search/query/PhabricatorSearchApplicationSearchEngine.php:178
 msgid "Open Documents"
-msgstr ""
+msgstr "Offene Dokumente"
 
 #: applications/search/query/PhabricatorSearchDocumentQuery.php:89
 msgid "This query does not support cursor paging; it must be offset paged."
