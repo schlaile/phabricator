@@ -80,6 +80,14 @@ final class PhabricatorCalendarApplication extends PhabricatorApplication {
     return $items;
   }
 
+  protected function getCustomCapabilities() {
+    return array(
+      CalendarDefaultEditCapability::CAPABILITY => array(
+	  'caption' => pht('Default edit policy for newly created events.')
+         )
+     );
+  }
+
   public function getMailCommandObjects() {
     return array(
       'event' => array(

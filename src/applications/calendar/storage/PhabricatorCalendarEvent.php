@@ -66,6 +66,8 @@ final class PhabricatorCalendarEvent extends PhabricatorCalendarDAO
       $is_recurring = true;
     }
 
+    $edit_policy = $app->getPolicy(CalendarDefaultEditCapability::CAPABILITY);
+
     return id(new PhabricatorCalendarEvent())
       ->setUserPHID($actor->getPHID())
       ->setIsCancelled(0)
@@ -73,7 +75,7 @@ final class PhabricatorCalendarEvent extends PhabricatorCalendarDAO
       ->setIsRecurring($is_recurring)
       ->setIcon(self::DEFAULT_ICON)
       ->setViewPolicy($view_policy)
-      ->setEditPolicy($actor->getPHID())
+      ->setEditPolicy($edit_policy)
       ->setSpacePHID($actor->getDefaultSpacePHID())
       ->attachInvitees(array())
       ->applyViewerTimezone($actor);
