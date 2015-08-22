@@ -81,6 +81,17 @@ abstract class PhabricatorProjectController extends PhabricatorController {
       $nav->addIcon(null, pht('Open Tasks'), 'fa-anchor', null, $query_uri);
     }
 
+    $class = 'PhabricatorCalendarApplication';
+    if (PhabricatorApplication::isClassInstalledForViewer($class, $viewer)) {
+      $phid = $project->getPHID();
+
+      $query_uri = urisprintf(
+	      '/calendar/?isCancelled=active&projects=%s#R',
+	      $phid);
+
+      $nav->addIcon('calendar', pht('Calendar'), 'fa-calendar', null, $query_uri);
+    }
+
     $nav->addIcon("feed/{$id}/", pht('Feed'), 'fa-newspaper-o');
     $nav->addIcon("members/{$id}/", pht('Members'), 'fa-group');
     $nav->addIcon("details/{$id}/", pht('Edit Details'), 'fa-pencil');
