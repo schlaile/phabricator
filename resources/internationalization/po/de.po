@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-17 12:58+0200\n"
-"PO-Revision-Date: 2015-08-20 22:42+0100\n"
+"PO-Revision-Date: 2015-08-22 22:05+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: GERMAN <peter@schlaile.de>\n"
 "Language: \n"
@@ -47223,32 +47223,32 @@ msgstr ""
 #: applications/maniphest/edge/ManiphestTaskDependedOnByTaskEdgeType.php:20
 #, php-format
 msgid "%s added %s blocked task(s): %s."
-msgstr "%s hat %s blockierende Aufgaben hinzugefügt: %s."
+msgstr "%s hat %s blockierte Aufgabe(n) hinzugefügt: %s."
 
 #: applications/maniphest/edge/ManiphestTaskDependedOnByTaskEdgeType.php:32
 #, php-format
 msgid "%s removed %s blocked task(s): %s."
-msgstr "%s hat %s blockierende Aufgaben entfernt: %s."
+msgstr "%s hat %s blockierte Aufgabe(n) entfernt: %s."
 
 #: applications/maniphest/edge/ManiphestTaskDependedOnByTaskEdgeType.php:47
 #, php-format
 msgid "%s edited blocked task(s), added %s: %s; removed %s: %s."
-msgstr "%s hat blockierende Aufgaben geändert, %s hinzugefügt: %s; %s entfernt: %s."
+msgstr "%s hat blockierte Aufgaben geändert: %s hinzugefügt: %s; %s entfernt: %s."
 
 #: applications/maniphest/edge/ManiphestTaskDependedOnByTaskEdgeType.php:62
 #, php-format
 msgid "%s added %s blocked task(s) for %s: %s."
-msgstr "%s hat %s blockierende Aufgaben zu %s hinzugefügt: %s."
+msgstr "%s hat %s blockierte Aufgabe(n) zu %s hinzugefügt: %s."
 
 #: applications/maniphest/edge/ManiphestTaskDependedOnByTaskEdgeType.php:76
 #, php-format
 msgid "%s removed %s blocked task(s) for %s: %s."
-msgstr "%s hat %s blockierende Aufgaben von %s entfernt: %s."
+msgstr "%s hat %s blockierte Aufgabe(n) von %s entfernt: %s."
 
 #: applications/maniphest/edge/ManiphestTaskDependedOnByTaskEdgeType.php:93
 #, php-format
 msgid "%s edited blocked task(s) for %s, added %s: %s; removed %s: %s."
-msgstr "%s hat blockierende Aufgaben von %s geändert, %s hinzugefügt: %s; %s entfernt: %s."
+msgstr "%s hat blockierte Aufgabe(n) von %s geändert, %s hinzugefügt: %s; %s entfernt: %s."
 
 #: applications/maniphest/edge/ManiphestTaskDependsOnTaskEdgeType.php:25
 #, php-format
