@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-17 12:58+0200\n"
-"PO-Revision-Date: 2015-08-22 22:05+0100\n"
+"PO-Revision-Date: 2015-08-24 12:14+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: GERMAN <peter@schlaile.de>\n"
 "Language: \n"
@@ -19181,7 +19181,7 @@ msgstr "Dateien, die an bestimmte Objekte gebunden sind, sind sichtbar für die 
 #: applications/files/query/PhabricatorFileSearchEngine.php:142
 #, php-format
 msgid "Uploaded by %s on %s"
-msgstr "Hochgeladen von %s auf %s."
+msgstr "Hochgeladen von %s am %s."
 
 #: applications/files/query/PhabricatorFileSearchEngine.php:144
 #, php-format
