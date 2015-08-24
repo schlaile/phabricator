@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-17 12:58+0200\n"
-"PO-Revision-Date: 2015-08-24 12:14+0100\n"
+"PO-Revision-Date: 2015-08-24 14:29+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: GERMAN <peter@schlaile.de>\n"
 "Language: \n"
@@ -596,7 +596,7 @@ msgstr "VORSCHAU"
 #: applications/phriction/storage/PhrictionTransaction.php:130
 #: view/phui/PHUITimelineEventView.php:490
 msgid "Edited"
-msgstr "Editiert"
+msgstr "Geändert"
 
 #: applications/almanac/controller/AlmanacDeviceEditController.php:151
 #: applications/almanac/controller/AlmanacNetworkEditController.php:130
@@ -635,7 +635,7 @@ msgstr "Editiert"
 #: applications/releeph/controller/request/ReleephRequestEditController.php:286
 #: infrastructure/diff/view/PHUIDiffInlineCommentDetailView.php:255
 msgid "Edit"
-msgstr "Editieren"
+msgstr "Ändern"
 
 #: view/AphrontView.php:64
 #, php-format
