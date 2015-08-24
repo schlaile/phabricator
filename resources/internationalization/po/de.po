@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-17 12:58+0200\n"
-"PO-Revision-Date: 2015-08-24 14:29+0100\n"
+"PO-Revision-Date: 2015-08-24 17:24+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: GERMAN <peter@schlaile.de>\n"
 "Language: \n"
@@ -49978,7 +49978,7 @@ msgstr ""
 
 #: applications/phragment/controller/PhragmentHistoryController.php:70
 msgid "Deletion"
-msgstr ""
+msgstr "Gelöscht"
 
 #: applications/phragment/controller/PhragmentRevertController.php:50
 msgid "The file associated with this version was not found."
@@ -50021,32 +50021,32 @@ msgstr ""
 #: applications/phriction/conduit/PhrictionHistoryConduitAPIMethod.php:25
 #: applications/phriction/conduit/PhrictionInfoConduitAPIMethod.php:25
 msgid "No such document exists."
-msgstr ""
+msgstr "Dokument existiert nicht."
 
 #: applications/phriction/constants/PhrictionChangeType.php:15
 msgid "Move Here"
-msgstr ""
+msgstr "Hergeschoben"
 
 #: applications/phriction/constants/PhrictionChangeType.php:16
 msgid "Move Away"
-msgstr ""
+msgstr "Weggeschoben"
 
 #: applications/phriction/constants/PhrictionChangeType.php:17
 msgid "Created through child"
-msgstr ""
+msgstr "Durch Unterdokument erzeugt"
 
 #: applications/phriction/controller/PhrictionDiffController.php:106
 msgid "Changes"
-msgstr ""
+msgstr "Änderungen"
 
 #: applications/phriction/controller/PhrictionDocumentController.php:149
 #, php-format
 msgid "Unknown document status '%s'!"
-msgstr ""
+msgstr "Unbekannter Status des Dokumentes '%s'!"
 
 #: applications/phriction/controller/PhrictionEditController.php:99
 msgid "Recovered Draft"
-msgstr ""
+msgstr "Restaurierter Entwurf"
 
 #: applications/phriction/controller/PhrictionEditController.php:104
 #, php-format
@@ -50055,16 +50055,16 @@ msgstr ""
 
 #: applications/phriction/controller/PhrictionHistoryController.php:90
 msgid "Unknown change type!"
-msgstr ""
+msgstr "Unbekannte Änderung!"
 
 #: applications/phriction/controller/PhrictionMoveController.php:45
 #, php-format
 msgid "The path you entered (%s) is not a valid wiki document path. Paths may not contain spaces or special characters."
-msgstr ""
+msgstr "Der eingegebene Pfad (%s) ist kein gültiger Wiki-Dokumentenpfad. Pfade dürfen keine Leerzeichen oder Sonderzeichen enthalten."
 
 #: applications/phriction/editor/PhrictionTransactionEditor.php:395
 msgid "A document's subscribers change."
-msgstr ""
+msgstr "Der Mitleser eines Dokumentes wurde geändert."
 
 #: applications/phriction/editor/PhrictionTransactionEditor.php:397
 msgid "Other document activity not listed above occurs."
@@ -50072,7 +50072,7 @@ msgstr ""
 
 #: applications/phriction/editor/PhrictionTransactionEditor.php:608
 msgid "This document is already deleted. You must specify content to re-create the document and make further edits."
-msgstr ""
+msgstr "Dieses Dokument wurde bereits gelöscht. Du mußt einen neuen Inhalt angeben, um das Dokument neu zu erstellen und weitere Änderungen vornehmen zu können."
 
 #: applications/phriction/editor/PhrictionTransactionEditor.php:668
 #, php-format
@@ -50094,7 +50094,7 @@ msgstr ""
 
 #: applications/phriction/phid/PhrictionDocumentPHIDType.php:8
 msgid "Phriction Wiki Document"
-msgstr ""
+msgstr "Phriction Wiki Dokument"
 
 #: applications/phriction/storage/PhrictionDocument.php:104
 #, php-format
