@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-17 12:58+0200\n"
-"PO-Revision-Date: 2015-08-24 17:24+0100\n"
+"PO-Revision-Date: 2015-08-25 17:46+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: GERMAN <peter@schlaile.de>\n"
 "Language: \n"
@@ -4987,7 +4987,7 @@ msgstr "Neuer Termin"
 
 #: applications/calendar/controller/PhabricatorCalendarEventEditController.php:125
 msgid "Update"
-msgstr "Editieren"
+msgstr "Änderung übernehmen"
 
 #: applications/phortune/controller/PhortuneCartViewController.php:99
 #: applications/phortune/controller/PhortuneCartViewController.php:306
