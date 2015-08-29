@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-17 12:58+0200\n"
-"PO-Revision-Date: 2015-08-25 17:46+0100\n"
+"PO-Revision-Date: 2015-08-29 10:53+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: GERMAN <peter@schlaile.de>\n"
 "Language: \n"
@@ -4605,13 +4605,13 @@ msgid "Bounded boxes of text."
 msgstr ""
 
 msgid "Short note"
-msgstr ""
+msgstr "Kurze Notiz"
 
 msgid "Longer note"
-msgstr ""
+msgstr "Lange Notiz"
 
 msgid "Oversize note"
-msgstr ""
+msgstr "Überlange Notiz"
 
 msgid "Unbounded Oversize Note"
 msgstr ""
@@ -6894,22 +6894,22 @@ msgstr "Flagge %s"
 #: applications/flag/controller/PhabricatorFlagEditController.php:60
 #, php-format
 msgid "You can flag this %s if you want to remember to look at it later."
-msgstr ""
+msgstr "Du kannst diesen %s mit einer Markierung als Gedächtnisstütze versehen."
 
 #: applications/flag/controller/PhabricatorFlagEditController.php:75
 msgid "Flag Color"
-msgstr ""
+msgstr "Flaggenfarbe"
 
 #: applications/flag/controller/PhabricatorFlagEditController.php:81
 #: applications/passphrase/credentialtype/PassphraseNoteCredentialType.php:18
 #: applications/passphrase/credentialtype/PassphraseNoteCredentialType.php:26
 #: applications/phrequent/controller/PhrequentTrackController.php:153
 msgid "Note"
-msgstr ""
+msgstr "Notiz"
 
 #: applications/flag/controller/PhabricatorFlagEditController.php:88
 msgid "Create Flag"
-msgstr ""
+msgstr "Wir machen das mit den Fähnchen"
 
 msgid "Reminders"
 msgstr ""
