@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-17 12:58+0200\n"
-"PO-Revision-Date: 2015-08-29 10:53+0100\n"
+"PO-Revision-Date: 2015-09-09 14:19+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: GERMAN <peter@schlaile.de>\n"
 "Language: \n"
@@ -23459,7 +23459,7 @@ msgstr "Diesen Kommentar wirklich entfernen?"
 #: applications/diffusion/herald/DiffusionChangeHeraldFieldGroup.php:8
 #: applications/transactions/controller/PhabricatorApplicationTransactionDetailController.php:33
 msgid "Change Details"
-msgstr "Details ändern"
+msgstr "Änderungen im Detail"
 
 #: applications/transactions/controller/PhabricatorApplicationTransactionValueController.php:102
 msgid "These rules are processed in order:"
