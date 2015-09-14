@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-17 12:58+0200\n"
-"PO-Revision-Date: 2015-09-09 14:19+0100\n"
+"PO-Revision-Date: 2015-09-14 20:50+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: GERMAN <peter@schlaile.de>\n"
 "Language: \n"
@@ -48728,27 +48728,27 @@ msgstr ""
 #: applications/people/controller/PhabricatorPeopleApproveController.php:39
 #, php-format
 msgid "Your Phabricator account (%s) has been approved by %s. You can login here:"
-msgstr ""
+msgstr "Dein Phabricator-Konto (%s) wurde freigeschaltet durch %s. Du kannst Dich jetzt hier anmelden:"
 
 #: applications/people/controller/PhabricatorPeopleController.php:36
 msgid "Email Invitations"
-msgstr ""
+msgstr "Email Einladungen"
 
 #: applications/people/controller/PhabricatorPeopleCreateController.php:50
 msgid "Create a standard user account."
-msgstr ""
+msgstr "Neues Standard-Benutzer Konto."
 
 #: applications/people/controller/PhabricatorPeopleCreateController.php:56
 msgid "Create Bot User"
-msgstr ""
+msgstr "Neuer Automat"
 
 #: applications/people/controller/PhabricatorPeopleCreateController.php:57
 msgid "Create a new user for use with automated scripts."
-msgstr ""
+msgstr "Erstelle einen neuen Benutzer, der ausschließlich für Skripte verwendet wird."
 
 #: applications/people/controller/PhabricatorPeopleCreateController.php:62
 msgid "Create Mailing List User"
-msgstr ""
+msgstr "Neuer Mailing-Listen Benutzer"
 
 #: applications/people/controller/PhabricatorPeopleCreateController.php:64
 msgid "Create a mailing list user to represent an existing, external mailing list like a Google Group or a Mailman list."
