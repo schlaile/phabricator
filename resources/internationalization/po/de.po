@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-17 12:58+0200\n"
-"PO-Revision-Date: 2015-09-14 20:50+0100\n"
+"PO-Revision-Date: 2015-09-17 12:42+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: GERMAN <peter@schlaile.de>\n"
 "Language: \n"
@@ -19752,7 +19752,7 @@ msgstr "Du mußt mindestens eine mögliche Antwort angeben."
 
 #: applications/slowvote/controller/PhabricatorSlowvoteEditController.php:152
 msgid "Resolve issues and build consensus through protracted deliberation."
-msgstr "Löse Probleme und schaffe einen Konsens durch ausgedehnte Beratungszeit."
+msgstr "Löse Probleme und schaffe einen Konsens durch einen unnötig verlängerten Entscheidungsprozess."
 
 #: applications/slowvote/controller/PhabricatorSlowvoteEditController.php:182
 #, php-format
@@ -19818,11 +19818,11 @@ msgstr "Vielleicht"
 
 #: applications/slowvote/application/PhabricatorSlowvoteApplication.php:35
 msgid "Design by committee."
-msgstr ""
+msgstr "Viele Köche verderben den Brei."
 
 #: applications/slowvote/application/PhabricatorSlowvoteApplication.php:66
 msgid "Default view policy for new polls."
-msgstr ""
+msgstr "Vorgabe Anzeige-Benutzerrichtlinie für neue Umfragen."
 
 #: applications/xhprof/controller/PhabricatorXHProfSampleListController.php:70
 msgid "Manual Run"
@@ -52556,11 +52556,11 @@ msgstr ""
 
 #: applications/settings/panel/PhabricatorEmailAddressesSettingsPanel.php:203
 msgid "In Use"
-msgstr ""
+msgstr "In Benutzung"
 
 #: applications/settings/panel/PhabricatorEmailFormatSettingsPanel.php:79
 msgid "Plain Text"
-msgstr ""
+msgstr "Unformatierter Text"
 
 #: applications/settings/panel/PhabricatorSearchPreferencesSettingsPanel.php:47
 #, php-format
@@ -52577,11 +52577,11 @@ msgstr ""
 
 #: applications/slowvote/conduit/SlowvoteInfoConduitAPIMethod.php:25
 msgid "No such poll exists."
-msgstr ""
+msgstr "Diese Umfrage existiert nicht."
 
 #: applications/slowvote/query/PhabricatorSlowvoteSearchEngine.php:174
 msgid "No polls found."
-msgstr ""
+msgstr "Eine Umfragen gefunden."
 
 #: applications/spaces/application/PhabricatorSpacesApplication.php:14
 msgid "Policy Namespaces"
