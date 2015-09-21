@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-17 12:58+0200\n"
-"PO-Revision-Date: 2015-09-17 12:42+0100\n"
+"PO-Revision-Date: 2015-09-21 18:15+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: GERMAN <peter@schlaile.de>\n"
 "Language: \n"
@@ -52230,36 +52230,36 @@ msgstr "%s zusammenführen"
 
 #: applications/search/controller/PhabricatorSearchAttachController.php:233
 msgid "These tasks will be merged into the current task and then closed. The current task will grow stronger."
-msgstr ""
+msgstr "Die selektierten Aufgaben werden mit der aktuellen Aufgabe verbunden und dann geschlossen. Dies verleiht der aktuellen Aufgabe mehr Macht."
 
 #: applications/search/controller/PhabricatorSearchAttachController.php:238
 msgid "Current Dependencies"
-msgstr ""
+msgstr "Aktuelle Abhängigkeiten"
 
 #: applications/search/controller/PhabricatorSearchAttachController.php:239
 msgid "Save Dependencies"
-msgstr ""
+msgstr "Speichere Abhängigkeiten"
 
 #: applications/search/controller/PhabricatorSearchAttachController.php:263
 #: applications/search/controller/PhabricatorSearchAttachController.php:269
 msgid "Created By Me"
-msgstr ""
+msgstr "Von mir erzeugt"
 
 #: applications/search/controller/PhabricatorSearchAttachController.php:264
 #: applications/search/controller/PhabricatorSearchAttachController.php:271
 #, php-format
 msgid "All %s"
-msgstr ""
+msgstr "Alle %s"
 
 #: applications/search/controller/PhabricatorSearchAttachController.php:270
 #, php-format
 msgid "All Open %s"
-msgstr ""
+msgstr "Alle offenen %s"
 
 #: applications/search/controller/PhabricatorSearchAttachController.php:320
 #, php-format
 msgid "You can not create that dependency, because it would create a circular dependency: %s."
-msgstr ""
+msgstr "Du kannst diese Abhängigkeit nicht erzeugen, da sie einen Zirkelschluss erzeugen würde: %s"
 
 #: applications/search/engine/PhabricatorApplicationSearchEngine.php:259
 #: applications/spaces/application/PhabricatorSpacesApplication.php:10
@@ -52392,7 +52392,7 @@ msgstr "Wähle eine Dokumentenart..."
 #: applications/settings/panel/PhabricatorAccountSettingsPanel.php:77
 #, php-format
 msgid "Server Default: %s"
-msgstr ""
+msgstr "Server-Vorgabe: %s"
 
 #: applications/settings/panel/PhabricatorDateTimeSettingsPanel.php:10
 msgid "Date and Time"
