@@ -141,6 +141,14 @@ table.phui-calendar-view td.phui-calendar-date-number-container {
   background-color: {$lightblueborder};
 }
 
+td.phui-calendar-today {
+  background-color: {$lightblueborder};
+}
+
+.phui-calendar-today a.phui-calendar-date-number {
+  color: {$darkbluetext} !important;
+}
+
 .phui-calendar-event-empty {
   border-color: transparent;
   background: transparent;

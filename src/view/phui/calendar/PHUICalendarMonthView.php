@@ -240,12 +240,14 @@ final class PHUICalendarMonthView extends AphrontView {
     if ($date && $date->format('j') == $this->day &&
       $date->format('m') == $this->month) {
       $today_class = 'phui-calendar-today-slot phui-calendar-today';
+      $class .= ' phui-calendar-today';
     } else {
       $today_class = 'phui-calendar-today-slot';
     }
 
     if ($this->isDateInCurrentWeek($date)) {
       $today_class .= ' phui-calendar-this-week';
+      $class .= ' phui-calendar-this-week';
     }
 
     $last_week_day = 6;
