@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-17 12:58+0200\n"
-"PO-Revision-Date: 2015-08-25 17:46+0100\n"
+"PO-Revision-Date: 2015-10-05 16:33+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: GERMAN <peter@schlaile.de>\n"
 "Language: \n"
@@ -4605,13 +4605,13 @@ msgid "Bounded boxes of text."
 msgstr ""
 
 msgid "Short note"
-msgstr ""
+msgstr "Kurze Notiz"
 
 msgid "Longer note"
-msgstr ""
+msgstr "Lange Notiz"
 
 msgid "Oversize note"
-msgstr ""
+msgstr "Überlange Notiz"
 
 msgid "Unbounded Oversize Note"
 msgstr ""
@@ -6894,22 +6894,22 @@ msgstr "Flagge %s"
 #: applications/flag/controller/PhabricatorFlagEditController.php:60
 #, php-format
 msgid "You can flag this %s if you want to remember to look at it later."
-msgstr ""
+msgstr "Du kannst diesen %s mit einer Markierung als Gedächtnisstütze versehen."
 
 #: applications/flag/controller/PhabricatorFlagEditController.php:75
 msgid "Flag Color"
-msgstr ""
+msgstr "Flaggenfarbe"
 
 #: applications/flag/controller/PhabricatorFlagEditController.php:81
 #: applications/passphrase/credentialtype/PassphraseNoteCredentialType.php:18
 #: applications/passphrase/credentialtype/PassphraseNoteCredentialType.php:26
 #: applications/phrequent/controller/PhrequentTrackController.php:153
 msgid "Note"
-msgstr ""
+msgstr "Notiz"
 
 #: applications/flag/controller/PhabricatorFlagEditController.php:88
 msgid "Create Flag"
-msgstr ""
+msgstr "Wir machen das mit den Fähnchen"
 
 msgid "Reminders"
 msgstr ""
@@ -18646,11 +18646,11 @@ msgstr ""
 
 #: applications/settings/panel/PhabricatorDateTimeSettingsPanel.php:68
 msgid "Time-of-Day Format"
-msgstr ""
+msgstr "Zeitdarstellung"
 
 #: applications/settings/panel/PhabricatorDateTimeSettingsPanel.php:75
 msgid "Format used when rendering a time of day."
-msgstr ""
+msgstr "Art der Darstellung einer Tageszeit"
 
 #: applications/settings/panel/PhabricatorAccountSettingsPanel.php:98
 #: applications/settings/panel/PhabricatorDateTimeSettingsPanel.php:99
@@ -19752,7 +19752,7 @@ msgstr "Du mußt mindestens eine mögliche Antwort angeben."
 
 #: applications/slowvote/controller/PhabricatorSlowvoteEditController.php:152
 msgid "Resolve issues and build consensus through protracted deliberation."
-msgstr "Löse Probleme und schaffe einen Konsens durch ausgedehnte Beratungszeit."
+msgstr "Löse Probleme und schaffe einen Konsens durch einen unnötig verlängerten Entscheidungsprozess."
 
 #: applications/slowvote/controller/PhabricatorSlowvoteEditController.php:182
 #, php-format
@@ -19818,11 +19818,11 @@ msgstr "Vielleicht"
 
 #: applications/slowvote/application/PhabricatorSlowvoteApplication.php:35
 msgid "Design by committee."
-msgstr ""
+msgstr "Viele Köche verderben den Brei."
 
 #: applications/slowvote/application/PhabricatorSlowvoteApplication.php:66
 msgid "Default view policy for new polls."
-msgstr ""
+msgstr "Vorgabe Anzeige-Benutzerrichtlinie für neue Umfragen."
 
 #: applications/xhprof/controller/PhabricatorXHProfSampleListController.php:70
 msgid "Manual Run"
@@ -23459,7 +23459,7 @@ msgstr "Diesen Kommentar wirklich entfernen?"
 #: applications/diffusion/herald/DiffusionChangeHeraldFieldGroup.php:8
 #: applications/transactions/controller/PhabricatorApplicationTransactionDetailController.php:33
 msgid "Change Details"
-msgstr "Details ändern"
+msgstr "Änderungen im Detail"
 
 #: applications/transactions/controller/PhabricatorApplicationTransactionValueController.php:102
 msgid "These rules are processed in order:"
@@ -48728,27 +48728,27 @@ msgstr ""
 #: applications/people/controller/PhabricatorPeopleApproveController.php:39
 #, php-format
 msgid "Your Phabricator account (%s) has been approved by %s. You can login here:"
-msgstr ""
+msgstr "Dein Phabricator-Konto (%s) wurde freigeschaltet durch %s. Du kannst Dich jetzt hier anmelden:"
 
 #: applications/people/controller/PhabricatorPeopleController.php:36
 msgid "Email Invitations"
-msgstr ""
+msgstr "Email Einladungen"
 
 #: applications/people/controller/PhabricatorPeopleCreateController.php:50
 msgid "Create a standard user account."
-msgstr ""
+msgstr "Neues Standard-Benutzer Konto."
 
 #: applications/people/controller/PhabricatorPeopleCreateController.php:56
 msgid "Create Bot User"
-msgstr ""
+msgstr "Neuer Automat"
 
 #: applications/people/controller/PhabricatorPeopleCreateController.php:57
 msgid "Create a new user for use with automated scripts."
-msgstr ""
+msgstr "Erstelle einen neuen Benutzer, der ausschließlich für Skripte verwendet wird."
 
 #: applications/people/controller/PhabricatorPeopleCreateController.php:62
 msgid "Create Mailing List User"
-msgstr ""
+msgstr "Neuer Mailing-Listen Benutzer"
 
 #: applications/people/controller/PhabricatorPeopleCreateController.php:64
 msgid "Create a mailing list user to represent an existing, external mailing list like a Google Group or a Mailman list."
@@ -52230,36 +52230,36 @@ msgstr "%s zusammenführen"
 
 #: applications/search/controller/PhabricatorSearchAttachController.php:233
 msgid "These tasks will be merged into the current task and then closed. The current task will grow stronger."
-msgstr ""
+msgstr "Die selektierten Aufgaben werden mit der aktuellen Aufgabe verbunden und dann geschlossen. Dies verleiht der aktuellen Aufgabe mehr Macht."
 
 #: applications/search/controller/PhabricatorSearchAttachController.php:238
 msgid "Current Dependencies"
-msgstr ""
+msgstr "Aktuelle Abhängigkeiten"
 
 #: applications/search/controller/PhabricatorSearchAttachController.php:239
 msgid "Save Dependencies"
-msgstr ""
+msgstr "Speichere Abhängigkeiten"
 
 #: applications/search/controller/PhabricatorSearchAttachController.php:263
 #: applications/search/controller/PhabricatorSearchAttachController.php:269
 msgid "Created By Me"
-msgstr ""
+msgstr "Von mir erzeugt"
 
 #: applications/search/controller/PhabricatorSearchAttachController.php:264
 #: applications/search/controller/PhabricatorSearchAttachController.php:271
 #, php-format
 msgid "All %s"
-msgstr ""
+msgstr "Alle %s"
 
 #: applications/search/controller/PhabricatorSearchAttachController.php:270
 #, php-format
 msgid "All Open %s"
-msgstr ""
+msgstr "Alle offenen %s"
 
 #: applications/search/controller/PhabricatorSearchAttachController.php:320
 #, php-format
 msgid "You can not create that dependency, because it would create a circular dependency: %s."
-msgstr ""
+msgstr "Du kannst diese Abhängigkeit nicht erzeugen, da sie einen Zirkelschluss erzeugen würde: %s"
 
 #: applications/search/engine/PhabricatorApplicationSearchEngine.php:259
 #: applications/spaces/application/PhabricatorSpacesApplication.php:10
@@ -52392,7 +52392,7 @@ msgstr "Wähle eine Dokumentenart..."
 #: applications/settings/panel/PhabricatorAccountSettingsPanel.php:77
 #, php-format
 msgid "Server Default: %s"
-msgstr ""
+msgstr "Server-Vorgabe: %s"
 
 #: applications/settings/panel/PhabricatorDateTimeSettingsPanel.php:10
 msgid "Date and Time"
@@ -52424,7 +52424,7 @@ msgstr "Europäisch (28-02-2000)"
 
 #: applications/settings/panel/PhabricatorDateTimeSettingsPanel.php:87
 msgid "Format used when rendering a date."
-msgstr ""
+msgstr "Art der Darstellung eines Datums"
 
 #: applications/settings/panel/PhabricatorDateTimeSettingsPanel.php:91
 msgid "Week Starts On"
@@ -52556,11 +52556,11 @@ msgstr ""
 
 #: applications/settings/panel/PhabricatorEmailAddressesSettingsPanel.php:203
 msgid "In Use"
-msgstr ""
+msgstr "In Benutzung"
 
 #: applications/settings/panel/PhabricatorEmailFormatSettingsPanel.php:79
 msgid "Plain Text"
-msgstr ""
+msgstr "Unformatierter Text"
 
 #: applications/settings/panel/PhabricatorSearchPreferencesSettingsPanel.php:47
 #, php-format
@@ -52577,11 +52577,11 @@ msgstr ""
 
 #: applications/slowvote/conduit/SlowvoteInfoConduitAPIMethod.php:25
 msgid "No such poll exists."
-msgstr ""
+msgstr "Diese Umfrage existiert nicht."
 
 #: applications/slowvote/query/PhabricatorSlowvoteSearchEngine.php:174
 msgid "No polls found."
-msgstr ""
+msgstr "Eine Umfragen gefunden."
 
 #: applications/spaces/application/PhabricatorSpacesApplication.php:14
 msgid "Policy Namespaces"
