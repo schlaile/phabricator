@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-17 12:58+0200\n"
-"PO-Revision-Date: 2015-10-11 13:25+0100\n"
+"PO-Revision-Date: 2015-10-11 13:28+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: GERMAN <peter@schlaile.de>\n"
 "Language: \n"
@@ -16104,7 +16104,7 @@ msgstr "Commit ändern"
 
 #: applications/maniphest/query/ManiphestTaskSearchEngine.php:231
 msgid "Subscribed"
-msgstr ""
+msgstr "Ich lese mit bei"
 
 msgid "Repository Browser"
 msgstr ""
