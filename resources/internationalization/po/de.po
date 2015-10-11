@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-08-17 12:58+0200\n"
-"PO-Revision-Date: 2015-10-05 16:33+0100\n"
+"PO-Revision-Date: 2015-10-11 13:25+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: GERMAN <peter@schlaile.de>\n"
 "Language: \n"
@@ -27093,11 +27093,11 @@ msgstr "Per Email-Antwort kommentieren, Dateien anhängen, oder per !close die A
 
 #: applications/maniphest/query/ManiphestTaskSearchEngine.php:97
 msgid "Updated After"
-msgstr "Danach geändert"
+msgstr "Geändert nach"
 
 #: applications/maniphest/query/ManiphestTaskSearchEngine.php:100
 msgid "Updated Before"
-msgstr "Davor geändert"
+msgstr "Geändert vor"
 
 #: applications/maniphest/controller/ManiphestTaskDetailController.php:131
 msgid "Change Status"
@@ -33380,7 +33380,7 @@ msgstr ""
 #: applications/fund/query/FundInitiativeSearchEngine.php:56
 #: applications/maniphest/query/ManiphestTaskSearchEngine.php:57
 msgid "Statuses"
-msgstr ""
+msgstr "Status(e)"
 
 #: applications/fund/query/FundInitiativeSearchEngine.php:82
 msgid "Open Initiatives"
@@ -46067,11 +46067,11 @@ msgstr ""
 #: applications/people/query/PhabricatorPeopleSearchEngine.php:61
 #: applications/spaces/query/PhabricatorSpacesNamespaceSearchEngine.php:24
 msgid "(Show All)"
-msgstr ""
+msgstr "(Zeige Alle)"
 
 #: applications/files/query/PhabricatorFileSearchEngine.php:29
 msgid "Show Only Manually Uploaded Files"
-msgstr ""
+msgstr "Zeige nur manuell hochgeladene Dateien"
 
 #: applications/files/query/PhabricatorFileSearchEngine.php:30
 msgid "Hide Manually Uploaded Files"
@@ -46083,7 +46083,7 @@ msgstr ""
 
 #: applications/files/storage/PhabricatorFile.php:145
 msgid "No file was uploaded!"
-msgstr ""
+msgstr "Es wurde keine Datei hochgeladen!"
 
 #: applications/files/storage/PhabricatorFile.php:156
 msgid "File is not an uploaded file."
@@ -47348,39 +47348,39 @@ msgstr ""
 
 #: applications/maniphest/query/ManiphestTaskQuery.php:708
 msgid "Date Updated (Latest First)"
-msgstr ""
+msgstr "Aktualisierungsdatum (Neueste zuerst)"
 
 #: applications/maniphest/query/ManiphestTaskQuery.php:713
 msgid "Date Updated (Oldest First)"
-msgstr ""
+msgstr "Aktualisierungsdatum (Älteste zuerst)"
 
 #: applications/maniphest/query/ManiphestTaskSearchEngine.php:62
 msgid "Priorities"
-msgstr ""
+msgstr "Prioritäten"
 
 #: applications/maniphest/query/ManiphestTaskSearchEngine.php:70
 msgid "Blocking"
-msgstr ""
+msgstr "Verhindert"
 
 #: applications/maniphest/query/ManiphestTaskSearchEngine.php:74
 msgid "Show Only Tasks Blocking Other Tasks"
-msgstr ""
+msgstr "Nur Aufgaben zeigen, die andere Aufgaben blockieren"
 
 #: applications/maniphest/query/ManiphestTaskSearchEngine.php:75
 msgid "Hide Tasks Blocking Other Tasks"
-msgstr ""
+msgstr "Ausblenden von Aufgaben, die andere Aufgaben blockieren"
 
 #: applications/maniphest/query/ManiphestTaskSearchEngine.php:77
 msgid "Blocked"
-msgstr "Blockiert"
+msgstr "Ist blockiert"
 
 #: applications/maniphest/query/ManiphestTaskSearchEngine.php:81
 msgid "Show Only Task Blocked By Other Tasks"
-msgstr ""
+msgstr "Nur Aufgaben zeigen, die durch andere Aufgaben blockiert werden"
 
 #: applications/maniphest/query/ManiphestTaskSearchEngine.php:82
 msgid "Hide Tasks Blocked By Other Tasks"
-msgstr ""
+msgstr "Ausblenden von Aufgaben, die durch andere Aufgaben blockiert werden"
 
 #: applications/maniphest/storage/ManiphestTransaction.php:410
 #, php-format
@@ -49188,11 +49188,11 @@ msgstr ""
 #: applications/people/typeahead/PhabricatorViewerDatasource.php:21
 #: applications/people/typeahead/PhabricatorViewerDatasource.php:74
 msgid "Current Viewer"
-msgstr ""
+msgstr "Aktueller Benutzer"
 
 #: applications/people/typeahead/PhabricatorViewerDatasource.php:22
 msgid "Use the current viewing user."
-msgstr ""
+msgstr "Den aktuell angemeldeten Benutzer verwenden."
 
 #: applications/people/typeahead/PhabricatorViewerDatasource.php:24
 msgid ""
@@ -55279,11 +55279,11 @@ msgstr ""
 
 #: infrastructure/query/policy/PhabricatorCursorPagedPolicyAwareQuery.php:699
 msgid "Creation (Newest First)"
-msgstr ""
+msgstr "Erstellungsdatum (Neueste zuerst)"
 
 #: infrastructure/query/policy/PhabricatorCursorPagedPolicyAwareQuery.php:704
 msgid "Creation (Oldest First)"
-msgstr ""
+msgstr "Erstellungsdatum (Älteste zuerst)"
 
 #: infrastructure/query/policy/PhabricatorCursorPagedPolicyAwareQuery.php:748
 #, php-format
