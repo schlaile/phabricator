@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-17 12:58+0200\n"
-"PO-Revision-Date: 2015-10-11 13:28+0100\n"
+"POT-Creation-Date: 2015-10-15 11:07+0200\n"
+"PO-Revision-Date: 2015-10-15 11:43+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: GERMAN <peter@schlaile.de>\n"
 "Language: \n"
@@ -160,7 +160,7 @@ msgid "No data."
 msgstr "Keine Daten."
 
 #: applications/diffusion/controller/DiffusionCommitController.php:764
-#: applications/maniphest/controller/ManiphestTaskDetailController.php:320
+#: applications/maniphest/controller/ManiphestTaskDetailController.php:321
 #: applications/phame/controller/post/PhamePostEditController.php:146
 #: view/phui/PHUIRemarkupPreviewPanel.php:74
 msgid "Loading preview..."
@@ -1304,7 +1304,7 @@ msgstr "Du hast keine Berechtigung, um neue Projekt zu erstellen."
 #: applications/phortune/controller/PhortuneMerchantEditController.php:139
 #: applications/phortune/controller/PhortuneMerchantViewController.php:138
 #: applications/project/controller/PhabricatorProjectController.php:34
-#: applications/project/controller/PhabricatorProjectController.php:85
+#: applications/project/controller/PhabricatorProjectController.php:96
 #: applications/project/controller/PhabricatorProjectMembersEditController.php:156
 #: applications/project/controller/PhabricatorProjectProfileController.php:187
 #: applications/project/query/PhabricatorProjectSearchEngine.php:25
@@ -1326,7 +1326,7 @@ msgstr "Mitglieder"
 #: applications/harbormaster/query/HarbormasterBuildPlanSearchEngine.php:21
 #: applications/macro/query/PhabricatorMacroSearchEngine.php:22
 #: applications/maniphest/command/ManiphestStatusEmailCommand.php:23
-#: applications/maniphest/controller/ManiphestTaskDetailController.php:204
+#: applications/maniphest/controller/ManiphestTaskDetailController.php:205
 #: applications/maniphest/controller/ManiphestTaskEditController.php:603
 #: applications/maniphest/export/ManiphestExcelDefaultFormat.php:56
 #: applications/maniphest/herald/ManiphestTaskStatusHeraldField.php:9
@@ -1771,7 +1771,7 @@ msgstr "Erzeugt"
 #: applications/fund/controller/FundInitiativeViewController.php:111
 #: applications/harbormaster/controller/HarbormasterBuildViewController.php:162
 #: applications/harbormaster/controller/HarbormasterStepEditController.php:162
-#: applications/maniphest/controller/ManiphestTaskDetailController.php:574
+#: applications/maniphest/controller/ManiphestTaskDetailController.php:575
 #: applications/maniphest/controller/ManiphestTaskEditController.php:695
 #: applications/maniphest/export/ManiphestExcelDefaultFormat.php:63
 #: applications/maniphest/herald/ManiphestTaskDescriptionHeraldField.php:9
@@ -1920,7 +1920,7 @@ msgstr "Neue Bilder hochladen"
 #: applications/diviner/controller/DivinerBookEditController.php:76
 #: applications/feed/query/PhabricatorFeedSearchEngine.php:105
 #: applications/fund/controller/FundInitiativeEditController.php:209
-#: applications/maniphest/controller/ManiphestTaskDetailController.php:237
+#: applications/maniphest/controller/ManiphestTaskDetailController.php:238
 #: applications/maniphest/controller/ManiphestTaskEditController.php:678
 #: applications/maniphest/event/ManiphestHovercardEventListener.php:59
 #: applications/maniphest/export/ManiphestExcelDefaultFormat.php:61
@@ -2005,7 +2005,7 @@ msgstr "Schuld an diesem Release:"
 #: applications/files/controller/PhabricatorFileTransformListController.php:77
 #: applications/files/controller/PhabricatorFileTransformListController.php:83
 #: applications/flag/query/PhabricatorFlagSearchEngine.php:97
-#: applications/maniphest/controller/ManiphestTaskDetailController.php:457
+#: applications/maniphest/controller/ManiphestTaskDetailController.php:458
 #: applications/maniphest/event/ManiphestHovercardEventListener.php:53
 #: applications/maniphest/query/ManiphestTaskSearchEngine.php:283
 #: applications/metamta/controller/PhabricatorMetaMTAMailViewController.php:93
@@ -2246,7 +2246,7 @@ msgstr "Elternknoten"
 #: applications/diffusion/view/DiffusionTagListView.php:98
 #: applications/files/controller/PhabricatorFileInfoController.php:195
 #: applications/herald/controller/HeraldRuleViewController.php:130
-#: applications/maniphest/controller/ManiphestTaskDetailController.php:464
+#: applications/maniphest/controller/ManiphestTaskDetailController.php:465
 #: applications/maniphest/herald/ManiphestTaskAuthorHeraldField.php:9
 #: applications/metamta/management/PhabricatorMailManagementListInboundWorkflow.php:48
 #: applications/paste/controller/PhabricatorPasteViewController.php:178
@@ -2422,14 +2422,14 @@ msgstr "Reviewer vorschlagen"
 #: applications/differential/view/DifferentialAddCommentView.php:81
 #: applications/diffusion/controller/DiffusionCommitController.php:692
 #: applications/herald/controller/HeraldRuleController.php:194
-#: applications/maniphest/controller/ManiphestTaskDetailController.php:198
+#: applications/maniphest/controller/ManiphestTaskDetailController.php:199
 #: applications/people/view/PhabricatorUserLogView.php:76
 #: applications/repository/management/PhabricatorRepositoryManagementMovePathsWorkflow.php:82
 msgid "Action"
 msgstr "Aktion"
 
 #: applications/diffusion/controller/DiffusionCommitController.php:707
-#: applications/maniphest/controller/ManiphestTaskDetailController.php:133
+#: applications/maniphest/controller/ManiphestTaskDetailController.php:134
 msgid "Add CCs"
 msgstr "Neue CCs"
 
@@ -2437,7 +2437,7 @@ msgstr "Neue CCs"
 #: applications/auth/view/PhabricatorAuthSSHKeyTableView.php:85
 #: applications/differential/constants/DifferentialAction.php:124
 #: applications/differential/view/DifferentialAddCommentView.php:109
-#: applications/maniphest/controller/ManiphestTaskDetailController.php:130
+#: applications/maniphest/controller/ManiphestTaskDetailController.php:131
 #: applications/pholio/controller/PholioInlineController.php:162
 #: applications/ponder/controller/PonderQuestionViewController.php:199
 #: applications/ponder/controller/PonderQuestionViewController.php:275
@@ -2448,7 +2448,7 @@ msgstr "Kommentar"
 
 #: applications/differential/view/DifferentialAddCommentView.php:114
 #: applications/diffusion/controller/DiffusionCommitController.php:723
-#: applications/maniphest/controller/ManiphestTaskDetailController.php:260
+#: applications/maniphest/controller/ManiphestTaskDetailController.php:261
 #: view/form/control/AphrontFormTextWithSubmitControl.php:52
 msgid "Submit"
 msgstr "Abschicken"
@@ -2465,7 +2465,7 @@ msgstr "Zum Clown machen"
 #: applications/legalpad/controller/LegalpadDocumentManageController.php:199
 #: applications/macro/controller/PhabricatorMacroViewController.php:71
 #: applications/macro/controller/PhabricatorMacroViewController.php:82
-#: applications/maniphest/controller/ManiphestTaskDetailController.php:310
+#: applications/maniphest/controller/ManiphestTaskDetailController.php:311
 #: applications/paste/controller/PhabricatorPasteViewController.php:90
 #: applications/paste/controller/PhabricatorPasteViewController.php:101
 #: applications/pholio/controller/PholioMockViewController.php:201
@@ -3069,7 +3069,7 @@ msgstr "Ziehe den Inhalt eines Diffs aus Differential mittels Versions-ID oder D
 
 #: applications/differential/controller/DifferentialRevisionEditController.php:154
 #: applications/diffusion/controller/DiffusionCommitController.php:716
-#: applications/maniphest/controller/ManiphestTaskDetailController.php:253
+#: applications/maniphest/controller/ManiphestTaskDetailController.php:254
 msgid "Comments"
 msgstr "Kommentare"
 
@@ -4521,7 +4521,7 @@ msgstr "Zugewiesen an"
 msgid "Dependent Tasks"
 msgstr "Davon abhängige Aufgaben"
 
-#: applications/maniphest/controller/ManiphestTaskDetailController.php:423
+#: applications/maniphest/controller/ManiphestTaskDetailController.php:424
 #: applications/uiexample/examples/PhabricatorHovercardUIExample.php:50
 msgid "Create Subtask"
 msgstr "Neue Unteraufgabe"
@@ -4656,25 +4656,25 @@ msgstr ""
 
 #: applications/settings/panel/PhabricatorDateTimeSettingsPanel.php:115
 #: applications/uiexample/examples/PHUIObjectItemListExample.php:66
-#: view/phui/calendar/PHUICalendarMonthView.php:338
+#: view/phui/calendar/PHUICalendarMonthView.php:340
 msgid "Monday"
 msgstr "Montag"
 
 #: applications/settings/panel/PhabricatorDateTimeSettingsPanel.php:116
 #: applications/uiexample/examples/PHUIObjectItemListExample.php:70
-#: view/phui/calendar/PHUICalendarMonthView.php:339
+#: view/phui/calendar/PHUICalendarMonthView.php:341
 msgid "Tuesday"
 msgstr "Dienstag"
 
 #: applications/settings/panel/PhabricatorDateTimeSettingsPanel.php:117
 #: applications/uiexample/examples/PHUIObjectItemListExample.php:74
-#: view/phui/calendar/PHUICalendarMonthView.php:340
+#: view/phui/calendar/PHUICalendarMonthView.php:342
 msgid "Wednesday"
 msgstr "Mittwoch"
 
 #: applications/settings/panel/PhabricatorDateTimeSettingsPanel.php:118
 #: applications/uiexample/examples/PHUIObjectItemListExample.php:78
-#: view/phui/calendar/PHUICalendarMonthView.php:341
+#: view/phui/calendar/PHUICalendarMonthView.php:343
 msgid "Thursday"
 msgstr "Donnerstag"
 
@@ -5014,6 +5014,7 @@ msgstr "Termin löschen"
 #: applications/people/controller/PhabricatorPeopleCalendarController.php:97
 #: applications/people/controller/PhabricatorPeopleController.php:19
 #: applications/people/controller/PhabricatorPeopleController.php:60
+#: applications/project/controller/PhabricatorProjectController.php:92
 msgid "Calendar"
 msgstr "Kalender"
 
@@ -7028,7 +7029,7 @@ msgstr "Nach Repository"
 #: applications/differential/customfield/DifferentialCommitsField.php:11
 #: applications/diffusion/herald/HeraldCommitAdapter.php:42
 #: applications/harbormaster/query/HarbormasterBuildableSearchEngine.php:142
-#: applications/maniphest/controller/ManiphestTaskDetailController.php:528
+#: applications/maniphest/controller/ManiphestTaskDetailController.php:529
 #: applications/people/controller/PhabricatorPeopleController.php:86
 #: applications/search/controller/PhabricatorSearchAttachController.php:211
 msgid "Commits"
@@ -8088,6 +8089,7 @@ msgstr "Darf Aufgabenstatus verändern"
 msgid "You do not have permission to edit task status."
 msgstr ""
 
+#: applications/calendar/capability/CalendarDefaultEditCapability.php:8
 #: applications/diffusion/capability/DiffusionDefaultEditCapability.php:8
 #: applications/diviner/capability/DivinerDefaultEditCapability.php:8
 #: applications/legalpad/capability/LegalpadDefaultEditCapability.php:8
@@ -8127,8 +8129,8 @@ msgstr ""
 #: applications/config/controller/PhabricatorConfigSiteModuleController.php:23
 #: applications/daemon/view/PhabricatorDaemonTasksTableView.php:57
 #: applications/maniphest/command/ManiphestPriorityEmailCommand.php:23
-#: applications/maniphest/controller/ManiphestTaskDetailController.php:229
-#: applications/maniphest/controller/ManiphestTaskDetailController.php:460
+#: applications/maniphest/controller/ManiphestTaskDetailController.php:230
+#: applications/maniphest/controller/ManiphestTaskDetailController.php:461
 #: applications/maniphest/controller/ManiphestTaskEditController.php:638
 #: applications/maniphest/export/ManiphestExcelDefaultFormat.php:57
 #: applications/maniphest/herald/ManiphestTaskPriorityHeraldField.php:9
@@ -8138,7 +8140,7 @@ msgstr ""
 msgid "Priority"
 msgstr "Priorität"
 
-#: applications/maniphest/controller/ManiphestTaskDetailController.php:454
+#: applications/maniphest/controller/ManiphestTaskDetailController.php:455
 #: applications/maniphest/controller/ManiphestTaskEditController.php:617
 #: applications/maniphest/event/ManiphestHovercardEventListener.php:55
 #: applications/maniphest/query/ManiphestTaskSearchEngine.php:49
@@ -8719,11 +8721,11 @@ msgstr ""
 msgid "Create Another Subtask"
 msgstr "Eine weitere Unteraufgabe erzeugen"
 
-#: applications/maniphest/controller/ManiphestTaskDetailController.php:108
+#: applications/maniphest/controller/ManiphestTaskDetailController.php:109
 msgid "Similar Task"
 msgstr "Ähnliche Aufgabe"
 
-#: applications/maniphest/controller/ManiphestTaskDetailController.php:113
+#: applications/maniphest/controller/ManiphestTaskDetailController.php:114
 msgid "Empty Task"
 msgstr "Leere Aufgabe"
 
@@ -8733,26 +8735,26 @@ msgstr "Neue Aufgabe erstellt"
 msgid "Close Task"
 msgstr "Aufgabe abgeschlossen"
 
-#: applications/maniphest/controller/ManiphestTaskDetailController.php:132
+#: applications/maniphest/controller/ManiphestTaskDetailController.php:133
 msgid "Reassign / Claim"
 msgstr "Neu zuweisen / an sich reißen"
 
-#: applications/maniphest/controller/ManiphestTaskDetailController.php:134
+#: applications/maniphest/controller/ManiphestTaskDetailController.php:135
 msgid "Change Priority"
 msgstr "Priorität ändern"
 
-#: applications/maniphest/controller/ManiphestTaskDetailController.php:135
+#: applications/maniphest/controller/ManiphestTaskDetailController.php:136
 msgid "Associate Projects"
 msgstr "Projekte zuweisen"
 
 msgid "Resolution"
 msgstr "Lösen"
 
-#: applications/maniphest/controller/ManiphestTaskDetailController.php:211
+#: applications/maniphest/controller/ManiphestTaskDetailController.php:212
 msgid "Assign To"
 msgstr "Zuweisen"
 
-#: applications/maniphest/controller/ManiphestTaskDetailController.php:220
+#: applications/maniphest/controller/ManiphestTaskDetailController.php:221
 msgid "CCs"
 msgstr "Emailkopien"
 
@@ -8762,7 +8764,7 @@ msgstr "Emailkopien"
 #: applications/harbormaster/storage/build/HarbormasterBuildArtifact.php:72
 #: applications/macro/controller/PhabricatorMacroEditController.php:207
 #: applications/macro/controller/PhabricatorMacroEditController.php:268
-#: applications/maniphest/controller/ManiphestTaskDetailController.php:246
+#: applications/maniphest/controller/ManiphestTaskDetailController.php:247
 #: applications/phragment/controller/PhragmentController.php:176
 #: applications/phragment/controller/PhragmentVersionController.php:68
 #: view/widget/AphrontStackTraceView.php:97
@@ -8772,20 +8774,20 @@ msgstr "Datei"
 msgid "Avast!"
 msgstr "Kommentieren!"
 
-#: applications/maniphest/controller/ManiphestTaskDetailController.php:311
+#: applications/maniphest/controller/ManiphestTaskDetailController.php:312
 msgid "Weigh In"
 msgstr "Kommentar einwerfen"
 
-#: applications/maniphest/controller/ManiphestTaskDetailController.php:406
+#: applications/maniphest/controller/ManiphestTaskDetailController.php:407
 #: applications/maniphest/controller/ManiphestTaskEditController.php:550
 msgid "Edit Task"
 msgstr "Aufgabe ändern"
 
-#: applications/maniphest/controller/ManiphestTaskDetailController.php:414
+#: applications/maniphest/controller/ManiphestTaskDetailController.php:415
 msgid "Merge Duplicates In"
 msgstr "Duplikate auflösen"
 
-#: applications/maniphest/controller/ManiphestTaskDetailController.php:471
+#: applications/maniphest/controller/ManiphestTaskDetailController.php:472
 msgid "From Email"
 msgstr "Aus Email"
 
@@ -8793,11 +8795,11 @@ msgstr "Aus Email"
 #: applications/differential/herald/HeraldDifferentialRevisionAdapter.php:39
 #: applications/differential/query/DifferentialRevisionSearchEngine.php:7
 #: applications/harbormaster/query/HarbormasterBuildableSearchEngine.php:127
-#: applications/maniphest/controller/ManiphestTaskDetailController.php:486
+#: applications/maniphest/controller/ManiphestTaskDetailController.php:487
 msgid "Differential Revisions"
 msgstr ""
 
-#: applications/maniphest/controller/ManiphestTaskDetailController.php:488
+#: applications/maniphest/controller/ManiphestTaskDetailController.php:489
 #: applications/pholio/editor/PholioMockEditor.php:12
 #: applications/pholio/herald/HeraldPholioMockAdapter.php:36
 #: applications/pholio/query/PholioMockSearchEngine.php:6
@@ -8810,7 +8812,7 @@ msgstr ""
 #: applications/files/config/PhabricatorFilesConfigOptions.php:7
 #: applications/files/editor/PhabricatorFileEditor.php:11
 #: applications/files/query/PhabricatorFileSearchEngine.php:7
-#: applications/maniphest/controller/ManiphestTaskDetailController.php:552
+#: applications/maniphest/controller/ManiphestTaskDetailController.php:553
 msgid "Files"
 msgstr "Dateien"
 
@@ -8884,7 +8886,7 @@ msgstr ""
 
 #: applications/maniphest/application/PhabricatorManiphestApplication.php:138
 msgid "Default edit policy for newly created tasks."
-msgstr ""
+msgstr "Vorgabe-Berechtigung zum Editieren von neu erzeugten Aufgaben."
 
 #: applications/maniphest/application/PhabricatorManiphestApplication.php:6
 #: applications/maniphest/config/PhabricatorManiphestConfigOptions.php:7
@@ -16295,7 +16297,7 @@ msgstr "Beitrag"
 #: applications/feed/config/PhabricatorFeedConfigOptions.php:7
 #: applications/feed/controller/PhabricatorFeedController.php:8
 #: applications/project/controller/PhabricatorProjectController.php:35
-#: applications/project/controller/PhabricatorProjectController.php:84
+#: applications/project/controller/PhabricatorProjectController.php:95
 msgid "Feed"
 msgstr "Chronik"
 
@@ -20639,7 +20641,7 @@ msgstr ""
 
 #: applications/nuance/application/PhabricatorNuanceApplication.php:79
 msgid "Default edit policy for newly created sources."
-msgstr ""
+msgstr "Vorgabe Editier-Berechtigung für neu erzeugte Quellen."
 
 #: applications/nuance/editor/NuanceSourceEditor.php:91
 msgid "Source name is required."
@@ -20773,31 +20775,31 @@ msgstr ""
 msgid "Something magical occurred."
 msgstr ""
 
-#: view/phui/calendar/PHUICalendarMonthView.php:337
+#: view/phui/calendar/PHUICalendarMonthView.php:339
 msgid "Sun"
 msgstr "So"
 
-#: view/phui/calendar/PHUICalendarMonthView.php:338
+#: view/phui/calendar/PHUICalendarMonthView.php:340
 msgid "Mon"
 msgstr "Mo"
 
-#: view/phui/calendar/PHUICalendarMonthView.php:339
+#: view/phui/calendar/PHUICalendarMonthView.php:341
 msgid "Tue"
 msgstr "Di"
 
-#: view/phui/calendar/PHUICalendarMonthView.php:340
+#: view/phui/calendar/PHUICalendarMonthView.php:342
 msgid "Wed"
 msgstr "Mi"
 
-#: view/phui/calendar/PHUICalendarMonthView.php:341
+#: view/phui/calendar/PHUICalendarMonthView.php:343
 msgid "Thu"
 msgstr "Do"
 
-#: view/phui/calendar/PHUICalendarMonthView.php:342
+#: view/phui/calendar/PHUICalendarMonthView.php:344
 msgid "Fri"
 msgstr "Fr"
 
-#: view/phui/calendar/PHUICalendarMonthView.php:343
+#: view/phui/calendar/PHUICalendarMonthView.php:345
 msgid "Sat"
 msgstr "Sa"
 
@@ -27099,7 +27101,7 @@ msgstr "Geändert nach"
 msgid "Updated Before"
 msgstr "Geändert vor"
 
-#: applications/maniphest/controller/ManiphestTaskDetailController.php:131
+#: applications/maniphest/controller/ManiphestTaskDetailController.php:132
 msgid "Change Status"
 msgstr "Status ändern"
 
@@ -29317,7 +29319,7 @@ msgid "Archive Project"
 msgstr "Projekt archivieren"
 
 #: applications/project/controller/PhabricatorProjectController.php:36
-#: applications/project/controller/PhabricatorProjectController.php:86
+#: applications/project/controller/PhabricatorProjectController.php:97
 #: applications/project/controller/PhabricatorProjectProfileController.php:92
 msgid "Edit Details"
 msgstr "Details ändern"
@@ -29357,11 +29359,11 @@ msgstr "Bereit für gute Taten."
 msgid "%s, Until: %s"
 msgstr ""
 
-#: view/phui/calendar/PHUICalendarMonthView.php:404
+#: view/phui/calendar/PHUICalendarMonthView.php:406
 msgid "Previous Month"
 msgstr "Voriger Monat"
 
-#: view/phui/calendar/PHUICalendarMonthView.php:413
+#: view/phui/calendar/PHUICalendarMonthView.php:415
 msgid "Next Month"
 msgstr "Nächster Monat"
 
@@ -30225,7 +30227,7 @@ msgstr "Volltext-Ergebnisse"
 msgid "Expected object (\"%s\") to implement interface \"%s\"."
 msgstr ""
 
-#: applications/maniphest/controller/ManiphestTaskDetailController.php:429
+#: applications/maniphest/controller/ManiphestTaskDetailController.php:430
 #: applications/search/controller/PhabricatorSearchAttachController.php:243
 msgid "Edit Blocking Tasks"
 msgstr "Abhängigkeiten ändern"
@@ -31896,11 +31898,11 @@ msgstr "Gib eine Aufgabenpriorität an..."
 msgid "Contains Words"
 msgstr "Enthält die Wörter"
 
-#: applications/maniphest/controller/ManiphestTaskDetailController.php:482
+#: applications/maniphest/controller/ManiphestTaskDetailController.php:483
 msgid "Blocks"
 msgstr "Verhindert"
 
-#: applications/maniphest/controller/ManiphestTaskDetailController.php:484
+#: applications/maniphest/controller/ManiphestTaskDetailController.php:485
 msgid "Blocked By"
 msgstr "Ist abhängig von"
 
@@ -39692,15 +39694,15 @@ msgstr ""
 msgid "Zend OPcache Not Installed"
 msgstr ""
 
-#: applications/calendar/application/PhabricatorCalendarApplication.php:86
+#: applications/calendar/application/PhabricatorCalendarApplication.php:94
 msgid "Email Commands: Events"
 msgstr ""
 
-#: applications/calendar/application/PhabricatorCalendarApplication.php:87
+#: applications/calendar/application/PhabricatorCalendarApplication.php:95
 msgid "Interacting with Calendar Events"
 msgstr ""
 
-#: applications/calendar/application/PhabricatorCalendarApplication.php:90
+#: applications/calendar/application/PhabricatorCalendarApplication.php:98
 msgid "This page documents the commands you can use to interact with events in Calendar. These commands work when creating new tasks via email and when replying to existing tasks."
 msgstr ""
 
@@ -40099,38 +40101,38 @@ msgstr "%s - %s, Ganze Tage"
 msgid "%s - %s"
 msgstr "%s - %s"
 
-#: applications/calendar/storage/PhabricatorCalendarEvent.php:84
+#: applications/calendar/storage/PhabricatorCalendarEvent.php:86
 msgid "Viewer timezone is already applied!"
 msgstr ""
 
-#: applications/calendar/storage/PhabricatorCalendarEvent.php:118
+#: applications/calendar/storage/PhabricatorCalendarEvent.php:120
 msgid "Viewer timezone is not applied!"
 msgstr ""
 
-#: applications/calendar/storage/PhabricatorCalendarEvent.php:122
+#: applications/calendar/storage/PhabricatorCalendarEvent.php:124
 msgid "Removed viewer must match applied viewer!"
 msgstr ""
 
-#: applications/calendar/storage/PhabricatorCalendarEvent.php:174
+#: applications/calendar/storage/PhabricatorCalendarEvent.php:176
 msgid "Can not save event with viewer timezone still applied!"
 msgstr ""
 
-#: applications/calendar/storage/PhabricatorCalendarEvent.php:397
+#: applications/calendar/storage/PhabricatorCalendarEvent.php:399
 #, php-format
 msgid "%s day(s)"
 msgstr "%s Tage"
 
-#: applications/calendar/storage/PhabricatorCalendarEvent.php:401
+#: applications/calendar/storage/PhabricatorCalendarEvent.php:403
 #, php-format
 msgid "%s hour(s)"
 msgstr "%s Stunden"
 
-#: applications/calendar/storage/PhabricatorCalendarEvent.php:405
+#: applications/calendar/storage/PhabricatorCalendarEvent.php:407
 #, php-format
 msgid "%s minute(s)"
 msgstr "%s Minuten"
 
-#: applications/calendar/storage/PhabricatorCalendarEvent.php:499
+#: applications/calendar/storage/PhabricatorCalendarEvent.php:501
 msgid ""
 "The owner of an event can always view and edit it,\n"
 "      and invitees can always view it, except if the event is an\n"
@@ -47211,7 +47213,7 @@ msgstr ""
 msgid "Week of %s"
 msgstr "Woche vom %s"
 
-#: applications/maniphest/controller/ManiphestTaskDetailController.php:114
+#: applications/maniphest/controller/ManiphestTaskDetailController.php:115
 msgid "New task created. Create another?"
 msgstr "Neue Aufgabe wurde angelegt. Eine weitere anlegen?"
 
@@ -52439,17 +52441,17 @@ msgid "Date and Time Settings"
 msgstr "Datum und Uhrzeit-Einstellungen"
 
 #: applications/settings/panel/PhabricatorDateTimeSettingsPanel.php:114
-#: view/phui/calendar/PHUICalendarMonthView.php:337
+#: view/phui/calendar/PHUICalendarMonthView.php:339
 msgid "Sunday"
 msgstr "Sonntag"
 
 #: applications/settings/panel/PhabricatorDateTimeSettingsPanel.php:119
-#: view/phui/calendar/PHUICalendarMonthView.php:342
+#: view/phui/calendar/PHUICalendarMonthView.php:344
 msgid "Friday"
 msgstr "Freitag"
 
 #: applications/settings/panel/PhabricatorDateTimeSettingsPanel.php:120
-#: view/phui/calendar/PHUICalendarMonthView.php:343
+#: view/phui/calendar/PHUICalendarMonthView.php:345
 msgid "Saturday"
 msgstr "Samstag"
 
@@ -56109,11 +56111,11 @@ msgstr "Ganzer Tag"
 msgid "All day, %s - %s"
 msgstr "Ganzer Tag, %s - %s"
 
-#: view/phui/calendar/PHUICalendarMonthView.php:460
+#: view/phui/calendar/PHUICalendarMonthView.php:462
 msgid "Part of the month is out of range"
 msgstr ""
 
-#: view/phui/calendar/PHUICalendarMonthView.php:467
+#: view/phui/calendar/PHUICalendarMonthView.php:469
 msgid "Month is out of query range"
 msgstr ""
 
@@ -56211,4 +56213,13 @@ msgstr "gestern"
 #, php-format
 msgid "on %s"
 msgstr "am %s"
+
+#: applications/calendar/application/PhabricatorCalendarApplication.php:86
+msgid "Default edit policy for newly created events."
+msgstr "Vorgabe Editier-Berechtigung für neu erzeugte Termine."
+
+#: applications/maniphest/controller/ManiphestTaskDetailController.php:99
+#, php-format
+msgid "Created a subtask of %s."
+msgstr "Unteraufgabe von %s wurde erzeugt."
 
