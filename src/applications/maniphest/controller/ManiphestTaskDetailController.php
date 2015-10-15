@@ -95,9 +95,10 @@ final class ManiphestTaskDetailController extends ManiphestController {
           ->setHref('/maniphest/task/create/?parent='.$parent_task->getID())
           ->setText(pht('Create Another Subtask')));
 
-      $info_view->appendChild(hsprintf(
-        'Created a subtask of <strong>%s</strong>.',
-        $handles->renderHandle($parent_task->getPHID())));
+      $info_view->appendChild(
+	      pht('Created a subtask of %s.',
+		  hsprintf('<strong>%s</strong>',
+			   $handles->renderHandle($parent_task->getPHID()))));
     } else if ($workflow == 'create') {
       $info_view = new PHUIInfoView();
       $info_view->setSeverity(PHUIInfoView::SEVERITY_NOTICE);
