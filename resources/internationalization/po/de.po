@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-15 11:07+0200\n"
-"PO-Revision-Date: 2015-11-17 13:16+0100\n"
+"PO-Revision-Date: 2015-11-24 20:19+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: GERMAN <peter@schlaile.de>\n"
 "Language: \n"
@@ -35984,7 +35984,7 @@ msgstr ""
 
 #: applications/audit/storage/PhabricatorAuditTransaction.php:101
 msgid "Added Auditors"
-msgstr ""
+msgstr "Hinzugefügte Prüfer"
 
 #: applications/audit/storage/PhabricatorAuditTransaction.php:103
 msgid "Committed"
@@ -35993,92 +35993,92 @@ msgstr "Eingepflegt von"
 #: applications/audit/storage/PhabricatorAuditTransaction.php:193
 #, php-format
 msgid "%s edited subscribers; added: %s, removed: %s."
-msgstr ""
+msgstr "%s hat Mitleser verändert; hinzugefügt: %s, entfernt: %s."
 
 #: applications/audit/storage/PhabricatorAuditTransaction.php:199
 #, php-format
 msgid "%s added subscribers: %s."
-msgstr ""
+msgstr "%s hat Mitleser hinzugefügt: %s."
 
 #: applications/audit/storage/PhabricatorAuditTransaction.php:204
 #, php-format
 msgid "%s removed subscribers: %s."
-msgstr ""
+msgstr "%s hat Mitleser entfernt: %s."
 
 #: applications/audit/storage/PhabricatorAuditTransaction.php:209
 #, php-format
 msgid "%s added subscribers..."
-msgstr ""
+msgstr "%s hat Mitleser hinzugefügt..."
 
 #: applications/audit/storage/PhabricatorAuditTransaction.php:216
 #, php-format
 msgid "%s edited auditors; added: %s, removed: %s."
-msgstr ""
+msgstr "%s hat Prüfer geändert; hinzugefügt: %s, entfernt: %s."
 
 #: applications/audit/storage/PhabricatorAuditTransaction.php:227
 #, php-format
 msgid "%s removed auditors: %s."
-msgstr ""
+msgstr "%s hat Prüfer entfernt: %s."
 
 #: applications/audit/storage/PhabricatorAuditTransaction.php:232
 #, php-format
 msgid "%s added auditors..."
-msgstr ""
+msgstr "%s hat Prüfer hinzugefügt..."
 
 #: applications/audit/storage/PhabricatorAuditTransaction.php:240
 #, php-format
 msgid "%s accepted this commit."
-msgstr ""
+msgstr "%s hat diese Änderung akzeptiert."
 
 #: applications/audit/storage/PhabricatorAuditTransaction.php:244
 #, php-format
 msgid "%s raised a concern with this commit."
-msgstr ""
+msgstr "%s hat Bedenken wegen dieser Änderung angemeldet."
 
 #: applications/audit/storage/PhabricatorAuditTransaction.php:248
 #, php-format
 msgid "%s resigned from this audit."
-msgstr ""
+msgstr "%s ist als Prüfer zurückgetreten."
 
 #: applications/audit/storage/PhabricatorAuditTransaction.php:252
 #, php-format
 msgid "%s closed this audit."
-msgstr ""
+msgstr "%s hat diese Prüfung abgeschlossen."
 
 #: applications/audit/storage/PhabricatorAuditTransaction.php:328
 #, php-format
 msgid "%s edited auditors for %s; added: %s, removed: %s."
-msgstr ""
+msgstr "%s hat die Prüfer von %s geändert; hinzugefügt: %s, entfernt: %s."
 
 #: applications/audit/storage/PhabricatorAuditTransaction.php:335
 #, php-format
 msgid "%s added auditors to %s: %s."
-msgstr ""
+msgstr "%s hat Prüfer zu %s hinzugefügt: %s."
 
 #: applications/audit/storage/PhabricatorAuditTransaction.php:341
 #, php-format
 msgid "%s removed auditors from %s: %s."
-msgstr ""
+msgstr "%s hat Prüfer von %s entfernt: %s."
 
 #: applications/audit/storage/PhabricatorAuditTransaction.php:347
 #, php-format
 msgid "%s added auditors to %s..."
-msgstr ""
+msgstr "%s hat Prüfer zu %s hinzugefügt..."
 
 #: applications/audit/storage/PhabricatorAuditTransaction.php:361
 #, php-format
 msgid "%s raised a concern with %s."
-msgstr ""
+msgstr "%s hat ein Problem mit %s."
 
 #: applications/audit/storage/PhabricatorAuditTransaction.php:366
 #, php-format
 msgid "%s resigned from auditing %s."
-msgstr ""
+msgstr "%s hat sein Amt als Prüfer von %s niedergelegt."
 
 #: applications/audit/storage/PhabricatorAuditTransaction.php:371
 #, php-format
 msgid "%s closed the audit of %s."
-msgstr ""
+msgstr "%s hat die Prüfung von %s geschlossen."
 
 #: applications/audit/editor/PhabricatorAuditEditor.php:224
 msgid "Failed to load commit during transaction finalization!"
@@ -36095,7 +36095,7 @@ msgstr ""
 
 #: applications/audit/editor/PhabricatorAuditEditor.php:691
 msgid "Auditor"
-msgstr ""
+msgstr "Prüfer"
 
 #: applications/audit/editor/PhabricatorAuditEditor.php:713
 msgid "USERS"
@@ -36164,12 +36164,12 @@ msgstr "%s hat %s wieder eröffnet, eine Aufgabe, die %s blockiert. Neuer Status
 #: applications/maniphest/storage/ManiphestTransaction.php:722
 #, php-format
 msgid "%s closed %s, a task blocking %s, as \"%s\"."
-msgstr ""
+msgstr "%s hat %s, eine blockierende Aufgabe von %s als \"%s\" geschlossen."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:729
 #, php-format
 msgid "%s changed the status of %s, a task blocking %s, from \"%s\" to \"%s\"."
-msgstr ""
+msgstr "%s hat den Status von %s, eine blockierende Aufgabe von %s, von \"%s\" in \"%s\" geändert."
 
 #: applications/maniphest/storage/ManiphestTransaction.php:835
 #, php-format
