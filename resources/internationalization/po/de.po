@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-15 11:07+0200\n"
-"PO-Revision-Date: 2015-12-12 17:44+0100\n"
+"PO-Revision-Date: 2015-12-12 20:14+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: GERMAN <peter@schlaile.de>\n"
 "Language: \n"
@@ -9331,17 +9331,17 @@ msgstr ""
 #: applications/herald/controller/HeraldTranscriptController.php:106
 #: applications/herald/controller/HeraldTranscriptListController.php:30
 msgid "Transcripts"
-msgstr ""
+msgstr "Ablaufprotokolle"
 
 #: applications/herald/controller/HeraldController.php:51
 #: applications/herald/controller/HeraldTestConsoleController.php:109
 #: applications/herald/controller/HeraldTestConsoleController.php:115
 msgid "Test Console"
-msgstr ""
+msgstr "Testkonsole"
 
 #: applications/herald/controller/HeraldTranscriptController.php:47
 msgid "Old Transcript"
-msgstr ""
+msgstr "Alte Ablaufprotokolle"
 
 #: applications/herald/controller/HeraldTranscriptController.php:51
 msgid "Details of this transcript have been garbage collected."
@@ -9362,19 +9362,19 @@ msgstr ""
 
 #: applications/herald/controller/HeraldTranscriptController.php:114
 msgid "Transcript"
-msgstr ""
+msgstr "Ablaufprotokoll"
 
 #: applications/herald/controller/HeraldTranscriptController.php:167
 msgid "Rules that Affected Me"
-msgstr ""
+msgstr "Regeln, die Mich betrafen"
 
 #: applications/herald/controller/HeraldTranscriptController.php:166
 msgid "Rules I Own"
-msgstr ""
+msgstr "Meine Regeln"
 
 #: applications/herald/controller/HeraldTranscriptController.php:165
 msgid "All Rules"
-msgstr ""
+msgstr "Alle Regeln"
 
 #: infrastructure/storage/management/workflow/PhabricatorStorageManagementQuickstartWorkflow.php:159
 msgid "SUCCESS"
@@ -9411,36 +9411,36 @@ msgstr ""
 
 #: applications/herald/controller/HeraldTranscriptController.php:398
 msgid "Actions Taken"
-msgstr ""
+msgstr "Ausgeführte Aktionen"
 
 #: applications/herald/controller/HeraldTranscriptController.php:441
 #, php-format
 msgid "%s Condition: %s %s %s%s"
-msgstr ""
+msgstr "%s Bedingung: %s %s %s%s"
 
 #: applications/herald/controller/HeraldTranscriptController.php:453
 msgid "PASS"
-msgstr ""
+msgstr "OK"
 
 #: applications/herald/controller/HeraldTranscriptController.php:459
 msgid "FAIL"
-msgstr ""
+msgstr "FEHLER"
 
 #: applications/herald/controller/HeraldTranscriptController.php:487
 msgid "Rule Details"
-msgstr ""
+msgstr "Regel Details"
 
 #: applications/herald/controller/HeraldTranscriptController.php:511
 msgid "Object PHID"
-msgstr ""
+msgstr "Objekt PHID"
 
 #: applications/herald/controller/HeraldTranscriptController.php:512
 msgid "Object Link"
-msgstr ""
+msgstr "Objekt Link"
 
 #: applications/herald/controller/HeraldTranscriptController.php:552
 msgid "Object Transcript"
-msgstr ""
+msgstr "Objekt Ablaufprotokoll"
 
 #: applications/herald/application/PhabricatorHeraldApplication.php:14
 #: applications/herald/controller/HeraldController.php:8
@@ -9458,26 +9458,26 @@ msgstr "Neue Regel"
 
 #: applications/herald/controller/HeraldNewController.php:255
 msgid "You have permission to create and manage global rules."
-msgstr ""
+msgstr "Du hast die Berechtigung globale Regeln zu erstellen und zu ändern."
 
 #: applications/herald/controller/HeraldNewController.php:256
 msgid "You do not have permission to create or manage global rules."
-msgstr ""
+msgstr "Dir fehlt die Berechtigung, globale Regeln zu erstellen oder zu ändern."
 
 #: applications/herald/controller/HeraldNewController.php:261
 msgid "Personal rules notify you about events. You own them, but they can only affect you. Personal rules only trigger for objects you have permission to see."
-msgstr ""
+msgstr "Persönliche Regeln benachrichtigen Dich über Ereignisse. Sie gehören Dir, aber Sie können auch nur Dich betreffende Aktionen auslösen. Persönliche Regeln lösen nur für Objekte aus, die Du auch ansehen darfst."
 
 #: applications/herald/controller/HeraldNewController.php:273
 msgid "Global rules notify anyone about events. Global rules can bypass access control policies and act on any object."
-msgstr ""
+msgstr "Globale Regeln können alle Benutzer informieren. Globale Regeln können Berechtigungen umgehen und auf jedes Objekt wirken."
 
 #: applications/herald/controller/HeraldNewController.php:224
 msgid "New Rule for"
 msgstr "Neue Regel für"
 
 msgid "View Transcript"
-msgstr ""
+msgstr "Zeige Ablaufprotokoll"
 
 #: applications/calendar/controller/PhabricatorCalendarEventViewController.php:270
 #: applications/diffusion/view/DiffusionBrowseTableView.php:116
@@ -9499,7 +9499,7 @@ msgstr ""
 
 #: applications/herald/query/HeraldTranscriptSearchEngine.php:7
 msgid "Herald Transcripts"
-msgstr ""
+msgstr "Herald Ablaufprotokoll"
 
 #: applications/herald/engine/HeraldEngine.php:154
 msgid "This was a dry run, so no actions were actually taken."
@@ -9511,15 +9511,15 @@ msgstr "Regel konnte nicht ausgeführt werden, sie wurde mit einer zu neuen Vers
 
 #: applications/herald/engine/HeraldEngine.php:257
 msgid "Rule failed automatically because it has no conditions."
-msgstr ""
+msgstr "Regel ist automatisch fehlgeschlagen, weil sie keinerlei Bedingungen enthält."
 
 #: applications/herald/engine/HeraldEngine.php:261
 msgid "Rule failed automatically because its owner is invalid or disabled."
-msgstr ""
+msgstr "Regel ist automatisch fehlgeschlagen, weil ihr Besitzer ungültig oder deaktiviert ist."
 
 #: applications/herald/engine/HeraldEngine.php:266
 msgid "Rule failed automatically because it is a personal rule and its owner can not see the object."
-msgstr ""
+msgstr "Regel automatisch fehlgeschlagen, weil es eine persönliche Regel ist und ihr Besitzer das Objekt gar nicht sehen kann."
 
 #: applications/herald/application/PhabricatorHeraldApplication.php:18
 msgid "Create Notification Rules"
@@ -9527,19 +9527,19 @@ msgstr "Neue Benachrichtungsregel"
 
 #: applications/herald/application/PhabricatorHeraldApplication.php:35
 msgid "Watch for danger!"
-msgstr ""
+msgstr "Vorsicht ist die Mutter der Porzellankiste!"
 
 #: applications/herald/application/PhabricatorHeraldApplication.php:71
 msgid "Global rules can bypass access controls."
-msgstr ""
+msgstr "Globale Regeln können Berechtigungen umgehen."
 
 #: applications/herald/config/HeraldRuleTypeConfig.php:13
 msgid "Global"
-msgstr ""
+msgstr "Global"
 
 #: applications/herald/config/HeraldRuleTypeConfig.php:11
 msgid "Personal"
-msgstr ""
+msgstr "Persönlich"
 
 #: applications/herald/config/HeraldRepetitionPolicyConfig.php:15
 msgid "every time"
@@ -9718,7 +9718,7 @@ msgstr "Eine Nachricht schicken an"
 
 #: applications/herald/adapter/HeraldAdapter.php:655
 msgid "Trigger an Audit by"
-msgstr "Einen Überprüfung auslösen durch"
+msgstr "Eine Überprüfung auslösen durch"
 
 #: applications/herald/adapter/HeraldAdapter.php:656
 #: applications/herald/adapter/HeraldAdapter.php:674
@@ -9860,7 +9860,7 @@ msgstr ""
 
 #: applications/diffusion/herald/HeraldCommitAdapter.php:353
 msgid "Triggered an audit."
-msgstr ""
+msgstr "Löste eine Überprüfung aus."
 
 msgid "CCs provided explicitly by revision author or carried over from a previous version of the revision."
 msgstr ""
@@ -28505,7 +28505,7 @@ msgstr ""
 #: applications/herald/engine/HeraldEngine.php:395
 #, php-format
 msgid "Conditions were met for %s"
-msgstr ""
+msgstr "Die Bedingungen für %s wurden erfüllt"
 
 #: applications/herald/query/HeraldTranscriptSearchEngine.php:64
 msgid "Object Monograms"
@@ -28610,7 +28610,7 @@ msgstr ""
 
 #: applications/herald/query/HeraldTranscriptSearchEngine.php:118
 msgid "View Full Transcript"
-msgstr ""
+msgstr "Komplettes Ablaufprotokoll zeigen"
 
 #: applications/herald/controller/HeraldTranscriptController.php:313
 #, php-format
@@ -28633,7 +28633,7 @@ msgstr ""
 #: applications/herald/controller/HeraldTranscriptController.php:392
 #, php-format
 msgid "Outcome: %s"
-msgstr ""
+msgstr "Ergebnis: %s"
 
 #: applications/herald/controller/HeraldRuleViewController.php:144
 msgid "Trigger Object"
@@ -44463,25 +44463,25 @@ msgstr ""
 
 #: applications/diffusion/herald/DiffusionCommitDiffContentAddedHeraldField.php:9
 msgid "Diff content added"
-msgstr ""
+msgstr "Diff Inhalt hinzugefügt"
 
 #: applications/diffusion/herald/DiffusionCommitDiffContentHeraldField.php:9
 #: applications/diffusion/herald/DiffusionPreCommitContentDiffContentHeraldField.php:9
 msgid "Diff content"
-msgstr ""
+msgstr "Diff Inhalt"
 
 #: applications/diffusion/herald/DiffusionCommitDiffContentRemovedHeraldField.php:9
 msgid "Diff content removed"
-msgstr ""
+msgstr "Diff Inhalt entfernt"
 
 #: applications/diffusion/herald/DiffusionCommitHeraldFieldGroup.php:8
 msgid "Commit Fields"
-msgstr ""
+msgstr "Commit Felder"
 
 #: applications/diffusion/herald/DiffusionCommitMessageHeraldField.php:9
 #: applications/diffusion/herald/DiffusionPreCommitContentMessageHeraldField.php:9
 msgid "Commit message"
-msgstr ""
+msgstr "Commit Beschreibung"
 
 #: applications/diffusion/herald/DiffusionCommitRevisionSubscribersHeraldField.php:9
 #: applications/diffusion/herald/DiffusionPreCommitContentRevisionSubscribersHeraldField.php:9
@@ -46708,7 +46708,7 @@ msgstr ""
 #: applications/herald/controller/HeraldTranscriptController.php:387
 #, php-format
 msgid "Unknown Action \"%s\""
-msgstr ""
+msgstr "Unbekannte Aktion \"%s\""
 
 #: applications/herald/engine/HeraldEngine.php:86
 msgid "This rule is only supposed to be repeated a single time, and it has already been applied."
@@ -46722,23 +46722,23 @@ msgstr ""
 #: applications/herald/engine/HeraldEngine.php:280
 #, php-format
 msgid "Field \"%s\" does not exist!"
-msgstr ""
+msgstr "Feld \"%s\" existiert nicht!"
 
 #: applications/herald/engine/HeraldEngine.php:289
 msgid "Any condition matched."
-msgstr ""
+msgstr "Eine Bedingung wurde erfüllt."
 
 #: applications/herald/engine/HeraldEngine.php:295
 msgid "Not all conditions matched."
-msgstr ""
+msgstr "Nicht alle Bedingungen wurden erfüllt."
 
 #: applications/herald/engine/HeraldEngine.php:303
 msgid "All conditions matched."
-msgstr ""
+msgstr "Alle Bedingungen wurden erfüllt."
 
 #: applications/herald/engine/HeraldEngine.php:306
 msgid "No conditions matched."
-msgstr ""
+msgstr "Keine Bedingung wurde erfüllt."
 
 #: applications/herald/field/HeraldContentSourceField.php:8
 msgid "Content source"
@@ -46767,7 +46767,7 @@ msgstr ""
 
 #: applications/herald/field/HeraldNewObjectField.php:8
 msgid "Is newly created"
-msgstr ""
+msgstr "Ist neu erstellt worden"
 
 #: applications/herald/field/HeraldRelatedFieldGroup.php:8
 msgid "Related Fields"
@@ -46783,23 +46783,23 @@ msgstr ""
 
 #: applications/herald/query/HeraldRuleSearchEngine.php:214
 msgid "No rules found."
-msgstr ""
+msgstr "Keine Regeln gefunden."
 
 #: applications/herald/query/HeraldTranscriptSearchEngine.php:138
 msgid "No transcripts found."
-msgstr ""
+msgstr "Keine Ablaufprotokolle gefunden."
 
 #: applications/herald/storage/transcript/HeraldTranscript.php:186
 msgid "Run At Epoch"
-msgstr ""
+msgstr "Ausführungszeitpunkt"
 
 #: applications/herald/storage/transcript/HeraldTranscript.php:187
 msgid "Run On Host"
-msgstr ""
+msgstr "Ausführender Rechner"
 
 #: applications/herald/storage/transcript/HeraldTranscript.php:188
 msgid "Run Duration"
-msgstr ""
+msgstr "Dauer der Ausführung"
 
 #: applications/home/controller/PhabricatorHomeController.php:77
 msgid "Customize Menu..."
