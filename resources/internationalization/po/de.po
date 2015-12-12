@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-15 11:07+0200\n"
-"PO-Revision-Date: 2015-12-12 20:22+0100\n"
+"PO-Revision-Date: 2015-12-12 21:05+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: GERMAN <peter@schlaile.de>\n"
 "Language: \n"
@@ -6921,31 +6921,31 @@ msgstr ""
 
 #, php-format
 msgid "Auditor: %s"
-msgstr ""
+msgstr "Prüfer: %s"
 
 #: applications/audit/view/PhabricatorAuditListView.php:168
 #, php-format
 msgid "Auditors: %s"
-msgstr ""
+msgstr "Prüfer: %s"
 
 msgid "View Commits"
-msgstr ""
+msgstr "Änderungen Zeigen"
 
 #: applications/audit/editor/PhabricatorAuditEditor.php:664
 #: applications/differential/editor/DifferentialTransactionEditor.php:1216
 #: applications/pholio/editor/PholioMockEditor.php:398
 msgid "INLINE COMMENTS"
-msgstr ""
+msgstr "INLINE KOMMENTARE"
 
 #: applications/audit/editor/PhabricatorAuditEditor.php:721
 msgid "COMMIT"
 msgstr ""
 
 msgid "Raise Concern â"
-msgstr ""
+msgstr "Bedenken anmelden â"
 
 msgid "Accept Commit â"
-msgstr ""
+msgstr "Änderung akzeptieren â"
 
 #: applications/audit/constants/PhabricatorAuditActionConstants.php:20
 msgid "Resign from Audit"
@@ -6953,12 +6953,12 @@ msgstr ""
 
 #: applications/audit/constants/PhabricatorAuditActionConstants.php:21
 msgid "Close Audit"
-msgstr ""
+msgstr "Prüfung schließen"
 
 #: applications/audit/constants/PhabricatorAuditActionConstants.php:23
 #: applications/diffusion/controller/DiffusionCommitController.php:698
 msgid "Add Auditors"
-msgstr ""
+msgstr "Prüfer hinzufügen"
 
 #: applications/audit/constants/PhabricatorAuditStatusConstants.php:17
 #: applications/files/controller/PhabricatorFileInfoController.php:235
@@ -6967,22 +6967,22 @@ msgstr ""
 
 #: applications/audit/constants/PhabricatorAuditStatusConstants.php:18
 msgid "Audit Not Required"
-msgstr ""
+msgstr "Prüfung Nicht Nötig"
 
 #: applications/audit/constants/PhabricatorAuditCommitStatusConstants.php:14
 #: applications/audit/constants/PhabricatorAuditStatusConstants.php:19
 msgid "Audit Required"
-msgstr ""
+msgstr "Prüfung Notwendig"
 
 #: applications/audit/constants/PhabricatorAuditCommitStatusConstants.php:15
 #: applications/audit/constants/PhabricatorAuditStatusConstants.php:20
 #: applications/audit/query/PhabricatorCommitSearchEngine.php:176
 msgid "Concern Raised"
-msgstr ""
+msgstr "Bedenken angemeldet"
 
 #: applications/audit/constants/PhabricatorAuditStatusConstants.php:22
 msgid "Audit Requested"
-msgstr ""
+msgstr "Prüfung Angefordert"
 
 #: applications/audit/constants/PhabricatorAuditStatusConstants.php:23
 #: applications/audit/storage/PhabricatorAuditTransaction.php:95
@@ -6996,11 +6996,11 @@ msgstr ""
 #: applications/audit/constants/PhabricatorAuditCommitStatusConstants.php:16
 #: applications/audit/query/PhabricatorCommitSearchEngine.php:178
 msgid "Partially Audited"
-msgstr ""
+msgstr "Teilweise Überprüft"
 
 #: applications/audit/constants/PhabricatorAuditCommitStatusConstants.php:17
 msgid "Audited"
-msgstr ""
+msgstr "Geprüft"
 
 #: applications/audit/query/PhabricatorCommitSearchEngine.php:121
 msgid "Need Attention"
@@ -7009,7 +7009,7 @@ msgstr ""
 #: applications/audit/editor/PhabricatorAuditEditor.php:49
 #: applications/home/controller/PhabricatorHomeMainController.php:375
 msgid "Audits"
-msgstr ""
+msgstr "Prüfungen"
 
 #: applications/maniphest/controller/ManiphestReportController.php:31
 msgid "By User"
@@ -7036,17 +7036,17 @@ msgid "Commits"
 msgstr ""
 
 msgid "By Author"
-msgstr ""
+msgstr "Nach Autoren"
 
 #: applications/audit/application/PhabricatorAuditApplication.php:14
 msgid "Audit"
-msgstr ""
+msgstr "Prüfung"
 
 msgid "Choose A Project"
-msgstr ""
+msgstr "Wähle ein Projekt"
 
 msgid "Choose a project to view audits for."
-msgstr ""
+msgstr "Wähle ein Projekt, dessen Prüfungen gezeigt werden sollen."
 
 msgid "Choose A Repository"
 msgstr ""
@@ -7055,7 +7055,7 @@ msgid "Choose a repository to view audits for."
 msgstr ""
 
 msgid "Choose a Package"
-msgstr ""
+msgstr "Wähle ein Paket"
 
 msgid "Choose a package to view audits for."
 msgstr ""
@@ -7083,11 +7083,11 @@ msgid "Required Audits"
 msgstr ""
 
 msgid "No commits require your audit."
-msgstr ""
+msgstr "Keine Änderungen vorhanden, die Deiner Prüfung bedürfen."
 
 #, php-format
 msgid "Audits for %s"
-msgstr ""
+msgstr "Prüfungen für %s"
 
 #, php-format
 msgid "No matching audits by %s."
@@ -7099,7 +7099,7 @@ msgstr ""
 
 #, php-format
 msgid "Audits in Project %s"
-msgstr ""
+msgstr "Prüfungen in Projekt %s"
 
 #, php-format
 msgid "No matching audits in project %s."
@@ -7107,7 +7107,7 @@ msgstr ""
 
 #, php-format
 msgid "Audits for Package %s"
-msgstr ""
+msgstr "Prüfungen für Paket %s"
 
 #, php-format
 msgid "No matching audits in package %s."
@@ -7124,14 +7124,14 @@ msgstr ""
 #: applications/audit/query/PhabricatorCommitSearchEngine.php:122
 #: applications/home/controller/PhabricatorHomeMainController.php:414
 msgid "Problem Commits"
-msgstr ""
+msgstr "Problematische Änderungen"
 
 msgid "None of your commits have open concerns."
 msgstr ""
 
 #, php-format
 msgid "Commits by %s"
-msgstr ""
+msgstr "Änderungen von %s"
 
 #, php-format
 msgid "No matching commits by %s."
@@ -7149,15 +7149,15 @@ msgid "No matching commits in package %s."
 msgstr ""
 
 msgid "Audit Code"
-msgstr ""
+msgstr "Code Prüfen"
 
 #, php-format
 msgid "%d Problem Commit(s)"
-msgstr ""
+msgstr "%d problematische Änderungen"
 
 #, php-format
 msgid "%d Commit(s) Awaiting Audit"
-msgstr ""
+msgstr "%d Änderungen warten auf Prüfung"
 
 #: applications/audit/management/PhabricatorAuditManagementDeleteWorkflow.php:144
 msgid "No audits match the query."
@@ -7176,7 +7176,7 @@ msgstr ""
 #: applications/audit/management/PhabricatorAuditManagementDeleteWorkflow.php:202
 #, php-format
 msgid "No such user with username \"%s\"!"
-msgstr ""
+msgstr "Benutzer mit dem Namen \"%s\" existiert nicht!"
 
 #: applications/audit/management/PhabricatorAuditManagementDeleteWorkflow.php:240
 #, php-format
@@ -7190,11 +7190,11 @@ msgstr ""
 #: applications/audit/management/PhabricatorAuditManagementDeleteWorkflow.php:280
 #, php-format
 msgid "No such commit \"%s\"!"
-msgstr ""
+msgstr "Änderung \"%s\" existiert nicht!"
 
 #: applications/metamta/view/PhabricatorMetaMTAMailBody.php:156
 msgid "WHY DID I GET THIS EMAIL?"
-msgstr ""
+msgstr "WARUM HABE ICH DIESE EMAIL BEKOMMEN?"
 
 msgid "REPLY HANDLER ACTIONS"
 msgstr "MÖGLICHE KOMMANDOS IN DER EMAIL-ANTWORT"
@@ -9424,7 +9424,7 @@ msgstr "OK"
 
 #: applications/herald/controller/HeraldTranscriptController.php:459
 msgid "FAIL"
-msgstr "ABBRUCH"
+msgstr "STOP"
 
 #: applications/herald/controller/HeraldTranscriptController.php:487
 msgid "Rule Details"
