@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-15 11:07+0200\n"
-"PO-Revision-Date: 2015-11-24 20:19+0100\n"
+"PO-Revision-Date: 2015-12-12 17:44+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: GERMAN <peter@schlaile.de>\n"
 "Language: \n"
@@ -9249,16 +9249,16 @@ msgstr "Neue Bedingung"
 #: applications/herald/controller/HeraldRuleController.php:184
 #, php-format
 msgid "When %s these conditions are met:"
-msgstr ""
+msgstr "Wenn %s dieser Bedingungen zutreffen:"
 
 #: applications/herald/controller/HeraldRuleController.php:203
 msgid "New Action"
-msgstr ""
+msgstr "Neue Aktion"
 
 #: applications/herald/controller/HeraldRuleController.php:205
 #, php-format
 msgid "Take these actions %s this rule matches:"
-msgstr ""
+msgstr "Diese Dinge ausführen %s die Bedingungen für diese Regel zutreffen:"
 
 #: applications/herald/controller/HeraldRuleController.php:216
 msgid "Save Rule"
@@ -9305,11 +9305,11 @@ msgstr "Beschreibung der Regel"
 
 #: applications/herald/controller/HeraldTestConsoleController.php:19
 msgid "An object name is required."
-msgstr ""
+msgstr "Benötige einen Objektnamen."
 
 #: applications/herald/controller/HeraldTestConsoleController.php:30
 msgid "No object exists with that name."
-msgstr ""
+msgstr "Es existiert kein Objekt mit diesem Namen."
 
 msgid "Enter an object to test rules for, like a Diffusion commit (e.g., rX123) or a Differential revision (e.g., D123). You will be shown the results of a dry run on the object."
 msgstr ""
@@ -9596,7 +9596,7 @@ msgstr ""
 #: applications/herald/field/HeraldAlwaysField.php:8
 #: applications/settings/panel/PhabricatorDiffPreferencesSettingsPanel.php:65
 msgid "Always"
-msgstr ""
+msgstr "Immer"
 
 #: applications/differential/herald/DifferentialDiffAuthorProjectsHeraldField.php:9
 #: applications/differential/herald/DifferentialRevisionAuthorProjectsHeraldField.php:9
@@ -9605,51 +9605,51 @@ msgstr ""
 
 #: applications/herald/adapter/HeraldAdapter.php:331
 msgid "contains"
-msgstr ""
+msgstr "enthält"
 
 #: applications/herald/adapter/HeraldAdapter.php:332
 msgid "does not contain"
-msgstr ""
+msgstr "enthält nicht"
 
 #: applications/herald/adapter/HeraldAdapter.php:333
 msgid "is"
-msgstr ""
+msgstr "ist"
 
 #: applications/herald/adapter/HeraldAdapter.php:334
 msgid "is not"
-msgstr ""
+msgstr "ist nicht"
 
 #: applications/herald/adapter/HeraldAdapter.php:335
 msgid "is any of"
-msgstr ""
+msgstr "ist eines von"
 
 #: applications/herald/adapter/HeraldAdapter.php:338
 msgid "is not any of"
-msgstr ""
+msgstr "ist keines von"
 
 #: applications/herald/adapter/HeraldAdapter.php:339
 msgid "include all of"
-msgstr ""
+msgstr "enthält vollständig"
 
 #: applications/herald/adapter/HeraldAdapter.php:340
 msgid "include any of"
-msgstr ""
+msgstr "enthält eines von"
 
 #: applications/herald/adapter/HeraldAdapter.php:341
 msgid "do not include"
-msgstr ""
+msgstr "enthält nicht"
 
 #: applications/herald/adapter/HeraldAdapter.php:342
 msgid "is myself"
-msgstr ""
+msgstr "bin ich"
 
 #: applications/herald/adapter/HeraldAdapter.php:343
 msgid "is not myself"
-msgstr ""
+msgstr "bin nicht ich"
 
 #: applications/herald/adapter/HeraldAdapter.php:344
 msgid "matches regexp"
-msgstr ""
+msgstr "erfüllt RegExp"
 
 #: applications/herald/adapter/HeraldAdapter.php:345
 msgid "matches:"
@@ -9714,24 +9714,24 @@ msgstr ""
 
 #: applications/herald/adapter/HeraldAdapter.php:654
 msgid "Send an email to"
-msgstr ""
+msgstr "Eine Nachricht schicken an"
 
 #: applications/herald/adapter/HeraldAdapter.php:655
 msgid "Trigger an Audit by"
-msgstr ""
+msgstr "Einen Überprüfung auslösen durch"
 
 #: applications/herald/adapter/HeraldAdapter.php:656
 #: applications/herald/adapter/HeraldAdapter.php:674
 msgid "Mark with flag"
-msgstr ""
+msgstr "Mittels Flagge markieren"
 
 #: applications/herald/adapter/HeraldAdapter.php:657
 msgid "Assign task to"
-msgstr ""
+msgstr "Aufgabe zuweisen an"
 
 #: applications/herald/adapter/HeraldAdapter.php:658
 msgid "Add projects"
-msgstr ""
+msgstr "Projekte hinzufügen"
 
 #: applications/herald/adapter/HeraldAdapter.php:660
 msgid "Add reviewers"
@@ -9742,14 +9742,14 @@ msgid "Add blocking reviewers"
 msgstr ""
 
 msgid "Add me to CC"
-msgstr ""
+msgstr "Mich als Mitleser eintragen"
 
 msgid "Remove me from CC"
-msgstr ""
+msgstr "Mich als Mitleser entfernen"
 
 #: applications/herald/adapter/HeraldAdapter.php:672
 msgid "Send me an email"
-msgstr ""
+msgstr "Mir eine Email schicken"
 
 #: applications/herald/adapter/HeraldAdapter.php:673
 msgid "Trigger an Audit by me"
@@ -9757,7 +9757,7 @@ msgstr ""
 
 #: applications/herald/adapter/HeraldAdapter.php:675
 msgid "Assign task to me"
-msgstr ""
+msgstr "Mir die Aufgabe zuweisen"
 
 #: applications/herald/adapter/HeraldAdapter.php:676
 msgid "Add me as a reviewer"
