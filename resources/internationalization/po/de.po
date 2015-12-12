@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-15 11:07+0200\n"
-"PO-Revision-Date: 2015-12-12 20:14+0100\n"
+"PO-Revision-Date: 2015-12-12 20:22+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: GERMAN <peter@schlaile.de>\n"
 "Language: \n"
@@ -9385,7 +9385,7 @@ msgstr ""
 
 #: applications/herald/controller/HeraldTranscriptController.php:345
 msgid "No actions were taken."
-msgstr ""
+msgstr "Es wurden keine Aktionen ausgeführt."
 
 #: infrastructure/storage/management/workflow/PhabricatorStorageManagementWorkflow.php:315
 #: infrastructure/storage/management/workflow/PhabricatorStorageManagementWorkflow.php:589
@@ -9424,7 +9424,7 @@ msgstr "OK"
 
 #: applications/herald/controller/HeraldTranscriptController.php:459
 msgid "FAIL"
-msgstr "FEHLER"
+msgstr "ABBRUCH"
 
 #: applications/herald/controller/HeraldTranscriptController.php:487
 msgid "Rule Details"
