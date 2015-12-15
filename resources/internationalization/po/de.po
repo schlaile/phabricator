@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-15 11:07+0200\n"
-"PO-Revision-Date: 2015-12-12 21:05+0100\n"
+"PO-Revision-Date: 2015-12-15 19:49+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: GERMAN <peter@schlaile.de>\n"
 "Language: \n"
@@ -7004,7 +7004,7 @@ msgstr "Geprüft"
 
 #: applications/audit/query/PhabricatorCommitSearchEngine.php:121
 msgid "Need Attention"
-msgstr ""
+msgstr "Zuwendungsbedarf"
 
 #: applications/audit/editor/PhabricatorAuditEditor.php:49
 #: applications/home/controller/PhabricatorHomeMainController.php:375
@@ -24839,11 +24839,11 @@ msgstr ""
 #: applications/audit/editor/PhabricatorAuditEditor.php:888
 #, php-format
 msgid "%s Triggered Audit"
-msgstr ""
+msgstr "%s hat eine Prüfung ausgelöst"
 
 #, php-format
 msgid "%s Triggered CC"
-msgstr ""
+msgstr "%s hat einen Mitleser ergänzt"
 
 #: applications/repository/phid/PhabricatorRepositoryPushLogPHIDType.php:8
 msgid "Push Log"
@@ -27019,11 +27019,11 @@ msgstr ""
 
 #: applications/audit/query/PhabricatorCommitSearchEngine.php:125
 msgid "Open Audits"
-msgstr ""
+msgstr "Offene Prüflinge"
 
 #: applications/audit/query/PhabricatorCommitSearchEngine.php:131
 msgid "All Commits"
-msgstr "Alle Commits"
+msgstr "Alle Quellcode-Änderungen"
 
 #: applications/audit/query/PhabricatorCommitSearchEngine.php:174
 #: applications/diffusion/controller/DiffusionRepositoryEditMainController.php:1282
