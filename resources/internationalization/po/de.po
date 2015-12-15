@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-15 11:07+0200\n"
-"PO-Revision-Date: 2015-12-15 19:49+0100\n"
+"PO-Revision-Date: 2015-12-15 20:58+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: GERMAN <peter@schlaile.de>\n"
 "Language: \n"
@@ -22407,23 +22407,23 @@ msgstr "%s hat Inline-Kommentare zu %s hinzugefügt."
 #: applications/differential/storage/DifferentialTransaction.php:329
 #, php-format
 msgid "%s updated the diff for %s."
-msgstr ""
+msgstr "%s hat das Diff für %s geändert."
 
 #: applications/audit/storage/PhabricatorAuditTransaction.php:356
 #: applications/differential/storage/DifferentialTransaction.php:336
 #, php-format
 msgid "%s accepted %s."
-msgstr ""
+msgstr "%s hat %s akzeptiert."
 
 #: applications/differential/storage/DifferentialTransaction.php:341
 #, php-format
 msgid "%s requested changes to %s."
-msgstr ""
+msgstr "%s hat Änderungen für %s verlangt."
 
 #: applications/differential/storage/DifferentialTransaction.php:346
 #, php-format
 msgid "%s planned changes to %s."
-msgstr ""
+msgstr "%s plant Änderungen für %s."
 
 #: applications/differential/storage/DifferentialTransaction.php:351
 #, php-format
@@ -22434,7 +22434,7 @@ msgstr ""
 #: applications/fund/storage/FundInitiativeTransaction.php:173
 #, php-format
 msgid "%s closed %s."
-msgstr ""
+msgstr "%s hat %s geschlossen."
 
 #: applications/differential/storage/DifferentialTransaction.php:408
 #, php-format
@@ -22459,17 +22459,17 @@ msgstr ""
 #: applications/differential/storage/DifferentialTransaction.php:437
 #, php-format
 msgid "%s is now accepted and ready to land."
-msgstr ""
+msgstr "%s wurde nun akzeptiert und darf eingepflegt werden."
 
 #: applications/differential/storage/DifferentialTransaction.php:441
 #, php-format
 msgid "%s now requires changes to proceed."
-msgstr ""
+msgstr "%s muß nun geändert werden, damit es weitergeht."
 
 #: applications/differential/storage/DifferentialTransaction.php:445
 #, php-format
 msgid "%s now requires review to proceed."
-msgstr ""
+msgstr "%s muß gegengelesen werden, damit es weitergeht."
 
 #: applications/differential/storage/DifferentialTransaction.php:571
 msgid "The reviewers you are trying to add are already reviewing this revision."
@@ -22694,7 +22694,7 @@ msgstr ""
 #: applications/audit/query/PhabricatorCommitSearchEngine.php:90
 #: applications/differential/customfield/DifferentialAuditorsField.php:11
 msgid "Auditors"
-msgstr ""
+msgstr "Prüfer"
 
 #: applications/differential/customfield/DifferentialAuditorsField.php:15
 msgid "Allows commits to trigger audits explicitly."
@@ -22807,7 +22807,7 @@ msgstr ""
 
 #: applications/differential/customfield/DifferentialApplyPatchField.php:11
 msgid "Apply Patch"
-msgstr ""
+msgstr "Patch Einspielen"
 
 #: applications/differential/customfield/DifferentialApplyPatchField.php:15
 msgid "Provides instructions for applying a local patch."
