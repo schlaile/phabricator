@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-15 11:07+0200\n"
-"PO-Revision-Date: 2015-12-15 20:58+0100\n"
+"PO-Revision-Date: 2015-12-19 17:14+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: GERMAN <peter@schlaile.de>\n"
 "Language: \n"
@@ -15188,7 +15188,7 @@ msgstr "%s hat Leute ins CC gesetzt: %s."
 #: applications/audit/storage/PhabricatorAuditTransaction.php:222
 #, php-format
 msgid "%s added auditors: %s."
-msgstr ""
+msgstr "%s hat Prüfer hinzugefügt: %s."
 
 #: applications/diffusion/controller/DiffusionBrowseController.php:164
 #: applications/diffusion/view/DiffusionTagListView.php:95
@@ -38637,7 +38637,7 @@ msgstr "kommentierte"
 
 #: applications/audit/constants/PhabricatorAuditActionConstants.php:37
 msgid "raised a concern with"
-msgstr ""
+msgstr "hat Bedenken angemeldet an"
 
 #: applications/audit/constants/PhabricatorAuditActionConstants.php:38
 msgid "accepted"
@@ -38653,11 +38653,11 @@ msgstr "geschlossen"
 
 #: applications/audit/constants/PhabricatorAuditActionConstants.php:41
 msgid "added CCs to"
-msgstr ""
+msgstr "hat Mitleser hinzugefügt zu"
 
 #: applications/audit/constants/PhabricatorAuditActionConstants.php:42
 msgid "added auditors to"
-msgstr ""
+msgstr "hat Prüfer hinzugefügt zu"
 
 #: applications/audit/constants/PhabricatorAuditActionConstants.php:44
 msgid "updated"
