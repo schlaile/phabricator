@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-15 11:07+0200\n"
-"PO-Revision-Date: 2015-12-19 17:14+0100\n"
+"PO-Revision-Date: 2015-12-29 11:41+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: GERMAN <peter@schlaile.de>\n"
 "Language: \n"
@@ -9718,7 +9718,7 @@ msgstr "Eine Nachricht schicken an"
 
 #: applications/herald/adapter/HeraldAdapter.php:655
 msgid "Trigger an Audit by"
-msgstr "Eine Überprüfung auslösen durch"
+msgstr "Prüfung vorsehen durch:"
 
 #: applications/herald/adapter/HeraldAdapter.php:656
 #: applications/herald/adapter/HeraldAdapter.php:674
@@ -9860,7 +9860,7 @@ msgstr ""
 
 #: applications/diffusion/herald/HeraldCommitAdapter.php:353
 msgid "Triggered an audit."
-msgstr "Löste eine Überprüfung aus."
+msgstr "Eine Prüfung ist nun erforderlich."
 
 msgid "CCs provided explicitly by revision author or carried over from a previous version of the revision."
 msgstr ""
@@ -23374,7 +23374,7 @@ msgstr ""
 
 #: applications/transactions/storage/PhabricatorApplicationTransaction.php:1168
 msgid "View Herald Transcript"
-msgstr ""
+msgstr "Herald-Protokoll ansehen"
 
 #: applications/transactions/response/PhabricatorApplicationTransactionNoEffectResponse.php:39
 #, php-format
