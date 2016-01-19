@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-15 11:07+0200\n"
-"PO-Revision-Date: 2016-01-08 18:50+0100\n"
+"PO-Revision-Date: 2016-01-19 13:32+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: GERMAN <peter@schlaile.de>\n"
 "Language: \n"
@@ -13023,7 +13023,7 @@ msgstr ""
 #: applications/daemon/controller/PhabricatorWorkerTaskDetailController.php:95
 #: applications/phortune/storage/PhortuneCartTransaction.php:78
 msgid "Cancelled"
-msgstr ""
+msgstr "Abgesagt"
 
 #: applications/daemon/controller/PhabricatorWorkerTaskDetailController.php:101
 msgid "Queued"
@@ -24352,7 +24352,7 @@ msgstr "Termin ändern"
 #: applications/calendar/controller/PhabricatorCalendarEventCancelController.php:118
 #: applications/calendar/controller/PhabricatorCalendarEventViewController.php:231
 msgid "Cancel Event"
-msgstr "Termin entfernen"
+msgstr "Termin absagen"
 
 #: applications/calendar/controller/PhabricatorCalendarEventViewController.php:274
 #: applications/calendar/controller/PhabricatorCalendarEventViewController.php:282
@@ -39803,7 +39803,7 @@ msgstr "Regelmäßigkeit nicht aufheben"
 
 #: applications/calendar/controller/PhabricatorCalendarEventCancelController.php:116
 msgid "You can always reinstate the event later."
-msgstr ""
+msgstr "Du kannst die Absage jederzeit wieder rückgängig machen."
 
 #: applications/calendar/controller/PhabricatorCalendarEventCancelController.php:117
 msgid "Don't Cancel Event"
