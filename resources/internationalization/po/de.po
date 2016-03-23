@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Phabricator\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-15 11:07+0200\n"
-"PO-Revision-Date: 2016-01-19 13:32+0100\n"
+"PO-Revision-Date: 2016-03-23 18:57+0100\n"
 "Last-Translator: Peter Schlaile <peter@schlaile.de>\n"
 "Language-Team: GERMAN <peter@schlaile.de>\n"
 "Language: \n"
@@ -19813,7 +19813,7 @@ msgstr "Umfrage ändern"
 
 #: applications/slowvote/controller/PhabricatorSlowvotePollController.php:147
 msgid "Enter Deliberations"
-msgstr "In die Beratungen einsteigen"
+msgstr "Das Problem zu Tode diskutieren"
 
 msgid "Perhaps"
 msgstr "Vielleicht"
@@ -27432,34 +27432,34 @@ msgstr ""
 #: applications/slowvote/storage/PhabricatorSlowvoteTransaction.php:82
 #, php-format
 msgid "%s closed this poll."
-msgstr ""
+msgstr "%s hat die Abstimmung geschlossen."
 
 #: applications/slowvote/storage/PhabricatorSlowvoteTransaction.php:86
 #, php-format
 msgid "%s reopened this poll."
-msgstr ""
+msgstr "%s hat die Abstimmung wieder eröffnet."
 
 #: applications/slowvote/query/PhabricatorSlowvoteSearchEngine.php:90
 msgid "Open Polls"
-msgstr ""
+msgstr "Offene Abstimmungen"
 
 #: applications/slowvote/controller/PhabricatorSlowvoteCloseController.php:55
 #: applications/slowvote/controller/PhabricatorSlowvotePollController.php:93
 msgid "Reopen Poll"
-msgstr ""
+msgstr "Abstimmung wieder öffnen"
 
 #: applications/slowvote/controller/PhabricatorSlowvoteCloseController.php:56
 msgid "Are you sure you want to reopen the poll?"
-msgstr ""
+msgstr "Bist Du sicher, daß die Abstimmung wieder öffnen möchtest?"
 
 #: applications/slowvote/controller/PhabricatorSlowvoteCloseController.php:59
 #: applications/slowvote/controller/PhabricatorSlowvotePollController.php:93
 msgid "Close Poll"
-msgstr ""
+msgstr "Abstimmung schließen"
 
 #: applications/slowvote/controller/PhabricatorSlowvoteCloseController.php:60
 msgid "Are you sure you want to close the poll?"
-msgstr ""
+msgstr "Bist Du sicher, daß Du die Abstimmung schließen möchtest?"
 
 #: applications/feed/builder/PhabricatorFeedBuilder.php:73
 #, php-format
