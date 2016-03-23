@@ -200,6 +200,9 @@ final class PhabricatorFileInfoController extends PhabricatorFileController {
       pht('Created'),
       phabricator_datetime($file->getDateCreated(), $user));
 
+    $properties->addProperty(
+      pht('File Link'),
+      $file->getViewURI());
 
     $finfo = id(new PHUIPropertyListView());
     $box->addPropertyList($finfo, pht('File Info'));
@@ -267,7 +270,9 @@ final class PhabricatorFileInfoController extends PhabricatorFileController {
     $storage_properties->addProperty(
       pht('Handle'),
       $file->getStorageHandle());
-
+    $storage_properties->addProperty(
+      pht('File Link'),
+      $file->getViewURI());
 
     $phids = $file->getObjectPHIDs();
     if ($phids) {
